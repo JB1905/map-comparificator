@@ -7,7 +7,7 @@ import {
   Navbar,
   NavbarDivider,
   NavbarGroup,
-  NavbarHeading,
+  NavbarHeading
   // RadioGroup,
   // Radio
 } from '@blueprintjs/core';
