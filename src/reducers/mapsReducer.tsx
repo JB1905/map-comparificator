@@ -2,7 +2,8 @@ import { SEARCH, SYNC_TYPE } from '../actions';
 
 const initialState = {
   query: '',
-  sync: 'center'
+  sync: 'center',
+  coords: [37.415, -122.048333]
 };
 
 export const mapsReducer = (state = initialState, action: any) => {
