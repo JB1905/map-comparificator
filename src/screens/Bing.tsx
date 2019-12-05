@@ -1,11 +1,13 @@
 import React from 'react';
-import {} from 'react-bingmaps-plus'
+import { useSelector, useDispatch } from 'react-redux';
+import { ReactBingmaps } from 'react-bingmaps-plus';
 
 const BingMaps: React.FC = () => {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+  const coords = useSelector((state: any) => state.maps.coords);
+
+  const dispatch = useDispatch();
+
+  return <ReactBingmaps bingmapKey="[YourBingMapsKey]"></ReactBingmaps>;
+};
 
 export default BingMaps;
