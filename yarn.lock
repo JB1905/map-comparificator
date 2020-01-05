@@ -1459,6 +1459,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.7.6":
+  version "7.7.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.6.tgz#d18c511121aff1b4f2cd1d452f1bac9601dd830f"
+  integrity sha512-BWAJxpNVa0QlE5gZdWjSxXtemZyZ9RmrmVozxt3NUXeZhVIJ5ANyqmMc0JDrivBZyxUuQvFxlvH4OWWOogGfUw==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.0", "@babel/template@^7.4.4", "@babel/template@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.6.0.tgz#7f0159c7f5012230dad64cca42ec9bdb5c9536e6"
@@ -1525,10 +1532,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blueprintjs/core@^3.22.0":
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.22.0.tgz#6c7e7562a7e5fb7d2924ee3cd0832734eeb24470"
-  integrity sha512-CzKRY/ZmwmRPoybHFS4HI2GWuphMzIMuBQttaQi3OYQx28vyczKlmhlZPXhbX5pEn4RFajRJvMx086iuJXlnOw==
+"@blueprintjs/core@^3.22.3":
+  version "3.22.3"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.22.3.tgz#57dc2c072a17db0e52cc5679d8bbc016082b27e7"
+  integrity sha512-IaxkvJyF+4VCvAjMvyHtJ4qUiQNwgPu4zIxLRo1cBsu30gHjYzwe+xDdssBR7yRnXARguM6bkI523w+yJOerCA==
   dependencies:
     "@blueprintjs/icons" "^3.12.0"
     "@types/dom4" "^2.0.1"
@@ -1537,7 +1544,7 @@
     normalize.css "^8.0.1"
     popper.js "^1.15.0"
     react-lifecycles-compat "^3.0.4"
-    react-popper "^1.3.3"
+    react-popper "^1.3.7"
     react-transition-group "^2.9.0"
     resize-observer-polyfill "^1.5.1"
     tslib "~1.9.0"
@@ -1546,6 +1553,14 @@
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.12.0.tgz#cea6a6434d9d469e26d87b055e6b6aa5768135b3"
   integrity sha512-ERIODstzjBzRIHNqAqyXu4gVsdLyvxAZ0Cp7Dr4+d5BdgDbZYzMYf9ll05daQPOBWaFjLh3lhCRhbfk6MXdD7A==
+  dependencies:
+    classnames "^2.2"
+    tslib "~1.9.0"
+
+"@blueprintjs/icons@^3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.13.0.tgz#bff93a9ea5ced03afd2b3a65ddf4bb90bda485e4"
+  integrity sha512-fvXGsAJ66SSjeHv3OeXjLEdKdPJ3wVztjhJQCAd51uebhj3FJ16EDDvO7BqBw5FyVkLkU11KAxSoCFZt7TC9GA==
   dependencies:
     classnames "^2.2"
     tslib "~1.9.0"
@@ -1794,24 +1809,24 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@react-google-maps/api@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.8.0.tgz#89de921a58f03fa6522ee39305076a6f518da8c8"
-  integrity sha512-QhCBGwEUpkwEYMS4zF11NsX5KGfxig3RQQ3Dh5//dQIYUtU0xxlZeHo2P0dJ08w7MpTyn63EXBTyNz4NczJuww==
+"@react-google-maps/api@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.8.1.tgz#5239a9b9087f3fb55418947de7d57f6a6982dd3c"
+  integrity sha512-yWvyXg86+p18ki3NFFwxugBfO9wZ/HFv9ebFsoePu1/bgWcmUx0TF8okp73c8y2VzAThP8OoqFpTQ4RnZLdPDw==
   dependencies:
-    "@react-google-maps/infobox" "1.8.0"
-    "@react-google-maps/marker-clusterer" "1.8.0"
+    "@react-google-maps/infobox" "1.8.1"
+    "@react-google-maps/marker-clusterer" "1.8.1"
     invariant "2.2.4"
 
-"@react-google-maps/infobox@1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.8.0.tgz#07d4007b0bc3501ca959a1fa259d4bb529e251e5"
-  integrity sha512-3khE652GuOenRxN5yDrXoivf3Zly681qvP2FoxNYhtzXyidcZ51Vln6astPFd0anOYYFNniVeo7xeMVJ+Bw11g==
+"@react-google-maps/infobox@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.8.1.tgz#c20e75c5e879e9e03665e1b4c330d1fbfd93108f"
+  integrity sha512-t9aeShxCuXsovMxjZFZNHss2kd2eWniltFAJbTvIRk43EKywDlHWHfeoIe/rWtGpKObvIwukkMgoCwVP43b4SQ==
 
-"@react-google-maps/marker-clusterer@1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.8.0.tgz#02b9e9ca7d3f197eda2b0489eb54cfff656a09ef"
-  integrity sha512-1iAWgDKFfKmlKjInsGKEbuoleaOCUB6avnFk5+zLLXeJVWNUb/PZYVdYj8v9YgoV24GInrqHbMwhJwNPdjqwlg==
+"@react-google-maps/marker-clusterer@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.8.1.tgz#cbeb7b93564e1675c00ad8913dde2ec3ef5a8df9"
+  integrity sha512-TbzwKroDRxlR6kPTrswY33qbEnGHaYjplIOjdVnQyqdSeCoGc9LUD4p9DhjU6iOH6AX/H7jH7nfdGA3YEryXXg==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -1985,10 +2000,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@^3.38.1":
-  version "3.38.1"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.38.1.tgz#34f0be176f899bab5563103d7103fa7c3a72c02c"
-  integrity sha512-6rVIwaJOKXAMzg+Cz22+fJkgQd8IMK8q9DBSL3Wg9GAffGCy71MdTEf+8T9bIa4mvC0DClEsyzwrOfuf9rM0Zg==
+"@types/googlemaps@^3.39.0":
+  version "3.39.0"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.0.tgz#871b4649c0995f9d013f5edee776809e599977f7"
+  integrity sha512-SiD5JrB5wkA2JvkP7Tn3D+L4F50QXtnQI+J6Y/HnDhfyp0vlB6tNz14BuOOXV1rwP2vnTwE1uqNjfaKXCmuHDg==
 
 "@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
@@ -2018,10 +2033,10 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@24.0.23":
-  version "24.0.23"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.23.tgz#046f8e2ade026fe831623e361a36b6fb9a4463e4"
-  integrity sha512-L7MBvwfNpe7yVPTXLn32df/EK+AMBFAFvZrRuArGs7npEWnlziUXK+5GMIUTI4NIuwok3XibsjXCs5HxviYXjg==
+"@types/jest@24.0.25":
+  version "24.0.25"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.25.tgz#2aba377824ce040114aa906ad2cac2c85351360f"
+  integrity sha512-hnP1WpjN4KbGEK4dLayul6lgtys6FPz0UfxMeMQCv0M+sTnzN3ConfiO72jHgLxl119guHgI8gLqDOrRLsyp2g==
   dependencies:
     jest-diff "^24.3.0"
 
@@ -2047,10 +2062,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.1.tgz#1fd7b821f798b7fa29f667a1be8f3442bb8922a3"
   integrity sha512-TJtwsqZ39pqcljJpajeoofYRfeZ7/I/OMUQ5pR4q5wOKf2ocrUvBAZUMhWsOvKx3dVc/aaV5GluBivt0sWqA5A==
 
-"@types/node@12.12.14":
-  version "12.12.14"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
-  integrity sha512-u/SJDyXwuihpwjXy7hOOghagLEV1KdAST6syfnOk6QZAMzZuWZqXy5aYYZbh8Jdpd4escVFP0MvftHNDb9pruA==
+"@types/node@13.1.4":
+  version "13.1.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.4.tgz#4cfd90175a200ee9b02bd6b1cd19bc349741607e"
+  integrity sha512-Lue/mlp2egZJoHXZr4LndxDAd7i/7SQYhV0EjWfb/a4/OZ6tuVwMCVPiwkU5nsEipxEf7hmkSU7Em5VQ8P5NGA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -2105,10 +2120,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@16.9.15":
-  version "16.9.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.15.tgz#aeabb7a50f96c9e31a16079ada20ede9ed602977"
-  integrity sha512-WsmM1b6xQn1tG3X2Hx4F3bZwc2E82pJXt5OPs2YJgg71IzvUoKOSSSYOvLXYCg1ttipM+UuA4Lj3sfvqjVxyZw==
+"@types/react@16.9.17":
+  version "16.9.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.17.tgz#58f0cc0e9ec2425d1441dd7b623421a867aa253e"
+  integrity sha512-UP27In4fp4sWF5JgyV6pwVPAQM83Fj76JOcg02X5BZcpSu5Wx+fP9RMqc2v0ssBoQIFvD5JdKY41gjJJKmw6Bg==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -4166,6 +4181,18 @@ deep-equal@^1.0.1:
     object-keys "^1.1.1"
     regexp.prototype.flags "^1.2.0"
 
+deep-equal@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a"
+  integrity sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==
+  dependencies:
+    is-arguments "^1.0.4"
+    is-date-object "^1.0.1"
+    is-regex "^1.0.4"
+    object-is "^1.0.1"
+    object-keys "^1.1.1"
+    regexp.prototype.flags "^1.2.0"
+
 deep-extend@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
@@ -5047,6 +5074,11 @@ fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
   integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+
+fast-deep-equal@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
+  integrity sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
 
 fast-glob@^2.0.2:
   version "2.2.7"
@@ -9952,13 +9984,13 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
   integrity sha512-INBT1QEgtcCCgvccr5/86CfD71fw9EPmDxgiJX4I2Ddr6ZsV6iFXsuby+qWJPtmNuMY0zByTsG4468P7nHuNWA==
 
-react-leaflet@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-2.6.0.tgz#517348b6c8588ce9f33137021900d826e542ac55"
-  integrity sha512-FezC/YA2dBmky997BIDaxQmtISGq6VGFAhJHGRr4NkByOg7jD9xrzoilmEG3pMYwwgxi7Pctg2YpWRq3fQbdxg==
+react-leaflet@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-2.6.1.tgz#e5d6514d2358c51a28e614b8a0ddf8dca56e7179"
+  integrity sha512-pqXQegdX4EL4R+zL33J92aLUcznp5TksNdW6CerwEwmi5m6CHt5k2YTkvyPVroZPA7pLAPB3ZAjmLLEmZh7yLw==
   dependencies:
-    "@babel/runtime" "^7.7.2"
-    fast-deep-equal "^2.0.1"
+    "@babel/runtime" "^7.7.6"
+    fast-deep-equal "^3.1.1"
     hoist-non-react-statics "^3.3.1"
     warning "^4.0.3"
 
@@ -9989,13 +10021,14 @@ react-mosaic-component@^3.2.0:
     react-dnd-touch-backend "^0.8.3"
     uuid "^3.3.2"
 
-react-popper@^1.3.3:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.4.tgz#f0cd3b0d30378e1f663b0d79bcc8614221652ced"
-  integrity sha512-9AcQB29V+WrBKk6X7p0eojd1f25/oJajVdMZkywIoAV6Ag7hzE1Mhyeup2Q1QnvFRtGQFQvtqfhlEoDAPfKAVA==
+react-popper@^1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.7.tgz#f6a3471362ef1f0d10a4963673789de1baca2324"
+  integrity sha512-nmqYTx7QVjCm3WUZLeuOomna138R1luC4EqkW3hxJUrAe+3eNz3oFCLYdnPwILfn0mX1Ew2c3wctrjlUMYYUww==
   dependencies:
     "@babel/runtime" "^7.1.2"
     create-react-context "^0.3.0"
+    deep-equal "^1.1.1"
     popper.js "^1.14.4"
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
@@ -10206,10 +10239,18 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux@*, redux@^4.0.0, redux@^4.0.1, redux@^4.0.4:
+redux@*, redux@^4.0.0, redux@^4.0.1:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
   integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
+
+redux@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+  integrity sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
@@ -11749,10 +11790,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.7.3:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.3.tgz#b36840668a16458a7025b9eabfad11b66ab85c69"
-  integrity sha512-Mcr/Qk7hXqFBXMN7p7Lusj1ktCBydylfQM/FZCk5glCNQJrCUKPkMHdo9R0MTFWsC/4kPFvDS0fDPvukfCkFsw==
+typescript@3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.4.tgz#1743a5ec5fef6a1fa9f3e4708e33c81c73876c19"
+  integrity sha512-A25xv5XCtarLwXpcDNZzCGvW2D1S3/bACratYBx2sax8PefsFhlYmkQicKHvpYflFS8if4zne5zT5kpJ7pzuvw==
 
 uglify-js@3.4.x:
   version "3.4.10"
