@@ -12,16 +12,16 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@blueprintjs/core": "^3.22.3",
+    "@blueprintjs/core": "^3.23.1",
     "@blueprintjs/icons": "^3.13.0",
     "@impargo/react-here-maps": "^1.5.6",
-    "@react-google-maps/api": "^1.8.1",
-    "@types/jest": "24.0.25",
-    "@types/node": "13.1.4",
-    "@types/react": "16.9.17",
-    "@types/react-dom": "16.9.4",
+    "@react-google-maps/api": "^1.8.2",
+    "@types/jest": "24.9.1",
+    "@types/node": "13.5.0",
+    "@types/react": "16.9.19",
+    "@types/react-dom": "16.9.5",
     "leaflet": "^1.6.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-bingmaps-plus": "^3.7.2",
     "react-dom": "^16.12.0",
@@ -31,15 +31,15 @@
     "react-redux": "^7.1.3",
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
-    "typescript": "3.7.4"
+    "typescript": "3.7.5"
   },
   "devDependencies": {
-    "@types/googlemaps": "^3.39.0",
+    "@types/googlemaps": "^3.39.2",
     "@types/react-leaflet": "^2.5.0",
-    "@types/react-redux": "^7.1.5",
+    "@types/react-redux": "^7.1.7",
     "@types/redux": "^3.6.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
     "prettier": "^1.19.1"
   },
   "husky": {
@@ -48,19 +48,16 @@
     }
   },
   "lint-staged": {
-    "{src,public}/**/*.{js}": [
+    "src/**/*.{tsx,ts}": [
       "npm run prettier",
-      "npm run eslint",
-      "git add"
+      "npm run eslint"
     ],
     "src/**/*.{scss}": [
       "npm run prettier",
-      "npm run stylelint",
-      "git add"
+      "npm run stylelint"
     ],
     "public/**/*.{html}": [
-      "npm run prettier",
-      "git add"
+      "npm run prettier"
     ]
   },
   "eslintConfig": {
