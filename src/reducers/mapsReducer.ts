@@ -4,7 +4,7 @@ const initialState = {
   query: '',
   sync: 'center',
   coords: [37.415, -122.048333],
-  zoom: 7
+  zoom: 7,
 };
 
 export const mapsReducer = (state = initialState, action: any) => {

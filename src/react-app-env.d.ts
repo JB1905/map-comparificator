@@ -1,3 +1,3 @@
 /// <reference types="react-scripts" />
 
-declare module "react-bingmaps-plus"
+declare module 'react-bingmaps-plus';

@@ -8,7 +8,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,html}'",
+    "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,scss,html}'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
