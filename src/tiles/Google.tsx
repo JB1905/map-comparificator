@@ -7,7 +7,7 @@ import { googleMapsToken } from '../config';
 const GoogleMaps: React.FC = () => {
   const { coords, zoom } = useSelector((state: any) => state.maps);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <LoadScript id="script-loader" googleMapsApiKey={googleMapsToken}>
@@ -21,7 +21,7 @@ const GoogleMaps: React.FC = () => {
           lat: coords[0],
           lng: coords[1],
         }}
-      ></GoogleMap>
+      />
     </LoadScript>
   );
 };

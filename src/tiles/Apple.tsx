@@ -7,8 +7,6 @@ import { appleMapsToken } from '../config';
 const AppleMaps: React.FC = () => {
   const { coords, zoom } = useSelector((state: any) => state.maps);
 
-  // console.log(coords);
-
   const dispatch = useDispatch();
 
   return <Map tokenOrCallback={appleMapsToken} center={coords} />;
