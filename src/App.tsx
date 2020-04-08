@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Alignment,
   Navbar,
@@ -10,52 +10,35 @@ import {
   MenuItem,
   Classes,
 } from '@blueprintjs/core';
-import { Mosaic, MosaicWindow } from 'react-mosaic-component';
+import { Mosaic } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import AppleMaps from './tiles/Apple';
-import BingMaps from './tiles/Bing';
-import GoogleMaps from './tiles/Google';
-import HereMaps from './tiles/Here';
-import OpenStreetMap from './tiles/OSM';
-import MapBox from './tiles/MapBox';
+import { ReactComponent as Logo } from './assets/logo.svg';
+
+import { tileRenderer } from './tileRenderer';
+
+import { ELEMENT_MAP } from './map';
+
+import SearchForm from './containers/SearchForm';
 
 import { useGeolocation } from './hooks/useGeolocation';
 import { useTheme } from './hooks/useTheme';
 
 import { initialLayout } from './constants/initialLayout';
+import { centeringModes } from './constants/centeringModes';
 
-import { SEARCH, UPDATE_COORDS, SET_THEME } from './actions';
+import { UPDATE_COORDS } from './actions';
+
 import { Theme } from './enums/Theme';
-
-const tileRenderer = (id: any, path: any) => {
-  const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
-    'Apple Maps': <AppleMaps />,
-    'Bing Maps': <BingMaps />,
-    'Google Maps': <GoogleMaps />,
-    'Here Maps': <HereMaps />,
-    'Open Street Map': <OpenStreetMap />,
-    MapBox: <MapBox />,
-  };
-
-  return (
-    <MosaicWindow path={path} title={id}>
-      {ELEMENT_MAP[id]}
-    </MosaicWindow>
-  );
-};
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
 
-  const submit = (e: any) => {
-    console.log(e.target.value);
-    // dispatch({ type: SEARCH, payload: '' });
-  };
-
   const { getCoords } = useGeolocation();
+
+  const { appearance, toggleTheme } = useTheme();
 
   const getLocalForecast = () => {
     getCoords(({ latitude, longitude }) => {
@@ -66,44 +49,40 @@ const App: React.FC = () => {
     });
   };
 
-  const { appearance } = useTheme();
-
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
       <Navbar>
         <Navbar.Group align={Alignment.LEFT}>
-          <Navbar.Heading>Map Comparificator</Navbar.Heading>
+          <Navbar.Heading>
+            <Logo className="logo" />
+          </Navbar.Heading>
 
           <Button
             icon={appearance === Theme.Dark ? 'flash' : 'moon'}
-            onClick={() =>
-              dispatch({
-                type: SET_THEME,
-                payload: appearance === Theme.Dark ? Theme.Light : Theme.Dark,
-              })
-            }
+            onClick={toggleTheme}
             minimal
           />
 
           <Navbar.Divider />
 
-          <input
-            className="bp3-input"
-            placeholder="Search..."
-            type="text"
-            onChange={submit}
-            // onKeyDown={submit}
-          />
+          <SearchForm />
         </Navbar.Group>
 
         <Navbar.Group align={Alignment.RIGHT}>
           <Button icon="geolocation" onClick={getLocalForecast} minimal />
 
-          {/* <Button icon="compass" onClick={() => null} minimal /> */}
-
           <Navbar.Divider />
 
-          <Popover content={<Menu></Menu>} position={Position.TOP}>
+          <Popover
+            content={
+              <Menu>
+                {Object.keys(ELEMENT_MAP).map((map) => (
+                  <MenuItem text={map} key={map} />
+                ))}
+              </Menu>
+            }
+            position={Position.TOP}
+          >
             <Button icon="map" text="Maps" minimal />
           </Popover>
 
@@ -112,14 +91,14 @@ const App: React.FC = () => {
           <Popover
             content={
               <Menu>
-                <MenuItem text="Center" />
-                <MenuItem text="Fill" />
-                <MenuItem text="None" />
+                {centeringModes.map((centeringMode) => (
+                  <MenuItem text={centeringMode} key={centeringMode} />
+                ))}
               </Menu>
             }
             position={Position.TOP_RIGHT}
           >
-            <Button icon="map-marker" text="Centering Type" minimal />
+            <Button icon="map-marker" text="Centering Mode" minimal />
           </Popover>
         </Navbar.Group>
       </Navbar>
