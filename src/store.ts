@@ -1,7 +1,18 @@
 import { createStore } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer);
+import { loadState, saveState } from './helpers/storeManager';
+
+const persistedState = loadState();
+
+const store = createStore(rootReducer, persistedState);
+
+store.subscribe(() => {
+  saveState({
+    theme: store.getState().theme,
+  });
+});
 
 export default store;

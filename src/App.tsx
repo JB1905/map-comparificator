@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Alignment,
   Navbar,
@@ -8,6 +8,7 @@ import {
   Menu,
   Position,
   MenuItem,
+  Classes,
 } from '@blueprintjs/core';
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -22,10 +23,12 @@ import OpenStreetMap from './tiles/OSM';
 import MapBox from './tiles/MapBox';
 
 import { useGeolocation } from './hooks/useGeolocation';
+import { useTheme } from './hooks/useTheme';
 
 import { initialLayout } from './constants/initialLayout';
 
-import { SEARCH, UPDATE_COORDS } from './actions';
+import { SEARCH, UPDATE_COORDS, SET_THEME } from './actions';
+import { Theme } from './enums/Theme';
 
 const tileRenderer = (id: any, path: any) => {
   const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
@@ -63,13 +66,24 @@ const App: React.FC = () => {
     });
   };
 
+  const { appearance } = useTheme();
+
   return (
-    <div>
+    <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
       <Navbar>
         <Navbar.Group align={Alignment.LEFT}>
           <Navbar.Heading>Map Comparificator</Navbar.Heading>
 
-          <Button icon="moon" onClick={() => null} minimal />
+          <Button
+            icon={appearance === Theme.Dark ? 'flash' : 'moon'}
+            onClick={() =>
+              dispatch({
+                type: SET_THEME,
+                payload: appearance === Theme.Dark ? Theme.Light : Theme.Dark,
+              })
+            }
+            minimal
+          />
 
           <Navbar.Divider />
 
@@ -89,16 +103,7 @@ const App: React.FC = () => {
 
           <Navbar.Divider />
 
-          <Popover
-            content={
-              <Menu>
-                <MenuItem text="Child one" />
-                <MenuItem text="Child two" />
-                <MenuItem text="Child three" />
-              </Menu>
-            }
-            position={Position.TOP}
-          >
+          <Popover content={<Menu></Menu>} position={Position.TOP}>
             <Button icon="map" text="Maps" minimal />
           </Popover>
 
@@ -124,6 +129,9 @@ const App: React.FC = () => {
           renderTile={tileRenderer}
           initialValue={initialLayout}
           zeroStateView={<div />}
+          className={`mosaic-blueprint-theme ${
+            appearance === Theme.Dark ? Classes.DARK : ''
+          }`}
         />
       </div>
     </div>
