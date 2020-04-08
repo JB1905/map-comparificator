@@ -7,6 +7,7 @@ import {
   Popover,
   Menu,
   Position,
+  MenuItem,
 } from '@blueprintjs/core';
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -68,11 +69,9 @@ const App: React.FC = () => {
         <Navbar.Group align={Alignment.LEFT}>
           <Navbar.Heading>Map Comparificator</Navbar.Heading>
 
-          <Navbar.Divider />
+          <Button icon="moon" onClick={() => null} minimal />
 
-          <Popover content={<Menu></Menu>} position={Position.TOP}>
-            <Button icon="map" text="Maps" />
-          </Popover>
+          <Navbar.Divider />
 
           <input
             className="bp3-input"
@@ -81,16 +80,41 @@ const App: React.FC = () => {
             onChange={submit}
             // onKeyDown={submit}
           />
+        </Navbar.Group>
 
-          <Button icon="geolocation" onClick={getLocalForecast} />
-          <Button icon="moon" onClick={() => null} />
-          {/* <Button icon="compass" onClick={() => null} /> */}
+        <Navbar.Group align={Alignment.RIGHT}>
+          <Button icon="geolocation" onClick={getLocalForecast} minimal />
+
+          {/* <Button icon="compass" onClick={() => null} minimal /> */}
+
+          <Navbar.Divider />
 
           <Popover
-            content={<Menu>Center/Fill/None</Menu>}
+            content={
+              <Menu>
+                <MenuItem text="Child one" />
+                <MenuItem text="Child two" />
+                <MenuItem text="Child three" />
+              </Menu>
+            }
             position={Position.TOP}
           >
-            <Button icon="map-marker" text="Centering Type" />
+            <Button icon="map" text="Maps" minimal />
+          </Popover>
+
+          <Navbar.Divider />
+
+          <Popover
+            content={
+              <Menu>
+                <MenuItem text="Center" />
+                <MenuItem text="Fill" />
+                <MenuItem text="None" />
+              </Menu>
+            }
+            position={Position.TOP_RIGHT}
+          >
+            <Button icon="map-marker" text="Centering Type" minimal />
           </Popover>
         </Navbar.Group>
       </Navbar>

@@ -1,7 +1,7 @@
 export const initialLayout = {
   direction: 'column',
   first: {
-    direction: 'column',
+    direction: 'row',
     first: 'Apple Maps',
     second: {
       direction: 'row',
