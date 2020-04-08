@@ -3,7 +3,7 @@ import { SEARCH, UPDATE_COORDS, SYNC_TYPE } from '../actions';
 const initialState = {
   query: '',
   sync: 'center',
-  coords: [37.415, -122.048333],
+  coords: [37.415, 34.048333],
   zoom: 7,
 };
 

@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import {
   Alignment,
   Navbar,
-  NavbarDivider,
-  NavbarGroup,
-  NavbarHeading,
+  Button,
+  Popover,
+  Menu,
+  Position,
 } from '@blueprintjs/core';
 import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -19,11 +20,11 @@ import HereMaps from './tiles/Here';
 import OpenStreetMap from './tiles/OSM';
 import MapBox from './tiles/MapBox';
 
+import { useGeolocation } from './hooks/useGeolocation';
+
 import { initialLayout } from './constants/initialLayout';
 
-import { SEARCH } from './actions';
-
-import './App.scss';
+import { SEARCH, UPDATE_COORDS } from './actions';
 
 const tileRenderer = (id: any, path: any) => {
   const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
@@ -45,25 +46,53 @@ const tileRenderer = (id: any, path: any) => {
 const App: React.FC = () => {
   const dispatch = useDispatch();
 
-  const submit = () => {
-    dispatch({ type: SEARCH, payload: '' });
+  const submit = (e: any) => {
+    console.log(e.target.value);
+    // dispatch({ type: SEARCH, payload: '' });
+  };
+
+  const { getCoords } = useGeolocation();
+
+  const getLocalForecast = () => {
+    getCoords(({ latitude, longitude }) => {
+      dispatch({
+        type: UPDATE_COORDS,
+        payload: [latitude, longitude],
+      });
+    });
   };
 
   return (
     <div>
       <Navbar>
-        <NavbarGroup align={Alignment.LEFT}>
-          <NavbarHeading>Map Comparificator</NavbarHeading>
+        <Navbar.Group align={Alignment.LEFT}>
+          <Navbar.Heading>Map Comparificator</Navbar.Heading>
 
-          <NavbarDivider />
+          <Navbar.Divider />
+
+          <Popover content={<Menu></Menu>} position={Position.TOP}>
+            <Button icon="map" text="Maps" />
+          </Popover>
 
           <input
             className="bp3-input"
             placeholder="Search..."
             type="text"
-            onKeyDown={submit}
+            onChange={submit}
+            // onKeyDown={submit}
           />
-        </NavbarGroup>
+
+          <Button icon="geolocation" onClick={getLocalForecast} />
+          <Button icon="moon" onClick={() => null} />
+          {/* <Button icon="compass" onClick={() => null} /> */}
+
+          <Popover
+            content={<Menu>Center/Fill/None</Menu>}
+            position={Position.TOP}
+          >
+            <Button icon="map-marker" text="Centering Type" />
+          </Popover>
+        </Navbar.Group>
       </Navbar>
 
       <div id="app">

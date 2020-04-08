@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const OpenStreetMap: React.FC = () => {
-  const coords = useSelector((state: any) => state.maps.coords);
-  const zoom = useSelector((state: any) => state.maps.zoom);
+  const { coords, zoom } = useSelector((state: any) => state.maps);
 
   const dispatch = useDispatch();
 
