@@ -24,7 +24,7 @@ const MapBox: React.FC = () => {
       style={`mapbox://styles/mapbox/${
         appearance === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
-      containerStyle={{ height: '300px', width: '100%' }}
+      containerStyle={{ height: '100%', width: '100%' }}
       center={coords.reverse()}
       // zoom={zoom}
       // onMove={(e) => console.log(e)}
