@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+// import { useViewport } from 'react-viewport-hooks';
 import {
   Alignment,
   Navbar,
@@ -22,6 +23,7 @@ import { tileRenderer } from './tileRenderer';
 import { ELEMENT_MAP } from './map';
 
 import SearchForm from './containers/SearchForm';
+import ErrorScreen from './containers/ErrorScreen';
 
 import { useGeolocation } from './hooks/useGeolocation';
 import { useTheme } from './hooks/useTheme';
@@ -36,6 +38,8 @@ import { Theme } from './enums/Theme';
 const App: React.FC = () => {
   const dispatch = useDispatch();
 
+  // const { vw } = useViewport();
+
   const { getCoords } = useGeolocation();
 
   const { appearance, toggleTheme } = useTheme();
@@ -48,6 +52,10 @@ const App: React.FC = () => {
       });
     });
   };
+
+  // if (vw < 760) {
+  //   return null;
+  // }
 
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
@@ -107,7 +115,12 @@ const App: React.FC = () => {
         <Mosaic
           renderTile={tileRenderer}
           initialValue={initialLayout}
-          zeroStateView={<div />}
+          zeroStateView={
+            <ErrorScreen
+              title="No map preview selected"
+              message="Select maps from the menu"
+            />
+          }
           className={`mosaic-blueprint-theme ${
             appearance === Theme.Dark ? Classes.DARK : ''
           }`}

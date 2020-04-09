@@ -35,6 +35,7 @@
     "react-mosaic-component": "^4.0.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
+    "react-viewport-hooks": "^1.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "typescript": "3.8.3"
