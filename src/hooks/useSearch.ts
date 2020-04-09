@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export const useSearch = (data: any[]) => {
-  const [results, setResults] = useState(data);
+export const useSearch = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
 
-  const findHints = (query: string) => {
-    setResults(data.filter((item) => item !== query));
-  };
+  // useEffect(() => {
+  //   console.log(data);
 
-  return { findHints, results };
+  //   // setResults(data.filter((item) => item !== query));
+  // }, [data, query]);
+
+  // const findHints = (query: string) => {};
+
+  return { query, setQuery, results };
 };

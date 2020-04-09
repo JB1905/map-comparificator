@@ -1,17 +1,17 @@
 import React from 'react';
+// import cities from 'all-the-cities';
+
+import { useSearch } from '../hooks/useSearch';
 
 const SearchForm: React.FC = () => {
-  const submit = (e: any) => {
-    // console.log(e.target.value);
-    // dispatch({ type: SEARCH, payload: '' });
-  };
+  const { results, setQuery } = useSearch();
 
   return (
     <input
       className="bp3-input"
       placeholder="Search..."
       type="text"
-      onChange={submit}
+      onChange={(e) => setQuery(e.target.value)}
       // onKeyDown={submit}
     />
   );
