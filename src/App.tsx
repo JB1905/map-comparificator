@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 // import { useViewport } from 'react-viewport-hooks';
 import {
   Alignment,
@@ -16,7 +15,7 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { ReactComponent as Logo } from './assets/logo.svg';
+// import { ReactComponent as Logo } from './assets/logo.svg';
 
 import { tileRenderer } from './tileRenderer';
 
@@ -27,8 +26,8 @@ import ErrorScreen from './containers/ErrorScreen';
 
 import { useGeolocation } from './hooks/useGeolocation';
 import { useTheme } from './hooks/useTheme';
+import { useLayout } from './hooks/useLayout';
 
-import { initialLayout } from './constants/initialLayout';
 import { centeringModes } from './constants/centeringModes';
 
 import { UPDATE_COORDS } from './actions';
@@ -36,20 +35,17 @@ import { UPDATE_COORDS } from './actions';
 import { Theme } from './enums/Theme';
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
-
   // const { vw } = useViewport();
 
-  const { getCoords } = useGeolocation();
+  const { getGeolocation, setCoords } = useGeolocation();
 
   const { appearance, toggleTheme } = useTheme();
 
-  const getLocalForecast = () => {
-    getCoords(({ latitude, longitude }) => {
-      dispatch({
-        type: UPDATE_COORDS,
-        payload: [latitude, longitude],
-      });
+  const { layout, setLayout, resetLayout, isInitialLayout } = useLayout();
+
+  const getCurrentLocation = () => {
+    getGeolocation(({ latitude, longitude }) => {
+      setCoords([latitude, longitude]);
     });
   };
 
@@ -61,9 +57,9 @@ const App: React.FC = () => {
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
       <Navbar>
         <Navbar.Group align={Alignment.LEFT}>
-          <Navbar.Heading>
+          {/* <Navbar.Heading>
             <Logo className="logo" />
-          </Navbar.Heading>
+          </Navbar.Heading> */}
 
           <Button
             icon={appearance === Theme.Dark ? 'flash' : 'moon'}
@@ -77,7 +73,7 @@ const App: React.FC = () => {
         </Navbar.Group>
 
         <Navbar.Group align={Alignment.RIGHT}>
-          <Button icon="geolocation" onClick={getLocalForecast} minimal />
+          <Button icon="geolocation" onClick={getCurrentLocation} minimal />
 
           <Navbar.Divider />
 
@@ -108,19 +104,29 @@ const App: React.FC = () => {
           >
             <Button icon="map-marker" text="Centering Mode" minimal />
           </Popover>
+
+          <Navbar.Divider />
+
+          <Button
+            icon="reset"
+            onClick={resetLayout}
+            disabled={isInitialLayout}
+            minimal
+          />
         </Navbar.Group>
       </Navbar>
 
       <div id="app">
         <Mosaic
           renderTile={tileRenderer}
-          initialValue={initialLayout}
+          initialValue={layout}
           zeroStateView={
             <ErrorScreen
               title="No map preview selected"
               message="Select maps from the menu"
             />
           }
+          onChange={(changedLayout) => setLayout(changedLayout)}
           className={`mosaic-blueprint-theme ${
             appearance === Theme.Dark ? Classes.DARK : ''
           }`}

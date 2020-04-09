@@ -1,16 +1,34 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useDebounce } from 'use-debounce';
+
+import { search } from '../api/locationIq';
+import { UPDATE_COORDS } from '../actions';
 
 export const useSearch = () => {
+  const dispatch = useDispatch();
+
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [value] = useDebounce(query, 1000);
 
-  // useEffect(() => {
-  //   console.log(data);
+  const [results, setResults] = useState<any>([]);
 
-  //   // setResults(data.filter((item) => item !== query));
-  // }, [data, query]);
+  useEffect(() => {
+    const find = async () => {
+      setResults(await search(value));
+    };
 
-  // const findHints = (query: string) => {};
+    find();
+  }, [value]);
+
+  useEffect(() => {
+    if (results.length > 0) {
+      dispatch({
+        type: UPDATE_COORDS,
+        payload: [results[0].lat, results[0].lon],
+      });
+    }
+  }, [dispatch, results]);
 
   return { query, setQuery, results };
 };

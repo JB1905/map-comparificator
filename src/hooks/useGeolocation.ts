@@ -1,5 +1,11 @@
+import { useDispatch } from 'react-redux';
+
+import { UPDATE_COORDS } from '../actions';
+
 export const useGeolocation = () => {
-  const getCoords = (currentCoords: (coords: Coordinates) => void) => {
+  const dispatch = useDispatch();
+
+  const getGeolocation = (currentCoords: (coords: Coordinates) => void) => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         currentCoords(position.coords);
@@ -7,5 +13,12 @@ export const useGeolocation = () => {
     }
   };
 
-  return { getCoords };
+  const setCoords = (coords: [number, number]) => {
+    dispatch({
+      type: UPDATE_COORDS,
+      payload: coords,
+    });
+  };
+
+  return { getGeolocation, setCoords };
 };

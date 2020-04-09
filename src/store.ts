@@ -12,6 +12,7 @@ const store = createStore(rootReducer, persistedState, composeWithDevTools());
 store.subscribe(() => {
   saveState({
     theme: store.getState().theme,
+    layout: store.getState().layout,
   });
 });
 

@@ -5,14 +5,21 @@ import { useSearch } from '../hooks/useSearch';
 const SearchForm: React.FC = () => {
   const { results, setQuery } = useSearch();
 
+  // console.log(results);
+
   return (
-    <input
-      className="bp3-input"
-      placeholder="Search..."
-      type="text"
-      onChange={(e) => setQuery(e.target.value)}
-      // onKeyDown={submit}
-    />
+    <div className="bp3-input-group">
+      <span className="bp3-icon bp3-icon-search" />
+
+      <input
+        className="bp3-input"
+        type="search"
+        placeholder="Search..."
+        dir="auto"
+        onChange={(e) => setQuery(e.target.value)}
+        // onKeyDown={submit}
+      />
+    </div>
   );
 };
 
