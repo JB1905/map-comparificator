@@ -9,7 +9,9 @@ const BingMaps: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  return <ReactBingmaps bingmapKey={bingMapsToken} center={coords} />;
+  return (
+    <ReactBingmaps bingmapKey={bingMapsToken} center={coords} zoom={zoom} />
+  );
 };
 
 export default BingMaps;

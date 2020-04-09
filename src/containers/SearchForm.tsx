@@ -1,5 +1,4 @@
 import React from 'react';
-// import cities from 'all-the-cities';
 
 import { useSearch } from '../hooks/useSearch';
 

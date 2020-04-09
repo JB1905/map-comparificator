@@ -12,15 +12,9 @@ const GoogleMaps: React.FC = () => {
   return (
     <LoadScript id="script-loader" googleMapsApiKey={googleMapsToken}>
       <GoogleMap
-        mapContainerStyle={{
-          height: '100%',
-          width: '100%',
-        }}
+        mapContainerStyle={{ height: '100%', width: '100%' }}
+        center={{ lat: coords[0], lng: coords[1] }}
         zoom={zoom}
-        center={{
-          lat: coords[0],
-          lng: coords[1],
-        }}
       />
     </LoadScript>
   );
