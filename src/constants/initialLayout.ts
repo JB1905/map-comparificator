@@ -18,7 +18,8 @@ export const initialLayout = {
       first: 'MapBox',
       second: 'Open Street Map',
     },
+    splitPercentage: 33,
   },
-  splitPercentage: 60,
+  splitPercentage: 50,
   currentTheme: 'mosaic-blueprint-theme',
 };
