@@ -1,11 +1,11 @@
 import React from 'react';
 
-import AppleMaps from './tiles/Apple';
-import BingMaps from './tiles/Bing';
-import GoogleMaps from './tiles/Google';
-import HereMaps from './tiles/Here';
-import OpenStreetMap from './tiles/OSM';
-import MapBox from './tiles/MapBox';
+import AppleMaps from './windows/Apple';
+import BingMaps from './windows/Bing';
+import GoogleMaps from './windows/Google';
+import HereMaps from './windows/Here';
+import OpenStreetMap from './windows/OSM';
+import MapBox from './windows/MapBox';
 
 export const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
   'Apple Maps': <AppleMaps />,

@@ -1,7 +1,6 @@
-import { SEARCH, UPDATE_COORDS, SYNC_TYPE } from '../actions';
+import { UPDATE_COORDS, SYNC_TYPE } from '../actions';
 
 const initialState = {
-  query: '',
   sync: 'center',
   coords: [37.415, 34.048333],
   zoom: 7,
@@ -9,9 +8,6 @@ const initialState = {
 
 export const mapsReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case SEARCH:
-      return { ...state, query: action.payload };
-
     case UPDATE_COORDS:
       return { ...state, coords: action.payload };
 

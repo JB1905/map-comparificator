@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useViewport } from 'react-viewport-hooks';
 import {
   Alignment,
   Navbar,
@@ -30,13 +29,9 @@ import { useLayout } from './hooks/useLayout';
 
 import { centeringModes } from './constants/centeringModes';
 
-import { UPDATE_COORDS } from './actions';
-
 import { Theme } from './enums/Theme';
 
 const App: React.FC = () => {
-  // const { vw } = useViewport();
-
   const { getGeolocation, setCoords } = useGeolocation();
 
   const { appearance, toggleTheme } = useTheme();
@@ -48,10 +43,6 @@ const App: React.FC = () => {
       setCoords([latitude, longitude]);
     });
   };
-
-  // if (vw < 760) {
-  //   return null;
-  // }
 
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
@@ -100,7 +91,7 @@ const App: React.FC = () => {
                 ))}
               </Menu>
             }
-            position={Position.TOP_RIGHT}
+            position={Position.TOP}
           >
             <Button icon="map-marker" text="Centering Mode" minimal />
           </Popover>
