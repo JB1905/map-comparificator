@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { useSearch } from '../hooks/useSearch';
+import { useLayout } from '../hooks/useLayout';
 
 const SearchForm: React.FC = () => {
   const { results, setQuery } = useSearch();
+
+  const { layout } = useLayout();
 
   // console.log(results);
 
@@ -16,6 +19,7 @@ const SearchForm: React.FC = () => {
         type="search"
         placeholder="Search..."
         dir="auto"
+        disabled={layout === null}
         onChange={(e) => setQuery(e.target.value)}
         // onKeyDown={submit}
       />

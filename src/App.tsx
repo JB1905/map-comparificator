@@ -1,4 +1,5 @@
 import React from 'react';
+import { useViewport } from 'react-viewport-hooks';
 import {
   Alignment,
   Navbar,
@@ -32,6 +33,8 @@ import { centeringModes } from './constants/centeringModes';
 import { Theme } from './enums/Theme';
 
 const App: React.FC = () => {
+  const { vw } = useViewport();
+
   const { getGeolocation, setCoords } = useGeolocation();
 
   const { appearance, toggleTheme } = useTheme();
@@ -44,96 +47,107 @@ const App: React.FC = () => {
     });
   };
 
+  console.log(layout);
+
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
-      <Navbar>
-        <Navbar.Group align={Alignment.LEFT}>
-          {/* <Navbar.Heading>
+      {vw >= 760 ? (
+        <>
+          <Navbar>
+            <Navbar.Group align={Alignment.LEFT}>
+              {/* <Navbar.Heading>
             <Logo className="logo" />
           </Navbar.Heading> */}
 
-          <Button
-            icon={appearance === Theme.Dark ? 'flash' : 'moon'}
-            onClick={toggleTheme}
-            minimal
-          />
+              <Button
+                icon={appearance === Theme.Dark ? 'flash' : 'moon'}
+                onClick={toggleTheme}
+                minimal
+              />
 
-          <Navbar.Divider />
+              <Navbar.Divider />
 
-          <SearchForm />
-        </Navbar.Group>
+              <SearchForm />
+            </Navbar.Group>
 
-        <Navbar.Group align={Alignment.RIGHT}>
-          <Button icon="geolocation" onClick={getCurrentLocation} minimal />
+            <Navbar.Group align={Alignment.RIGHT}>
+              <Button icon="geolocation" onClick={getCurrentLocation} minimal />
 
-          <Navbar.Divider />
+              <Navbar.Divider />
 
-          <Popover
-            content={
-              <Menu>
-                {Object.keys(ELEMENT_MAP).map((map) => (
-                  <MenuItem text={map} key={map} />
-                ))}
-              </Menu>
-            }
-            position={Position.TOP}
-          >
-            <Button icon="map" text="Maps" minimal />
-          </Popover>
+              <Popover
+                content={
+                  <Menu>
+                    {Object.keys(ELEMENT_MAP).map((map) => (
+                      <MenuItem text={map} key={map} />
+                    ))}
+                  </Menu>
+                }
+                position={Position.TOP}
+              >
+                <Button icon="map" text="Maps" minimal />
+              </Popover>
 
-          <Navbar.Divider />
+              <Navbar.Divider />
 
-          <Popover
-            content={
-              <Menu>
-                {centeringModes.map((centeringMode) => (
-                  <MenuItem text={centeringMode} key={centeringMode} />
-                ))}
-              </Menu>
-            }
-            position={Position.TOP}
-          >
-            <Button icon="map-marker" text="Centering Mode" minimal />
-          </Popover>
+              <Popover
+                content={
+                  <Menu>
+                    {centeringModes.map((centeringMode) => (
+                      <MenuItem text={centeringMode} key={centeringMode} />
+                    ))}
+                  </Menu>
+                }
+                position={Position.TOP}
+              >
+                <Button icon="map-marker" text="Centering Mode" minimal />
+              </Popover>
 
-          <Navbar.Divider />
+              <Navbar.Divider />
 
-          <Popover
-            content={
-              <Menu>
-                {centeringModes.map((centeringMode) => (
-                  <MenuItem text={centeringMode} key={centeringMode} />
-                ))}
-              </Menu>
-            }
-            position={Position.TOP}
-          >
-            <Button
-              icon="reset"
-              onClick={resetLayout}
-              disabled={isInitialLayout}
-              minimal
+              <Popover
+                content={
+                  <Menu>
+                    {centeringModes.map((centeringMode) => (
+                      <MenuItem text={centeringMode} key={centeringMode} />
+                    ))}
+                  </Menu>
+                }
+                position={Position.TOP}
+              >
+                <Button
+                  icon="reset"
+                  onClick={resetLayout}
+                  disabled={isInitialLayout}
+                  minimal
+                />
+              </Popover>
+            </Navbar.Group>
+          </Navbar>
+
+          <div id="app">
+            <Mosaic
+              renderTile={tileRenderer}
+              initialValue={layout}
+              zeroStateView={
+                <ErrorScreen
+                  title="No map preview selected"
+                  message="Select maps from the menu"
+                />
+              }
+              onChange={(changedLayout) => setLayout(changedLayout)}
+              className={`mosaic-blueprint-theme ${
+                appearance === Theme.Dark ? Classes.DARK : ''
+              }`}
             />
-          </Popover>
-        </Navbar.Group>
-      </Navbar>
-
-      <div id="app">
-        <Mosaic
-          renderTile={tileRenderer}
-          initialValue={layout}
-          zeroStateView={
-            <ErrorScreen
-              title="No map preview selected"
-              message="Select maps from the menu"
-            />
-          }
-          onChange={(changedLayout) => setLayout(changedLayout)}
-          className={`mosaic-blueprint-theme ${
-            appearance === Theme.Dark ? Classes.DARK : ''
-          }`}
+          </div>
+        </>
+      ) : (
+        <ErrorScreen
+          title="Your screen is too small"
+          message="Open app in bigger window"
         />
-      </div>
+      )}
     </div>
   );
 };
