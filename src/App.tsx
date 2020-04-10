@@ -98,12 +98,23 @@ const App: React.FC = () => {
 
           <Navbar.Divider />
 
-          <Button
-            icon="reset"
-            onClick={resetLayout}
-            disabled={isInitialLayout}
-            minimal
-          />
+          <Popover
+            content={
+              <Menu>
+                {centeringModes.map((centeringMode) => (
+                  <MenuItem text={centeringMode} key={centeringMode} />
+                ))}
+              </Menu>
+            }
+            position={Position.TOP}
+          >
+            <Button
+              icon="reset"
+              onClick={resetLayout}
+              disabled={isInitialLayout}
+              minimal
+            />
+          </Popover>
         </Navbar.Group>
       </Navbar>
 

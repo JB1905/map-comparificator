@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './ErrorScreen.scss';
+
 interface Props {
   title: string;
   message: string;
@@ -8,8 +10,8 @@ interface Props {
 const ErrorScreen: React.FC<Props> = ({ title, message }) => {
   return (
     <div className="error-screen">
-      <h2 className="bp3-heading">{title}</h2>
-      <h3 className="bp3-heading">{message}</h3>
+      <h3 className="bp3-heading">{title}</h3>
+      <h5 className="bp3-heading">{message}</h5>
     </div>
   );
 };

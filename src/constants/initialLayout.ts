@@ -23,3 +23,81 @@ export const initialLayout = {
   splitPercentage: 50,
   currentTheme: 'mosaic-blueprint-theme',
 };
+
+// export const columnLayout = {
+//   direction: 'column',
+//   first: {
+//     direction: 'row',
+//     first: 'Apple Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'Bing Maps',
+//       second: 'Google Maps',
+//     },
+//     splitPercentage: 33,
+//   },
+//   second: {
+//     direction: 'row',
+//     first: 'Here Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'MapBox',
+//       second: 'Open Street Map',
+//     },
+//     splitPercentage: 33,
+//   },
+//   splitPercentage: 50,
+//   currentTheme: 'mosaic-blueprint-theme',
+// };
+
+// export const gridLayout = {
+//   direction: 'column',
+//   first: {
+//     direction: 'row',
+//     first: 'Apple Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'Bing Maps',
+//       second: 'Google Maps',
+//     },
+//     splitPercentage: 33,
+//   },
+//   second: {
+//     direction: 'row',
+//     first: 'Here Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'MapBox',
+//       second: 'Open Street Map',
+//     },
+//     splitPercentage: 33,
+//   },
+//   splitPercentage: 50,
+//   currentTheme: 'mosaic-blueprint-theme',
+// };
+
+// export const mosaicLayout = {
+//   direction: 'column',
+//   first: {
+//     direction: 'row',
+//     first: 'Apple Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'Bing Maps',
+//       second: 'Google Maps',
+//     },
+//     splitPercentage: 33,
+//   },
+//   second: {
+//     direction: 'row',
+//     first: 'Here Maps',
+//     second: {
+//       direction: 'row',
+//       first: 'MapBox',
+//       second: 'Open Street Map',
+//     },
+//     splitPercentage: 33,
+//   },
+//   splitPercentage: 50,
+//   currentTheme: 'mosaic-blueprint-theme',
+// };
