@@ -47,7 +47,7 @@ const App: React.FC = () => {
     });
   };
 
-  console.log(layout);
+  // console.log(JSON.stringify(layout));
 
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>

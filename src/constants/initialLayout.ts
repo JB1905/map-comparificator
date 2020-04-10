@@ -25,16 +25,17 @@ export const initialLayout = {
 };
 
 // export const columnLayout = {
-//   direction: 'column',
+//   direction: 'row',
 //   first: {
-//     direction: 'row',
 //     first: 'Apple Maps',
 //     second: {
-//       direction: 'row',
 //       first: 'Bing Maps',
 //       second: 'Google Maps',
+//       direction: 'row',
+//       splitPercentage: 48.80694143167029,
 //     },
-//     splitPercentage: 33,
+//     direction: 'row',
+//     splitPercentage: 35.70432357043236,
 //   },
 //   second: {
 //     direction: 'row',
@@ -47,7 +48,6 @@ export const initialLayout = {
 //     splitPercentage: 33,
 //   },
 //   splitPercentage: 50,
-//   currentTheme: 'mosaic-blueprint-theme',
 // };
 
 // export const gridLayout = {

@@ -1,17 +1,14 @@
 html,
 body,
 #app {
-  height: calc(100% - 50px);
-  width: 100%;
   margin: 0;
-  position: fixed;
 }
 
-// @media (max-width: 760px) {
-//   body {
-//     display: none;
-//   }
-// }
+#app {
+  width: 100%;
+  height: calc(100% - 50px);
+  position: fixed;
+}
 
 .logo {
   width: 50px;

@@ -9,11 +9,6 @@ const persistedState = loadState();
 
 const store = createStore(rootReducer, persistedState, composeWithDevTools());
 
-store.subscribe(() => {
-  saveState({
-    theme: store.getState().theme,
-    layout: store.getState().layout,
-  });
-});
+store.subscribe(() => saveState(store.getState()));
 
 export default store;

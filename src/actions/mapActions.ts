@@ -1,2 +1,2 @@
 export const UPDATE_COORDS = 'UPDATE_COORDS';
-export const SYNC_TYPE = 'SYNC_TYPE';
+export const UPDATE_ZOOM_LEVEL = 'UPDATE_ZOOM_LEVEL';
