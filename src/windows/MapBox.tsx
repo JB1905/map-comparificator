@@ -25,10 +25,10 @@ const MapBox: React.FC = () => {
         appearance === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
       containerStyle={{ height: '100%', width: '100%' }}
-      //center={coords.reverse()}
       center={coords}
-      // zoom={zoom}
-      // onMove={(e) => console.log(e)}
+      zoom={[zoom]}
+      onMove={(e) => console.log(e.transform._zoom)}
+      // onZoom={(e) => console.log(e)}
     />
   );
 };

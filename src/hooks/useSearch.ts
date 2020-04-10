@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
 import { search } from '../api/locationIq';
@@ -12,6 +12,8 @@ import {
 
 export const useSearch = () => {
   const dispatch = useDispatch();
+
+  const history = useSelector((state: any) => state.search.history);
 
   const [query, setQuery] = useState('');
   const [value] = useDebounce(query, 1000);
@@ -61,6 +63,7 @@ export const useSearch = () => {
     query,
     setQuery,
     results,
+    history,
     addToHistory,
     removeFromHistory,
     clearHistory,

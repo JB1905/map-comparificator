@@ -11,8 +11,6 @@ const initialState: any = {
 export const searchReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SEARCH_HISTORY_ADD:
-      console.log(action.payload);
-
       return { ...state, history: [...state.history, action.payload] };
 
     case SEARCH_HISTORY_REMOVE:

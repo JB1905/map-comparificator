@@ -5,16 +5,14 @@ import { useSearch } from '../hooks/useSearch';
 import { useGeolocation } from '../hooks/useGeolocation';
 import { useLayout } from '../hooks/useLayout';
 
-import { compareObjects } from '../helpers/compareObjects';
-
 const SearchForm: React.FC = () => {
-  const { results, setQuery, addToHistory } = useSearch();
+  const { results, setQuery, history, addToHistory } = useSearch();
 
   const { setCoords } = useGeolocation();
 
   const { layout } = useLayout();
 
-  console.log(results);
+  console.log(results, history);
 
   // const find = (coords)
 
@@ -41,14 +39,21 @@ const SearchForm: React.FC = () => {
       />
 
       <Menu>
-        {results.map((result: any) => (
-          <MenuItem
-            text={result.display_name}
-            key={result.place_id}
-            // active={compareObjects(layout, pattern)}
-            onClick={() => selectPlace(result)}
-          />
-        ))}
+        {results.length > 0
+          ? results.map((result: any) => (
+              <MenuItem
+                text={result.display_name}
+                key={result.place_id}
+                onClick={() => selectPlace(result)}
+              />
+            ))
+          : history.map((item: any) => (
+              <MenuItem
+                text={item}
+                key={item}
+                // onClick={() => selectPlace(result)}
+              />
+            ))}
       </Menu>
     </div>
   );
