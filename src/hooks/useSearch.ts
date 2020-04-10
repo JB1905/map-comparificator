@@ -3,7 +3,12 @@ import { useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
 import { search } from '../api/locationIq';
-import { UPDATE_COORDS } from '../actions';
+
+import {
+  SEARCH_HISTORY_ADD,
+  SEARCH_HISTORY_REMOVE,
+  SEARCH_HISTORY_CLEAR,
+} from '../actions';
 
 export const useSearch = () => {
   const dispatch = useDispatch();
@@ -13,22 +18,51 @@ export const useSearch = () => {
 
   const [results, setResults] = useState<any>([]);
 
-  useEffect(() => {
-    const find = async () => {
-      setResults(await search(value));
-    };
+  const addToHistory = (item: any) => {
+    dispatch({
+      type: SEARCH_HISTORY_ADD,
+      payload: item,
+    });
+  };
 
-    find();
+  const removeFromHistory = (item: any) => {
+    dispatch({
+      type: SEARCH_HISTORY_REMOVE,
+      payload: item,
+    });
+  };
+
+  const clearHistory = () => {
+    dispatch({
+      type: SEARCH_HISTORY_CLEAR,
+    });
+  };
+
+  useEffect(() => {
+    if (value) {
+      const find = async () => {
+        setResults(await search(value));
+      };
+
+      find();
+    }
   }, [value]);
 
-  useEffect(() => {
-    if (results.length > 0) {
-      dispatch({
-        type: UPDATE_COORDS,
-        payload: [results[0].lat, results[0].lon],
-      });
-    }
-  }, [dispatch, results]);
+  // useEffect(() => {
+  //   if (results.length > 0) {
+  //     dispatch({
+  //       type: UPDATE_COORDS,
+  //       payload: [parseFloat(results[0].lat), parseFloat(results[0].lon)],
+  //     });
+  //   }
+  // }, [dispatch, results]);
 
-  return { query, setQuery, results };
+  return {
+    query,
+    setQuery,
+    results,
+    addToHistory,
+    removeFromHistory,
+    clearHistory,
+  };
 };

@@ -27,6 +27,7 @@ import ErrorScreen from './containers/ErrorScreen';
 import { useGeolocation } from './hooks/useGeolocation';
 import { useTheme } from './hooks/useTheme';
 import { useLayout } from './hooks/useLayout';
+import { useSettings } from './hooks/useSettings';
 
 import { centeringModes } from './constants/centeringModes';
 
@@ -43,15 +44,13 @@ const App: React.FC = () => {
 
   const { layout, setLayout, availableLayouts } = useLayout();
 
+  const { sync, setSyncType } = useSettings();
+
   const getCurrentLocation = () => {
     getGeolocation(({ latitude, longitude }) => {
       setCoords([latitude, longitude]);
     });
   };
-
-  // console.log(availableLayouts);
-
-  Object.entries(availableLayouts).map((item) => console.log(item));
 
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
@@ -98,7 +97,12 @@ const App: React.FC = () => {
                 content={
                   <Menu>
                     {centeringModes.map((centeringMode) => (
-                      <MenuItem text={centeringMode} key={centeringMode} />
+                      <MenuItem
+                        text={centeringMode}
+                        key={centeringMode}
+                        active={sync === centeringMode}
+                        onClick={() => setSyncType(centeringMode)}
+                      />
                     ))}
                   </Menu>
                 }
