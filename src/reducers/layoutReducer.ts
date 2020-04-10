@@ -1,14 +1,11 @@
-import { SET_LAYOUT, RESET_LAYOUT } from '../actions/layoutActions';
+import { SET_LAYOUT } from '../actions/layoutActions';
 
-import { initialLayout } from '../constants/initialLayout';
+import { gridLayout } from '../constants/initialLayout';
 
-export const layoutReducer = (state = initialLayout, action: any) => {
+export const layoutReducer = (state = gridLayout, action: any) => {
   switch (action.type) {
     case SET_LAYOUT:
       return action.payload;
-
-    case RESET_LAYOUT:
-      return initialLayout;
 
     default:
       return state;

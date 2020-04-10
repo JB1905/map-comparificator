@@ -30,6 +30,8 @@ import { useLayout } from './hooks/useLayout';
 
 import { centeringModes } from './constants/centeringModes';
 
+import { compareObjects } from './helpers/compareObjects';
+
 import { Theme } from './enums/Theme';
 
 const App: React.FC = () => {
@@ -39,7 +41,7 @@ const App: React.FC = () => {
 
   const { appearance, toggleTheme } = useTheme();
 
-  const { layout, setLayout, resetLayout, isInitialLayout } = useLayout();
+  const { layout, setLayout, availableLayouts } = useLayout();
 
   const getCurrentLocation = () => {
     getGeolocation(({ latitude, longitude }) => {
@@ -47,7 +49,9 @@ const App: React.FC = () => {
     });
   };
 
-  // console.log(JSON.stringify(layout));
+  // console.log(availableLayouts);
+
+  Object.entries(availableLayouts).map((item) => console.log(item));
 
   return (
     <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
@@ -108,19 +112,19 @@ const App: React.FC = () => {
               <Popover
                 content={
                   <Menu>
-                    {centeringModes.map((centeringMode) => (
-                      <MenuItem text={centeringMode} key={centeringMode} />
+                    {Object.entries(availableLayouts).map(([name, pattern]) => (
+                      <MenuItem
+                        text={name}
+                        key={name}
+                        disabled={compareObjects(layout, pattern)}
+                        onClick={() => setLayout(pattern)}
+                      />
                     ))}
                   </Menu>
                 }
                 position={Position.TOP}
               >
-                <Button
-                  icon="reset"
-                  onClick={resetLayout}
-                  disabled={isInitialLayout}
-                  minimal
-                />
+                <Button icon="reset" minimal />
               </Popover>
             </Navbar.Group>
           </Navbar>
