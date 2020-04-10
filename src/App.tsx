@@ -116,7 +116,7 @@ const App: React.FC = () => {
                       <MenuItem
                         text={name}
                         key={name}
-                        disabled={compareObjects(layout, pattern)}
+                        active={compareObjects(layout, pattern)}
                         onClick={() => setLayout(pattern)}
                       />
                     ))}

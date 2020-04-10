@@ -1,5 +1,4 @@
 export const gridLayout = {
-  direction: 'column',
   first: {
     direction: 'row',
     first: 'Apple Maps',
@@ -20,12 +19,11 @@ export const gridLayout = {
     },
     splitPercentage: 33,
   },
+  direction: 'column',
   splitPercentage: 50,
-  currentTheme: 'mosaic-blueprint-theme',
 };
 
 export const columnLayout = {
-  direction: 'row',
   first: {
     first: 'Apple Maps',
     second: {
@@ -47,31 +45,33 @@ export const columnLayout = {
     },
     splitPercentage: 33,
   },
+  direction: 'row',
   splitPercentage: 50,
 };
 
 export const mosaicLayout = {
-  direction: 'column',
-  first: {
-    direction: 'row',
-    first: 'Apple Maps',
-    second: {
-      direction: 'row',
-      first: 'Bing Maps',
-      second: 'Google Maps',
-    },
-    splitPercentage: 33,
-  },
+  first: 'Apple Maps',
   second: {
-    direction: 'row',
-    first: 'Here Maps',
+    first: 'MapBox',
     second: {
-      direction: 'row',
-      first: 'MapBox',
+      direction: 'column',
+      first: {
+        direction: 'row',
+        first: 'Bing Maps',
+        second: {
+          first: 'Here Maps',
+          second: 'Google Maps',
+          direction: 'row',
+        },
+        splitPercentage: 35.07917174177832,
+      },
       second: 'Open Street Map',
+      splitPercentage: 59.885386819484246,
+      currentTheme: 'mosaic-blueprint-theme',
     },
-    splitPercentage: 33,
+    direction: 'row',
+    splitPercentage: 27.996500437445317,
   },
-  splitPercentage: 50,
-  currentTheme: 'mosaic-blueprint-theme',
+  direction: 'row',
+  splitPercentage: 20.292887029288703,
 };
