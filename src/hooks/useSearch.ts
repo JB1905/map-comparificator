@@ -13,7 +13,9 @@ import {
 export const useSearch = () => {
   const dispatch = useDispatch();
 
-  const history = useSelector((state: any) => state.search.history.slice(0, 9));
+  const history = useSelector((state: any) =>
+    state.search.history.slice(0, 10)
+  );
 
   const [query, setQuery] = useState('');
 
