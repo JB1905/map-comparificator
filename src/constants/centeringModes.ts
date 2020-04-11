@@ -1,1 +1,1 @@
-export const centeringModes = ['Center', 'Fill', 'None'];
+export const centeringModes = ['center', 'fill', 'none'];

@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
   const { appearance, toggleTheme } = useTheme();
 
-  const { layout, setLayout, availableLayouts } = useLayout();
+  const { layout, isEmptyLayout, setLayout, availableLayouts } = useLayout();
 
   const { sync, setSyncType } = useSettings();
 
@@ -69,7 +69,12 @@ const App: React.FC = () => {
         </Navbar.Group>
 
         <Navbar.Group align={Alignment.RIGHT}>
-          <Button icon="geolocation" onClick={getCurrentLocation} minimal />
+          <Button
+            icon="geolocation"
+            onClick={getCurrentLocation}
+            disabled={isEmptyLayout}
+            minimal
+          />
 
           <Navbar.Divider />
 
@@ -103,7 +108,12 @@ const App: React.FC = () => {
             }
             position={Position.TOP}
           >
-            <Button icon="map-marker" text="Centering Mode" minimal />
+            <Button
+              icon="map-marker"
+              text="Centering Mode"
+              disabled={isEmptyLayout}
+              minimal
+            />
           </Popover>
 
           <Navbar.Divider />
@@ -116,7 +126,7 @@ const App: React.FC = () => {
                     text={name}
                     key={name}
                     active={compareObjects(layout, pattern)}
-                    onClick={() => setLayout(pattern)}
+                    onClick={() => setLayout(pattern as any)}
                   />
                 ))}
               </Menu>

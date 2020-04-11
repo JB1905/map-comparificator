@@ -13,9 +13,10 @@ import {
 export const useSearch = () => {
   const dispatch = useDispatch();
 
-  const history = useSelector((state: any) => state.search.history);
+  const history = useSelector((state: any) => state.search.history.slice(0, 9));
 
   const [query, setQuery] = useState('');
+
   const [value] = useDebounce(query, 1000);
 
   const [results, setResults] = useState<any>([]);
@@ -49,15 +50,6 @@ export const useSearch = () => {
       find();
     }
   }, [value]);
-
-  // useEffect(() => {
-  //   if (results.length > 0) {
-  //     dispatch({
-  //       type: UPDATE_COORDS,
-  //       payload: [parseFloat(results[0].lat), parseFloat(results[0].lon)],
-  //     });
-  //   }
-  // }, [dispatch, results]);
 
   return {
     query,

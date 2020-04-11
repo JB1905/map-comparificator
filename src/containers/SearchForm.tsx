@@ -1,61 +1,74 @@
 import React from 'react';
-import { Menu, MenuItem } from '@blueprintjs/core';
+import { Select } from '@blueprintjs/select';
+import { MenuItem, Button } from '@blueprintjs/core';
 
 import { useSearch } from '../hooks/useSearch';
-import { useGeolocation } from '../hooks/useGeolocation';
 import { useLayout } from '../hooks/useLayout';
+import { useGeolocation } from '../hooks/useGeolocation';
 
 const SearchForm: React.FC = () => {
-  const { results, setQuery, history, addToHistory } = useSearch();
+  const {
+    history,
+    results,
+    query,
+    setQuery,
+    addToHistory,
+    removeFromHistory,
+    clearHistory,
+  } = useSearch();
+
+  console.log(results);
+
+  const { isEmptyLayout } = useLayout();
 
   const { setCoords } = useGeolocation();
 
-  const { layout } = useLayout();
-
-  console.log(results, history);
-
-  // const find = (coords)
-
   const selectPlace = (place: any) => {
-    const { lat, lon, display_name } = place;
+    const { lat, lon, display_name, place_id } = place;
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
 
-    addToHistory(display_name);
+    addToHistory({ display_name, lat, lon, place_id });
   };
 
   return (
-    <div className="bp3-input-group">
-      <span className="bp3-icon bp3-icon-search" />
+    <Select
+      items={query ? results : history}
+      filterable={false}
+      itemRenderer={(item: any) => (
+        <>
+          <MenuItem
+            style={{ flex: 1 }}
+            text={item.display_name}
+            onClick={() => selectPlace(item)}
+          />
 
-      <input
-        className="bp3-input"
-        type="search"
-        placeholder="Search..."
-        dir="auto"
-        disabled={layout === null}
-        onChange={(e) => setQuery(e.target.value)}
-        // onKeyDown={submit}
-      />
+          {/* {!query && (
+            <Button
+              onClick={() => removeFromHistory(item)}
+              icon="trash"
+              minimal
+            />
+          )} */}
+        </>
+      )}
+      onItemSelect={() => console.log('null')}
+      popoverProps={{ minimal: true }}
+      // createNewItemRenderer={() => <p>aaa</p>}
+      // noResults={<p>aaa</p>}
+    >
+      <div className="bp3-input-group">
+        <span className="bp3-icon bp3-icon-search" />
 
-      <Menu>
-        {results.length > 0
-          ? results.map((result: any) => (
-              <MenuItem
-                text={result.display_name}
-                key={result.place_id}
-                onClick={() => selectPlace(result)}
-              />
-            ))
-          : history.map((item: any) => (
-              <MenuItem
-                text={item}
-                key={item}
-                // onClick={() => selectPlace(result)}
-              />
-            ))}
-      </Menu>
-    </div>
+        <input
+          className="bp3-input"
+          type="search"
+          placeholder="Search..."
+          disabled={isEmptyLayout}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+    </Select>
   );
 };
 
