@@ -1,10 +1,7 @@
+@import '../../index.scss';
+
 .error-screen {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  text-align: center;
-  width: 100%;
+  @include absolute-centering;
 
   > * {
     padding: 2px 0;

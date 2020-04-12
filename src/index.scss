@@ -23,3 +23,12 @@ body,
 .bp3-dark .octocat {
   filter: invert(100);
 }
+
+@mixin absolute-centering {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}

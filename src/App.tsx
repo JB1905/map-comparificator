@@ -10,15 +10,13 @@ import {
   Classes,
   // Dialog,
 } from '@blueprintjs/core';
-import { Mosaic } from 'react-mosaic-component';
+import { Mosaic, MosaicWindow } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
 import { ReactComponent as Logo } from './assets/logo.svg';
 import { ReactComponent as OctoCat } from './assets/github.svg';
-
-import { tileRenderer } from './tileRenderer';
 
 import { ELEMENT_MAP } from './map';
 
@@ -88,7 +86,7 @@ const App: React.FC = () => {
 
         <Navbar.Group align={Alignment.RIGHT}>
           <Button
-            icon={dragEnabled ? 'lock' : 'unlock'}
+            icon={dragEnabled ? 'unlock' : 'lock'}
             onClick={toggleDragLock}
             // disabled={isEmptyLayout}
             minimal
@@ -188,7 +186,11 @@ const App: React.FC = () => {
 
       <div id="app">
         <Mosaic
-          renderTile={tileRenderer}
+          renderTile={(id: any, path: any) => (
+            <MosaicWindow path={path} title={id} draggable={dragEnabled}>
+              {ELEMENT_MAP[id]}
+            </MosaicWindow>
+          )}
           initialValue={activeLayout}
           zeroStateView={
             <ErrorScreen
@@ -196,6 +198,7 @@ const App: React.FC = () => {
               message="Select maps from the menu"
             />
           }
+          resize={dragEnabled ? undefined : 'DISABLED'}
           onChange={(changedLayout) => setLayout(changedLayout)}
           className={`mosaic-blueprint-theme ${
             appearance === Theme.Dark ? Classes.DARK : ''
