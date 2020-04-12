@@ -75,13 +75,22 @@ const App: React.FC = () => {
           <Navbar.Divider />
 
           <SearchForm />
-        </Navbar.Group>
 
-        <Navbar.Group align={Alignment.RIGHT}>
+          <Navbar.Divider />
+
           <Button
             icon="geolocation"
             onClick={getCurrentLocation}
             disabled={isEmptyLayout}
+            minimal
+          />
+        </Navbar.Group>
+
+        <Navbar.Group align={Alignment.RIGHT}>
+          <Button
+            icon="lock"
+            // onClick={getCurrentLocation}
+            // disabled={isEmptyLayout}
             minimal
           />
 
