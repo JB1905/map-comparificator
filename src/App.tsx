@@ -50,7 +50,7 @@ const App: React.FC = () => {
     customLayouts,
   } = useLayout();
 
-  const { sync, setSyncType } = useSettings();
+  const { sync, setSyncType, dragEnabled, toggleDragLock } = useSettings();
 
   const getCurrentLocation = () => {
     getGeolocation(({ latitude, longitude }) => {
@@ -88,8 +88,8 @@ const App: React.FC = () => {
 
         <Navbar.Group align={Alignment.RIGHT}>
           <Button
-            icon="lock"
-            // onClick={getCurrentLocation}
+            icon={dragEnabled ? 'lock' : 'unlock'}
+            onClick={toggleDragLock}
             // disabled={isEmptyLayout}
             minimal
           />

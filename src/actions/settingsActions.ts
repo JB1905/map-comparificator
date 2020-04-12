@@ -1,1 +1,2 @@
 export const SET_SYNC_TYPE = 'SET_SYNC_TYPE';
+export const TOGGLE_DRAG_LOCK = 'TOGGLE_DRAG_LOCK';

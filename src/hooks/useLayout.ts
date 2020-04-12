@@ -41,7 +41,7 @@ export const useLayout = () => {
     });
   };
 
-  console.log(customLayouts);
+  // console.log(customLayouts);
 
   return {
     activeLayout,

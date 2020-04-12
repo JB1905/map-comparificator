@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_SYNC_TYPE } from '../actions';
+import { SET_SYNC_TYPE, TOGGLE_DRAG_LOCK } from '../actions';
 
 export const useSettings = () => {
   const dispatch = useDispatch();
 
-  const sync = useSelector((state: any) => state.settings.sync);
+  const { sync, dragEnabled } = useSelector((state: any) => state.settings);
 
   const setSyncType = (syncType: any) => {
     dispatch({
@@ -14,5 +14,9 @@ export const useSettings = () => {
     });
   };
 
-  return { sync, setSyncType };
+  const toggleDragLock = () => {
+    dispatch({ type: TOGGLE_DRAG_LOCK });
+  };
+
+  return { sync, setSyncType, dragEnabled, toggleDragLock };
 };
