@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { MosaicParent } from 'react-mosaic-component';
 
-import { SET_LAYOUT } from '../actions';
+import { SET_LAYOUT, CREATE_LAYOUT } from '../actions';
 
 import {
   gridLayout,
@@ -14,9 +14,12 @@ type Layout = string | number | MosaicParent<React.ReactText> | null;
 export const useLayout = () => {
   const dispatch = useDispatch();
 
-  const layout = useSelector((state: { layout: Layout }) => state.layout);
+  const { activeLayout, customLayouts } = useSelector(
+    (state: { layout: { activeLayout: Layout; customLayouts: any } }) =>
+      state.layout
+  );
 
-  const isEmptyLayout = layout === null;
+  const isEmptyLayout = activeLayout === null;
 
   const availableLayouts = {
     grid: gridLayout,
@@ -28,10 +31,24 @@ export const useLayout = () => {
     dispatch({ type: SET_LAYOUT, payload: layout });
   };
 
+  const setLayoutAsPattern = () => {
+    dispatch({
+      type: CREATE_LAYOUT,
+      payload: {
+        name: 'custom-layout',
+        layout: activeLayout,
+      },
+    });
+  };
+
+  console.log(customLayouts);
+
   return {
-    layout,
+    activeLayout,
+    customLayouts,
     setLayout,
     isEmptyLayout,
     availableLayouts,
+    setLayoutAsPattern,
   };
 };

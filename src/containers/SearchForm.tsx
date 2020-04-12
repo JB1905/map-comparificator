@@ -5,6 +5,7 @@ import { MenuItem, Button } from '@blueprintjs/core';
 import { useSearch } from '../hooks/useSearch';
 import { useLayout } from '../hooks/useLayout';
 import { useGeolocation } from '../hooks/useGeolocation';
+import { locationIcons } from '../constants/locationIcons';
 
 const SearchForm: React.FC = () => {
   const {
@@ -28,18 +29,20 @@ const SearchForm: React.FC = () => {
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
 
-    addToHistory({ display_name, lat, lon, place_id });
+    addToHistory({ display_name, lat, lon, place_id, class: place.class });
   };
 
   return (
     <Select
       items={query ? results : history}
+      // style={{ maxWidth: 320 }}
       filterable={false}
       itemRenderer={(item: any) => (
         <>
           <MenuItem
             style={{ flex: 1 }}
             text={item.display_name}
+            icon={locationIcons[item.class]}
             onClick={() => selectPlace(item)}
           />
 

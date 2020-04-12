@@ -8,6 +8,7 @@ import {
   Position,
   MenuItem,
   Classes,
+  // Dialog,
 } from '@blueprintjs/core';
 import { Mosaic } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -15,6 +16,7 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
 import { ReactComponent as Logo } from './assets/logo.svg';
+import { ReactComponent as OctoCat } from './assets/github.svg';
 
 import { tileRenderer } from './tileRenderer';
 
@@ -39,7 +41,14 @@ const App: React.FC = () => {
 
   const { appearance, toggleTheme } = useTheme();
 
-  const { layout, isEmptyLayout, setLayout, availableLayouts } = useLayout();
+  const {
+    activeLayout,
+    isEmptyLayout,
+    setLayout,
+    availableLayouts,
+    setLayoutAsPattern,
+    customLayouts,
+  } = useLayout();
 
   const { sync, setSyncType } = useSettings();
 
@@ -82,7 +91,7 @@ const App: React.FC = () => {
             content={
               <Menu>
                 {Object.keys(ELEMENT_MAP).map((map) => (
-                  <MenuItem text={map} key={map} />
+                  <MenuItem text={map} icon="send-to-map" key={map} />
                 ))}
               </Menu>
             }
@@ -99,6 +108,7 @@ const App: React.FC = () => {
                 {centeringModes.map((centeringMode) => (
                   <MenuItem
                     text={centeringMode}
+                    icon="locate"
                     key={centeringMode}
                     active={sync === centeringMode}
                     onClick={() => setSyncType(centeringMode)}
@@ -124,24 +134,53 @@ const App: React.FC = () => {
                 {Object.entries(availableLayouts).map(([name, pattern]) => (
                   <MenuItem
                     text={name}
+                    icon="page-layout"
                     key={name}
-                    active={compareObjects(layout, pattern)}
+                    active={compareObjects(activeLayout, pattern)}
                     onClick={() => setLayout(pattern as any)}
                   />
                 ))}
+
+                {customLayouts &&
+                  customLayouts.map(({ name, layout }: any) => (
+                    <MenuItem
+                      text={name}
+                      icon="page-layout"
+                      key={name}
+                      active={compareObjects(activeLayout, layout)}
+                      onClick={() => setLayout(layout as any)}
+                    />
+                  ))}
+
+                <MenuItem
+                  text="Save as Pattern"
+                  icon="floppy-disk"
+                  disabled={isEmptyLayout}
+                  onClick={setLayoutAsPattern}
+                />
               </Menu>
             }
             position={Position.TOP}
           >
             <Button icon="reset" minimal />
           </Popover>
+
+          <Navbar.Divider />
+
+          <a
+            href="https://github.com/JB1905/map-comparificator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <OctoCat className="octocat" />
+          </a>
         </Navbar.Group>
       </Navbar>
 
       <div id="app">
         <Mosaic
           renderTile={tileRenderer}
-          initialValue={layout}
+          initialValue={activeLayout}
           zeroStateView={
             <ErrorScreen
               title="No map preview selected"
@@ -154,6 +193,10 @@ const App: React.FC = () => {
           }`}
         />
       </div>
+
+      {/* <Dialog isOpen={true}>
+        <p>hello</p>
+      </Dialog> */}
     </div>
   );
 };

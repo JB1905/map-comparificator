@@ -9,7 +9,18 @@ const AppleMaps: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  return <Map tokenOrCallback={appleMapsToken} center={coords} />;
+  return (
+    <Map
+      tokenOrCallback={appleMapsToken}
+      center={coords}
+      // region={{
+      //   latitude: 50,
+      //   longitude: 20,
+      //   latitudeSpan: 0.5,
+      //   longitudeSpan: 0.5,
+      // }}
+    />
+  );
 };
 
 export default AppleMaps;
