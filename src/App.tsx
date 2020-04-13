@@ -10,7 +10,11 @@ import {
   Classes,
   // Dialog,
 } from '@blueprintjs/core';
-import { Mosaic, MosaicWindow } from 'react-mosaic-component';
+import {
+  Mosaic,
+  MosaicWindow,
+  DEFAULT_CONTROLS_WITHOUT_CREATION,
+} from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -88,7 +92,7 @@ const App: React.FC = () => {
           <Button
             icon={dragEnabled ? 'unlock' : 'lock'}
             onClick={toggleDragLock}
-            // disabled={isEmptyLayout}
+            disabled={isEmptyLayout}
             minimal
           />
 
@@ -104,7 +108,7 @@ const App: React.FC = () => {
             }
             position={Position.TOP}
           >
-            <Button icon="map" text="Maps" minimal />
+            <Button icon="map" text="Maps" disabled={!dragEnabled} minimal />
           </Popover>
 
           <Navbar.Divider />
@@ -169,7 +173,7 @@ const App: React.FC = () => {
             }
             position={Position.TOP}
           >
-            <Button icon="reset" minimal />
+            <Button icon="reset" disabled={!dragEnabled} minimal />
           </Popover>
 
           <Navbar.Divider />
@@ -187,7 +191,14 @@ const App: React.FC = () => {
       <div id="app">
         <Mosaic
           renderTile={(id: any, path: any) => (
-            <MosaicWindow path={path} title={id} draggable={dragEnabled}>
+            <MosaicWindow
+              path={path}
+              title={id}
+              toolbarControls={
+                dragEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+              }
+              draggable={dragEnabled}
+            >
               {ELEMENT_MAP[id]}
             </MosaicWindow>
           )}
