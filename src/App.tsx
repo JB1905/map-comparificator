@@ -8,7 +8,6 @@ import {
   Position,
   MenuItem,
   Classes,
-  // Dialog,
 } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -216,10 +215,6 @@ const App: React.FC = () => {
           }`}
         />
       </div>
-
-      {/* <Dialog isOpen={true}>
-        <p>hello</p>
-      </Dialog> */}
     </div>
   );
 };

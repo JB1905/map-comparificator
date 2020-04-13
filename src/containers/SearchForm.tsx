@@ -42,7 +42,7 @@ const SearchForm: React.FC = () => {
           <MenuItem
             style={{ flex: 1 }}
             text={item.display_name}
-            icon={locationIcons[item.class]}
+            icon={locationIcons[item.class] ?? 'map-marker'}
             onClick={() => selectPlace(item)}
           />
 

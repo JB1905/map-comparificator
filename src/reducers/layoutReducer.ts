@@ -17,10 +17,6 @@ export const layoutReducer = (state = initialState, action: any) => {
       return { ...state, activeLayout: action.payload };
 
     case CREATE_LAYOUT:
-      console.log(action.payload);
-
-      console.log(state);
-
       return {
         ...state,
         customLayouts: [
