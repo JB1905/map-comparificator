@@ -1,7 +1,7 @@
 import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../actions';
 
 const initialState = {
-  coords: [37.415, 34.048333],
+  coords: [37.773972, -122.431297],
   zoom: 7,
 };
 
