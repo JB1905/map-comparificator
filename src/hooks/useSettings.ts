@@ -2,21 +2,23 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
+import { RootState } from '../reducers';
+
 export const useSettings = () => {
   const dispatch = useDispatch();
 
   const { activeCenteringMode, customizationEnabled } = useSelector(
-    (state: any) => state.settings
+    (state: RootState) => state.settings
   );
 
-  const setCenteringMode = (centeringMode: any) => {
+  const setCenteringMode = (centeringMode: 'center' | 'fill' | 'none') => {
     dispatch({
       type: SET_CENTERING_MODE,
       payload: centeringMode,
     });
   };
 
-  const toggleDragLock = () => {
+  const toggleCustomization = () => {
     dispatch({ type: TOGGLE_CUSTOMIZATION });
   };
 
@@ -24,6 +26,6 @@ export const useSettings = () => {
     activeCenteringMode,
     setCenteringMode,
     customizationEnabled,
-    toggleDragLock,
+    toggleCustomization,
   };
 };

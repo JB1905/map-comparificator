@@ -4,13 +4,19 @@ import { ReactBingmaps } from 'react-bingmaps-plus';
 
 import { bingMapsToken } from '../config';
 
+import { RootState } from '../reducers';
+
 const BingMaps: React.FC = () => {
-  const { coords, zoom } = useSelector((state: any) => state.maps);
+  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 
   return (
-    <ReactBingmaps bingmapKey={bingMapsToken} center={coords} zoom={zoom} />
+    <ReactBingmaps
+      bingmapKey={bingMapsToken}
+      center={coords}
+      zoom={zoomLevel}
+    />
   );
 };
 

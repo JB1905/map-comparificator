@@ -4,8 +4,10 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 import { googleMapsToken } from '../config';
 
+import { RootState } from '../reducers';
+
 const GoogleMaps: React.FC = () => {
-  const { coords, zoom } = useSelector((state: any) => state.maps);
+  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 
@@ -14,7 +16,7 @@ const GoogleMaps: React.FC = () => {
       <GoogleMap
         mapContainerStyle={{ height: '100%', width: '100%' }}
         center={{ lat: coords[0], lng: coords[1] }}
-        zoom={zoom}
+        zoom={zoomLevel}
       />
     </LoadScript>
   );

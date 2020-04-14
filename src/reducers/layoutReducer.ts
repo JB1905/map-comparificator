@@ -1,17 +1,54 @@
+import { MosaicParent } from 'react-mosaic-component';
+
 import {
   SET_LAYOUT,
   CREATE_LAYOUT,
   REMOVE_LAYOUT,
 } from '../actions/layoutActions';
 
-import { gridLayout } from '../constants/initialLayout';
+import { gridLayout } from '../layouts';
 
-const initialState = {
+export type Layout = string | number | MosaicParent<React.ReactText> | null;
+
+export interface LayoutState {
+  activeLayout: Layout;
+  customLayouts: {
+    name: string;
+    layout: Layout;
+  }[];
+}
+
+interface SetLayoutAction {
+  type: typeof SET_LAYOUT;
+  payload: Layout;
+}
+
+interface CreateLayoutAction {
+  type: typeof CREATE_LAYOUT;
+  payload: {
+    name: string;
+    layout: Layout;
+  };
+}
+
+interface RemoveLayoutAction {
+  type: typeof REMOVE_LAYOUT;
+}
+
+type LayoutActionTypes =
+  | SetLayoutAction
+  | CreateLayoutAction
+  | RemoveLayoutAction;
+
+const initialState: LayoutState = {
   activeLayout: gridLayout,
   customLayouts: [],
 };
 
-export const layoutReducer = (state = initialState, action: any) => {
+export const layoutReducer = (
+  state = initialState,
+  action: LayoutActionTypes
+) => {
   switch (action.type) {
     case SET_LAYOUT:
       return { ...state, activeLayout: action.payload };
@@ -29,8 +66,6 @@ export const layoutReducer = (state = initialState, action: any) => {
       };
 
     case REMOVE_LAYOUT:
-      return state;
-
     default:
       return state;
   }

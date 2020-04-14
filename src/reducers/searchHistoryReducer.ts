@@ -4,15 +4,43 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from '../actions';
 
-const initialState = {
+import { SearchHistoryItem } from '../types/SearchHistoryItem';
+
+interface InitialState {
+  items: SearchHistoryItem[];
+}
+
+interface SearchHistoryAddAction {
+  type: typeof SEARCH_HISTORY_ADD;
+  payload: SearchHistoryItem;
+}
+
+interface SearchHistoryRemoveAction {
+  type: typeof SEARCH_HISTORY_REMOVE;
+  payload: string;
+}
+
+interface SearchHistoryClearAction {
+  type: typeof SEARCH_HISTORY_CLEAR;
+}
+
+type SearchHistoryActionTypes =
+  | SearchHistoryAddAction
+  | SearchHistoryRemoveAction
+  | SearchHistoryClearAction;
+
+const initialState: InitialState = {
   items: [],
 };
 
-export const searchHistoryReducer = (state = initialState, action: any) => {
+export const searchHistoryReducer = (
+  state = initialState,
+  action: SearchHistoryActionTypes
+) => {
   switch (action.type) {
     case SEARCH_HISTORY_ADD: {
       const exists = state.items.find(
-        (item: any) => item.place_id === action.payload.place_id
+        (item) => item.place_id === action.payload.place_id
       );
 
       if (exists) return state;
@@ -23,7 +51,7 @@ export const searchHistoryReducer = (state = initialState, action: any) => {
     case SEARCH_HISTORY_REMOVE:
       return {
         ...state,
-        items: state.items.filter((item: any) => item !== action.payload),
+        items: state.items.filter((item) => item.place_id !== action.payload),
       };
 
     case SEARCH_HISTORY_CLEAR:

@@ -8,12 +8,14 @@ import { mapBoxToken } from '../config';
 
 import { Theme } from '../enums/Theme';
 
+import { RootState } from '../reducers';
+
 const Map = ReactMapboxGl({
   accessToken: mapBoxToken,
 });
 
 const MapBox: React.FC = () => {
-  const { coords, zoom } = useSelector((state: any) => state.maps);
+  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 
@@ -26,7 +28,7 @@ const MapBox: React.FC = () => {
       }-v9`}
       containerStyle={{ height: '100%', width: '100%' }}
       center={[coords[1], coords[0]]}
-      zoom={[zoom]}
+      // zoom={[zoomLevel]}
       // onMove={(e) => console.log(e.transform._zoom)}
       // onZoom={(e) => console.log(e)}
     />

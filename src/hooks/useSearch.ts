@@ -9,6 +9,10 @@ import {
   searchLocation,
 } from '../actions';
 
+import { RootState } from '../reducers';
+
+import { SearchHistoryItem } from '../types/SearchHistoryItem';
+
 export const useSearch = () => {
   const dispatch = useDispatch();
 
@@ -16,25 +20,27 @@ export const useSearch = () => {
 
   const [value] = useDebounce(query, 1000);
 
-  const { loading, results, error, history } = useSelector((state: any) => ({
-    loading: state.searchResults.loading,
-    results: state.searchResults.results,
-    error: state.searchResults.error,
-    history: state.searchHistory.items.slice(0, 10),
-  }));
+  const { loading, results, error, history } = useSelector(
+    (state: RootState) => ({
+      loading: state.searchResults.loading,
+      results: state.searchResults.results,
+      error: state.searchResults.error,
+      history: state.searchHistory.items.slice(0, 10),
+    })
+  );
 
   useEffect(() => {
     if (value) dispatch(searchLocation(value));
   }, [dispatch, value]);
 
-  const addToHistory = (item: any) => {
+  const addToHistory = (item: SearchHistoryItem) => {
     dispatch({
       type: SEARCH_HISTORY_ADD,
       payload: item,
     });
   };
 
-  const removeFromHistory = (item: any) => {
+  const removeFromHistory = (item: SearchHistoryItem) => {
     dispatch({
       type: SEARCH_HISTORY_REMOVE,
       payload: item,

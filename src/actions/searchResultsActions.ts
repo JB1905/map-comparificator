@@ -1,24 +1,32 @@
+import { Dispatch } from 'redux';
+
 import { LocationIqToken } from '../config';
 
-export const SEARCH_LOADING = 'SEARCH_LOADING';
-export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
-export const SEARCH_ERROR = 'SEARCH_ERROR';
+import { SearchResultsActionTypes } from '../reducers/searchResultsReducer';
 
-const searchLocationFetchPending = () => ({
-  type: SEARCH_LOADING,
+import Place from '../interfaces/Place';
+
+export const SEARCH_RESULTS_LOADING = 'SEARCH_RESULTS_LOADING';
+export const SEARCH_RESULTS_SUCCESS = 'SEARCH_RESULTS_SUCCESS';
+export const SEARCH_RESULTS_ERROR = 'SEARCH_RESULTS_ERROR';
+
+const searchLocationFetchPending = (): SearchResultsActionTypes => ({
+  type: SEARCH_RESULTS_LOADING,
 });
 
-const searchLocationFetchSuccess = (data: any) => ({
-  type: SEARCH_SUCCESS,
+const searchLocationFetchSuccess = (
+  data: Place[]
+): SearchResultsActionTypes => ({
+  type: SEARCH_RESULTS_SUCCESS,
   payload: data,
 });
 
-const searchLocationFetchError = (err: any) => ({
-  type: SEARCH_ERROR,
+const searchLocationFetchError = (err: Error): SearchResultsActionTypes => ({
+  type: SEARCH_RESULTS_ERROR,
   payload: err,
 });
 
-export const searchLocation = (query: string) => async (dispatch: any) => {
+export const searchLocation = (query: string) => async (dispatch: Dispatch) => {
   dispatch(searchLocationFetchPending());
 
   try {

@@ -1,31 +1,27 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { MosaicParent } from 'react-mosaic-component';
 
 import { SET_LAYOUT, CREATE_LAYOUT } from '../actions';
 
-import {
-  gridLayout,
-  columnLayout,
-  mosaicLayout,
-} from '../constants/initialLayout';
+import { RootState } from '../reducers';
 
-type Layout = string | number | MosaicParent<React.ReactText> | null;
+import { gridLayout, columnLayout, mosaicLayout } from '../layouts';
+
+import { Layout } from '../reducers/layoutReducer';
 
 export const useLayout = () => {
   const dispatch = useDispatch();
 
   const { activeLayout, customLayouts } = useSelector(
-    (state: { layout: { activeLayout: Layout; customLayouts: any } }) =>
-      state.layout
+    (state: RootState) => state.layout
   );
 
   const isEmptyLayout = activeLayout === null;
 
-  const availableLayouts = {
-    grid: gridLayout,
-    columns: columnLayout,
-    mosaic: mosaicLayout,
-  };
+  const availableLayouts = [
+    { name: 'Grid', layout: gridLayout },
+    { name: 'Columns', layout: columnLayout },
+    { name: 'Mosaic', layout: mosaicLayout },
+  ];
 
   const setLayout = (layout: Layout) => {
     dispatch({ type: SET_LAYOUT, payload: layout });
