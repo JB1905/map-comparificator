@@ -28,7 +28,7 @@ const MapBox: React.FC = () => {
       }-v9`}
       containerStyle={{ height: '100%', width: '100%' }}
       center={[coords[1], coords[0]]}
-      // zoom={[zoom]}
+      zoom={[zoomLevel]}
       // onMove={(e) => console.log(e.transform._zoom)}
       // onZoom={(e) => console.log(e)}
     />
