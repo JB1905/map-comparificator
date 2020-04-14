@@ -2,10 +2,12 @@ import React from 'react';
 import { Select } from '@blueprintjs/select';
 import { MenuItem, Button } from '@blueprintjs/core';
 
-import { useSearch } from '../hooks/useSearch';
-import { useLayout } from '../hooks/useLayout';
-import { useGeolocation } from '../hooks/useGeolocation';
-import { locationIcons } from '../constants/locationIcons';
+import { useSearch } from '../../hooks/useSearch';
+import { useLayout } from '../../hooks/useLayout';
+import { useGeolocation } from '../../hooks/useGeolocation';
+import { locationIcons } from '../../constants/locationIcons';
+
+import './SearchForm.scss';
 
 const SearchForm: React.FC = () => {
   const {
@@ -35,15 +37,15 @@ const SearchForm: React.FC = () => {
   return (
     <Select
       items={query ? results : history}
-      // style={{ maxWidth: 320 }}
       filterable={false}
       itemRenderer={(item: any) => (
         <>
           <MenuItem
-            style={{ flex: 1 }}
+            className="search-form-hints"
             text={item.display_name}
             icon={locationIcons[item.class] ?? 'map-marker'}
             onClick={() => selectPlace(item)}
+            key={item.place_id}
           />
 
           {/* {!query && (
@@ -55,10 +57,9 @@ const SearchForm: React.FC = () => {
           )} */}
         </>
       )}
-      onItemSelect={() => console.log('null')}
+      onItemSelect={selectPlace}
       popoverProps={{ minimal: true }}
-      // createNewItemRenderer={() => <p>aaa</p>}
-      // noResults={<p>aaa</p>}
+      noResults={<p>Results not found</p>}
     >
       <div className="bp3-input-group">
         <span className="bp3-icon bp3-icon-search" />

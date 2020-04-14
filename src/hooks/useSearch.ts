@@ -2,26 +2,30 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
-import { search } from '../api/locationIq';
-
 import {
   SEARCH_HISTORY_ADD,
   SEARCH_HISTORY_REMOVE,
   SEARCH_HISTORY_CLEAR,
+  searchLocation,
 } from '../actions';
 
 export const useSearch = () => {
   const dispatch = useDispatch();
 
-  const history = useSelector((state: any) =>
-    state.search.history.slice(0, 10)
-  );
-
   const [query, setQuery] = useState('');
 
   const [value] = useDebounce(query, 1000);
 
-  const [results, setResults] = useState<any>([]);
+  const { loading, results, error, history } = useSelector((state: any) => ({
+    loading: state.search.loading,
+    results: state.search.results,
+    error: state.search.error,
+    history: state.search.history.slice(0, 10),
+  }));
+
+  useEffect(() => {
+    if (value) dispatch(searchLocation(value));
+  }, [dispatch, value]);
 
   const addToHistory = (item: any) => {
     dispatch({
@@ -43,20 +47,12 @@ export const useSearch = () => {
     });
   };
 
-  useEffect(() => {
-    if (value) {
-      const find = async () => {
-        setResults(await search(value));
-      };
-
-      find();
-    }
-  }, [value]);
-
   return {
     query,
     setQuery,
+    loading,
     results,
+    error,
     history,
     addToHistory,
     removeFromHistory,

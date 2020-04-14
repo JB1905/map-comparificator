@@ -14,6 +14,7 @@ import {
   MosaicWindow,
   DEFAULT_CONTROLS_WITHOUT_CREATION,
 } from 'react-mosaic-component';
+import equal from 'deep-equal';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -32,8 +33,6 @@ import { useLayout } from './hooks/useLayout';
 import { useSettings } from './hooks/useSettings';
 
 import { centeringModes } from './constants/centeringModes';
-
-import { compareObjects } from './helpers/compareObjects';
 
 import { Theme } from './enums/Theme';
 
@@ -146,7 +145,7 @@ const App: React.FC = () => {
                     text={name}
                     icon="page-layout"
                     key={name}
-                    active={compareObjects(activeLayout, pattern)}
+                    active={equal(activeLayout, pattern)}
                     onClick={() => setLayout(pattern as any)}
                   />
                 ))}
@@ -157,7 +156,7 @@ const App: React.FC = () => {
                       text={name}
                       icon="page-layout"
                       key={name}
-                      active={compareObjects(activeLayout, layout)}
+                      active={equal(activeLayout, layout)}
                       onClick={() => setLayout(layout as any)}
                     />
                   ))}
