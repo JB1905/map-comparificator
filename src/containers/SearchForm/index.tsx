@@ -5,6 +5,7 @@ import { MenuItem, Button } from '@blueprintjs/core';
 import { useSearch } from '../../hooks/useSearch';
 import { useLayout } from '../../hooks/useLayout';
 import { useGeolocation } from '../../hooks/useGeolocation';
+
 import { locationIcons } from '../../constants/locationIcons';
 
 import './SearchForm.scss';
@@ -20,7 +21,7 @@ const SearchForm: React.FC = () => {
     clearHistory,
   } = useSearch();
 
-  console.log(results);
+  // console.log(results);
 
   const { isEmptyLayout } = useLayout();
 

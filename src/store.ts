@@ -9,7 +9,7 @@ import rootReducer from './reducers';
 const persistConfig = {
   key: 'store',
   storage,
-  blacklist: ['search'],
+  blacklist: ['searchResults'],
 };
 
 const store = createStore(

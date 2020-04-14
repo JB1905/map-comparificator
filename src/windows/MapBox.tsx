@@ -17,12 +17,12 @@ const MapBox: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const { appearance } = useTheme();
+  const { activeTheme } = useTheme();
 
   return (
     <Map
       style={`mapbox://styles/mapbox/${
-        appearance === Theme.Dark ? 'dark' : 'streets'
+        activeTheme === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
       containerStyle={{ height: '100%', width: '100%' }}
       center={[coords[1], coords[0]]}

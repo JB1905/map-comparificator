@@ -39,7 +39,7 @@ import { Theme } from './enums/Theme';
 const App: React.FC = () => {
   const { getGeolocation, setCoords } = useGeolocation();
 
-  const { appearance, toggleTheme } = useTheme();
+  const { activeTheme, toggleTheme } = useTheme();
 
   const {
     activeLayout,
@@ -50,7 +50,12 @@ const App: React.FC = () => {
     customLayouts,
   } = useLayout();
 
-  const { sync, setSyncType, dragEnabled, toggleDragLock } = useSettings();
+  const {
+    activeCenteringMode,
+    setCenteringMode,
+    customizationEnabled,
+    toggleDragLock,
+  } = useSettings();
 
   const getCurrentLocation = () => {
     getGeolocation(({ latitude, longitude }) => {
@@ -59,7 +64,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={appearance === Theme.Dark ? Classes.DARK : ''}>
+    <div className={activeTheme === Theme.Dark ? Classes.DARK : ''}>
       <Navbar>
         <Navbar.Group align={Alignment.LEFT}>
           <Navbar.Heading>
@@ -67,7 +72,7 @@ const App: React.FC = () => {
           </Navbar.Heading>
 
           <Button
-            icon={appearance === Theme.Dark ? 'flash' : 'moon'}
+            icon={activeTheme === Theme.Dark ? 'flash' : 'moon'}
             onClick={toggleTheme}
             minimal
           />
@@ -88,7 +93,7 @@ const App: React.FC = () => {
 
         <Navbar.Group align={Alignment.RIGHT}>
           <Button
-            icon={dragEnabled ? 'unlock' : 'lock'}
+            icon={customizationEnabled ? 'unlock' : 'lock'}
             onClick={toggleDragLock}
             disabled={isEmptyLayout}
             minimal
@@ -106,7 +111,12 @@ const App: React.FC = () => {
             }
             position={Position.TOP}
           >
-            <Button icon="map" text="Maps" disabled={!dragEnabled} minimal />
+            <Button
+              icon="map"
+              text="Maps"
+              disabled={!customizationEnabled}
+              minimal
+            />
           </Popover>
 
           <Navbar.Divider />
@@ -119,8 +129,8 @@ const App: React.FC = () => {
                     text={centeringMode}
                     icon="locate"
                     key={centeringMode}
-                    active={sync === centeringMode}
-                    onClick={() => setSyncType(centeringMode)}
+                    active={activeCenteringMode === centeringMode}
+                    onClick={() => setCenteringMode(centeringMode)}
                   />
                 ))}
               </Menu>
@@ -171,7 +181,7 @@ const App: React.FC = () => {
             }
             position={Position.TOP}
           >
-            <Button icon="reset" disabled={!dragEnabled} minimal />
+            <Button icon="reset" disabled={!customizationEnabled} minimal />
           </Popover>
 
           <Navbar.Divider />
@@ -193,9 +203,9 @@ const App: React.FC = () => {
               path={path}
               title={id}
               toolbarControls={
-                dragEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+                customizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
               }
-              draggable={dragEnabled}
+              draggable={customizationEnabled}
             >
               {ELEMENT_MAP[id]}
             </MosaicWindow>
@@ -207,10 +217,10 @@ const App: React.FC = () => {
               message="Select maps from the menu"
             />
           }
-          resize={dragEnabled ? undefined : 'DISABLED'}
+          resize={customizationEnabled ? undefined : 'DISABLED'}
           onChange={(changedLayout) => setLayout(changedLayout)}
           className={`mosaic-blueprint-theme ${
-            appearance === Theme.Dark ? Classes.DARK : ''
+            activeTheme === Theme.Dark ? Classes.DARK : ''
           }`}
         />
       </div>

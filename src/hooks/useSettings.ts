@@ -1,22 +1,29 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_SYNC_TYPE, TOGGLE_DRAG_LOCK } from '../actions';
+import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
 export const useSettings = () => {
   const dispatch = useDispatch();
 
-  const { sync, dragEnabled } = useSelector((state: any) => state.settings);
+  const { activeCenteringMode, customizationEnabled } = useSelector(
+    (state: any) => state.settings
+  );
 
-  const setSyncType = (syncType: any) => {
+  const setCenteringMode = (centeringMode: any) => {
     dispatch({
-      type: SET_SYNC_TYPE,
-      payload: syncType,
+      type: SET_CENTERING_MODE,
+      payload: centeringMode,
     });
   };
 
   const toggleDragLock = () => {
-    dispatch({ type: TOGGLE_DRAG_LOCK });
+    dispatch({ type: TOGGLE_CUSTOMIZATION });
   };
 
-  return { sync, setSyncType, dragEnabled, toggleDragLock };
+  return {
+    activeCenteringMode,
+    setCenteringMode,
+    customizationEnabled,
+    toggleDragLock,
+  };
 };

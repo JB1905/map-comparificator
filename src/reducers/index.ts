@@ -3,14 +3,16 @@ import { combineReducers } from 'redux';
 import { mapsReducer } from './mapsReducer';
 import { themeReducer } from './themeReducer';
 import { layoutReducer } from './layoutReducer';
-import { searchReducer } from './searchReducer';
+import { searchResultsReducer } from './searchResultsReducer';
+import { searchHistoryReducer } from './searchHistoryReducer';
 import { settingsReducer } from './settingsReducer';
 
 const rootRecucer = combineReducers({
   maps: mapsReducer,
   theme: themeReducer,
   layout: layoutReducer,
-  search: searchReducer,
+  searchResults: searchResultsReducer,
+  searchHistory: searchHistoryReducer,
   settings: settingsReducer,
 });
 

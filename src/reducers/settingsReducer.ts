@@ -1,17 +1,17 @@
-import { SET_SYNC_TYPE, TOGGLE_DRAG_LOCK } from '../actions';
+import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
 const initialState = {
-  sync: 'center',
-  dragEnabled: true,
+  activeCenteringMode: 'center',
+  customizationEnabled: true,
 };
 
 export const settingsReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case SET_SYNC_TYPE:
-      return { ...state, sync: action.payload };
+    case SET_CENTERING_MODE:
+      return { ...state, activeCenteringMode: action.payload };
 
-    case TOGGLE_DRAG_LOCK:
-      return { ...state, dragEnabled: !state.dragEnabled };
+    case TOGGLE_CUSTOMIZATION:
+      return { ...state, customizationEnabled: !state.customizationEnabled };
 
     default:
       return state;

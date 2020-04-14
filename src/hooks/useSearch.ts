@@ -17,10 +17,10 @@ export const useSearch = () => {
   const [value] = useDebounce(query, 1000);
 
   const { loading, results, error, history } = useSelector((state: any) => ({
-    loading: state.search.loading,
-    results: state.search.results,
-    error: state.search.error,
-    history: state.search.history.slice(0, 10),
+    loading: state.searchResults.loading,
+    results: state.searchResults.results,
+    error: state.searchResults.error,
+    history: state.searchHistory.items.slice(0, 10),
   }));
 
   useEffect(() => {

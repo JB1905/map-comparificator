@@ -1,9 +1,5 @@
 import { LocationIqToken } from '../config';
 
-export const SEARCH_HISTORY_ADD = 'SEARCH_HISTORY_ADD';
-export const SEARCH_HISTORY_REMOVE = 'SEARCH_HISTORY_REMOVE';
-export const SEARCH_HISTORY_CLEAR = 'SEARCH_HISTORY_CLEAR';
-
 export const SEARCH_LOADING = 'SEARCH_LOADING';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
