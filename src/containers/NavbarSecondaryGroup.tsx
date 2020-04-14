@@ -79,7 +79,7 @@ const NavbarSecondaryGroup: React.FC = () => {
                 icon="locate"
                 key={centeringMode}
                 active={activeCenteringMode === centeringMode}
-                onClick={() => setCenteringMode(centeringMode as any)}
+                onClick={() => setCenteringMode(centeringMode)}
               />
             ))}
           </Menu>

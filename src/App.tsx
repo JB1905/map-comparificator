@@ -59,7 +59,7 @@ const App: React.FC = () => {
             activeTheme === Theme.Dark ? Classes.DARK : ''
           }`}
           renderTile={tileRenderer}
-          initialValue={activeLayout as string | MosaicParent<string> | null}
+          initialValue={activeLayout}
           zeroStateView={
             <ErrorScreen
               title="No map preview selected"

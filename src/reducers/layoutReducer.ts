@@ -8,7 +8,7 @@ import {
 
 import { gridLayout } from '../layouts';
 
-export type Layout = string | number | MosaicParent<React.ReactText> | null;
+export type Layout = string | MosaicParent<string> | null;
 
 export interface LayoutState {
   activeLayout: Layout;
