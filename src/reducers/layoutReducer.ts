@@ -33,6 +33,7 @@ interface CreateLayoutAction {
 
 interface RemoveLayoutAction {
   type: typeof REMOVE_LAYOUT;
+  payload: string;
 }
 
 type LayoutActionTypes =
@@ -66,6 +67,13 @@ export const layoutReducer = (
       };
 
     case REMOVE_LAYOUT:
+      return {
+        ...state,
+        customLayouts: state.customLayouts.filter(
+          (customLayout) => customLayout.name !== action.payload
+        ),
+      };
+
     default:
       return state;
   }
