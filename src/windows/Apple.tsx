@@ -7,7 +7,7 @@ import { appleMapsToken } from '../config';
 import { RootState } from '../reducers';
 
 const AppleMaps: React.FC = () => {
-  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
+  const { coords, zoom } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 

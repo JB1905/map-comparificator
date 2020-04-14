@@ -7,7 +7,7 @@ import { HereMapsAppId, HereMapsAppCode } from '../config';
 import { RootState } from '../reducers';
 
 const HereMaps: React.FC = () => {
-  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
+  const { coords, zoom } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 

@@ -4,6 +4,8 @@ import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
 import { RootState } from '../reducers';
 
+import { CenteringMode } from '../types/CenteringMode';
+
 export const useSettings = () => {
   const dispatch = useDispatch();
 
@@ -11,7 +13,7 @@ export const useSettings = () => {
     (state: RootState) => state.settings
   );
 
-  const setCenteringMode = (centeringMode: 'center' | 'fill' | 'none') => {
+  const setCenteringMode = (centeringMode: CenteringMode) => {
     dispatch({
       type: SET_CENTERING_MODE,
       payload: centeringMode,

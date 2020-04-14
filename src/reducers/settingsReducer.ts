@@ -1,13 +1,15 @@
 import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
+import { CenteringMode } from '../types/CenteringMode';
+
 interface SettingsState {
-  activeCenteringMode: 'center' | 'fill' | 'none';
+  activeCenteringMode: CenteringMode;
   customizationEnabled: boolean;
 }
 
 interface SetCenteringModeAction {
   type: typeof SET_CENTERING_MODE;
-  payload: 'center' | 'fill' | 'none';
+  payload: CenteringMode;
 }
 
 interface ToggleCustomizationAction {

@@ -15,7 +15,7 @@ const Map = ReactMapboxGl({
 });
 
 const MapBox: React.FC = () => {
-  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
+  const { coords, zoom } = useSelector((state: RootState) => state.maps);
 
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const MapBox: React.FC = () => {
       }-v9`}
       containerStyle={{ height: '100%', width: '100%' }}
       center={[coords[1], coords[0]]}
-      // zoom={[zoomLevel]}
+      // zoom={[zoom]}
       // onMove={(e) => console.log(e.transform._zoom)}
       // onZoom={(e) => console.log(e)}
     />
