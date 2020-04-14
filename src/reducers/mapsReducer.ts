@@ -2,7 +2,7 @@ import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../actions';
 
 interface MapsState {
   coords: [number, number];
-  zoom: number;
+  zoomLevel: number;
 }
 
 interface UpdatCoordsAction {
@@ -19,7 +19,7 @@ type MapsActionTypes = UpdatCoordsAction | UpdateZoomLevelAction;
 
 const initialState: MapsState = {
   coords: [37.7790262, -122.4199061],
-  zoom: 7,
+  zoomLevel: 7,
 };
 
 export const mapsReducer = (state = initialState, action: MapsActionTypes) => {
@@ -28,7 +28,7 @@ export const mapsReducer = (state = initialState, action: MapsActionTypes) => {
       return { ...state, coords: action.payload };
 
     case UPDATE_ZOOM_LEVEL:
-      return { ...state, zoom: action.payload };
+      return { ...state, zoomLevel: action.payload };
 
     default:
       return state;
