@@ -4,7 +4,6 @@ import {
   Mosaic,
   MosaicWindow,
   MosaicBranch,
-  MosaicParent,
   DEFAULT_CONTROLS_WITHOUT_CREATION,
 } from 'react-mosaic-component';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -34,10 +33,10 @@ const App: React.FC = () => {
     <MosaicWindow
       path={path}
       title={id}
+      draggable={customizationEnabled}
       toolbarControls={
         customizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
       }
-      draggable={customizationEnabled}
     >
       {ELEMENT_MAP[id]}
     </MosaicWindow>
