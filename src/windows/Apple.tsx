@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Map } from 'react-mapkit';
 
-import { appleMapsToken } from '../config';
-
 import { RootState } from '../reducers';
 
 const AppleMaps: React.FC = () => {
@@ -13,7 +11,7 @@ const AppleMaps: React.FC = () => {
 
   return (
     <Map
-      tokenOrCallback={appleMapsToken}
+      tokenOrCallback={process.env.REACT_APP_APPLE_MAPS_TOKEN}
       center={coords}
       // region={{
       //   latitude: 50,

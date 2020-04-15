@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-import { googleMapsToken } from '../config';
-
 import { RootState } from '../reducers';
 
 const GoogleMaps: React.FC = () => {
@@ -12,7 +10,10 @@ const GoogleMaps: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <LoadScript id="script-loader" googleMapsApiKey={googleMapsToken}>
+    <LoadScript
+      id="script-loader"
+      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_TOKEN}
+    >
       <GoogleMap
         mapContainerStyle={{ height: '100%', width: '100%' }}
         center={{ lat: coords[0], lng: coords[1] }}

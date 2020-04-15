@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import HEREMap from '@impargo/react-here-maps';
 
-import { HereMapsAppId, HereMapsAppCode } from '../config';
-
 import { RootState } from '../reducers';
 
 const HereMaps: React.FC = () => {
@@ -13,8 +11,8 @@ const HereMaps: React.FC = () => {
 
   // return (
   //   <HEREMap
-  //     appId={HereMapsAppId}
-  //     appCode={HereMapsAppCode}
+  //     appId={process.env.REACT_APP_HERE_MAPS_APP_ID}
+  //     appCode={process.env.REACT_APP_HERE_MAPS_APP_CODE}
   //     center={{ lat: coords[0], lng: coords[1] }}
   //     zoom={zoomLevel}
   //   />

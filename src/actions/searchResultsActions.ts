@@ -1,7 +1,5 @@
 import { Dispatch } from 'redux';
 
-import { LocationIqToken } from '../config';
-
 import { SearchResultsActionTypes } from '../types/SearchResultsActionTypes';
 
 import Place from '../interfaces/Place';
@@ -31,7 +29,7 @@ export const searchLocation = (query: string) => async (dispatch: Dispatch) => {
 
   try {
     const res = await fetch(
-      `https://eu1.locationiq.com/v1/search.php?key=${LocationIqToken}&q=${query}&format=json`
+      `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&q=${query}&format=json`
     );
 
     const data = await res.json();

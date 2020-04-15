@@ -2,8 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ReactBingmaps } from 'react-bingmaps-plus';
 
-import { bingMapsToken } from '../config';
-
 import { RootState } from '../reducers';
 
 const BingMaps: React.FC = () => {
@@ -13,7 +11,7 @@ const BingMaps: React.FC = () => {
 
   return (
     <ReactBingmaps
-      bingmapKey={bingMapsToken}
+      bingmapKey={process.env.REACT_APP_BING_MAPS_TOKEN}
       center={coords}
       zoom={zoomLevel}
     />
