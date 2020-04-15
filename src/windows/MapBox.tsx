@@ -1,18 +1,14 @@
 import React from 'react';
-import ReactMapboxGl from 'react-mapbox-gl';
+import ReactMapGL from 'react-map-gl';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useTheme } from '../hooks/useTheme';
-
-import { mapBoxToken } from '../config';
 
 import { Theme } from '../enums/Theme';
 
 import { RootState } from '../reducers';
 
-const Map = ReactMapboxGl({
-  accessToken: mapBoxToken,
-});
+// import { UPDATE_COORDS } from '../actions';
 
 const MapBox: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
@@ -22,15 +18,20 @@ const MapBox: React.FC = () => {
   const { activeTheme } = useTheme();
 
   return (
-    <Map
-      style={`mapbox://styles/mapbox/${
+    <ReactMapGL
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      width="100%"
+      height="100%"
+      latitude={coords[0]}
+      longitude={coords[1]}
+      zoom={zoomLevel}
+      mapStyle={`mapbox://styles/mapbox/${
         activeTheme === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
-      containerStyle={{ height: '100%', width: '100%' }}
-      center={[coords[1], coords[0]]}
-      zoom={[zoomLevel]}
-      // onMove={(e) => console.log(e.transform._zoom)}
-      // onZoom={(e) => console.log(e)}
+      onViewportChange={(e) => {
+        console.log(e);
+        // dispatch({ type: UPDATE_COORDS, payload: [e.latitude, e.longitude] });
+      }}
     />
   );
 };
