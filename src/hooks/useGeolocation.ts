@@ -20,5 +20,13 @@ export const useGeolocation = () => {
     });
   };
 
-  return { getGeolocation, setCoords };
+  const setZoomLevel = (zoomLevel: number) => {
+    dispatch({ type: setZoomLevel, payload: zoomLevel });
+  };
+
+  return {
+    getGeolocation,
+    setCoords,
+    setZoomLevel,
+  };
 };

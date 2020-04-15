@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactMapGL from 'react-map-gl';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { useTheme } from '../hooks/useTheme';
+import { useGeolocation } from '../hooks/useGeolocation';
 
 import { Theme } from '../enums/Theme';
 
 import { RootState } from '../reducers';
 
-// import { UPDATE_COORDS } from '../actions';
-
 const MapBox: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
-  const dispatch = useDispatch();
+  const { setCoords, setZoomLevel } = useGeolocation();
 
   const { activeTheme } = useTheme();
 
@@ -29,8 +28,10 @@ const MapBox: React.FC = () => {
         activeTheme === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
       onViewportChange={(e) => {
-        console.log(e);
-        // dispatch({ type: UPDATE_COORDS, payload: [e.latitude, e.longitude] });
+        // console.log(e);
+        setCoords([e.latitude, e.longitude]);
+
+        setZoomLevel(e.zoom);
       }}
     />
   );

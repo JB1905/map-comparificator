@@ -1,13 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import HEREMap from '@impargo/react-here-maps';
 
 import { RootState } from '../reducers';
 
 const HereMaps: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
-
-  const dispatch = useDispatch();
 
   // return (
   //   <HEREMap
