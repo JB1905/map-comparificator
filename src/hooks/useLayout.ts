@@ -6,7 +6,7 @@ import { RootState } from '../reducers';
 
 import { gridLayout, columnLayout, mosaicLayout } from '../layouts';
 
-import { Layout } from '../reducers/layoutReducer';
+import { Layout } from '../types/Layout';
 
 export const useLayout = () => {
   const dispatch = useDispatch();

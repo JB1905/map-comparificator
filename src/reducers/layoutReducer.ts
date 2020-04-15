@@ -1,5 +1,3 @@
-import { MosaicParent } from 'react-mosaic-component';
-
 import {
   SET_LAYOUT,
   CREATE_LAYOUT,
@@ -8,38 +6,9 @@ import {
 
 import { gridLayout } from '../layouts';
 
-export type Layout = string | MosaicParent<string> | null;
+import { LayoutState } from '../interfaces/LayoutState';
 
-export interface LayoutState {
-  activeLayout: Layout;
-  customLayouts: {
-    name: string;
-    layout: Layout;
-  }[];
-}
-
-interface SetLayoutAction {
-  type: typeof SET_LAYOUT;
-  payload: Layout;
-}
-
-interface CreateLayoutAction {
-  type: typeof CREATE_LAYOUT;
-  payload: {
-    name: string;
-    layout: Layout;
-  };
-}
-
-interface RemoveLayoutAction {
-  type: typeof REMOVE_LAYOUT;
-  payload: string;
-}
-
-type LayoutActionTypes =
-  | SetLayoutAction
-  | CreateLayoutAction
-  | RemoveLayoutAction;
+import { LayoutActionTypes } from '../types/LayoutActionTypes';
 
 const initialState: LayoutState = {
   activeLayout: gridLayout,

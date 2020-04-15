@@ -4,34 +4,11 @@ import {
   SEARCH_RESULTS_ERROR,
 } from '../actions';
 
-import Place from '../interfaces/Place';
+import { SearchResultsState } from '../interfaces/SearchResultsState';
 
-interface InitialState {
-  loading: boolean;
-  results: Place[];
-  error: Error | null;
-}
+import { SearchResultsActionTypes } from '../types/SearchResultsActionTypes';
 
-interface SearchResultsLoadingAction {
-  type: typeof SEARCH_RESULTS_LOADING;
-}
-
-interface SearchResultsSuccessAction {
-  type: typeof SEARCH_RESULTS_SUCCESS;
-  payload: Place[];
-}
-
-interface SearchResultsErrorAction {
-  type: typeof SEARCH_RESULTS_ERROR;
-  payload: Error;
-}
-
-export type SearchResultsActionTypes =
-  | SearchResultsLoadingAction
-  | SearchResultsSuccessAction
-  | SearchResultsErrorAction;
-
-const initialState: InitialState = {
+const initialState: SearchResultsState = {
   loading: false,
   results: [],
   error: null,

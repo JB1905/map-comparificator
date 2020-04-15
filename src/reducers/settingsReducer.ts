@@ -1,22 +1,8 @@
 import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
-import { CenteringMode } from '../types/CenteringMode';
+import { SettingsState } from '../interfaces/SettingsState';
 
-interface SettingsState {
-  activeCenteringMode: CenteringMode;
-  customizationEnabled: boolean;
-}
-
-interface SetCenteringModeAction {
-  type: typeof SET_CENTERING_MODE;
-  payload: CenteringMode;
-}
-
-interface ToggleCustomizationAction {
-  type: typeof TOGGLE_CUSTOMIZATION;
-}
-
-type SettingsActionTypes = SetCenteringModeAction | ToggleCustomizationAction;
+import { SettingsActionTypes } from '../types/SettingsActionTypes';
 
 const initialState: SettingsState = {
   activeCenteringMode: 'center',

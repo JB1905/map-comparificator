@@ -1,21 +1,8 @@
 import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../actions';
 
-interface MapsState {
-  coords: [number, number];
-  zoomLevel: number;
-}
+import { MapsState } from '../interfaces/MapsState';
 
-interface UpdatCoordsAction {
-  type: typeof UPDATE_COORDS;
-  payload: [number, number];
-}
-
-interface UpdateZoomLevelAction {
-  type: typeof UPDATE_ZOOM_LEVEL;
-  payload: number;
-}
-
-type MapsActionTypes = UpdatCoordsAction | UpdateZoomLevelAction;
+import { MapsActionTypes } from '../types/MapsActionTypes';
 
 const initialState: MapsState = {
   coords: [37.7790262, -122.4199061],

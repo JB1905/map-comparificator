@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 
 import { LocationIqToken } from '../config';
 
-import { SearchResultsActionTypes } from '../reducers/searchResultsReducer';
+import { SearchResultsActionTypes } from '../types/SearchResultsActionTypes';
 
 import Place from '../interfaces/Place';
 

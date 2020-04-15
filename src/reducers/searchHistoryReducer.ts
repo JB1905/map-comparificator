@@ -4,32 +4,11 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from '../actions';
 
-import { SearchHistoryItem } from '../types/SearchHistoryItem';
+import { SearchHistoryState } from '../interfaces/SearchHistoryState';
 
-interface InitialState {
-  items: SearchHistoryItem[];
-}
+import { SearchHistoryActionTypes } from '../types/SearchHistoryActionTypes';
 
-interface SearchHistoryAddAction {
-  type: typeof SEARCH_HISTORY_ADD;
-  payload: SearchHistoryItem;
-}
-
-interface SearchHistoryRemoveAction {
-  type: typeof SEARCH_HISTORY_REMOVE;
-  payload: string;
-}
-
-interface SearchHistoryClearAction {
-  type: typeof SEARCH_HISTORY_CLEAR;
-}
-
-type SearchHistoryActionTypes =
-  | SearchHistoryAddAction
-  | SearchHistoryRemoveAction
-  | SearchHistoryClearAction;
-
-const initialState: InitialState = {
+const initialState: SearchHistoryState = {
   items: [],
 };
 

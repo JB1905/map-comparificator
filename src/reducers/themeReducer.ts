@@ -2,16 +2,9 @@ import { SET_THEME } from '../actions';
 
 import { Theme } from '../enums/Theme';
 
-interface ThemeState {
-  activeTheme: Theme;
-}
+import { ThemeState } from '../interfaces/ThemeState';
 
-interface SetThemeAction {
-  type: typeof SET_THEME;
-  payload: Theme;
-}
-
-type ThemeActionTypes = SetThemeAction;
+import { ThemeActionTypes } from '../types/ThemeActionTypes';
 
 const initialState: ThemeState = {
   activeTheme: Theme.Light,
