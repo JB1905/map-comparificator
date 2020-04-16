@@ -53,6 +53,7 @@ const SearchForm: React.FC = () => {
           className="bp3-input"
           type="search"
           placeholder="Search..."
+          aria-label="Search"
           disabled={isEmptyLayout}
           onChange={(e) => setQuery(e.target.value)}
         />

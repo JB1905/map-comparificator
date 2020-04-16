@@ -129,7 +129,12 @@ const NavbarSecondaryGroup: React.FC = () => {
         }
         position={Position.TOP}
       >
-        <Button icon="reset" disabled={!customizationEnabled} minimal />
+        <Button
+          icon="reset"
+          disabled={!customizationEnabled}
+          minimal
+          aria-label="Preview code on GitHub"
+        />
       </Popover>
 
       <Navbar.Divider />
