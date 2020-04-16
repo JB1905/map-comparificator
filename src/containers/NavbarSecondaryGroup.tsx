@@ -129,12 +129,7 @@ const NavbarSecondaryGroup: React.FC = () => {
         }
         position={Position.TOP}
       >
-        <Button
-          icon="reset"
-          disabled={!customizationEnabled}
-          minimal
-          aria-label="Preview code on GitHub"
-        />
+        <Button icon="reset" disabled={!customizationEnabled} minimal />
       </Popover>
 
       <Navbar.Divider />
@@ -143,6 +138,7 @@ const NavbarSecondaryGroup: React.FC = () => {
         href="https://github.com/JB1905/map-comparificator"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Preview code on GitHub"
       >
         <OctoCat className="octocat" />
       </a>
