@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { ViewportProps } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 
-import { useTheme } from '../hooks/useTheme';
 import { useGeolocation } from '../hooks/useGeolocation';
+import { useTheme } from '../hooks/useTheme';
 
 import { Theme } from '../enums/Theme';
 
@@ -16,6 +16,12 @@ const MapBox: React.FC = () => {
 
   const { activeTheme } = useTheme();
 
+  const onViewportChange = (e: ViewportProps) => {
+    setCoords([e.latitude, e.longitude]);
+
+    setZoomLevel(e.zoom);
+  };
+
   return (
     <ReactMapGL
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -24,15 +30,10 @@ const MapBox: React.FC = () => {
       latitude={coords[0]}
       longitude={coords[1]}
       zoom={zoomLevel}
+      onViewportChange={onViewportChange}
       mapStyle={`mapbox://styles/mapbox/${
         activeTheme === Theme.Dark ? 'dark' : 'streets'
       }-v9`}
-      onViewportChange={(e) => {
-        // console.log(e);
-        setCoords([e.latitude, e.longitude]);
-
-        setZoomLevel(e.zoom);
-      }}
     />
   );
 };

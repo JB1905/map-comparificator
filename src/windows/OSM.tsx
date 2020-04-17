@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, Viewport } from 'react-leaflet';
 
 import { useGeolocation } from '../hooks/useGeolocation';
 
@@ -11,16 +11,18 @@ const OpenStreetMap: React.FC = () => {
 
   const { setCoords, setZoomLevel } = useGeolocation();
 
+  const onViewportChange = (e: Viewport) => {
+    setCoords(e.center!);
+
+    setZoomLevel(e.zoom!);
+  };
+
   return (
     <Map
       center={coords}
       zoom={zoomLevel}
       animate={false}
-      onViewportChange={(e) => {
-        setCoords(e.center!);
-
-        setZoomLevel(e.zoom!);
-      }}
+      onViewportChange={onViewportChange}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
