@@ -21,6 +21,16 @@ import { useLayout } from '../hooks/useLayout';
 import { useSettings } from '../hooks/useSettings';
 
 import { centeringModes } from '../constants/centeringModes';
+import {
+  getPathToCorner,
+  Corner,
+  getNodeAtPath,
+  MosaicParent,
+  MosaicNode,
+  MosaicDirection,
+  getOtherDirection,
+  updateTree,
+} from 'react-mosaic-component';
 
 const NavbarSecondaryGroup: React.FC = () => {
   const {
@@ -39,6 +49,47 @@ const NavbarSecondaryGroup: React.FC = () => {
     toggleCustomization,
   } = useSettings();
 
+  const addToTopRight = () => {
+    // let { currentNode } = this.state;
+    // if (currentNode) {
+    //   const path = getPathToCorner(currentNode, Corner.TOP_RIGHT);
+    //   const parent = getNodeAtPath(
+    //     currentNode,
+    //     dropRight(path)
+    //   ) as MosaicParent<number>;
+    //   const destination = getNodeAtPath(currentNode, path) as MosaicNode<
+    //     number
+    //   >;
+    //   const direction: MosaicDirection = parent
+    //     ? getOtherDirection(parent.direction)
+    //     : 'row';
+    //   let first: MosaicNode<number>;
+    //   let second: MosaicNode<number>;
+    //   if (direction === 'row') {
+    //     first = destination;
+    //     second = ++windowCount;
+    //   } else {
+    //     first = ++windowCount;
+    //     second = destination;
+    //   }
+    //   currentNode = updateTree(currentNode, [
+    //     {
+    //       path,
+    //       spec: {
+    //         $set: {
+    //           direction,
+    //           first,
+    //           second,
+    //         },
+    //       },
+    //     },
+    //   ]);
+    // } else {
+    //   currentNode = ++windowCount;
+    // }
+    // this.setState({ currentNode });
+  };
+
   return (
     <Navbar.Group align={Alignment.RIGHT}>
       <Button
@@ -49,6 +100,8 @@ const NavbarSecondaryGroup: React.FC = () => {
       />
 
       <Navbar.Divider />
+
+      <button onClick={addToTopRight}>Add Window to Top Right</button>
 
       <Popover
         content={
