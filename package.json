@@ -51,7 +51,6 @@
     "@types/react-leaflet": "^2.5.1",
     "@types/react-map-gl": "^5.2.2",
     "@types/react-redux": "^7.1.7",
-    "@types/redux": "^3.6.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4"
