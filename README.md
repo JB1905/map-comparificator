@@ -4,31 +4,31 @@
 Choose the best map provider for your web app
 
 ## Setup
-1. Clone repo
+##### 1. Clone repo
 ```
 https://github.com/JB1905/map-comparificator.git
 ```
 
-2. Go to directory
+##### 2. Go to directory
 ```
 cd map-comparificator
 ```
 
-3. Install dependencies
+##### 3. Install dependencies
 ```
 yarn or npm i
 ```
 
-4. Set environment variables
+##### 4. Set environment variables
 - Edit `.env.example` file
 - Rename `.env.example` to `.env`
 
-5. Run
+##### 5. Run
 ```
 yarn start / npm start
 ```
 
-6. Deploy to Firebase
+##### 6. Deploy to Firebase
 - Set config in `.firebaserc`
 - run `firebase deploy`
 
