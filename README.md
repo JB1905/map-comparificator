@@ -20,8 +20,8 @@ yarn or npm i
 ```
 
 4. Set environment variables
-- Edit .env.example file
-- Rename .env.example to .env
+- Edit `.env.example` file
+- Rename `.env.example` to `.env`
 
 5. Run
 ```
@@ -29,7 +29,7 @@ yarn start / npm start
 ```
 
 6. Deploy to Firebase
-- Set config in .firebaserc
+- Set config in `.firebaserc`
 - run `firebase deploy`
 
 ## License
