@@ -9,7 +9,7 @@ import { CenteringMode } from 'types/CenteringMode';
 export const useSettings = () => {
   const dispatch = useDispatch();
 
-  const { activeCenteringMode, customizationEnabled } = useSelector(
+  const { activeCenteringMode, isCustomizationEnabled } = useSelector(
     (state: RootState) => state.settings
   );
 
@@ -27,7 +27,7 @@ export const useSettings = () => {
   return {
     activeCenteringMode,
     setCenteringMode,
-    customizationEnabled,
+    isCustomizationEnabled,
     toggleCustomization,
   };
 };

@@ -4,7 +4,7 @@ import { CenteringMode } from 'types/CenteringMode';
 
 export interface SettingsState {
   activeCenteringMode: CenteringMode;
-  customizationEnabled: boolean;
+  isCustomizationEnabled: boolean;
 }
 
 export interface SetCenteringModeAction {

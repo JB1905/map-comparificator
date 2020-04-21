@@ -6,7 +6,7 @@ import { SettingsActionTypes } from 'types/SettingsActionTypes';
 
 const initialState: SettingsState = {
   activeCenteringMode: 'center',
-  customizationEnabled: true,
+  isCustomizationEnabled: true,
 };
 
 export const settingsReducer = (
@@ -18,7 +18,10 @@ export const settingsReducer = (
       return { ...state, activeCenteringMode: action.payload };
 
     case TOGGLE_CUSTOMIZATION:
-      return { ...state, customizationEnabled: !state.customizationEnabled };
+      return {
+        ...state,
+        isCustomizationEnabled: !state.isCustomizationEnabled,
+      };
 
     default:
       return state;

@@ -35,14 +35,14 @@ const NavbarSecondaryGroup: React.FC = () => {
   const {
     activeCenteringMode,
     setCenteringMode,
-    customizationEnabled,
+    isCustomizationEnabled,
     toggleCustomization,
   } = useSettings();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
       <Button
-        icon={customizationEnabled ? 'unlock' : 'lock'}
+        icon={isCustomizationEnabled ? 'unlock' : 'lock'}
         onClick={toggleCustomization}
         disabled={isEmptyLayout}
         minimal
@@ -63,7 +63,7 @@ const NavbarSecondaryGroup: React.FC = () => {
         <Button
           icon="map"
           text="Maps"
-          disabled={!customizationEnabled}
+          disabled={!isCustomizationEnabled}
           minimal
         />
       </Popover>
@@ -129,7 +129,7 @@ const NavbarSecondaryGroup: React.FC = () => {
         }
         position={Position.TOP}
       >
-        <Button icon="reset" disabled={!customizationEnabled} minimal />
+        <Button icon="reset" disabled={!isCustomizationEnabled} minimal />
       </Popover>
 
       <Navbar.Divider />

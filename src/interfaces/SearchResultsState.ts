@@ -7,7 +7,7 @@ import {
 import Place from './Place';
 
 export interface SearchResultsState {
-  loading: boolean;
+  isLoading: boolean;
   results: Place[];
   error: Error | null;
 }

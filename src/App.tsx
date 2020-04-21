@@ -27,15 +27,15 @@ const App: React.FC = () => {
 
   const { activeLayout, setLayout } = useLayout();
 
-  const { customizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useSettings();
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
       path={path}
       title={id}
-      draggable={customizationEnabled}
+      draggable={isCustomizationEnabled}
       toolbarControls={
-        customizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+        isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
       }
     >
       {ELEMENT_MAP[id]}
@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
       <div id="app">
         <Mosaic
-          resize={customizationEnabled ? undefined : 'DISABLED'}
+          resize={isCustomizationEnabled ? undefined : 'DISABLED'}
           onChange={(changedLayout) => setLayout(changedLayout)}
           className={`mosaic-blueprint-theme ${
             activeTheme === Theme.Dark ? Classes.DARK : ''

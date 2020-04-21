@@ -20,9 +20,9 @@ export const useSearch = () => {
 
   const [value] = useDebounce(query, 1000);
 
-  const { loading, results, error, history } = useSelector(
+  const { isLoading, results, error, history } = useSelector(
     (state: RootState) => ({
-      loading: state.searchResults.loading,
+      isLoading: state.searchResults.isLoading,
       results: state.searchResults.results,
       error: state.searchResults.error,
       history: state.searchHistory.items.slice(0, 10),
@@ -56,7 +56,7 @@ export const useSearch = () => {
   return {
     query,
     setQuery,
-    loading,
+    isLoading,
     results,
     error,
     history,

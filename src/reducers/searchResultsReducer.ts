@@ -9,7 +9,7 @@ import { SearchResultsState } from 'interfaces/SearchResultsState';
 import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
 const initialState: SearchResultsState = {
-  loading: false,
+  isLoading: false,
   results: [],
   error: null,
 };
@@ -20,13 +20,13 @@ export const searchResultsReducer = (
 ) => {
   switch (action.type) {
     case SEARCH_RESULTS_LOADING:
-      return { ...state, loading: true };
+      return { ...state, isLoading: true };
 
     case SEARCH_RESULTS_SUCCESS:
-      return { ...state, loading: false, results: action.payload };
+      return { ...state, isLoading: false, results: action.payload };
 
     case SEARCH_RESULTS_ERROR:
-      return { ...state, loading: false, error: action.payload };
+      return { ...state, isLoading: false, error: action.payload };
 
     default:
       return state;
