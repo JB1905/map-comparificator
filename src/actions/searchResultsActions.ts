@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 
-import { SearchResultsActionTypes } from '../types/SearchResultsActionTypes';
+import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
-import Place from '../interfaces/Place';
+import Place from 'interfaces/Place';
 
 export const SEARCH_RESULTS_LOADING = 'SEARCH_RESULTS_LOADING';
 export const SEARCH_RESULTS_SUCCESS = 'SEARCH_RESULTS_SUCCESS';
