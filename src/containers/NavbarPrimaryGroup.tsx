@@ -4,15 +4,15 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from 'assets/logo.svg';
 
-import SearchForm from '../containers/SearchForm';
+import SearchForm from 'containers/SearchForm';
 
-import { useGeolocation } from '../hooks/useGeolocation';
-import { useTheme } from '../hooks/useTheme';
-import { useLayout } from '../hooks/useLayout';
+import { useGeolocation } from 'hooks/useGeolocation';
+import { useTheme } from 'hooks/useTheme';
+import { useLayout } from 'hooks/useLayout';
 
-import { Theme } from '../enums/Theme';
+import { Theme } from 'enums/Theme';
 
 const NavbarPrimaryGroup: React.FC = () => {
   const { getGeolocation, setCoords } = useGeolocation();

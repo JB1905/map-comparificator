@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Map, TileLayer, Viewport } from 'react-leaflet';
 
-import { useGeolocation } from '../hooks/useGeolocation';
+import { useGeolocation } from 'hooks/useGeolocation';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
 const OpenStreetMap: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);

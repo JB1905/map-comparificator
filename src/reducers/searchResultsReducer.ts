@@ -2,11 +2,11 @@ import {
   SEARCH_RESULTS_LOADING,
   SEARCH_RESULTS_SUCCESS,
   SEARCH_RESULTS_ERROR,
-} from '../actions';
+} from 'actions';
 
-import { SearchResultsState } from '../interfaces/SearchResultsState';
+import { SearchResultsState } from 'interfaces/SearchResultsState';
 
-import { SearchResultsActionTypes } from '../types/SearchResultsActionTypes';
+import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
 const initialState: SearchResultsState = {
   loading: false,

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { UPDATE_COORDS } from '../actions';
+import { UPDATE_COORDS } from 'actions';
 
 export const useGeolocation = () => {
   const dispatch = useDispatch();

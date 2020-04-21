@@ -1,6 +1,6 @@
-import { SET_THEME } from '../actions';
+import { SET_THEME } from 'actions';
 
-import { Theme } from '../enums/Theme';
+import { Theme } from 'enums/Theme';
 
 export interface ThemeState {
   activeTheme: Theme;

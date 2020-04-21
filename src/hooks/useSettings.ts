@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
+import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
-import { CenteringMode } from '../types/CenteringMode';
+import { CenteringMode } from 'types/CenteringMode';
 
 export const useSettings = () => {
   const dispatch = useDispatch();

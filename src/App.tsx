@@ -10,17 +10,17 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { ELEMENT_MAP } from './map';
+import { ELEMENT_MAP } from 'map';
 
-import NavbarPrimaryGroup from './containers/NavbarPrimaryGroup';
-import NavbarSecondaryGroup from './containers/NavbarSecondaryGroup';
-import ErrorScreen from './containers/ErrorScreen';
+import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
+import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
+import ErrorScreen from 'containers/ErrorScreen';
 
-import { useTheme } from './hooks/useTheme';
-import { useLayout } from './hooks/useLayout';
-import { useSettings } from './hooks/useSettings';
+import { useTheme } from 'hooks/useTheme';
+import { useLayout } from 'hooks/useLayout';
+import { useSettings } from 'hooks/useSettings';
 
-import { Theme } from './enums/Theme';
+import { Theme } from 'enums/Theme';
 
 const App: React.FC = () => {
   const { activeTheme } = useTheme();

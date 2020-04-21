@@ -9,18 +9,6 @@ import {
   MenuItem,
 } from '@blueprintjs/core';
 import equal from 'deep-equal';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-import 'react-mosaic-component/react-mosaic-component.css';
-
-import { ReactComponent as OctoCat } from '../assets/github.svg';
-
-import { ELEMENT_MAP } from '../map';
-
-import { useLayout } from '../hooks/useLayout';
-import { useSettings } from '../hooks/useSettings';
-
-import { centeringModes } from '../constants/centeringModes';
 import {
   getPathToCorner,
   Corner,
@@ -31,6 +19,18 @@ import {
   getOtherDirection,
   updateTree,
 } from 'react-mosaic-component';
+import '@blueprintjs/core/lib/css/blueprint.css';
+import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+import 'react-mosaic-component/react-mosaic-component.css';
+
+import { ReactComponent as OctoCat } from 'assets/github.svg';
+
+import { ELEMENT_MAP } from 'map';
+
+import { useLayout } from 'hooks/useLayout';
+import { useSettings } from 'hooks/useSettings';
+
+import { centeringModes } from 'constants/centeringModes';
 
 const NavbarSecondaryGroup: React.FC = () => {
   const {

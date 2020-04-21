@@ -1,4 +1,4 @@
-import Place from '../interfaces/Place';
+import Place from 'interfaces/Place';
 
 export type SearchHistoryItem = Pick<
   Place,

@@ -1,6 +1,6 @@
-import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
+import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
 
-import { CenteringMode } from '../types/CenteringMode';
+import { CenteringMode } from 'types/CenteringMode';
 
 export interface SettingsState {
   activeCenteringMode: CenteringMode;

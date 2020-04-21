@@ -1,4 +1,4 @@
-import { Layout } from '../types/Layout';
+import { Layout } from 'types/Layout';
 
 export const columnLayout: Layout = {
   first: {

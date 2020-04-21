@@ -1,6 +1,6 @@
-import { SET_LAYOUT, CREATE_LAYOUT, REMOVE_LAYOUT } from '../actions';
+import { SET_LAYOUT, CREATE_LAYOUT, REMOVE_LAYOUT } from 'actions';
 
-import { Layout } from '../types/Layout';
+import { Layout } from 'types/Layout';
 
 export interface LayoutState {
   activeLayout: Layout;

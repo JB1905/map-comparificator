@@ -2,11 +2,11 @@ import {
   SEARCH_HISTORY_ADD,
   SEARCH_HISTORY_REMOVE,
   SEARCH_HISTORY_CLEAR,
-} from '../actions';
+} from 'actions';
 
-import { SearchHistoryState } from '../interfaces/SearchHistoryState';
+import { SearchHistoryState } from 'interfaces/SearchHistoryState';
 
-import { SearchHistoryActionTypes } from '../types/SearchHistoryActionTypes';
+import { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
 
 const initialState: SearchHistoryState = {
   items: [],

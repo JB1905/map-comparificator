@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_THEME } from '../actions';
+import { SET_THEME } from 'actions';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
-import { Theme } from '../enums/Theme';
+import { Theme } from 'enums/Theme';
 
 export const useTheme = () => {
   const activeTheme = useSelector(

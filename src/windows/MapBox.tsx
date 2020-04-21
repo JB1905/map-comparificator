@@ -2,12 +2,12 @@ import React from 'react';
 import ReactMapGL, { ViewportProps } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 
-import { useGeolocation } from '../hooks/useGeolocation';
-import { useTheme } from '../hooks/useTheme';
+import { useGeolocation } from 'hooks/useGeolocation';
+import { useTheme } from 'hooks/useTheme';
 
-import { Theme } from '../enums/Theme';
+import { Theme } from 'enums/Theme';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
 const MapBox: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);

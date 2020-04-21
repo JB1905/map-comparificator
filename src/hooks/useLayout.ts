@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_LAYOUT, CREATE_LAYOUT } from '../actions';
+import { SET_LAYOUT, CREATE_LAYOUT } from 'actions';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
-import { gridLayout, columnLayout, mosaicLayout } from '../layouts';
+import { gridLayout, columnLayout, mosaicLayout } from 'layouts';
 
-import { Layout } from '../types/Layout';
+import { Layout } from 'types/Layout';
 
 export const useLayout = () => {
   const dispatch = useDispatch();

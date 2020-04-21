@@ -2,7 +2,7 @@ import {
   SearchResultsLoadingAction,
   SearchResultsSuccessAction,
   SearchResultsErrorAction,
-} from '../interfaces/SearchResultsState';
+} from 'interfaces/SearchResultsState';
 
 export type SearchResultsActionTypes =
   | SearchResultsLoadingAction

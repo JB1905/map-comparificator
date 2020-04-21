@@ -2,13 +2,13 @@ import React from 'react';
 import { MenuItem } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
-import { useSearch } from '../../hooks/useSearch';
-import { useLayout } from '../../hooks/useLayout';
-import { useGeolocation } from '../../hooks/useGeolocation';
+import { useSearch } from 'hooks/useSearch';
+import { useLayout } from 'hooks/useLayout';
+import { useGeolocation } from 'hooks/useGeolocation';
 
-import { locationIcons } from '../../constants/locationIcons';
+import { locationIcons } from 'constants/locationIcons';
 
-import Place from '../../interfaces/Place';
+import Place from 'interfaces/Place';
 
 import './SearchForm.scss';
 

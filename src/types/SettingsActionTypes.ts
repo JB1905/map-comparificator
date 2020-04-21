@@ -1,7 +1,7 @@
 import {
   SetCenteringModeAction,
   ToggleCustomizationAction,
-} from '../interfaces/SettingsState';
+} from 'interfaces/SettingsState';
 
 export type SettingsActionTypes =
   | SetCenteringModeAction

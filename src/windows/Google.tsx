@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
 const GoogleMaps: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);

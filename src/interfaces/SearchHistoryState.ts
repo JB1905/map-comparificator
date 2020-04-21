@@ -2,9 +2,9 @@ import {
   SEARCH_HISTORY_ADD,
   SEARCH_HISTORY_REMOVE,
   SEARCH_HISTORY_CLEAR,
-} from '../actions';
+} from 'actions';
 
-import { SearchHistoryItem } from '../types/SearchHistoryItem';
+import { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export interface SearchHistoryState {
   items: SearchHistoryItem[];

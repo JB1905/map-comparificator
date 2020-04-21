@@ -7,11 +7,11 @@ import {
   SEARCH_HISTORY_REMOVE,
   SEARCH_HISTORY_CLEAR,
   searchLocation,
-} from '../actions';
+} from 'actions';
 
-import { RootState } from '../reducers';
+import { RootState } from 'reducers';
 
-import { SearchHistoryItem } from '../types/SearchHistoryItem';
+import { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export const useSearch = () => {
   const dispatch = useDispatch();

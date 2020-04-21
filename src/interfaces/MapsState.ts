@@ -1,4 +1,4 @@
-import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../actions';
+import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'actions';
 
 export interface MapsState {
   coords: [number, number];
