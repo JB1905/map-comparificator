@@ -15,18 +15,14 @@ cd map-comparificator
 ```
 
 ##### 3. Install dependencies
-```
-yarn or npm i
-```
+`yarn` or `npm i`
 
 ##### 4. Set environment variables
 - Edit `.env.example` file
 - Rename `.env.example` to `.env.local`
 
 ##### 5. Run
-```
-yarn start / npm start
-```
+`yarn start` or `npm start`
 
 ##### 6. Deploy to Firebase
 - Set config in `.firebaserc`
