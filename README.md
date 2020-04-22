@@ -6,7 +6,7 @@ Choose the best map provider for your web app
 ## Setup
 ##### 1. Clone repo
 ```
-https://github.com/JB1905/map-comparificator.git
+git clone https://github.com/JB1905/map-comparificator.git
 ```
 
 ##### 2. Go to directory
