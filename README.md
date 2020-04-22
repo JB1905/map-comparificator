@@ -21,7 +21,7 @@ yarn or npm i
 
 ##### 4. Set environment variables
 - Edit `.env.example` file
-- Rename `.env.example` to `.env`
+- Rename `.env.example` to `.env.local`
 
 ##### 5. Run
 ```
