@@ -22,6 +22,8 @@ import { useSettings } from 'hooks/useSettings';
 
 import { centeringModes } from 'constants/centeringModes';
 
+import './NavbarSecondaryGroup.scss';
+
 const NavbarSecondaryGroup: React.FC = () => {
   const {
     activeLayout,

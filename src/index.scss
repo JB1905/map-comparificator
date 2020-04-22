@@ -9,26 +9,3 @@ body,
   height: calc(100% - 50px);
   position: fixed;
 }
-
-.logo {
-  width: 50px;
-  height: 50px;
-}
-
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-}
-
-.bp3-dark .octocat {
-  filter: invert(100%);
-}
-
-@mixin absolute-centering {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}

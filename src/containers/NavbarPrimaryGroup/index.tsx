@@ -14,6 +14,8 @@ import { useLayout } from 'hooks/useLayout';
 
 import { Theme } from 'enums/Theme';
 
+import './NavbarPrimaryGroup.scss';
+
 const NavbarPrimaryGroup: React.FC = () => {
   const { getGeolocation, setCoords } = useGeolocation();
 

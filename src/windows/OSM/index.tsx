@@ -6,6 +6,8 @@ import { useGeolocation } from 'hooks/useGeolocation';
 
 import { RootState } from 'reducers';
 
+import './OSM.scss';
+
 const OpenStreetMap: React.FC = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
