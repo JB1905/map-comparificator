@@ -6,7 +6,7 @@ const AppleMaps = lazy(() => import('windows/Apple'));
 const BingMaps = lazy(() => import('windows/Bing'));
 const GoogleMaps = lazy(() => import('windows/Google'));
 const HereMaps = lazy(() => import('windows/Here'));
-const MapBox = lazy(() => import('windows/MapBox'));
+const Mapbox = lazy(() => import('windows/Mapbox'));
 const OpenStreetMap = lazy(() => import('windows/OSM'));
 
 export const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
@@ -14,6 +14,6 @@ export const ELEMENT_MAP: { [viewId: string]: JSX.Element } = {
   'Bing Maps': <LazyComponent component={<BingMaps />} />,
   'Google Maps': <LazyComponent component={<GoogleMaps />} />,
   'Here Maps': <LazyComponent component={<HereMaps />} />,
-  MapBox: <LazyComponent component={<MapBox />} />,
+  Mapbox: <LazyComponent component={<Mapbox />} />,
   'Open Street Map': <LazyComponent component={<OpenStreetMap />} />,
 };

@@ -17,7 +17,7 @@ export const columnLayout: Layout = {
     first: 'Here Maps',
     second: {
       direction: 'row',
-      first: 'MapBox',
+      first: 'Mapbox',
       second: 'Open Street Map',
     },
     splitPercentage: 33,

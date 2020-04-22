@@ -3,7 +3,7 @@ import { Layout } from 'types/Layout';
 export const mosaicLayout: Layout = {
   first: 'Apple Maps',
   second: {
-    first: 'MapBox',
+    first: 'Mapbox',
     second: {
       direction: 'column',
       first: {
