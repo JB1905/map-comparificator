@@ -5,7 +5,10 @@ import { Map } from 'react-mapkit';
 import { RootState } from 'reducers';
 
 const AppleMaps: React.FC = () => {
-  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
+  const {
+    coords,
+    // zoomLevel
+  } = useSelector((state: RootState) => state.maps);
 
   return (
     <Map
