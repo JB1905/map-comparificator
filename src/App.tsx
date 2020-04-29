@@ -41,6 +41,17 @@ const App: React.FC = () => {
     </MosaicWindow>
   );
 
+  if (window.innerWidth < 860) {
+    return (
+      <NonIdealState
+        icon="zoom-to-fit"
+        title="Your screen is too small"
+        description="Open app in bigger window"
+        className="device-not-supported"
+      />
+    );
+  }
+
   return (
     <div className={activeTheme === Theme.Dark ? Classes.DARK : ''}>
       <Navbar>
@@ -59,6 +70,7 @@ const App: React.FC = () => {
         initialValue={activeLayout}
         zeroStateView={
           <NonIdealState
+            icon="map"
             title="No map preview selected"
             description="Select maps from the menu"
           />
