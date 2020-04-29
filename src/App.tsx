@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Classes } from '@blueprintjs/core';
+import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
   MosaicWindow,
@@ -14,7 +14,6 @@ import { ELEMENT_MAP } from 'map';
 
 import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
-import ErrorScreen from 'containers/ErrorScreen';
 
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
@@ -50,23 +49,21 @@ const App: React.FC = () => {
         <NavbarSecondaryGroup />
       </Navbar>
 
-      <div id="app">
-        <Mosaic
-          resize={isCustomizationEnabled ? undefined : 'DISABLED'}
-          onChange={(changedLayout) => setLayout(changedLayout)}
-          className={`mosaic-blueprint-theme ${
-            activeTheme === Theme.Dark ? Classes.DARK : ''
-          }`}
-          renderTile={tileRenderer}
-          initialValue={activeLayout}
-          zeroStateView={
-            <ErrorScreen
-              title="No map preview selected"
-              message="Select maps from the menu"
-            />
-          }
-        />
-      </div>
+      <Mosaic
+        resize={isCustomizationEnabled ? undefined : 'DISABLED'}
+        onChange={(changedLayout) => setLayout(changedLayout)}
+        className={`mosaic-blueprint-theme ${
+          activeTheme === Theme.Dark ? Classes.DARK : ''
+        }`}
+        renderTile={tileRenderer}
+        initialValue={activeLayout}
+        zeroStateView={
+          <NonIdealState
+            title="No map preview selected"
+            description="Select maps from the menu"
+          />
+        }
+      />
     </div>
   );
 };

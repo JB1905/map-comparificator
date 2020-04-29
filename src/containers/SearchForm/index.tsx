@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem } from '@blueprintjs/core';
+import { MenuItem, InputGroup } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
 import { useSearch } from 'hooks/useSearch';
@@ -46,18 +46,16 @@ const SearchForm: React.FC = () => {
       popoverProps={{ minimal: true }}
       filterable={false}
     >
-      <div className="bp3-input-group">
-        <span className="bp3-icon bp3-icon-search" />
-
-        <input
-          className="bp3-input"
-          type="search"
-          placeholder="Search..."
-          aria-label="Search"
-          disabled={isEmptyLayout}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
+      <InputGroup
+        type="search"
+        placeholder="Search..."
+        aria-label="Search"
+        disabled={isEmptyLayout}
+        leftIcon="search"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setQuery(e.target.value)
+        }
+      />
     </Select>
   );
 };
