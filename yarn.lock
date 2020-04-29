@@ -1383,10 +1383,10 @@
   resolved "https://registry.yarnpkg.com/@react-dnd/shallowequal/-/shallowequal-2.0.0.tgz#a3031eb54129f2c66b2753f8404266ec7bf67f0a"
   integrity sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==
 
-"@react-google-maps/api@^1.8.9":
-  version "1.8.9"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.8.9.tgz#5c5f7c8d6232a060e14f9840909ee330b4945e74"
-  integrity sha512-tv5vLECDrEjw4fdu7YLmrVxHgUdg0ssyD5UNm+aP/+eLtk2o1y+jHB2Z59yzefsIfDjwM/AbVm6nXpvtVhBJ4w==
+"@react-google-maps/api@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.0.tgz#252c411687a490b6f20ad89d699a127d8e144e72"
+  integrity sha512-rDFJW18zir92dy9AqbT6KvtQt7vTxbR4o6mUg4I8igadEzM8CTH5zR+CIWKfMy89Bc2hZJVMHU/2+zPu63VHRw==
   dependencies:
     "@react-google-maps/infobox" "1.8.7"
     "@react-google-maps/marker-clusterer" "1.8.7"
