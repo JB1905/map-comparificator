@@ -1,14 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Map } from 'react-mapkit';
 
-import { RootState } from 'reducers';
+import { useMaps } from 'hooks/useMaps';
 
 const AppleMaps: React.FC = () => {
   const {
     coords,
     // zoomLevel
-  } = useSelector((state: RootState) => state.maps);
+  } = useMaps();
 
   return (
     <Map

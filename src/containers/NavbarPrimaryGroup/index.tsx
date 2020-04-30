@@ -8,18 +8,16 @@ import { ReactComponent as Logo } from 'assets/logo.svg';
 
 import SearchForm from 'containers/SearchForm';
 
-import { useGeolocation } from 'hooks/useGeolocation';
+import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
-
-import { Theme } from 'enums/Theme';
 
 import './NavbarPrimaryGroup.scss';
 
 const NavbarPrimaryGroup: React.FC = () => {
-  const { getGeolocation, setCoords } = useGeolocation();
+  const { getGeolocation, setCoords } = useMaps();
 
-  const { activeTheme, toggleTheme } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
 
   const { isEmptyLayout } = useLayout();
 
@@ -35,11 +33,7 @@ const NavbarPrimaryGroup: React.FC = () => {
         <Logo className="logo" />
       </Navbar.Heading>
 
-      <Button
-        icon={activeTheme === Theme.Dark ? 'flash' : 'moon'}
-        onClick={toggleTheme}
-        minimal
-      />
+      <Button icon={isDark ? 'flash' : 'moon'} onClick={toggleTheme} minimal />
 
       <Navbar.Divider />
 

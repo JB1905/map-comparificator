@@ -19,14 +19,14 @@ import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
-import { Theme } from 'enums/Theme';
-
 const App: React.FC = () => {
-  const { activeTheme } = useTheme();
+  const { isDark } = useTheme();
 
   const { activeLayout, setLayout } = useLayout();
 
   const { isCustomizationEnabled } = useSettings();
+
+  const themeClass = isDark ? Classes.DARK : '';
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
@@ -41,19 +41,13 @@ const App: React.FC = () => {
     </MosaicWindow>
   );
 
-  if (window.innerWidth < 860) {
-    return (
-      <NonIdealState
-        icon="zoom-to-fit"
-        title="Your screen is too small"
-        description="Open app in bigger window"
-        className="device-not-supported"
-      />
-    );
-  }
+  /**
+   * Disable Mosaic rendering on mobile devices
+   * Exclude resized window to avoid rerenderings
+   */
 
   return (
-    <div className={activeTheme === Theme.Dark ? Classes.DARK : ''}>
+    <div id="page" className={themeClass}>
       <Navbar>
         <NavbarPrimaryGroup />
 
@@ -63,9 +57,7 @@ const App: React.FC = () => {
       <Mosaic
         resize={isCustomizationEnabled ? undefined : 'DISABLED'}
         onChange={(changedLayout) => setLayout(changedLayout)}
-        className={`mosaic-blueprint-theme ${
-          activeTheme === Theme.Dark ? Classes.DARK : ''
-        }`}
+        className={`mosaic-blueprint-theme ${themeClass}`}
         renderTile={tileRenderer}
         initialValue={activeLayout}
         zeroStateView={

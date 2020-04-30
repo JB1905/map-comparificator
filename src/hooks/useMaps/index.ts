@@ -1,9 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { UPDATE_COORDS } from 'actions';
 
-export const useGeolocation = () => {
+import { RootState } from 'reducers';
+
+export const useMaps = () => {
   const dispatch = useDispatch();
+
+  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
   const getGeolocation = (currentCoords: (coords: Coordinates) => void) => {
     if ('geolocation' in navigator) {
@@ -25,6 +29,8 @@ export const useGeolocation = () => {
   };
 
   return {
+    coords,
+    zoomLevel,
     getGeolocation,
     setCoords,
     setZoomLevel,

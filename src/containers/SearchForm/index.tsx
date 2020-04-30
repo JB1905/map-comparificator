@@ -4,7 +4,7 @@ import { Select } from '@blueprintjs/select';
 
 import { useSearch } from 'hooks/useSearch';
 import { useLayout } from 'hooks/useLayout';
-import { useGeolocation } from 'hooks/useGeolocation';
+import { useMaps } from 'hooks/useMaps';
 
 import { locationIcons } from 'constants/locationIcons';
 
@@ -17,7 +17,7 @@ const SearchForm: React.FC = () => {
 
   const { isEmptyLayout } = useLayout();
 
-  const { setCoords } = useGeolocation();
+  const { setCoords } = useMaps();
 
   const selectPlace = (place: Place) => {
     const { lat, lon, display_name, place_id } = place;

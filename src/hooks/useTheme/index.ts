@@ -11,14 +11,16 @@ export const useTheme = () => {
     (state: RootState) => state.theme.activeTheme
   );
 
+  const isDark = activeTheme === Theme.Dark;
+
   const dispatch = useDispatch();
 
   const toggleTheme = () => {
     dispatch({
       type: SET_THEME,
-      payload: activeTheme === Theme.Dark ? Theme.Light : Theme.Dark,
+      payload: isDark ? Theme.Light : Theme.Dark,
     });
   };
 
-  return { activeTheme, toggleTheme };
+  return { activeTheme, isDark, toggleTheme };
 };
