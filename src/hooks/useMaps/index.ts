@@ -9,12 +9,12 @@ export const useMaps = () => {
 
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
+  const isGeolocationAvailable = 'geolocation' in navigator;
+
   const getGeolocation = (currentCoords: (coords: Coordinates) => void) => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        currentCoords(position.coords);
-      });
-    }
+    navigator.geolocation.getCurrentPosition((position) => {
+      currentCoords(position.coords);
+    });
   };
 
   const setCoords = (coords: [number, number]) => {
@@ -31,6 +31,7 @@ export const useMaps = () => {
   return {
     coords,
     zoomLevel,
+    isGeolocationAvailable,
     getGeolocation,
     setCoords,
     setZoomLevel,

@@ -15,7 +15,7 @@ import { useLayout } from 'hooks/useLayout';
 import './NavbarPrimaryGroup.scss';
 
 const NavbarPrimaryGroup: React.FC = () => {
-  const { getGeolocation, setCoords } = useMaps();
+  const { isGeolocationAvailable, getGeolocation, setCoords } = useMaps();
 
   const { isDark, toggleTheme } = useTheme();
 
@@ -39,14 +39,18 @@ const NavbarPrimaryGroup: React.FC = () => {
 
       <SearchForm />
 
-      <Navbar.Divider />
+      {isGeolocationAvailable && (
+        <>
+          <Navbar.Divider />
 
-      <Button
-        icon="geolocation"
-        onClick={getCurrentLocation}
-        disabled={isEmptyLayout}
-        minimal
-      />
+          <Button
+            icon="geolocation"
+            onClick={getCurrentLocation}
+            disabled={isEmptyLayout}
+            minimal
+          />
+        </>
+      )}
     </Navbar.Group>
   );
 };

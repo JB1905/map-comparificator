@@ -16,10 +16,6 @@ import { SearchHistoryItem } from 'types/SearchHistoryItem';
 export const useSearch = () => {
   const dispatch = useDispatch();
 
-  const [query, setQuery] = useState('');
-
-  const [value] = useDebounce(query, 1000);
-
   const { isLoading, results, error, history } = useSelector(
     (state: RootState) => ({
       isLoading: state.searchResults.isLoading,
@@ -28,6 +24,10 @@ export const useSearch = () => {
       history: state.searchHistory.items.slice(0, 10),
     })
   );
+
+  const [query, setQuery] = useState('');
+
+  const [value] = useDebounce(query, 1000);
 
   useEffect(() => {
     if (value) dispatch(searchLocation(value));

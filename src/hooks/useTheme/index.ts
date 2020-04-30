@@ -7,13 +7,13 @@ import { RootState } from 'reducers';
 import { Theme } from 'enums/Theme';
 
 export const useTheme = () => {
+  const dispatch = useDispatch();
+
   const activeTheme = useSelector(
     (state: RootState) => state.theme.activeTheme
   );
 
   const isDark = activeTheme === Theme.Dark;
-
-  const dispatch = useDispatch();
 
   const toggleTheme = () => {
     dispatch({
