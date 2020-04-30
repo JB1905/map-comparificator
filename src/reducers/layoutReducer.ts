@@ -4,7 +4,7 @@ import {
   REMOVE_LAYOUT,
 } from 'actions/layoutActions';
 
-import { gridLayout } from 'layouts';
+import { gridLayout } from 'constants/layouts';
 
 import { LayoutState } from 'interfaces/LayoutState';
 

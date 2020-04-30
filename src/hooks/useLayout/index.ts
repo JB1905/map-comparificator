@@ -14,7 +14,7 @@ import { SET_LAYOUT, CREATE_LAYOUT } from 'actions';
 
 import { RootState } from 'reducers';
 
-import { gridLayout, columnLayout, mosaicLayout } from 'layouts';
+import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import { Layout } from 'types/Layout';
 
