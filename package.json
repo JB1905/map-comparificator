@@ -54,8 +54,9 @@
     "@types/react-redux": "^7.1.7",
     "cz-conventional-changelog": "3.1.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.0",
-    "prettier": "^2.0.5"
+    "lint-staged": "^10.2.1",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1"
   },
   "eslintConfig": {
     "extends": "react-app"
