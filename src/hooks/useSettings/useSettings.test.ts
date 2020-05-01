@@ -1,0 +1,23 @@
+import { renderHook } from '@testing-library/react-hooks';
+
+import { useSettings } from '.';
+
+describe('useSettings', () => {
+  const { result } = renderHook(() => useSettings());
+
+  it('should check active centering mode', () => {
+    expect(result.current.activeCenteringMode).toBe('true');
+  });
+
+  it('should check if customization is enabled', () => {
+    expect(result.current.isCustomizationEnabled).toBe('true');
+  });
+
+  it('should set centering mode', () => {
+    expect(result.current.setCenteringMode('Center')).toBe('true');
+  });
+
+  it('should toggle customization', () => {
+    expect(result.current.toggleCustomization()).toBe('true');
+  });
+});
