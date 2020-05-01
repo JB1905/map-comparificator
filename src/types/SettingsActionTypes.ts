@@ -1,8 +1,8 @@
 import {
-  SetCenteringModeAction,
+  SetActiveCenteringModeAction,
   ToggleCustomizationAction,
 } from 'interfaces/SettingsState';
 
 export type SettingsActionTypes =
-  | SetCenteringModeAction
+  | SetActiveCenteringModeAction
   | ToggleCustomizationAction;

@@ -19,7 +19,7 @@ export interface SetActiveLayoutAction {
   payload: Layout;
 }
 
-export interface CreateLayoutAction {
+export interface CreateCustomLayoutAction {
   type: typeof CREATE_CUSTOM_LAYOUT;
   payload: {
     name: string;
@@ -27,7 +27,7 @@ export interface CreateLayoutAction {
   };
 }
 
-export interface RemoveLayoutAction {
+export interface RemoveCustomLayoutAction {
   type: typeof REMOVE_CUSTOM_LAYOUT;
   payload: string;
 }

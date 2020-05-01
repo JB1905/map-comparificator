@@ -6,7 +6,7 @@ export interface ThemeState {
   activeTheme: Theme;
 }
 
-export interface SetThemeAction {
+export interface SetActiveThemeAction {
   type: typeof SET_ACTIVE_THEME;
   payload: Theme;
 }

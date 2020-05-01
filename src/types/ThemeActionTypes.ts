@@ -1,3 +1,3 @@
-import { SetThemeAction } from 'interfaces/ThemeState';
+import { SetActiveThemeAction } from 'interfaces/ThemeState';
 
-export type ThemeActionTypes = SetThemeAction;
+export type ThemeActionTypes = SetActiveThemeAction;
