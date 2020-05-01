@@ -1,1 +1,1 @@
-export const SET_THEME = 'SET_THEME';
+export const SET_ACTIVE_THEME = 'SET_ACTIVE_THEME';

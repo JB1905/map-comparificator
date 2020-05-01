@@ -22,7 +22,7 @@ import { useSettings } from 'hooks/useSettings';
 const App: React.FC = () => {
   const { isDark } = useTheme();
 
-  const { activeLayout, setLayout } = useLayout();
+  const { activeLayout, setActiveLayout } = useLayout();
 
   const { isCustomizationEnabled } = useSettings();
 
@@ -41,6 +41,15 @@ const App: React.FC = () => {
     </MosaicWindow>
   );
 
+  const MobileSplash: React.FC = () => (
+    <NonIdealState
+      icon="zoom-to-fit"
+      title="Your screen is too small"
+      description="Open app in bigger window"
+      className="device-not-supported"
+    />
+  );
+
   /**
    * Disable Mosaic rendering on mobile devices
    * Exclude resized window to avoid rerenderings
@@ -56,7 +65,7 @@ const App: React.FC = () => {
 
       <Mosaic
         resize={isCustomizationEnabled ? undefined : 'DISABLED'}
-        onChange={(changedLayout) => setLayout(changedLayout)}
+        onChange={(changedLayout) => setActiveLayout(changedLayout)}
         className={`mosaic-blueprint-theme ${themeClass}`}
         renderTile={tileRenderer}
         initialValue={activeLayout}

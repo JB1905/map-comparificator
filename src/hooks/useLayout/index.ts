@@ -10,7 +10,7 @@ import {
   MosaicNode,
 } from 'react-mosaic-component';
 
-import { SET_LAYOUT, CREATE_LAYOUT } from 'actions';
+import { SET_ACTIVE_LAYOUT, CREATE_CUSTOM_LAYOUT } from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -27,21 +27,21 @@ export const useLayout = () => {
 
   const isEmptyLayout = activeLayout === null;
 
-  const availableLayouts = [
+  const initialLayouts = [
     { name: 'Grid', layout: gridLayout },
     { name: 'Columns', layout: columnLayout },
     { name: 'Mosaic', layout: mosaicLayout },
   ];
 
-  const setLayout = (layout: Layout) => {
-    dispatch({ type: SET_LAYOUT, payload: layout });
+  const setActiveLayout = (layout: Layout) => {
+    dispatch({ type: SET_ACTIVE_LAYOUT, payload: layout });
   };
 
-  const setLayoutAsPattern = () => {
+  const createCustomLayout = (name: string) => {
     dispatch({
-      type: CREATE_LAYOUT,
+      type: CREATE_CUSTOM_LAYOUT,
       payload: {
-        name: 'custom-layout',
+        name,
         layout: activeLayout,
       },
     });
@@ -92,16 +92,16 @@ export const useLayout = () => {
       layoutTree = windowName;
     }
 
-    setLayout(layoutTree);
+    setActiveLayout(layoutTree);
   };
 
   return {
     activeLayout,
     customLayouts,
-    setLayout,
+    setActiveLayout,
     isEmptyLayout,
-    availableLayouts,
-    setLayoutAsPattern,
+    initialLayouts,
+    createCustomLayout,
     openWindow,
   };
 };

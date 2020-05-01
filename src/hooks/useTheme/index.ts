@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_THEME } from 'actions';
+import { SET_ACTIVE_THEME } from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -17,7 +17,7 @@ export const useTheme = () => {
 
   const toggleTheme = () => {
     dispatch({
-      type: SET_THEME,
+      type: SET_ACTIVE_THEME,
       payload: isDark ? Theme.Light : Theme.Dark,
     });
   };

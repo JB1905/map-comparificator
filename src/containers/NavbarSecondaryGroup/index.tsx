@@ -31,8 +31,8 @@ const NavbarSecondaryGroup: React.FC = () => {
   const {
     activeLayout,
     isEmptyLayout,
-    setLayout,
-    availableLayouts,
+    setActiveLayout,
+    initialLayouts,
     // setLayoutAsPattern,
     customLayouts,
     openWindow,
@@ -112,25 +112,25 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {availableLayouts.map(({ name, layout }) => (
+            {initialLayouts.concat(customLayouts).map(({ name, layout }) => (
               <MenuItem
                 text={name}
                 icon="page-layout"
                 key={name}
                 active={equal(activeLayout, layout)}
-                onClick={() => setLayout(layout)}
+                onClick={() => setActiveLayout(layout)}
               />
             ))}
 
-            {customLayouts?.map(({ name, layout }) => (
+            {/* {?.map(({ name, layout }) => (
               <MenuItem
                 text={name}
                 icon="page-layout"
                 key={name}
                 active={equal(activeLayout, layout)}
-                onClick={() => setLayout(layout)}
+                onClick={() => setActiveLayout(layout)}
               />
-            ))}
+            ))} */}
 
             <MenuDivider />
 
@@ -138,8 +138,6 @@ const NavbarSecondaryGroup: React.FC = () => {
               text="Save as Pattern"
               icon="floppy-disk"
               disabled={isEmptyLayout}
-              // onClick={showForm}
-              // onClick={setLayoutAsPattern}
             />
           </Menu>
         }

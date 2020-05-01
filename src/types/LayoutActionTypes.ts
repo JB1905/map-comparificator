@@ -1,10 +1,10 @@
 import {
-  SetLayoutAction,
+  SetActiveLayoutAction,
   CreateLayoutAction,
   RemoveLayoutAction,
 } from 'interfaces/LayoutState';
 
 export type LayoutActionTypes =
-  | SetLayoutAction
+  | SetActiveLayoutAction
   | CreateLayoutAction
   | RemoveLayoutAction;

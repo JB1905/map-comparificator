@@ -1,4 +1,4 @@
-import { SET_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
+import { SET_ACTIVE_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
 
 import { SettingsState } from 'interfaces/SettingsState';
 
@@ -14,7 +14,7 @@ export const settingsReducer = (
   action: SettingsActionTypes
 ) => {
   switch (action.type) {
-    case SET_CENTERING_MODE:
+    case SET_ACTIVE_CENTERING_MODE:
       return { ...state, activeCenteringMode: action.payload };
 
     case TOGGLE_CUSTOMIZATION:

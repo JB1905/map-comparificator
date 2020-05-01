@@ -1,7 +1,7 @@
 import {
-  SET_LAYOUT,
-  CREATE_LAYOUT,
-  REMOVE_LAYOUT,
+  SET_ACTIVE_LAYOUT,
+  CREATE_CUSTOM_LAYOUT,
+  REMOVE_CUSTOM_LAYOUT,
 } from 'actions/layoutActions';
 
 import { gridLayout } from 'constants/layouts';
@@ -20,10 +20,10 @@ export const layoutReducer = (
   action: LayoutActionTypes
 ) => {
   switch (action.type) {
-    case SET_LAYOUT:
+    case SET_ACTIVE_LAYOUT:
       return { ...state, activeLayout: action.payload };
 
-    case CREATE_LAYOUT:
+    case CREATE_CUSTOM_LAYOUT:
       return {
         ...state,
         customLayouts: [
@@ -35,7 +35,7 @@ export const layoutReducer = (
         ],
       };
 
-    case REMOVE_LAYOUT:
+    case REMOVE_CUSTOM_LAYOUT:
       return {
         ...state,
         customLayouts: state.customLayouts.filter(

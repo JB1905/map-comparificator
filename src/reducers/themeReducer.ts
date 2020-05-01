@@ -1,4 +1,4 @@
-import { SET_THEME } from 'actions';
+import { SET_ACTIVE_THEME } from 'actions';
 
 import { Theme } from 'enums/Theme';
 
@@ -15,7 +15,7 @@ export const themeReducer = (
   action: ThemeActionTypes
 ) => {
   switch (action.type) {
-    case SET_THEME:
+    case SET_ACTIVE_THEME:
       return { ...state, activeTheme: action.payload };
 
     default:
