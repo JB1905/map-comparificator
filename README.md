@@ -9,6 +9,10 @@ Choose the best map provider for your web app
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
+## Prerequisites
+- Yarn or NPM
+- Node.js
+
 ## Setup
 ##### 1. Clone repo
 ```
@@ -33,6 +37,15 @@ cd map-comparificator
 ##### 6. Deploy to Firebase
 - Set config in `.firebaserc`
 - run `firebase deploy`
+
+### Production
+```bash
+# Build image
+> docker build -t map-comparificator .
+
+# Run a container with port forwarding
+> docker run --rm --env PORT=80 -p 3000:80 map-comparificator
+```
 
 ## Build with
 - React
