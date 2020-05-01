@@ -7,7 +7,7 @@ export interface SettingsState {
   isCustomizationEnabled: boolean;
 }
 
-export interface SetCenteringModeAction {
+export interface SetActiveCenteringModeAction {
   type: typeof SET_ACTIVE_CENTERING_MODE;
   payload: CenteringMode;
 }
