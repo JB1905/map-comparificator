@@ -3,11 +3,11 @@
 ## About
 Choose the best map provider for your web app
 
-[Demo](https://map-comparificator.web.app/)
-
 - compare maps from different providers (Apple, Bing, Google, Here, Mapbox, OpenStreetMap) side to side
 - search for location to display on maps or get current location
 - resize, drag, open, close map windows & use or create compositions
+
+[Open Map Comparificator](https://map-comparificator.web.app/)
 
 ## Setup
 ##### 1. Clone repo
