@@ -28,5 +28,18 @@ cd map-comparificator
 - Set config in `.firebaserc`
 - run `firebase deploy`
 
+## Build with
+- React
+- Redux
+- Redux Thunk
+- Redux Persist
+- TypeScript
+- Blueprint
+- Firebase
+- Travis CI
+- Docker
+- Jest
+- LocationIQ API
+
 ## License
 This project is licensed under the MIT License © 2020-present Jakub Biesiada
