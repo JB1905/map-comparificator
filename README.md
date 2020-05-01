@@ -3,9 +3,13 @@
 ## About
 Choose the best map provider for your web app
 
+##### Main Features
 - compare maps from different providers (Apple, Bing, Google, Here, Mapbox, OpenStreetMap) side by side
 - search for a location to display on maps or get your current location
 - resize, drag, open, close map windows & use or create compositions
+
+##### Limitations
+- mobile devices (smartphones) are not supported – incorrect behaviour using Blueprint & Mosaic Component
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
