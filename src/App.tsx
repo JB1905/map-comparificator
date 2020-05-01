@@ -41,14 +41,14 @@ const App: React.FC = () => {
     </MosaicWindow>
   );
 
-  const MobileSplash: React.FC = () => (
-    <NonIdealState
-      icon="zoom-to-fit"
-      title="Your screen is too small"
-      description="Open app in bigger window"
-      className="device-not-supported"
-    />
-  );
+  // const MobileSplash: React.FC = () => (
+  //   <NonIdealState
+  //     icon="zoom-to-fit"
+  //     title="Your screen is too small"
+  //     description="Open app in bigger window"
+  //     className="device-not-supported"
+  //   />
+  // );
 
   /**
    * Disable Mosaic rendering on mobile devices
