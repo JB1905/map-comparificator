@@ -6,6 +6,6 @@ describe('useSearch', () => {
   const { result } = renderHook(() => useSearch());
 
   it('should', () => {
-    // expect(result.current);
+    expect(result.current);
   });
 });

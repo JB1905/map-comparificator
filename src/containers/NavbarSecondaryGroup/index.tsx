@@ -23,7 +23,7 @@ import { ELEMENT_MAP } from 'map';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
-import { centeringModes } from 'constants/centeringModes';
+import { CenteringMode } from 'enums/CenteringMode';
 
 import './NavbarSecondaryGroup.scss';
 
@@ -85,7 +85,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {centeringModes.map((centeringMode) => (
+            {Object.values(CenteringMode).map((centeringMode) => (
               <MenuItem
                 text={centeringMode}
                 icon="locate"

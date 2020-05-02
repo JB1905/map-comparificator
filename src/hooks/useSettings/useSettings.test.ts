@@ -2,6 +2,8 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { useSettings } from '.';
 
+import { CenteringMode } from 'enums/CenteringMode';
+
 describe('useSettings', () => {
   const { result } = renderHook(() => useSettings());
 
@@ -14,7 +16,7 @@ describe('useSettings', () => {
   });
 
   it('should set centering mode', () => {
-    expect(result.current.setCenteringMode('Center')).toBe('true');
+    expect(result.current.setCenteringMode(CenteringMode.Center)).toBe('true');
   });
 
   it('should toggle customization', () => {
