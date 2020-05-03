@@ -10,6 +10,8 @@ import { locationIcons } from 'constants/locationIcons';
 
 import Place from 'interfaces/Place';
 
+import { SearchHistoryItem } from 'types/SearchHistoryItem';
+
 import './SearchForm.scss';
 
 const SearchForm: React.FC = () => {
@@ -19,7 +21,7 @@ const SearchForm: React.FC = () => {
 
   const { setCoords } = useMaps();
 
-  const selectPlace = (place: Place) => {
+  const selectPlace = (place: Place | SearchHistoryItem) => {
     const { lat, lon, display_name, place_id } = place;
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
@@ -27,7 +29,7 @@ const SearchForm: React.FC = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
-  const itemRenderer = (item: Place) => (
+  const itemRenderer = (item: Place | SearchHistoryItem) => (
     <MenuItem
       className="search-form-hints"
       text={item.display_name}
