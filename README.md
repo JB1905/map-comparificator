@@ -13,10 +13,6 @@ Choose the best map provider for your web app
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
-## Prerequisites
-- Yarn or NPM
-- Node.js
-
 ## Setup
 ##### 1. Clone repo
 ```
@@ -52,17 +48,17 @@ cd map-comparificator
 ```
 
 ## Build with
-- React
-- Redux
-- Redux Thunk
-- Redux Persist
-- TypeScript
-- Blueprint
-- Firebase
-- Travis CI
-- Docker
-- Jest
-- LocationIQ API
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk/)
+- [Redux Persist](https://github.com/rt2zz/redux-persist/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Blueprint](https://blueprintjs.com/)
+- [Firebase](https://firebase.google.com/)
+- [Travis CI](https://travis-ci.org/)
+- [Docker](https://www.docker.com/)
+- [Jest](https://jestjs.io/)
+- [LocationIQ API](https://locationiq.com/)
 
 ## License
 This project is licensed under the MIT License © 2020-present Jakub Biesiada
