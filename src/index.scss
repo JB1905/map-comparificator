@@ -15,19 +15,3 @@ body,
 .device-not-supported {
   @include absolute-centering;
 }
-
-.layout-container {
-  .device-not-supported {
-    display: none;
-
-    @media (max-width: 860px) {
-      display: flex;
-    }
-  }
-
-  .desktop-layout * {
-    @media (max-width: 860px) {
-      display: none;
-    }
-  }
-}
