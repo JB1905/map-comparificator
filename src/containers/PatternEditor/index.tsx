@@ -13,20 +13,16 @@ const PatternEditor: React.FC<any> = ({ isOpen, onCancel }) => {
 
   const [name, setName] = useState('');
 
-  const layoutWithNameExists = () => {
+  const layoutExists = () => {
     return [...initialLayouts, ...customLayouts].find(
-      (layout) => layout.name === name
-    );
-  };
-
-  const layoutWithPatternExists = () => {
-    return [...initialLayouts, ...customLayouts].find(
-      (layout) => JSON.stringify(layout.layout) === JSON.stringify(activeLayout)
+      (layout) =>
+        layout.name === name ||
+        JSON.stringify(layout.layout) === JSON.stringify(activeLayout)
     );
   };
 
   const submit = () => {
-    if (name && !layoutWithNameExists() && !layoutWithPatternExists()) {
+    if (name && !layoutExists()) {
       createCustomLayout(name);
 
       onCancel();
