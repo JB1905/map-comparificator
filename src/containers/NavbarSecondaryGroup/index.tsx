@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Alignment,
   Navbar,
@@ -16,7 +16,7 @@ import 'react-mosaic-component/react-mosaic-component.css';
 
 import { ReactComponent as OctoCat } from 'assets/github.svg';
 
-// import PatternEditor from 'containers/PatternEditor';
+import PatternEditor from 'containers/PatternEditor';
 
 import { ELEMENT_MAP } from 'map';
 
@@ -33,7 +33,6 @@ const NavbarSecondaryGroup: React.FC = () => {
     isEmptyLayout,
     setActiveLayout,
     initialLayouts,
-    // setLayoutAsPattern,
     customLayouts,
     openWindow,
   } = useLayout();
@@ -44,6 +43,8 @@ const NavbarSecondaryGroup: React.FC = () => {
     isCustomizationEnabled,
     toggleCustomization,
   } = useSettings();
+
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -122,22 +123,13 @@ const NavbarSecondaryGroup: React.FC = () => {
               />
             ))}
 
-            {/* {?.map(({ name, layout }) => (
-              <MenuItem
-                text={name}
-                icon="page-layout"
-                key={name}
-                active={equal(activeLayout, layout)}
-                onClick={() => setActiveLayout(layout)}
-              />
-            ))} */}
-
             <MenuDivider />
 
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
               disabled={isEmptyLayout}
+              onClick={() => setIsAlertOpen(true)}
             />
           </Menu>
         }
@@ -148,7 +140,10 @@ const NavbarSecondaryGroup: React.FC = () => {
 
       <Navbar.Divider />
 
-      {/* <PatternEditor /> */}
+      <PatternEditor
+        isOpen={isAlertOpen}
+        onCancel={() => setIsAlertOpen(false)}
+      />
 
       <a
         href="https://github.com/JB1905/map-comparificator"
