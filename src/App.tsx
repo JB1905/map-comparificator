@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -41,42 +41,70 @@ const App: React.FC = () => {
     </MosaicWindow>
   );
 
-  // const MobileSplash: React.FC = () => (
-  //   <NonIdealState
-  //     icon="zoom-to-fit"
-  //     title="Your screen is too small"
-  //     description="Open app in bigger window"
-  //     className="device-not-supported"
-  //   />
-  // );
+  const MobileSplash: React.FC = () => (
+    <NonIdealState
+      icon="zoom-to-fit"
+      title="Your screen is too small"
+      description="Open app in bigger window"
+      className="device-not-supported"
+    />
+  );
+
+  const [initialVw, setInitialVw] = useState<number>();
+  const [vw, setVw] = useState<number>();
+
+  useEffect(() => {
+    setInitialVw(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setVw(window.innerWidth);
+
+      if (vw! >= 860) {
+        setInitialVw(vw);
+      }
+    });
+
+    setVw(window.innerWidth);
+  }, [vw]);
 
   /**
    * Disable Mosaic rendering on mobile devices
    * Exclude resized window to avoid rerenderings
    */
-
   return (
     <div id="page" className={themeClass}>
-      <Navbar>
-        <NavbarPrimaryGroup />
+      {vw! < 860 && initialVw! < 860 ? (
+        <MobileSplash />
+      ) : (
+        <>
+          <div className="desktop-layout">
+            <Navbar>
+              <NavbarPrimaryGroup />
 
-        <NavbarSecondaryGroup />
-      </Navbar>
+              <NavbarSecondaryGroup />
+            </Navbar>
 
-      <Mosaic
-        resize={isCustomizationEnabled ? undefined : 'DISABLED'}
-        onChange={(changedLayout) => setActiveLayout(changedLayout)}
-        className={`mosaic-blueprint-theme ${themeClass}`}
-        renderTile={tileRenderer}
-        initialValue={activeLayout}
-        zeroStateView={
-          <NonIdealState
-            icon="map"
-            title="No map preview selected"
-            description="Select maps from the menu"
-          />
-        }
-      />
+            <Mosaic
+              resize={isCustomizationEnabled ? undefined : 'DISABLED'}
+              onChange={(changedLayout) => setActiveLayout(changedLayout)}
+              className={`mosaic-blueprint-theme ${themeClass}`}
+              renderTile={tileRenderer}
+              initialValue={activeLayout}
+              zeroStateView={
+                <NonIdealState
+                  icon="map"
+                  title="No map preview selected"
+                  description="Select maps from the menu"
+                />
+              }
+            />
+          </div>
+
+          <MobileSplash />
+        </>
+      )}
     </div>
   );
 };

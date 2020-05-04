@@ -16,8 +16,18 @@ body,
   @include absolute-centering;
 }
 
-// #page {
-//   .device-not-supported {
-//     display: none;
-//   }
-// }
+#page {
+  .device-not-supported {
+    display: none;
+
+    @media (max-width: 860px) {
+      display: flex;
+    }
+  }
+
+  .desktop-layout {
+    @media (max-width: 860px) {
+      display: none;
+    }
+  }
+}
