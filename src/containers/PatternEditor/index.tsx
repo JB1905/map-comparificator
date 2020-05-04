@@ -4,12 +4,29 @@ import { Alert, InputGroup } from '@blueprintjs/core';
 import { useLayout } from 'hooks/useLayout';
 
 const PatternEditor: React.FC<any> = ({ isOpen, onCancel }) => {
-  const { createCustomLayout, customLayouts } = useLayout();
+  const {
+    createCustomLayout,
+    initialLayouts,
+    customLayouts,
+    activeLayout,
+  } = useLayout();
 
   const [name, setName] = useState('');
 
+  const layoutWithNameExists = () => {
+    return [...initialLayouts, ...customLayouts].find(
+      (layout) => layout.name === name
+    );
+  };
+
+  const layoutWithPatternExists = () => {
+    return [...initialLayouts, ...customLayouts].find(
+      (layout) => JSON.stringify(layout.layout) === JSON.stringify(activeLayout)
+    );
+  };
+
   const submit = () => {
-    if (name && !customLayouts.find((layout) => layout.name === name)) {
+    if (name && !layoutWithNameExists() && !layoutWithPatternExists()) {
       createCustomLayout(name);
 
       onCancel();
