@@ -16,7 +16,7 @@ body,
   @include absolute-centering;
 }
 
-#page {
+.layout-container {
   .device-not-supported {
     display: none;
 
@@ -25,7 +25,7 @@ body,
     }
   }
 
-  .desktop-layout {
+  .desktop-layout * {
     @media (max-width: 860px) {
       display: none;
     }
