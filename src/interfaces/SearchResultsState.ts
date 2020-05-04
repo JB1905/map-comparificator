@@ -4,11 +4,11 @@ import {
   SEARCH_RESULTS_ERROR,
 } from 'actions';
 
-import Place from './Place';
+import { LocationIqResult } from './LocationIq';
 
 export interface SearchResultsState {
   isLoading: boolean;
-  results: Place[];
+  results: LocationIqResult[];
   error: Error | null;
 }
 
@@ -18,7 +18,7 @@ export interface SearchResultsLoadingAction {
 
 export interface SearchResultsSuccessAction {
   type: typeof SEARCH_RESULTS_SUCCESS;
-  payload: Place[];
+  payload: LocationIqResult[];
 }
 
 export interface SearchResultsErrorAction {

@@ -1,4 +1,4 @@
-export default interface Place {
+export interface LocationIqResult {
   place_id: string;
   licence: string;
   osm_type: string;
@@ -11,4 +11,8 @@ export default interface Place {
   type: string;
   importance: number;
   icon?: string;
+}
+
+export interface LocationIqError {
+  error: string;
 }

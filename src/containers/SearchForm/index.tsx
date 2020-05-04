@@ -8,20 +8,27 @@ import { useMaps } from 'hooks/useMaps';
 
 import { locationIcons } from 'constants/locationIcons';
 
-import Place from 'interfaces/Place';
+import { LocationIqResult } from 'interfaces/LocationIq';
 
 import { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
 const SearchForm: React.FC = () => {
-  const { history, results, query, setQuery, addToHistory } = useSearch();
+  const {
+    history,
+    results,
+    error,
+    query,
+    setQuery,
+    addToHistory,
+  } = useSearch();
 
   const { isEmptyLayout } = useLayout();
 
   const { setCoords } = useMaps();
 
-  const selectPlace = (place: Place | SearchHistoryItem) => {
+  const selectPlace = (place: LocationIqResult | SearchHistoryItem) => {
     const { lat, lon, display_name, place_id } = place;
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
@@ -29,7 +36,7 @@ const SearchForm: React.FC = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
-  const itemRenderer = (item: Place | SearchHistoryItem) => (
+  const itemRenderer = (item: LocationIqResult | SearchHistoryItem) => (
     <MenuItem
       className="search-form-hints"
       text={item.display_name}
@@ -41,7 +48,7 @@ const SearchForm: React.FC = () => {
 
   return (
     <Select
-      items={query ? results : history}
+      items={error ? [] : query ? results : history}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
       noResults={<MenuItem text="No results found" disabled />}
