@@ -9,7 +9,7 @@ Choose the best map provider for your web app
 - resize, drag, open, close map windows & use or create compositions
 
 ##### Limitations
-- mobile devices (smartphones) are not supported – incorrect behaviour using Blueprint & Mosaic Component
+- mobile devices (smartphones) are not supported – incorrect behavior using Blueprint & Mosaic Component
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
