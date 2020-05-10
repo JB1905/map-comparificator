@@ -47,6 +47,7 @@ export const useLayout = () => {
     });
   };
 
+  // TODO cleanup
   const openWindow = (windowName: string) => {
     let layoutTree: any;
 

@@ -28,6 +28,8 @@ export const searchHistoryReducer = (
     }
 
     case SEARCH_HISTORY_REMOVE:
+      console.log(state.items, action.payload);
+
       return {
         ...state,
         items: state.items.filter((item) => item.place_id !== action.payload),

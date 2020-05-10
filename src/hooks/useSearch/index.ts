@@ -40,10 +40,10 @@ export const useSearch = () => {
     });
   };
 
-  const removeFromHistory = (item: SearchHistoryItem) => {
+  const removeFromHistory = (id: string) => {
     dispatch({
       type: SEARCH_HISTORY_REMOVE,
-      payload: item,
+      payload: id,
     });
   };
 

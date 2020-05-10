@@ -14,6 +14,8 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
+import { MenuListItem } from 'components/MenuListItem';
+
 import { ReactComponent as OctoCat } from 'assets/github.svg';
 
 import PatternEditor from 'containers/PatternEditor';
@@ -32,6 +34,7 @@ const NavbarSecondaryGroup: React.FC = () => {
     activeLayout,
     isEmptyLayout,
     setActiveLayout,
+
     initialLayouts,
     customLayouts,
     openWindow,
@@ -45,6 +48,13 @@ const NavbarSecondaryGroup: React.FC = () => {
   } = useSettings();
 
   const [isAlertOpen, setIsAlertOpen] = useState(false);
+
+  // TODO cleanup
+  const layoutExists = () => {
+    return [...initialLayouts, ...customLayouts].find(
+      (layout) => JSON.stringify(layout.layout) === JSON.stringify(activeLayout)
+    );
+  };
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -113,23 +123,28 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
+            {/* TODO fix element */}
             {initialLayouts.concat(customLayouts).map(({ name, layout }) => (
-              <MenuItem
+              <MenuListItem
                 text={name}
                 icon="page-layout"
                 key={name}
                 active={equal(activeLayout, layout)}
                 onClick={() => setActiveLayout(layout)}
+                // buttonProps={{
+                //   onClick: () => null,
+                // }}
               />
             ))}
 
             <MenuDivider />
 
+            {/* TODO cleanup */}
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
               disabled={isEmptyLayout}
-              onClick={() => setIsAlertOpen(true)}
+              onClick={() => !layoutExists() && setIsAlertOpen(true)}
             />
           </Menu>
         }
@@ -140,6 +155,7 @@ const NavbarSecondaryGroup: React.FC = () => {
 
       <Navbar.Divider />
 
+      {/* TODO cleanup */}
       <PatternEditor
         isOpen={isAlertOpen}
         onCancel={() => setIsAlertOpen(false)}

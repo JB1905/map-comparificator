@@ -2,6 +2,8 @@ import React from 'react';
 import { MenuItem, InputGroup } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
+import { MenuListItem } from 'components/MenuListItem';
+
 import { useSearch } from 'hooks/useSearch';
 import { useLayout } from 'hooks/useLayout';
 import { useMaps } from 'hooks/useMaps';
@@ -22,6 +24,7 @@ const SearchForm: React.FC = () => {
     query,
     setQuery,
     addToHistory,
+    removeFromHistory,
   } = useSearch();
 
   const { isEmptyLayout } = useLayout();
@@ -36,13 +39,18 @@ const SearchForm: React.FC = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
+  /* TODO cleanup */
   const itemRenderer = (item: LocationIqResult | SearchHistoryItem) => (
-    <MenuItem
-      className="search-form-hints"
+    <MenuListItem
       text={item.display_name}
       icon={locationIcons[item.class] ?? 'map-marker'}
       onClick={() => selectPlace(item)}
       key={item.place_id}
+      showActionButton={!query}
+      buttonProps={{
+        icon: 'trash',
+        onClick: () => removeFromHistory(item.place_id),
+      }}
     />
   );
 
