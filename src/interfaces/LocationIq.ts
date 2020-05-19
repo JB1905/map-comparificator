@@ -1,18 +1,18 @@
 export interface LocationIqResult {
-  place_id: string;
-  licence: string;
-  osm_type: string;
-  osm_id: string;
-  boundingbox: string[];
-  lat: string;
-  lon: string;
-  display_name: string;
-  class: string;
-  type: string;
-  importance: number;
-  icon?: string;
+  readonly place_id: string;
+  readonly licence: string;
+  readonly osm_type: string;
+  readonly osm_id: string;
+  readonly boundingbox: string[];
+  readonly lat: string;
+  readonly lon: string;
+  readonly display_name: string;
+  readonly class: string;
+  readonly type: string;
+  readonly importance: number;
+  readonly icon?: string;
 }
 
 export interface LocationIqError {
-  error: string;
+  readonly error: string;
 }

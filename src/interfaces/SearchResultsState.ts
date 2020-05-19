@@ -7,21 +7,21 @@ import {
 import { LocationIqResult } from './LocationIq';
 
 export interface SearchResultsState {
-  isLoading: boolean;
-  results: LocationIqResult[];
-  error: Error | null;
+  readonly isLoading: boolean;
+  readonly results: LocationIqResult[];
+  readonly error: Error | null;
 }
 
 export interface SearchResultsLoadingAction {
-  type: typeof SEARCH_RESULTS_LOADING;
+  readonly type: typeof SEARCH_RESULTS_LOADING;
 }
 
 export interface SearchResultsSuccessAction {
-  type: typeof SEARCH_RESULTS_SUCCESS;
-  payload: LocationIqResult[];
+  readonly type: typeof SEARCH_RESULTS_SUCCESS;
+  readonly payload: LocationIqResult[];
 }
 
 export interface SearchResultsErrorAction {
-  type: typeof SEARCH_RESULTS_ERROR;
-  payload: Error;
+  readonly type: typeof SEARCH_RESULTS_ERROR;
+  readonly payload: Error;
 }

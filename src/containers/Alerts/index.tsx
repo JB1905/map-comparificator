@@ -6,7 +6,7 @@ import { ALERTS } from 'collections/alerts';
 import { AlertWindow } from 'enums/AlertWindow';
 
 interface Props {
-  alertId: AlertWindow | any;
+  readonly alertId: AlertWindow | any;
 }
 
 export const WindowAlert: React.FC<Props> = ({

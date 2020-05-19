@@ -7,27 +7,27 @@ import {
 import type { Layout } from 'types/Layout';
 
 export interface LayoutState {
-  activeLayout: Layout;
-  customLayouts: {
-    name: string;
-    layout: Layout;
+  readonly activeLayout: Layout;
+  readonly customLayouts: {
+    readonly name: string;
+    readonly layout: Layout;
   }[];
 }
 
 export interface SetActiveLayoutAction {
-  type: typeof SET_ACTIVE_LAYOUT;
-  payload: Layout;
+  readonly type: typeof SET_ACTIVE_LAYOUT;
+  readonly payload: Layout;
 }
 
 export interface CreateCustomLayoutAction {
-  type: typeof CREATE_CUSTOM_LAYOUT;
-  payload: {
-    name: string;
-    layout: Layout;
+  readonly type: typeof CREATE_CUSTOM_LAYOUT;
+  readonly payload: {
+    readonly name: string;
+    readonly layout: Layout;
   };
 }
 
 export interface RemoveCustomLayoutAction {
-  type: typeof REMOVE_CUSTOM_LAYOUT;
-  payload: string;
+  readonly type: typeof REMOVE_CUSTOM_LAYOUT;
+  readonly payload: string;
 }
