@@ -4,7 +4,7 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from 'actions';
 
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export interface SearchHistoryState {
   items: SearchHistoryItem[];

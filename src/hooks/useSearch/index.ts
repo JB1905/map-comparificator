@@ -11,7 +11,7 @@ import {
 
 import { RootState } from 'reducers';
 
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export const useSearch = () => {
   const dispatch = useDispatch();

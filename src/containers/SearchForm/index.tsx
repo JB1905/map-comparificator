@@ -1,8 +1,6 @@
 import React from 'react';
-import { MenuItem, InputGroup } from '@blueprintjs/core';
+import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
-
-import { MenuListItem } from 'components/MenuListItem';
 
 import { useSearch } from 'hooks/useSearch';
 import { useLayout } from 'hooks/useLayout';
@@ -12,7 +10,7 @@ import { locationIcons } from 'constants/locationIcons';
 
 import { LocationIqResult } from 'interfaces/LocationIq';
 
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
@@ -39,18 +37,21 @@ const SearchForm: React.FC = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
-  /* TODO cleanup */
   const itemRenderer = (item: LocationIqResult | SearchHistoryItem) => (
-    <MenuListItem
+    <MenuItem
       text={item.display_name}
       icon={locationIcons[item.class] ?? 'map-marker'}
       onClick={() => selectPlace(item)}
       key={item.place_id}
-      showActionButton={!query}
-      buttonProps={{
-        icon: 'trash',
-        onClick: () => removeFromHistory(item.place_id),
-      }}
+      labelElement={
+        !query && (
+          <Button
+            icon="trash"
+            small
+            onClick={() => removeFromHistory(item.place_id)}
+          />
+        )
+      }
     />
   );
 

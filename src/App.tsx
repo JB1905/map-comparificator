@@ -12,7 +12,7 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { ELEMENT_MAP } from 'map';
+import { MAPS } from 'collections/maps';
 
 import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
@@ -52,7 +52,7 @@ const App: React.FC = () => {
         isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
       }
     >
-      {ELEMENT_MAP[id]}
+      {MAPS[id]}
     </MosaicWindow>
   );
 

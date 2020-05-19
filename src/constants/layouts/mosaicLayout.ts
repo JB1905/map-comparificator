@@ -1,4 +1,4 @@
-import { Layout } from 'types/Layout';
+import type { Layout } from 'types/Layout';
 
 export const mosaicLayout: Layout = {
   first: 'Apple Maps',

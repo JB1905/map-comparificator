@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Alignment,
   Navbar,
@@ -8,24 +8,25 @@ import {
   Position,
   MenuItem,
   MenuDivider,
+  Intent,
+  ButtonGroup,
 } from '@blueprintjs/core';
 import equal from 'deep-equal';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { MenuListItem } from 'components/MenuListItem';
-
 import { ReactComponent as OctoCat } from 'assets/github.svg';
 
-import PatternEditor from 'containers/PatternEditor';
-
-import { ELEMENT_MAP } from 'map';
+import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
 import { CenteringMode } from 'enums/CenteringMode';
+// import { AlertWindow } from 'enums/AlertWindow';
+
+// import { WindowAlert } from '../Alerts';
 
 import './NavbarSecondaryGroup.scss';
 
@@ -34,7 +35,8 @@ const NavbarSecondaryGroup: React.FC = () => {
     activeLayout,
     isEmptyLayout,
     setActiveLayout,
-
+    findExistingLayout,
+    // removeCustomLayout,
     initialLayouts,
     customLayouts,
     openWindow,
@@ -47,14 +49,10 @@ const NavbarSecondaryGroup: React.FC = () => {
     toggleCustomization,
   } = useSettings();
 
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  // const [alertId, setAlertId] = useState<AlertWindow>();
 
-  // TODO cleanup
-  const layoutExists = () => {
-    return [...initialLayouts, ...customLayouts].find(
-      (layout) => JSON.stringify(layout.layout) === JSON.stringify(activeLayout)
-    );
-  };
+  const isCreationEnabled =
+    !!findExistingLayout() || isEmptyLayout || customLayouts.length >= 6;
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -70,7 +68,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {Object.keys(ELEMENT_MAP).map((map) => (
+            {Object.keys(MAPS).map((map) => (
               <MenuItem
                 text={map}
                 icon="send-to-map"
@@ -123,28 +121,57 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {/* TODO fix element */}
-            {initialLayouts.concat(customLayouts).map(({ name, layout }) => (
-              <MenuListItem
+            {initialLayouts.map(({ name, layout }) => (
+              <MenuItem
                 text={name}
                 icon="page-layout"
                 key={name}
                 active={equal(activeLayout, layout)}
                 onClick={() => setActiveLayout(layout)}
-                // buttonProps={{
-                //   onClick: () => null,
-                // }}
               />
             ))}
 
+            {customLayouts.length > 0 && (
+              <>
+                <MenuDivider title="Custom Patterns" />
+
+                {customLayouts.map(({ name, layout }) => (
+                  <MenuItem
+                    text={name}
+                    icon="page-layout"
+                    key={name}
+                    active={equal(activeLayout, layout)}
+                    onClick={() => setActiveLayout(layout)}
+                    labelElement={
+                      <ButtonGroup>
+                        <Button
+                          icon="edit"
+                          small
+                          // onClick={() => setAlertId(AlertWindow.Edit)}
+                          intent={Intent.WARNING}
+                        />
+
+                        <Button
+                          icon="trash"
+                          small
+                          // onClick={() => setAlertId(AlertWindow.Delete)}
+                          intent={Intent.DANGER}
+                        />
+                      </ButtonGroup>
+                    }
+                  />
+                ))}
+              </>
+            )}
+
             <MenuDivider />
 
-            {/* TODO cleanup */}
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
-              disabled={isEmptyLayout}
-              onClick={() => !layoutExists() && setIsAlertOpen(true)}
+              disabled={isCreationEnabled}
+              // onClick={() => setAlertId(AlertWindow.Create)}
+              intent={Intent.SUCCESS}
             />
           </Menu>
         }
@@ -155,11 +182,7 @@ const NavbarSecondaryGroup: React.FC = () => {
 
       <Navbar.Divider />
 
-      {/* TODO cleanup */}
-      <PatternEditor
-        isOpen={isAlertOpen}
-        onCancel={() => setIsAlertOpen(false)}
-      />
+      {/* <WindowAlert alertId={alertId} /> */}
 
       <a
         href="https://github.com/JB1905/map-comparificator"

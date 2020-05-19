@@ -4,7 +4,7 @@ import {
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions';
 
-import { Layout } from 'types/Layout';
+import type { Layout } from 'types/Layout';
 
 export interface LayoutState {
   activeLayout: Layout;

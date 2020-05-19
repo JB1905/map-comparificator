@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 
 import { LocationIqResult, LocationIqError } from 'interfaces/LocationIq';
 
-import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
+import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
 export const SEARCH_RESULTS_LOADING = 'SEARCH_RESULTS_LOADING';
 export const SEARCH_RESULTS_SUCCESS = 'SEARCH_RESULTS_SUCCESS';

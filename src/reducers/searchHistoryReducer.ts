@@ -6,7 +6,7 @@ import {
 
 import { SearchHistoryState } from 'interfaces/SearchHistoryState';
 
-import { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
+import type { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
 
 const initialState: SearchHistoryState = {
   items: [],
