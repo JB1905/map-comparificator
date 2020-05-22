@@ -4,14 +4,11 @@ import {
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions';
 
-import type { Layout } from 'types/Layout';
+import type { Layout, CustomLayout } from 'types/Layout';
 
 export interface LayoutState {
   readonly activeLayout: Layout;
-  readonly customLayouts: {
-    readonly name: string;
-    readonly layout: Layout;
-  }[];
+  readonly customLayouts: CustomLayout[];
 }
 
 export interface SetActiveLayoutAction {
@@ -21,10 +18,7 @@ export interface SetActiveLayoutAction {
 
 export interface CreateCustomLayoutAction {
   readonly type: typeof CREATE_CUSTOM_LAYOUT;
-  readonly payload: {
-    readonly name: string;
-    readonly layout: Layout;
-  };
+  readonly payload: CustomLayout;
 }
 
 export interface RemoveCustomLayoutAction {
