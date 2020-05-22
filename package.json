@@ -18,7 +18,7 @@
     "@blueprintjs/icons": "^3.18.0",
     "@blueprintjs/select": "^3.13.1",
     "@impargo/react-here-maps": "^1.5.6",
-    "@react-google-maps/api": "^1.9.1",
+    "@react-google-maps/api": "^1.9.2",
     "deep-equal": "^2.0.3",
     "leaflet": "^1.6.0",
     "node-sass": "^4.14.1",

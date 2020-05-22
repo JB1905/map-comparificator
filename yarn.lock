@@ -1396,24 +1396,24 @@
   resolved "https://registry.yarnpkg.com/@react-dnd/shallowequal/-/shallowequal-2.0.0.tgz#a3031eb54129f2c66b2753f8404266ec7bf67f0a"
   integrity sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==
 
-"@react-google-maps/api@^1.9.1":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.1.tgz#dff5d39ae4b9a590a8f01f2d3855ad80c96841a6"
-  integrity sha512-INltbQ/lz2+i6QWwf/Fxa/MU8KJJSbdNN5FdmgqqIZYydLJ+aKlIZTZjHTQaOPgbpRIg5ITabX1MTv7ljozKFQ==
+"@react-google-maps/api@^1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.2.tgz#3d5e8648d4be891d65b32439673b9e28bb363b7c"
+  integrity sha512-Uz0qljv/tPh8P1oih6rqcVmgizXxYC4OKq9IzXFteCTJk0EZRQ7TB89QFMhKGOYn5OGZaDMMfF+8UliWQPLnfg==
   dependencies:
-    "@react-google-maps/infobox" "1.8.7"
-    "@react-google-maps/marker-clusterer" "1.8.7"
+    "@react-google-maps/infobox" "1.9.2"
+    "@react-google-maps/marker-clusterer" "1.9.2"
     invariant "2.2.4"
 
-"@react-google-maps/infobox@1.8.7":
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.8.7.tgz#0e0c293c3f1bd4a07fddda4a762e2b43f45ba3ff"
-  integrity sha512-QKblFDfiWrBnuGui940YxH7OComeh+fpZ6yr1oDv/bZmWKMxTtOiv64uPmXS5ORCxBX0i5G/JiCCKbznvvMkzQ==
+"@react-google-maps/infobox@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.9.2.tgz#d1418bf23139295c27dc63545ad8e89f03064fb3"
+  integrity sha512-KrAEJQPVSXQZZJOE2YW0DMk5wCpY7b5orhzuy754GKYEw6M8jxupyHNVezP4osNTLA8q1OD4ERXZmbeuhtQPXQ==
 
-"@react-google-maps/marker-clusterer@1.8.7":
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.8.7.tgz#7b357cc627056231cd63b75cf383246a174605d4"
-  integrity sha512-sJf5rhBVcykCZ5dmBCeoScRpXGq10KsDe+9AaztLTltaJaHtIV3oL6JMmUHWV0TA3IN69kz0CpjR8rQkeUH72A==
+"@react-google-maps/marker-clusterer@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.9.2.tgz#0231b8635993cbf43256a86e13961145785febb8"
+  integrity sha512-6I+eZ4cmaTzRdOQhIYLiBrI5crpUFdpV94gvCAhAuiO9JuUsUJIJumBxRup2UWEOkMGmAOLOXFQ9ieKxu9u47g==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
