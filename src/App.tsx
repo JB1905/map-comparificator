@@ -28,11 +28,13 @@ const App: React.FC = () => {
 
   const { isCustomizationEnabled } = useSettings();
 
-  const { vw } = useViewport();
+  const { vw } = useViewport({
+    defaultVH: window.innerHeight,
+  });
 
   const themeClass = isDark ? Classes.DARK : '';
 
-  if (vw < 860) {
+  if (vw! < 860) {
     return (
       <NonIdealState
         icon="zoom-to-fit"

@@ -1028,10 +1028,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blueprintjs/core@^3.28.0":
-  version "3.28.0"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.28.0.tgz#5fb75878a6c082905a51f3e190c97d4609feb811"
-  integrity sha512-KTnvVT1hUR8GLtJwHSe3Z9AoSG6h4PIilKmBVdGVt55hRJx/I4PiXPkFGEM1sLFr6c+IojoOgrY/4e79VZWs0A==
+"@blueprintjs/core@^3.28.1":
+  version "3.28.1"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.28.1.tgz#cb4056c9637b09d8b8c46bd4efe7363cdb796b8d"
+  integrity sha512-Ws4+FrtHh5U4TMaqhFW1PXajJobn2By72LOxu18q8ksY4CuyUzvo8xIOooViQdA7ZLx9pwhC6dytsYdykwRy0w==
   dependencies:
     "@blueprintjs/icons" "^3.18.0"
     "@types/dom4" "^2.0.1"
@@ -1053,12 +1053,12 @@
     classnames "^2.2"
     tslib "~1.10.0"
 
-"@blueprintjs/select@^3.13.1":
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/select/-/select-3.13.1.tgz#576c4933242b0343de8883080810d912f5c18630"
-  integrity sha512-2TogyeYPz6H/ebuu2Wmb+10nXbz0uXKu7I8UtuYp2qaXeo8SwHMR43dsYhTk+1o1p0nbT1ipyA3IfF7Ky2UB2Q==
+"@blueprintjs/select@^3.13.2":
+  version "3.13.2"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/select/-/select-3.13.2.tgz#45cc1bf50e4cd51d9e99f8b39a071ee4c84c64c3"
+  integrity sha512-cx/pUqAbbGJpBQgmdc9Cwj8CKbDbgq6dxcG5qTXs3nXNZQRO5KtwaKSJEzSxO9PhmxxpEn6FrScukoevqHwHvw==
   dependencies:
-    "@blueprintjs/core" "^3.28.0"
+    "@blueprintjs/core" "^3.28.1"
     classnames "^2.2"
     tslib "~1.10.0"
 
@@ -1536,10 +1536,10 @@
     dom-accessibility-api "^0.4.2"
     pretty-format "^25.1.0"
 
-"@testing-library/jest-dom@^5.8.0":
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.8.0.tgz#815e830129c4dda6c8e9a725046397acec523669"
-  integrity sha512-9Y4FxYIxfwHpUyJVqI8EOfDP2LlEBqKwXE3F+V8ightji0M2rzQB+9kqZ5UJxNs+9oXJIgvYj7T3QaXLNHVDMw==
+"@testing-library/jest-dom@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.9.0.tgz#86464c66cbe75e632b8adb636f539bfd0efc2c9c"
+  integrity sha512-uZ68dyILuM2VL13lGz4ehFEAgxzvLKRu8wQxyAZfejWnyMhmipJ60w4eG81NQikJHBfaYXx+Or8EaPQTDwGfPA==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.0.2"
@@ -1568,10 +1568,10 @@
     "@testing-library/dom" "^7.2.2"
     "@types/testing-library__react" "^10.0.1"
 
-"@testing-library/user-event@^10.3.4":
-  version "10.3.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-10.3.4.tgz#701905a19bad92805820b816327ab086bdd0e832"
-  integrity sha512-ZuqR2cBAOArvBdPiIjmAKaZdFAtZSH6Oz2I5+uHonMXRyR0uTtz2fTWyPuiu4JATdK7gLIq1s02BMJGWgmh1lA==
+"@testing-library/user-event@^10.4.0":
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-10.4.0.tgz#015fbfc42bae45201b376e1fe80f86881c4f38ca"
+  integrity sha512-IaWczZ2qO7cLUefEfU7OUBLhpmGVOBEdFe9hEHS3Qu+Wl3JTknD2+XYHLY8oct4O/gA7XP9wXpmCyLVcXRYPqA==
   dependencies:
     "@babel/runtime" "^7.9.6"
 
@@ -10187,10 +10187,10 @@ react-transition-group@^2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-viewport-hooks@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.2.2.tgz#5f4b8660cca73b9ff03e7526f73ac9b7a35af0da"
-  integrity sha512-ywPSWKtCEqP4vCDDuxc/gPxuflLlh6reuB0jhEfqjH3aogoMvmZKNNqTdbJ8e/GAo7Xzg+eJZ9KaMs/55N5Z1Q==
+react-viewport-hooks@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.4.0.tgz#0cb6c9532be5ee018afc826ec8c909aeee0e8df3"
+  integrity sha512-O5egvqyx3dcoUll/7Z9U3fI4gDdabCOIWPg70Z9KNQxb8qBnKkJpEBVkVpPp0/3isDw1hk0c92SfyNo38uERsA==
 
 react-virtualized-auto-sizer@^1.0.2:
   version "1.0.2"

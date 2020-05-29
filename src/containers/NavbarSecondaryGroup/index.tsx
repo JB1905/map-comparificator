@@ -24,9 +24,6 @@ import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
 import { CenteringMode } from 'enums/CenteringMode';
-// import { AlertWindow } from 'enums/AlertWindow';
-
-// import { WindowAlert } from '../Alerts';
 
 import './NavbarSecondaryGroup.scss';
 
@@ -48,11 +45,6 @@ const NavbarSecondaryGroup: React.FC = () => {
     isCustomizationEnabled,
     toggleCustomization,
   } = useSettings();
-
-  // const [alertId, setAlertId] = useState<AlertWindow>();
-
-  const isCreationEnabled =
-    !!findExistingLayout() || isEmptyLayout || customLayouts.length >= 6;
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -169,7 +161,11 @@ const NavbarSecondaryGroup: React.FC = () => {
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
-              disabled={isCreationEnabled}
+              disabled={
+                !!findExistingLayout() ||
+                customLayouts.length >= 6 ||
+                isEmptyLayout
+              }
               // onClick={() => setAlertId(AlertWindow.Create)}
               intent={Intent.SUCCESS}
             />
@@ -181,8 +177,6 @@ const NavbarSecondaryGroup: React.FC = () => {
       </Popover>
 
       <Navbar.Divider />
-
-      {/* <WindowAlert alertId={alertId} /> */}
 
       <a
         href="https://github.com/JB1905/map-comparificator"
