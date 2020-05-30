@@ -32,17 +32,6 @@ const App: React.FC = () => {
 
   const themeClass = isDark ? Classes.DARK : '';
 
-  if (vw < 860) {
-    return (
-      <NonIdealState
-        icon="zoom-to-fit"
-        title="Your screen is too small"
-        description="Open app in bigger window"
-        className="device-not-supported"
-      />
-    );
-  }
-
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
       path={path}
@@ -62,26 +51,37 @@ const App: React.FC = () => {
         <body className={themeClass} />
       </Helmet>
 
-      <Navbar>
-        <NavbarPrimaryGroup />
+      {vw > 860 ? (
+        <>
+          <Navbar>
+            <NavbarPrimaryGroup />
 
-        <NavbarSecondaryGroup />
-      </Navbar>
+            <NavbarSecondaryGroup />
+          </Navbar>
 
-      <Mosaic
-        resize={isCustomizationEnabled ? undefined : 'DISABLED'}
-        onChange={(changedLayout) => setActiveLayout(changedLayout)}
-        className={`mosaic-blueprint-theme ${themeClass}`}
-        renderTile={tileRenderer}
-        initialValue={activeLayout}
-        zeroStateView={
-          <NonIdealState
-            icon="map"
-            title="No map preview selected"
-            description="Select maps from the menu"
+          <Mosaic
+            resize={isCustomizationEnabled ? undefined : 'DISABLED'}
+            onChange={(changedLayout) => setActiveLayout(changedLayout)}
+            className={`mosaic-blueprint-theme ${themeClass}`}
+            renderTile={tileRenderer}
+            initialValue={activeLayout}
+            zeroStateView={
+              <NonIdealState
+                icon="map"
+                title="No map preview selected"
+                description="Select maps from the menu"
+              />
+            }
           />
-        }
-      />
+        </>
+      ) : (
+        <NonIdealState
+          icon="zoom-to-fit"
+          title="Your screen is too small"
+          description="Open app in bigger window"
+          className="device-not-supported"
+        />
+      )}
     </>
   );
 };

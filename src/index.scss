@@ -14,4 +14,8 @@ body,
 
 .device-not-supported {
   @include absolute-centering;
+
+  .bp3-dark & {
+    background-color: #202b33;
+  }
 }
