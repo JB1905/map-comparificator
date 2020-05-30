@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 
-import Place from 'interfaces/Place';
+import { LocationIqResult, LocationIqError } from 'interfaces/LocationIq';
 
-import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
+import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
 export const SEARCH_RESULTS_LOADING = 'SEARCH_RESULTS_LOADING';
 export const SEARCH_RESULTS_SUCCESS = 'SEARCH_RESULTS_SUCCESS';
@@ -13,7 +13,7 @@ const searchLocationFetchPending = (): SearchResultsActionTypes => ({
 });
 
 const searchLocationFetchSuccess = (
-  data: Place[]
+  data: LocationIqResult[]
 ): SearchResultsActionTypes => ({
   type: SEARCH_RESULTS_SUCCESS,
   payload: data,
@@ -32,9 +32,13 @@ export const searchLocation = (query: string) => async (dispatch: Dispatch) => {
       `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&q=${query}&format=json`
     );
 
-    const data = await res.json();
+    const data: LocationIqResult[] | LocationIqError = await res.json();
 
-    dispatch(searchLocationFetchSuccess(data));
+    if (Array.isArray(data)) {
+      dispatch(searchLocationFetchSuccess(data));
+    } else {
+      throw new Error(data?.error);
+    }
   } catch (err) {
     dispatch(searchLocationFetchError(err));
   }

@@ -6,7 +6,7 @@ import {
 
 import { SearchResultsState } from 'interfaces/SearchResultsState';
 
-import { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
+import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 
 const initialState: SearchResultsState = {
   isLoading: false,

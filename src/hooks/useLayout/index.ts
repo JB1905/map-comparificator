@@ -9,14 +9,19 @@ import {
   MosaicParent,
   MosaicNode,
 } from 'react-mosaic-component';
+import deepEqual from 'deep-equal';
 
-import { SET_ACTIVE_LAYOUT, CREATE_CUSTOM_LAYOUT } from 'actions';
+import {
+  SET_ACTIVE_LAYOUT,
+  CREATE_CUSTOM_LAYOUT,
+  REMOVE_CUSTOM_LAYOUT,
+} from 'actions';
 
 import { RootState } from 'reducers';
 
 import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
-import { Layout } from 'types/Layout';
+import type { Layout } from 'types/Layout';
 
 export const useLayout = () => {
   const dispatch = useDispatch();
@@ -33,6 +38,18 @@ export const useLayout = () => {
     { name: 'Mosaic', layout: mosaicLayout },
   ];
 
+  const findExistingLayout = (name?: string) => {
+    return [...initialLayouts, ...customLayouts].find((layout) => {
+      const isEqualPattern = deepEqual(layout.layout, activeLayout);
+
+      if (name) {
+        return isEqualPattern && layout.name === name;
+      }
+
+      return isEqualPattern;
+    });
+  };
+
   const setActiveLayout = (layout: Layout) => {
     dispatch({ type: SET_ACTIVE_LAYOUT, payload: layout });
   };
@@ -44,6 +61,13 @@ export const useLayout = () => {
         name,
         layout: activeLayout,
       },
+    });
+  };
+
+  const removeCustomLayout = (id: string) => {
+    dispatch({
+      type: REMOVE_CUSTOM_LAYOUT,
+      payload: id,
     });
   };
 
@@ -99,9 +123,11 @@ export const useLayout = () => {
     activeLayout,
     customLayouts,
     setActiveLayout,
+    findExistingLayout,
     isEmptyLayout,
     initialLayouts,
     createCustomLayout,
+    removeCustomLayout,
     openWindow,
   };
 };

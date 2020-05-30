@@ -4,7 +4,7 @@ import { SET_ACTIVE_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
 
 import { RootState } from 'reducers';
 
-import { CenteringMode } from 'types/CenteringMode';
+import { CenteringMode } from 'enums/CenteringMode';
 
 export const useSettings = () => {
   const dispatch = useDispatch();

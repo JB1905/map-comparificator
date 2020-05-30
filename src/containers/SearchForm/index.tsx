@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, InputGroup } from '@blueprintjs/core';
+import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
 import { useSearch } from 'hooks/useSearch';
@@ -8,20 +8,30 @@ import { useMaps } from 'hooks/useMaps';
 
 import { locationIcons } from 'constants/locationIcons';
 
-import Place from 'interfaces/Place';
+import { LocationIqResult } from 'interfaces/LocationIq';
+
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
 const SearchForm: React.FC = () => {
-  const { history, results, query, setQuery, addToHistory } = useSearch();
+  const {
+    history,
+    results,
+    error,
+    query,
+    setQuery,
+    addToHistory,
+    removeFromHistory,
+  } = useSearch();
 
   const { isEmptyLayout } = useLayout();
 
   const { setCoords } = useMaps();
 
-  const selectPlace = (place: Place | SearchHistoryItem) => {
+  const selectPlace = (place: LocationIqResult | SearchHistoryItem) => {
     const { lat, lon, display_name, place_id } = place;
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
@@ -29,19 +39,27 @@ const SearchForm: React.FC = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
-  const itemRenderer = (item: Place | SearchHistoryItem) => (
+  const itemRenderer = (item: LocationIqResult | SearchHistoryItem) => (
     <MenuItem
-      className="search-form-hints"
       text={item.display_name}
       icon={locationIcons[item.class] ?? 'map-marker'}
       onClick={() => selectPlace(item)}
       key={item.place_id}
+      labelElement={
+        !query && (
+          <Button
+            icon="trash"
+            small
+            onClick={() => removeFromHistory(item.place_id)}
+          />
+        )
+      }
     />
   );
 
   return (
     <Select
-      items={query ? results : history}
+      items={error ? [] : query ? results : history}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
       noResults={<MenuItem text="No results found" disabled />}

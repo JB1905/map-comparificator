@@ -4,22 +4,22 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from 'actions';
 
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export interface SearchHistoryState {
-  items: SearchHistoryItem[];
+  readonly items: SearchHistoryItem[];
 }
 
 export interface SearchHistoryAddAction {
-  type: typeof SEARCH_HISTORY_ADD;
-  payload: SearchHistoryItem;
+  readonly type: typeof SEARCH_HISTORY_ADD;
+  readonly payload: SearchHistoryItem;
 }
 
 export interface SearchHistoryRemoveAction {
-  type: typeof SEARCH_HISTORY_REMOVE;
-  payload: string;
+  readonly type: typeof SEARCH_HISTORY_REMOVE;
+  readonly payload: string;
 }
 
 export interface SearchHistoryClearAction {
-  type: typeof SEARCH_HISTORY_CLEAR;
+  readonly type: typeof SEARCH_HISTORY_CLEAR;
 }

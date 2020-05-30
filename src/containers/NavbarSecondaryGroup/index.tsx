@@ -8,6 +8,8 @@ import {
   Position,
   MenuItem,
   MenuDivider,
+  Intent,
+  ButtonGroup,
 } from '@blueprintjs/core';
 import equal from 'deep-equal';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -16,14 +18,12 @@ import 'react-mosaic-component/react-mosaic-component.css';
 
 import { ReactComponent as OctoCat } from 'assets/github.svg';
 
-// import PatternEditor from 'containers/PatternEditor';
-
-import { ELEMENT_MAP } from 'map';
+import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
-import { centeringModes } from 'constants/centeringModes';
+import { CenteringMode } from 'enums/CenteringMode';
 
 import './NavbarSecondaryGroup.scss';
 
@@ -32,8 +32,9 @@ const NavbarSecondaryGroup: React.FC = () => {
     activeLayout,
     isEmptyLayout,
     setActiveLayout,
+    findExistingLayout,
+    // removeCustomLayout,
     initialLayouts,
-    // setLayoutAsPattern,
     customLayouts,
     openWindow,
   } = useLayout();
@@ -59,7 +60,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {Object.keys(ELEMENT_MAP).map((map) => (
+            {Object.keys(MAPS).map((map) => (
               <MenuItem
                 text={map}
                 icon="send-to-map"
@@ -85,7 +86,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {centeringModes.map((centeringMode) => (
+            {Object.values(CenteringMode).map((centeringMode) => (
               <MenuItem
                 text={centeringMode}
                 icon="locate"
@@ -112,7 +113,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {initialLayouts.concat(customLayouts).map(({ name, layout }) => (
+            {initialLayouts.map(({ name, layout }) => (
               <MenuItem
                 text={name}
                 icon="page-layout"
@@ -122,22 +123,51 @@ const NavbarSecondaryGroup: React.FC = () => {
               />
             ))}
 
-            {/* {?.map(({ name, layout }) => (
-              <MenuItem
-                text={name}
-                icon="page-layout"
-                key={name}
-                active={equal(activeLayout, layout)}
-                onClick={() => setActiveLayout(layout)}
-              />
-            ))} */}
+            {customLayouts.length > 0 && (
+              <>
+                <MenuDivider title="Custom Patterns" />
+
+                {customLayouts.map(({ name, layout }) => (
+                  <MenuItem
+                    text={name}
+                    icon="page-layout"
+                    key={name}
+                    active={equal(activeLayout, layout)}
+                    onClick={() => setActiveLayout(layout)}
+                    labelElement={
+                      <ButtonGroup>
+                        <Button
+                          icon="edit"
+                          small
+                          // onClick={() => setAlertId(AlertWindow.Edit)}
+                          intent={Intent.WARNING}
+                        />
+
+                        <Button
+                          icon="trash"
+                          small
+                          // onClick={() => setAlertId(AlertWindow.Delete)}
+                          intent={Intent.DANGER}
+                        />
+                      </ButtonGroup>
+                    }
+                  />
+                ))}
+              </>
+            )}
 
             <MenuDivider />
 
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
-              disabled={isEmptyLayout}
+              disabled={
+                !!findExistingLayout() ||
+                customLayouts.length >= 6 ||
+                isEmptyLayout
+              }
+              // onClick={() => setAlertId(AlertWindow.Create)}
+              intent={Intent.SUCCESS}
             />
           </Menu>
         }
@@ -147,8 +177,6 @@ const NavbarSecondaryGroup: React.FC = () => {
       </Popover>
 
       <Navbar.Divider />
-
-      {/* <PatternEditor /> */}
 
       <a
         href="https://github.com/JB1905/map-comparificator"

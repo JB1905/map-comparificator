@@ -4,7 +4,7 @@ import { Spinner } from '@blueprintjs/core';
 import './LazyComponent.scss';
 
 interface Props {
-  component: JSX.Element;
+  readonly component: JSX.Element;
 }
 
 export const LazyComponent: React.FC<Props> = ({ component }) => (

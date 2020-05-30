@@ -11,7 +11,7 @@ import {
 
 import { RootState } from 'reducers';
 
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export const useSearch = () => {
   const dispatch = useDispatch();
@@ -40,10 +40,10 @@ export const useSearch = () => {
     });
   };
 
-  const removeFromHistory = (item: SearchHistoryItem) => {
+  const removeFromHistory = (id: string) => {
     dispatch({
       type: SEARCH_HISTORY_REMOVE,
-      payload: item,
+      payload: id,
     });
   };
 

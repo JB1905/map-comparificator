@@ -6,11 +6,13 @@ import {
   MosaicBranch,
   DEFAULT_CONTROLS_WITHOUT_CREATION,
 } from 'react-mosaic-component';
+import { Helmet } from 'react-helmet';
+import { useViewport } from 'react-viewport-hooks';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { ELEMENT_MAP } from 'map';
+import { MAPS } from 'collections/maps';
 
 import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
@@ -26,7 +28,20 @@ const App: React.FC = () => {
 
   const { isCustomizationEnabled } = useSettings();
 
+  const { vw } = useViewport();
+
   const themeClass = isDark ? Classes.DARK : '';
+
+  if (vw < 860) {
+    return (
+      <NonIdealState
+        icon="zoom-to-fit"
+        title="Your screen is too small"
+        description="Open app in bigger window"
+        className="device-not-supported"
+      />
+    );
+  }
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
@@ -37,26 +52,16 @@ const App: React.FC = () => {
         isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
       }
     >
-      {ELEMENT_MAP[id]}
+      {MAPS[id]}
     </MosaicWindow>
   );
 
-  // const MobileSplash: React.FC = () => (
-  //   <NonIdealState
-  //     icon="zoom-to-fit"
-  //     title="Your screen is too small"
-  //     description="Open app in bigger window"
-  //     className="device-not-supported"
-  //   />
-  // );
-
-  /**
-   * Disable Mosaic rendering on mobile devices
-   * Exclude resized window to avoid rerenderings
-   */
-
   return (
-    <div id="page" className={themeClass}>
+    <>
+      <Helmet>
+        <body className={themeClass} />
+      </Helmet>
+
       <Navbar>
         <NavbarPrimaryGroup />
 
@@ -77,7 +82,7 @@ const App: React.FC = () => {
           />
         }
       />
-    </div>
+    </>
   );
 };
 

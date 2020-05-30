@@ -4,7 +4,7 @@ import { Theme } from 'enums/Theme';
 
 import { ThemeState } from 'interfaces/ThemeState';
 
-import { ThemeActionTypes } from 'types/ThemeActionTypes';
+import type { ThemeActionTypes } from 'types/ThemeActionTypes';
 
 const initialState: ThemeState = {
   activeTheme: Theme.Light,

@@ -6,7 +6,7 @@ import {
 
 import { SearchHistoryState } from 'interfaces/SearchHistoryState';
 
-import { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
+import type { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
 
 const initialState: SearchHistoryState = {
   items: [],
@@ -28,6 +28,8 @@ export const searchHistoryReducer = (
     }
 
     case SEARCH_HISTORY_REMOVE:
+      console.log(state.items, action.payload);
+
       return {
         ...state,
         items: state.items.filter((item) => item.place_id !== action.payload),
