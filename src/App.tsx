@@ -79,7 +79,7 @@ const App: React.FC = () => {
           icon="zoom-to-fit"
           title="Your screen is too small"
           description="Open app in bigger window"
-          className="device-not-supported"
+          className="not-supported-screen-size"
         />
       )}
     </>

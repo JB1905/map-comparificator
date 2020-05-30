@@ -12,7 +12,7 @@ body,
   position: fixed;
 }
 
-.device-not-supported {
+.not-supported-screen-size {
   @include absolute-centering;
 
   .bp3-dark & {
