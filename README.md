@@ -30,6 +30,8 @@ Choose the best map provider for your web app
 > cd map-comparificator
 ```
 
+### Development
+
 ##### 3. Install dependencies
 
 `yarn` or `npm i`
@@ -45,13 +47,13 @@ Choose the best map provider for your web app
 
 ### Production
 
-##### 1. Build image
+##### 3. Build image
 
 ```sh
 docker build -t map-comparificator .
 ```
 
-##### 2. Run a container with port forwarding
+##### 4. Run a container with port forwarding
 
 ```sh
 docker run --rm --env PORT=80 -p 3000:80 map-comparificator
