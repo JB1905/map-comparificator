@@ -34,7 +34,12 @@ cd map-comparificator
 
 ##### 3. Install dependencies
 
-`yarn` or `npm i`
+```sh
+yarn
+
+# Or, use npm
+npm i
+```
 
 ##### 4. Set environment variables
 
@@ -43,7 +48,12 @@ cd map-comparificator
 
 ##### 5. Run
 
-`yarn start` or `npm start`
+```sh
+yarn start
+
+# Or, use npm
+npm start
+```
 
 ### Production
 
