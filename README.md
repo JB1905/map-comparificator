@@ -43,11 +43,6 @@ Choose the best map provider for your web app
 
 `yarn start` or `npm start`
 
-##### 6. Deploy to Firebase
-
-- Set config in `.firebaserc`
-- run `firebase deploy`
-
 ### Production
 
 ##### 1. Build image
@@ -57,8 +52,6 @@ docker build -t map-comparificator .
 ```
 
 ##### 2. Run a container with port forwarding
-
-# Run a container with port forwarding
 
 ```sh
 docker run --rm --env PORT=80 -p 3000:80 map-comparificator
