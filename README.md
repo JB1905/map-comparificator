@@ -21,13 +21,13 @@ Choose the best map provider for your web app
 ##### 1. Clone repo
 
 ```sh
-git clone https://github.com/JB1905/map-comparificator.git
+> git clone https://github.com/JB1905/map-comparificator.git
 ```
 
 ##### 2. Go to directory
 
 ```sh
-cd map-comparificator
+> cd map-comparificator
 ```
 
 ##### 3. Install dependencies
@@ -50,12 +50,18 @@ cd map-comparificator
 
 ### Production
 
+##### 1. Build image
+
 ```sh
-# Build image
-> docker build -t map-comparificator .
+docker build -t map-comparificator .
+```
+
+##### 2. Run a container with port forwarding
 
 # Run a container with port forwarding
-> docker run --rm --env PORT=80 -p 3000:80 map-comparificator
+
+```sh
+docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 ```
 
 ## Build with
