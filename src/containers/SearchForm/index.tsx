@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
+import { MenuItem, InputGroup } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
 import { useSearch } from 'hooks/useSearch';
@@ -22,7 +22,6 @@ const SearchForm: React.FC = () => {
     query,
     setQuery,
     addToHistory,
-    removeFromHistory,
   } = useSearch();
 
   const { isEmptyLayout } = useLayout();
@@ -43,15 +42,6 @@ const SearchForm: React.FC = () => {
       icon={locationIcons[item.class] ?? 'map-marker'}
       onClick={() => selectPlace(item)}
       key={item.place_id}
-      labelElement={
-        !query && (
-          <Button
-            icon="trash"
-            small
-            onClick={() => removeFromHistory(item.place_id)}
-          />
-        )
-      }
     />
   );
 
