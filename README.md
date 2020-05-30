@@ -14,8 +14,11 @@ Choose the best map provider for your web app
 
 - mobile devices (smartphones) are not supported – incorrect behavior using Blueprint & Mosaic Component
 
+<<<<<<< HEAD
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
+=======
+>>>>>>> master
 ## Setup
 
 ##### 1. Clone repo
@@ -59,7 +62,10 @@ cd map-comparificator
 ```
 
 ## Build with
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk/)

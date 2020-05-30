@@ -12,6 +12,8 @@ import { LocationIqResult } from 'interfaces/LocationIq';
 
 import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
+import { SearchHistoryItem } from 'types/SearchHistoryItem';
+
 import './SearchForm.scss';
 
 const SearchForm: React.FC = () => {
