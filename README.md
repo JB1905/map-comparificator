@@ -2,7 +2,7 @@
 
 ## About
 
-Choose the best map provider for your web app
+Choose the best map provider for your web app.
 
 ##### Main Features
 
