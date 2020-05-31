@@ -28,7 +28,9 @@ const App: React.FC = () => {
 
   const { isCustomizationEnabled } = useSettings();
 
-  const { vw } = useViewport();
+  const { vw } = useViewport({
+    defaultVW: window.innerWidth,
+  });
 
   const themeClass = isDark ? Classes.DARK : '';
 
