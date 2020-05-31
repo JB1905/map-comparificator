@@ -77,6 +77,7 @@ docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 - [Redux Persist](https://github.com/rt2zz/redux-persist/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Blueprint](https://blueprintjs.com/)
+- [React Mosaic](https://github.com/nomcopter/react-mosaic/)
 - [Firebase](https://firebase.google.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Docker](https://www.docker.com/)
