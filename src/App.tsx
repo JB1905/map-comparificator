@@ -51,7 +51,7 @@ const App: React.FC = () => {
         <body className={themeClass} />
       </Helmet>
 
-      {vw > 860 ? (
+      {Number(vw) > 860 ? (
         <>
           <Navbar>
             <NavbarPrimaryGroup />
