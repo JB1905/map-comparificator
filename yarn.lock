@@ -10194,10 +10194,10 @@ react-transition-group@^2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-viewport-hooks@1.5.0-beta.3:
-  version "1.5.0-beta.3"
-  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.5.0-beta.3.tgz#23642d6825e6d0a47c2394d59a6734da453cd751"
-  integrity sha512-Uftv2J2ZkUXQHfkffHx9Ew8gyu4rSbiXy7cHEqggTz6TZew+w1qEGXkMGt+eWYmLOIGv2GSj1gYE8M+wMehVxg==
+react-viewport-hooks@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.5.0.tgz#b0daac3a83dd75b9120050d469e899c52f1057c5"
+  integrity sha512-6hAtd3TuWJYV5sXruWvEsDyXZTmHI0BjEDPTgwRbGtLRsGdIQUlYvgJYJqPllZb7zRVppUHB6RiKnD7/SBQL4Q==
 
 react-virtualized-auto-sizer@^1.0.2:
   version "1.0.2"
