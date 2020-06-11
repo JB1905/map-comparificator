@@ -14,7 +14,7 @@ import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
-import { isFeatureEnabled } from '../../../features';
+import { isFeatureEnabled } from 'features';
 
 const SearchForm: React.FC = () => {
   const {
