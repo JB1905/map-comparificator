@@ -1,5 +1,12 @@
 import React from 'react';
-import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
+import {
+  Navbar,
+  NonIdealState,
+  Classes,
+  Alert,
+  Intent,
+  InputGroup,
+} from '@blueprintjs/core';
 import {
   Mosaic,
   MosaicWindow,
@@ -20,6 +27,8 @@ import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
+
+import { isFeatureEnabled } from 'features';
 
 const App: React.FC = () => {
   const { isDark } = useTheme();
@@ -53,6 +62,7 @@ const App: React.FC = () => {
         <body className={themeClass} />
       </Helmet>
 
+      {/* TODO Wrap in Suspense? */}
       {vw > 860 ? (
         <>
           <Navbar>
@@ -60,6 +70,65 @@ const App: React.FC = () => {
 
             <NavbarSecondaryGroup />
           </Navbar>
+
+          {isFeatureEnabled('managePatterns') && (
+            <>
+              <Alert
+                isOpen={true}
+                confirmButtonText="Save"
+                cancelButtonText="Cancel"
+                intent={Intent.SUCCESS}
+                onCancel={() => null}
+                onClose={() => null}
+                canEscapeKeyCancel={true}
+                icon="add"
+              >
+                <h5 className="bp3-heading">Create new pattern:</h5>
+
+                <InputGroup
+                  placeholder="Type pattern name"
+                  aria-label=""
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
+                />
+              </Alert>
+
+              <Alert
+                isOpen={false}
+                confirmButtonText="Rename"
+                cancelButtonText="Cancel"
+                intent={Intent.PRIMARY}
+                onCancel={() => null}
+                onClose={() => null}
+                canEscapeKeyCancel={true}
+                icon="edit"
+              >
+                <h5 className="bp3-heading">Rename PATTERN_NAME:</h5>
+
+                <InputGroup
+                  placeholder="Type new pattern name"
+                  aria-label=""
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
+                />
+              </Alert>
+
+              <Alert
+                isOpen={false}
+                confirmButtonText="Remove"
+                cancelButtonText="Cancel"
+                intent={Intent.DANGER}
+                onCancel={() => null}
+                onClose={() => null}
+                canEscapeKeyCancel={true}
+                icon="trash"
+              >
+                <h5 className="bp3-heading">
+                  Do you want to delete the PATTERN_NAME pattern?
+                </h5>
+
+                <p>This operation cannot be undone</p>
+              </Alert>
+            </>
+          )}
 
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}

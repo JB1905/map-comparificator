@@ -6,6 +6,7 @@ import { layoutReducer } from './layoutReducer';
 import { searchResultsReducer } from './searchResultsReducer';
 import { searchHistoryReducer } from './searchHistoryReducer';
 import { settingsReducer } from './settingsReducer';
+import { alertReducer } from './alertReducer';
 
 const rootReducer = combineReducers({
   maps: mapsReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   searchResults: searchResultsReducer,
   searchHistory: searchHistoryReducer,
   settings: settingsReducer,
+  alert: alertReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
