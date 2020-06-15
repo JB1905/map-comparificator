@@ -62,7 +62,6 @@ const App: React.FC = () => {
         <body className={themeClass} />
       </Helmet>
 
-      {/* TODO Wrap in Suspense? */}
       {vw > 860 ? (
         <>
           <Navbar>
@@ -87,7 +86,7 @@ const App: React.FC = () => {
 
                 <InputGroup
                   placeholder="Type pattern name"
-                  aria-label=""
+                  aria-label="Type pattern name"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
                 />
               </Alert>
@@ -106,7 +105,7 @@ const App: React.FC = () => {
 
                 <InputGroup
                   placeholder="Type new pattern name"
-                  aria-label=""
+                  aria-label="Type new pattern name"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
                 />
               </Alert>
