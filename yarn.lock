@@ -1024,9 +1024,9 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@impargo/react-here-maps@^1.5.7":
-  version "1.5.7"
-  resolved "https://registry.yarnpkg.com/@impargo/react-here-maps/-/react-here-maps-1.5.7.tgz#bd801a13fa4474751697bd4f1f6bb4bc585f79c7"
+"@impargo/react-here-maps@^1.5.8":
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/@impargo/react-here-maps/-/react-here-maps-1.5.8.tgz#d7c7970f0c118e9e993984e3030c6429c2a37cb7"
   dependencies:
     bluebird "^3.4.1"
     core-js "^2.4.1"
@@ -1253,23 +1253,23 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-dnd/shallowequal/-/shallowequal-2.0.0.tgz#a3031eb54129f2c66b2753f8404266ec7bf67f0a"
 
-"@react-google-maps/api@^1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.5.tgz#5b99d7397cdbb6c48c16623d63592df9a6cfffde"
+"@react-google-maps/api@^1.9.7":
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.7.tgz#337f95b0c59cdbdab5ba1824ce2761003c274f2a"
   dependencies:
-    "@react-google-maps/infobox" "1.9.3"
-    "@react-google-maps/marker-clusterer" "1.9.3"
-    acorn "^7.2.0"
+    "@react-google-maps/infobox" "1.9.6"
+    "@react-google-maps/marker-clusterer" "1.9.6"
+    acorn "7.3.1"
     acorn-jsx "^5.2.0"
     invariant "2.2.4"
 
-"@react-google-maps/infobox@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.9.3.tgz#90a32d57527f5f0476f2fcb41556016b650cc4a3"
+"@react-google-maps/infobox@1.9.6":
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.9.6.tgz#02b894c7c10c0f5567184b54ff5b307eb1704c2c"
 
-"@react-google-maps/marker-clusterer@1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.9.3.tgz#6acb6a12cffeef04f11549aaf0a43e6135578116"
+"@react-google-maps/marker-clusterer@1.9.6":
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.9.6.tgz#30087efc2594d85ffb4c6b2ccf709ad5d3590c29"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -1360,13 +1360,13 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@testing-library/dom@^7.9.0":
-  version "7.9.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.9.0.tgz#3805cda47ab691645775c59c93c9044a2cad4c91"
+"@testing-library/dom@^7.14.2":
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.16.2.tgz#f7a20b5548817e5c7ed26077913372d977be90af"
   dependencies:
     "@babel/runtime" "^7.10.2"
     aria-query "^4.0.2"
-    dom-accessibility-api "^0.4.4"
+    dom-accessibility-api "^0.4.5"
     pretty-format "^25.5.0"
 
 "@testing-library/jest-dom@^5.10.1":
@@ -1390,16 +1390,16 @@
     "@babel/runtime" "^7.5.4"
     "@types/testing-library__react-hooks" "^3.0.0"
 
-"@testing-library/react@^10.2.1":
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.2.1.tgz#f0c5ac9072ad54c29672150943f35d6617263f26"
+"@testing-library/react@^10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.3.0.tgz#d615385b8d86ef4d76142a423755d471b3673295"
   dependencies:
     "@babel/runtime" "^7.10.2"
-    "@testing-library/dom" "^7.9.0"
+    "@testing-library/dom" "^7.14.2"
 
-"@testing-library/user-event@^11.4.2":
-  version "11.4.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-11.4.2.tgz#90d98fd18455ae81d008e9b26e94d25e8d5bf846"
+"@testing-library/user-event@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.2.tgz#66fa2c64a50b47726c008eacecb9a42b43cd9a2b"
   dependencies:
     "@babel/runtime" "^7.10.2"
 
@@ -1600,9 +1600,9 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@^16.9.36":
-  version "16.9.36"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.36.tgz#ade589ff51e2a903e34ee4669e05dbfa0c1ce849"
+"@types/react@^16.9.38":
+  version "16.9.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.38.tgz#868405dace93a4095d3e054f4c4a1de7a1ac0680"
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -1851,6 +1851,10 @@ acorn-walk@^6.0.1:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
 
+acorn@7.3.1:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
+
 acorn@^5.5.3:
   version "5.7.4"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
@@ -1862,10 +1866,6 @@ acorn@^6.0.1, acorn@^6.0.4, acorn@^6.2.1:
 acorn@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.1.tgz#e35668de0b402f359de515c5482a1ab9f89a69bf"
-
-acorn@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.2.0.tgz#17ea7e40d7c8640ff54a694c889c26f31704effe"
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
@@ -3701,9 +3701,9 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-accessibility-api@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.4.4.tgz#c2f9fb8b591bc19581e7ef3e6fe35baf1967c498"
+dom-accessibility-api@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.4.5.tgz#d9c1cefa89f509d8cf132ab5d250004d755e76e3"
 
 dom-converter@^0.2:
   version "0.2.0"
@@ -6424,9 +6424,9 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
 
-lint-staged@^10.2.10:
-  version "10.2.10"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.2.10.tgz#f0f78bf8786bbe90e1775a0dc540f7f12b6a79b2"
+lint-staged@^10.2.11:
+  version "10.2.11"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.2.11.tgz#713c80877f2dc8b609b05bc59020234e766c9720"
   dependencies:
     chalk "^4.0.0"
     cli-truncate "2.1.0"
@@ -9295,6 +9295,10 @@ rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.5.5:
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
   dependencies:
     tslib "^1.9.0"
+
+s-trimmer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/s-trimmer/-/s-trimmer-1.0.0.tgz#8aefb4752a640f48caa31a0f27df645ab521ff72"
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

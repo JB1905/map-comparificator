@@ -2,12 +2,19 @@ import { IAlertProps } from '@blueprintjs/core';
 
 import { OPEN_ALERT, CLOSE_ALERT } from 'actions';
 
-type Alert = {
-  options: IAlertProps;
-};
+import { AlertType } from 'enums/AlertType';
+
+// type Alert = {
+//   options: IAlertProps;
+// };
+
+// export interface AlertState {
+//   alerts: Alert[];
+// }
 
 export interface AlertState {
-  alerts: Alert[];
+  alertType: AlertType | null;
+  alertProps: any;
 }
 
 export interface OpenAlertAction {

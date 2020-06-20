@@ -22,8 +22,10 @@ import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
+import { useAlert } from '../../hooks/useAlert';
 
 import { CenteringMode } from 'enums/CenteringMode';
+import { AlertType } from 'enums/AlertType';
 
 import './NavbarSecondaryGroup.scss';
 
@@ -33,7 +35,7 @@ const NavbarSecondaryGroup: React.FC = () => {
     isEmptyLayout,
     setActiveLayout,
     findExistingLayout,
-    // removeCustomLayout,
+    removeCustomLayout,
     initialLayouts,
     customLayouts,
     openWindow,
@@ -45,6 +47,8 @@ const NavbarSecondaryGroup: React.FC = () => {
     isCustomizationEnabled,
     toggleCustomization,
   } = useSettings();
+
+  const { openAlert } = useAlert();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -139,14 +143,14 @@ const NavbarSecondaryGroup: React.FC = () => {
                         <Button
                           icon="edit"
                           small
-                          // onClick={() => setAlertId(AlertWindow.Edit)}
+                          onClick={() => openAlert(AlertType.Edit)}
                           intent={Intent.WARNING}
                         />
 
                         <Button
                           icon="trash"
                           small
-                          // onClick={() => setAlertId(AlertWindow.Delete)}
+                          onClick={() => openAlert(AlertType.Delete)}
                           intent={Intent.DANGER}
                         />
                       </ButtonGroup>
@@ -161,12 +165,12 @@ const NavbarSecondaryGroup: React.FC = () => {
             <MenuItem
               text="Save as Pattern"
               icon="floppy-disk"
-              disabled={
-                !!findExistingLayout() ||
-                customLayouts.length >= 6 ||
-                isEmptyLayout
-              }
-              // onClick={() => setAlertId(AlertWindow.Create)}
+              // disabled={
+              //   !!findExistingLayout() ||
+              //   customLayouts.length >= 6 ||
+              //   isEmptyLayout
+              // }
+              onClick={() => openAlert(AlertType.Create)}
               intent={Intent.SUCCESS}
             />
           </Menu>

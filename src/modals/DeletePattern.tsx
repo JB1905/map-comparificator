@@ -1,0 +1,51 @@
+import React from 'react';
+import { Alert, Intent } from '@blueprintjs/core';
+
+import { useAlert } from 'hooks/useAlert';
+import { useLayout } from 'hooks/useLayout';
+
+const DeletePattern: React.FC = () => {
+  const { isOpen, onClose, onSave } = useAlert();
+
+  const { removeCustomLayout, activeLayout } = useLayout();
+
+  // const onClose = () => {
+  //   setIsOpen(false);
+
+  //   setTimeout(() => {
+  //     closeAlert();
+  //   }, 300);
+  // };
+
+  // const onSave = () => {
+  //     // removeCustomLayout(activeLayout)
+
+  //     onClose()
+  //   // } else {
+  //   //   // setError('')
+  //   // }
+  // }
+
+  console.log(activeLayout);
+
+  return (
+    <Alert
+      isOpen={isOpen}
+      confirmButtonText="Remove"
+      cancelButtonText="Cancel"
+      intent={Intent.DANGER}
+      onCancel={onClose}
+      onClose={onSave}
+      canEscapeKeyCancel={true}
+      icon="trash"
+    >
+      <h5 className="bp3-heading">
+        Do you want to delete the PATTERN_NAME pattern?
+      </h5>
+
+      <p>This operation cannot be undone</p>
+    </Alert>
+  );
+};
+
+export default DeletePattern;
