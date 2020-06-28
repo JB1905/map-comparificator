@@ -1,13 +1,26 @@
 import React from 'react';
 import { Alert, Intent } from '@blueprintjs/core';
 
-import { useAlert } from 'hooks/useAlert';
+import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-const DeletePattern: React.FC = () => {
-  const { isOpen, onCancel, onClose } = useAlert();
+import { AppToaster } from 'toaster';
 
-  const { removeCustomLayout, activeLayout } = useLayout();
+const DeletePattern: React.FC = () => {
+  const { isOpen, onClose, param } = useModal();
+
+  const { removeCustomLayout } = useLayout();
+
+  const save = () => {
+    removeCustomLayout(param.name);
+
+    AppToaster.show({
+      message: 'Pattern removed!',
+      intent: Intent.SUCCESS,
+    });
+
+    onClose();
+  };
 
   return (
     <Alert
@@ -15,17 +28,13 @@ const DeletePattern: React.FC = () => {
       confirmButtonText="Remove"
       cancelButtonText="Cancel"
       intent={Intent.DANGER}
-      onCancel={onCancel}
-      onClose={() => {
-        // removeCustomLayout()
-
-        onClose();
-      }}
+      onCancel={onClose}
+      onClose={save}
       canEscapeKeyCancel={true}
       icon="trash"
     >
       <h5 className="bp3-heading">
-        Do you want to delete the PATTERN_NAME pattern?
+        Do you want to delete the {param.name} pattern?
       </h5>
 
       <p>This operation cannot be undone</p>

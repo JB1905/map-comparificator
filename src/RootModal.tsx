@@ -1,15 +1,27 @@
 import React from 'react';
 
-import { useAlert } from 'hooks/useAlert';
+import CreatePattern from 'modals/CreatePattern';
+import EditPattern from 'modals/EditPattern';
+import DeletePattern from 'modals/DeletePattern';
 
-import { ALERTS } from 'collections/alerts';
+import { useModal } from 'hooks/useModal';
+
+import { ModalType } from 'enums/ModalType';
+
+const MODALS = {
+  [ModalType.Create]: CreatePattern,
+  [ModalType.Edit]: EditPattern,
+  [ModalType.Delete]: DeletePattern,
+} as any;
 
 const RootModal: React.FC = () => {
-  const { alertType } = useAlert();
+  const { modalType } = useModal();
 
-  if (!alertType) return null;
+  if (!modalType) return null;
 
-  return ALERTS[alertType];
+  const SpecificModal = MODALS[modalType];
+
+  return <SpecificModal />;
 };
 
 export default RootModal;

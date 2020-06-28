@@ -1,6 +1,7 @@
 import {
   SET_ACTIVE_LAYOUT,
   CREATE_CUSTOM_LAYOUT,
+  RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions/layoutActions';
 
@@ -34,6 +35,11 @@ export const layoutReducer = (
           },
         ],
       };
+
+    // case RENAME_CUSTOM_LAYOUT:
+    //   return {
+
+    //   }
 
     case REMOVE_CUSTOM_LAYOUT:
       return {

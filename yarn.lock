@@ -9465,10 +9465,6 @@ rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.5.5:
   dependencies:
     tslib "^1.9.0"
 
-s-trimmer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/s-trimmer/-/s-trimmer-1.0.0.tgz#8aefb4752a640f48caa31a0f27df645ab521ff72"
-
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"

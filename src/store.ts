@@ -10,7 +10,7 @@ import rootReducer, { RootState } from 'reducers';
 const persistConfig = {
   key: 'store',
   storage,
-  blacklist: ['searchResults', 'alert'],
+  blacklist: ['searchResults', 'modal'],
   stateReconciler: autoMergeLevel2,
 };
 

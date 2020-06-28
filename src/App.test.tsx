@@ -19,4 +19,12 @@ describe('App', () => {
 
     expect(getByTestId('page')).toBe(true);
   });
+
+  // it('should', () => {
+  //   jest.mock('react-viewport-hooks', () => {
+  //     return {
+  //       vw: 500,
+  //     };
+  //   });
+  // });
 });

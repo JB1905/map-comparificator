@@ -6,7 +6,6 @@ import {
   MosaicBranch,
   DEFAULT_CONTROLS_WITHOUT_CREATION,
 } from 'react-mosaic-component';
-import sTrimmer from 's-trimmer';
 import { Helmet } from 'react-helmet';
 import { useViewport } from 'react-viewport-hooks';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -66,10 +65,10 @@ const App: React.FC = () => {
             <NavbarSecondaryGroup />
           </Navbar>
 
-          {/* <Mosaic
+          <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}
-            className={sTrimmer(`mosaic-blueprint-theme ${themeClass}`)}
+            className={`mosaic-blueprint-theme ${themeClass}`}
             renderTile={tileRenderer}
             initialValue={activeLayout}
             zeroStateView={
@@ -79,7 +78,7 @@ const App: React.FC = () => {
                 description="Select maps from the menu"
               />
             }
-          /> */}
+          />
 
           {isFeatureEnabled('managePatterns') && <RootModal />}
         </>

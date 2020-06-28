@@ -43,7 +43,8 @@ export const useLayout = () => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
       if (name) {
-        return isEqualPattern && layout.name === name;
+        // return isEqualPattern && layout.name === name;
+        return isEqualPattern || layout.name === name;
       }
 
       return isEqualPattern;
@@ -62,6 +63,13 @@ export const useLayout = () => {
         layout: activeLayout,
       },
     });
+  };
+
+  const renameCustomLayout = (id: string) => {
+    // dispatch({
+    //   type: REMOVE_CUSTOM_LAYOUT,
+    //   payload: id,
+    // });
   };
 
   const removeCustomLayout = (id: string) => {
@@ -127,6 +135,7 @@ export const useLayout = () => {
     isEmptyLayout,
     initialLayouts,
     createCustomLayout,
+    renameCustomLayout,
     removeCustomLayout,
     openWindow,
   };

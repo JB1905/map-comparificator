@@ -22,12 +22,14 @@ import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
-import { useAlert } from '../../hooks/useAlert';
+import { useModal } from '../../hooks/useModal';
 
 import { CenteringMode } from 'enums/CenteringMode';
-import { AlertType } from 'enums/AlertType';
+import { ModalType } from 'enums/ModalType';
 
 import './NavbarSecondaryGroup.scss';
+
+import { isFeatureEnabled } from 'features';
 
 const NavbarSecondaryGroup: React.FC = () => {
   const {
@@ -35,7 +37,6 @@ const NavbarSecondaryGroup: React.FC = () => {
     isEmptyLayout,
     setActiveLayout,
     findExistingLayout,
-    removeCustomLayout,
     initialLayouts,
     customLayouts,
     openWindow,
@@ -48,7 +49,7 @@ const NavbarSecondaryGroup: React.FC = () => {
     toggleCustomization,
   } = useSettings();
 
-  const { openAlert } = useAlert();
+  const { openModal } = useModal();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -127,52 +128,60 @@ const NavbarSecondaryGroup: React.FC = () => {
               />
             ))}
 
-            {customLayouts.length > 0 && (
+            {isFeatureEnabled('managePatterns') && (
               <>
-                <MenuDivider title="Custom Patterns" />
+                {customLayouts.length > 0 && (
+                  <>
+                    <MenuDivider title="Custom Patterns" />
 
-                {customLayouts.map(({ name, layout }) => (
-                  <MenuItem
-                    text={name}
-                    icon="page-layout"
-                    key={name}
-                    active={equal(activeLayout, layout)}
-                    onClick={() => setActiveLayout(layout)}
-                    labelElement={
-                      <ButtonGroup>
-                        <Button
-                          icon="edit"
-                          small
-                          onClick={() => openAlert(AlertType.Edit)}
-                          intent={Intent.WARNING}
-                        />
+                    {customLayouts.map(({ name, layout }) => (
+                      <MenuItem
+                        text={name}
+                        icon="page-layout"
+                        key={name}
+                        active={equal(activeLayout, layout)}
+                        onClick={() => setActiveLayout(layout)}
+                        labelElement={
+                          <ButtonGroup>
+                            <Button
+                              icon="edit"
+                              small
+                              onClick={() =>
+                                openModal(ModalType.Edit, { name, layout })
+                              }
+                              intent={Intent.WARNING}
+                            />
 
-                        <Button
-                          icon="trash"
-                          small
-                          onClick={() => openAlert(AlertType.Delete)}
-                          intent={Intent.DANGER}
-                        />
-                      </ButtonGroup>
-                    }
-                  />
-                ))}
+                            <Button
+                              icon="trash"
+                              small
+                              onClick={() =>
+                                openModal(ModalType.Delete, { name, layout })
+                              }
+                              intent={Intent.DANGER}
+                            />
+                          </ButtonGroup>
+                        }
+                      />
+                    ))}
+                  </>
+                )}
+
+                <MenuDivider />
+
+                <MenuItem
+                  text="Save as Pattern"
+                  icon="floppy-disk"
+                  disabled={
+                    !!findExistingLayout() ||
+                    customLayouts.length >= 6 ||
+                    isEmptyLayout
+                  }
+                  onClick={() => openModal(ModalType.Create)}
+                  intent={Intent.SUCCESS}
+                />
               </>
             )}
-
-            <MenuDivider />
-
-            <MenuItem
-              text="Save as Pattern"
-              icon="floppy-disk"
-              // disabled={
-              //   !!findExistingLayout() ||
-              //   customLayouts.length >= 6 ||
-              //   isEmptyLayout
-              // }
-              onClick={() => openAlert(AlertType.Create)}
-              intent={Intent.SUCCESS}
-            />
           </Menu>
         }
         position={Position.TOP}
