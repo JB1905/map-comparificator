@@ -3,39 +3,24 @@ import {
   Alert,
   Intent,
   InputGroup,
-  // Toast, Toaster,
+  Toaster,
+  Position,
 } from '@blueprintjs/core';
 
 import { useAlert } from 'hooks/useAlert';
 import { useLayout } from 'hooks/useLayout';
 
-const CreatePattern: React.FC = () => {
-  const { isOpen, onSave, onClose } = useAlert();
+const AppToaster = Toaster.create({
+  className: 'recipe-toaster',
+  position: Position.TOP,
+});
 
-  // const [isOpen, setIsOpen] = useState(true);
+const CreatePattern: React.FC = () => {
+  const { isOpen, onCancel, onClose } = useAlert();
 
   const { createCustomLayout, findExistingLayout } = useLayout();
 
   const [name, setName] = useState('');
-  // const [error, setError] = useState('')
-
-  // const onClose = () => {
-  //   setIsOpen(false);
-
-  //   setTimeout(() => {
-  //     closeAlert();
-  //   }, 300);
-  // };
-
-  // const onSave = () => {
-  //     if (!findExistingLayout(name)) {
-  //         createCustomLayout(name)
-
-  //         onClose()
-  //     } else {
-  //         // setError('')
-  //     }
-  // }
 
   return (
     <Alert
@@ -43,9 +28,20 @@ const CreatePattern: React.FC = () => {
       confirmButtonText="Save"
       cancelButtonText="Cancel"
       intent={Intent.SUCCESS}
-      onCancel={onClose}
-      onClose={onSave}
-      canEscapeKeyCancel={true}
+      onCancel={onCancel}
+      onClose={() => {
+        console.log(findExistingLayout(name));
+
+        AppToaster.show({ message: 'Hello' });
+
+        if (!findExistingLayout(name)) {
+          createCustomLayout(name);
+
+          onClose();
+        } else {
+        }
+      }}
+      canEscapeKeyCancel={!name}
       icon="add"
     >
       <h5 className="bp3-heading">Create new pattern:</h5>

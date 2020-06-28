@@ -1,27 +1,15 @@
 import React from 'react';
 
-import CreatePattern from 'modals/CreatePattern';
-import EditPattern from 'modals/EditPattern';
-import DeletePattern from 'modals/DeletePattern';
-
 import { useAlert } from 'hooks/useAlert';
 
-import { AlertType } from 'enums/AlertType';
-
-const ALERTS = {
-  [AlertType.Create]: CreatePattern,
-  [AlertType.Edit]: EditPattern,
-  [AlertType.Delete]: DeletePattern,
-} as any;
+import { ALERTS } from 'collections/alerts';
 
 const RootModal: React.FC = () => {
-  const { alertType, alertProps } = useAlert();
+  const { alertType } = useAlert();
 
   if (!alertType) return null;
 
-  const SpecificModal = ALERTS[alertType];
-
-  return <SpecificModal {...alertProps} />;
+  return ALERTS[alertType];
 };
 
 export default RootModal;

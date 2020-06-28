@@ -6,22 +6,23 @@ import { OPEN_ALERT, CLOSE_ALERT } from 'actions';
 
 import { RootState } from 'reducers';
 
+import { AlertType } from 'enums/AlertType';
+
 export const useAlert = () => {
   const dispatch = useDispatch();
 
-  const { alertType, alertProps } = useSelector(
-    (state: RootState) => state.alert
-  );
+  const { alertType } = useSelector((state: RootState) => state.alert);
 
   const [isOpen, setIsOpen] = useState(true);
 
-  const openAlert = (payload: any) => dispatch({ type: OPEN_ALERT, payload });
+  const openAlert = (payload: AlertType) =>
+    dispatch({ type: OPEN_ALERT, payload });
 
   const closeAlert = () => dispatch({ type: CLOSE_ALERT });
 
   const DURATION = 300;
 
-  const onClose = () => {
+  const onCancel = () => {
     setIsOpen(false);
 
     setTimeout(() => {
@@ -29,7 +30,9 @@ export const useAlert = () => {
     }, DURATION);
   };
 
-  const onSave = () => {};
+  const onClose = () => {
+    onCancel();
+  };
 
   // const alertProps = {}
 
@@ -37,9 +40,8 @@ export const useAlert = () => {
     openAlert,
     // closeAlert,
     alertType,
-    alertProps,
+    onCancel,
     onClose,
-    onSave,
     isOpen,
   };
 };

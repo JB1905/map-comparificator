@@ -5,28 +5,9 @@ import { useAlert } from 'hooks/useAlert';
 import { useLayout } from 'hooks/useLayout';
 
 const DeletePattern: React.FC = () => {
-  const { isOpen, onClose, onSave } = useAlert();
+  const { isOpen, onCancel, onClose } = useAlert();
 
   const { removeCustomLayout, activeLayout } = useLayout();
-
-  // const onClose = () => {
-  //   setIsOpen(false);
-
-  //   setTimeout(() => {
-  //     closeAlert();
-  //   }, 300);
-  // };
-
-  // const onSave = () => {
-  //     // removeCustomLayout(activeLayout)
-
-  //     onClose()
-  //   // } else {
-  //   //   // setError('')
-  //   // }
-  // }
-
-  console.log(activeLayout);
 
   return (
     <Alert
@@ -34,8 +15,12 @@ const DeletePattern: React.FC = () => {
       confirmButtonText="Remove"
       cancelButtonText="Cancel"
       intent={Intent.DANGER}
-      onCancel={onClose}
-      onClose={onSave}
+      onCancel={onCancel}
+      onClose={() => {
+        // removeCustomLayout()
+
+        onClose();
+      }}
       canEscapeKeyCancel={true}
       icon="trash"
     >

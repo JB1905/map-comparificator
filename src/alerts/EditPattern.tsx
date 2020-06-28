@@ -1,35 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 
 import { useAlert } from 'hooks/useAlert';
 import { useLayout } from 'hooks/useLayout';
 
 const EditPattern: React.FC = () => {
-  const { isOpen, onClose, onSave } = useAlert();
+  const { isOpen, onCancel, onClose } = useAlert();
 
-  const {
-    // renameCustomLayout,
-    activeLayout,
-  } = useLayout();
+  const [name, setName] = useState('');
 
-  // const DURATION = 300;
-
-  // const onClose = () => {
-  //   // setIsOpen(false);
-
-  //   setTimeout(() => {
-  //     closeAlert();
-  //   }, DURATION);
-  // };
-
-  // const onSave = () => {
-  //   // ed(activeLayout)
-
-  //   onClose()
-  //   // } else {
-  //   //   // setError('')
-  //   // }
-  // }
+  const { findExistingLayout, activeLayout } = useLayout();
 
   return (
     <Alert
@@ -37,8 +17,13 @@ const EditPattern: React.FC = () => {
       confirmButtonText="Rename"
       cancelButtonText="Cancel"
       intent={Intent.WARNING}
-      onCancel={onClose}
-      onClose={onSave}
+      onCancel={onCancel}
+      onClose={() => {
+        if (!findExistingLayout(name)) {
+          onClose();
+        } else {
+        }
+      }}
       canEscapeKeyCancel={true}
       icon="edit"
     >
@@ -47,7 +32,9 @@ const EditPattern: React.FC = () => {
       <InputGroup
         placeholder="Type new pattern name"
         aria-label="Type new pattern name"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setName(e.target.value)
+        }
       />
     </Alert>
   );

@@ -1,4 +1,4 @@
-import { IAlertProps } from '@blueprintjs/core';
+// import { IAlertProps } from '@blueprintjs/core';
 
 import { OPEN_ALERT, CLOSE_ALERT } from 'actions';
 
@@ -14,12 +14,12 @@ import { AlertType } from 'enums/AlertType';
 
 export interface AlertState {
   alertType: AlertType | null;
-  alertProps: any;
+  // alertProps: any;
 }
 
 export interface OpenAlertAction {
   readonly type: typeof OPEN_ALERT;
-  // readonly payload: IAlertProps;
+  readonly payload: AlertType;
 }
 
 export interface CloseAlertAction {

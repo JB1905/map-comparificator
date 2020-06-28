@@ -4,17 +4,15 @@ import { AlertState } from 'interfaces/AlertState';
 
 import type { AlertActionTypes } from 'types/AlertActionTypes';
 
-// const initialState: AlertState = {
-//   alerts: [],
-// };
-
 const initialState: AlertState = {
   alertType: null,
-  alertProps: null,
-  // isOpen: false,
+  // alertProps: null,
 };
 
-export const alertReducer = (state = initialState, action: any) => {
+export const alertReducer = (
+  state = initialState,
+  action: AlertActionTypes
+) => {
   switch (action.type) {
     case OPEN_ALERT:
       return {
