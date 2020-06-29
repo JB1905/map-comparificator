@@ -13,7 +13,7 @@ const CreatePattern: React.FC = () => {
 
   const [name, setName] = useState('');
 
-  const save = () => {
+  const onConfirm = () => {
     if (!name) {
       return AppToaster.show({
         message: 'Pattern name is required!',
@@ -44,7 +44,7 @@ const CreatePattern: React.FC = () => {
       confirmButtonText="Save"
       cancelButtonText="Cancel"
       intent={Intent.SUCCESS}
-      onConfirm={save}
+      onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel={true}

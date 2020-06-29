@@ -6,7 +6,7 @@ import type { ModalActionTypes } from 'types/ModalActionTypes';
 
 const initialState: ModalState = {
   modalType: null,
-  param: null,
+  modalParams: null,
 };
 
 export const modalReducer = (

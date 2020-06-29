@@ -7,13 +7,13 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const EditPattern: React.FC = () => {
-  const { isOpen, closeModal, param, setIsOpen } = useModal();
+  const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
 
   const { findExistingLayout, renameCustomLayout } = useLayout();
 
   const [name, setName] = useState('');
 
-  const save = () => {
+  const onConfirm = () => {
     if (!name) {
       return AppToaster.show({
         message: 'Pattern name is required!',
@@ -44,13 +44,13 @@ const EditPattern: React.FC = () => {
       confirmButtonText="Rename"
       cancelButtonText="Cancel"
       intent={Intent.WARNING}
-      onConfirm={save}
+      onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel={true}
       icon="edit"
     >
-      <h5 className="bp3-heading">Rename {param.name}:</h5>
+      <h5 className="bp3-heading">Rename {modalParams.name}:</h5>
 
       <InputGroup
         placeholder="Type new pattern name"

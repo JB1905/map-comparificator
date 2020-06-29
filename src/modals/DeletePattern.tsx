@@ -7,12 +7,12 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const DeletePattern: React.FC = () => {
-  const { isOpen, closeModal, setIsOpen, param } = useModal();
+  const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
 
   const { removeCustomLayout } = useLayout();
 
-  const save = () => {
-    removeCustomLayout(param.name);
+  const onConfirm = () => {
+    removeCustomLayout(modalParams.name);
 
     setIsOpen(false);
 
@@ -28,14 +28,14 @@ const DeletePattern: React.FC = () => {
       confirmButtonText="Remove"
       cancelButtonText="Cancel"
       intent={Intent.DANGER}
-      onConfirm={save}
+      onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel={true}
       icon="trash"
     >
       <h5 className="bp3-heading">
-        Do you want to delete the {param.name} pattern?
+        Do you want to delete the {modalParams.name} pattern?
       </h5>
 
       <p>This operation cannot be undone</p>

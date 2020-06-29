@@ -1037,9 +1037,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@impargo/react-here-maps@^1.5.8":
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/@impargo/react-here-maps/-/react-here-maps-1.5.8.tgz#d7c7970f0c118e9e993984e3030c6429c2a37cb7"
+"@impargo/react-here-maps@^1.5.9":
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/@impargo/react-here-maps/-/react-here-maps-1.5.9.tgz#9a53e48f8bee9f48e3c9e19f5b18092bb44b7add"
+  integrity sha512-D19K98B/zJRpPiH/cRKdhtS/dOldTZBJgtaO+G/9dRC3KE892Vc2d05T41AxVFZwSeC97dAAUvwVcCbuKhcNuA==
   dependencies:
     bluebird "^3.4.1"
     core-js "^2.4.1"
