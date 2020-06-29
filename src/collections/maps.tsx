@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 
-import { LazyComponent } from 'components/LazyComponent';
+import LazyComponent from 'components/LazyComponent';
 
 const AppleMaps = lazy(() => import('maps/Apple'));
 const BingMaps = lazy(() => import('maps/Bing'));

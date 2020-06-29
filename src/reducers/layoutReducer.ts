@@ -36,10 +36,18 @@ export const layoutReducer = (
         ],
       };
 
-    // case RENAME_CUSTOM_LAYOUT:
-    //   return {
+    case RENAME_CUSTOM_LAYOUT:
+      return {
+        ...state,
+        customLayouts: [
+          ...state.customLayouts,
+          state.customLayouts.map((layout) => {
+            // console.log(layout);
 
-    //   }
+            return layout;
+          }),
+        ],
+      };
 
     case REMOVE_CUSTOM_LAYOUT:
       return {

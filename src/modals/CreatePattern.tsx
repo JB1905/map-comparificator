@@ -4,7 +4,7 @@ import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-import { AppToaster } from 'toaster';
+import { AppToaster } from 'helpers/toaster';
 
 const CreatePattern: React.FC = () => {
   const { isOpen, onClose } = useModal();

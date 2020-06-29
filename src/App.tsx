@@ -14,10 +14,10 @@ import 'react-mosaic-component/react-mosaic-component.css';
 
 import { MAPS } from 'collections/maps';
 
+import RootModal from 'components/RootModal';
+
 import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
-
-import RootModal from 'RootModal';
 
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';

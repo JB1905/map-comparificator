@@ -134,7 +134,7 @@ const NavbarSecondaryGroup: React.FC = () => {
                   <>
                     <MenuDivider title="Custom Patterns" />
 
-                    {customLayouts.map(({ name, layout }) => (
+                    {customLayouts.map(({ name, layout }: any) => (
                       <MenuItem
                         text={name}
                         icon="page-layout"

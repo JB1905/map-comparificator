@@ -4,7 +4,7 @@ import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-import { AppToaster } from 'toaster';
+import { AppToaster } from 'helpers/toaster';
 
 const EditPattern: React.FC = () => {
   const { isOpen, onClose, param } = useModal();
@@ -32,7 +32,7 @@ const EditPattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: 'Pattern already exists!.',
+        message: 'Pattern already exists!',
         intent: Intent.DANGER,
       });
     }

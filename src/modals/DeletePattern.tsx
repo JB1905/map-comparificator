@@ -4,7 +4,7 @@ import { Alert, Intent } from '@blueprintjs/core';
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-import { AppToaster } from 'toaster';
+import { AppToaster } from 'helpers/toaster';
 
 const DeletePattern: React.FC = () => {
   const { isOpen, onClose, param } = useModal();
