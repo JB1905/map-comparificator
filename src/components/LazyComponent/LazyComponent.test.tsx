@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-import { LazyComponent } from '.';
+import LazyComponent from '.';
 
 describe('LazyComponent', () => {
   it('should render lazy component', async () => {

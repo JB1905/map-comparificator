@@ -22,10 +22,14 @@ import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
+import { useModal } from '../../hooks/useModal';
 
 import { CenteringMode } from 'enums/CenteringMode';
+import { ModalType } from 'enums/ModalType';
 
 import './NavbarSecondaryGroup.scss';
+
+import { isFeatureEnabled } from 'features';
 
 const NavbarSecondaryGroup: React.FC = () => {
   const {
@@ -33,7 +37,6 @@ const NavbarSecondaryGroup: React.FC = () => {
     isEmptyLayout,
     setActiveLayout,
     findExistingLayout,
-    // removeCustomLayout,
     initialLayouts,
     customLayouts,
     openWindow,
@@ -45,6 +48,8 @@ const NavbarSecondaryGroup: React.FC = () => {
     isCustomizationEnabled,
     toggleCustomization,
   } = useSettings();
+
+  const { openModal } = useModal();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -83,32 +88,36 @@ const NavbarSecondaryGroup: React.FC = () => {
 
       <Navbar.Divider />
 
-      <Popover
-        content={
-          <Menu>
-            {Object.values(CenteringMode).map((centeringMode) => (
-              <MenuItem
-                text={centeringMode}
-                icon="locate"
-                key={centeringMode}
-                className="centering-mode"
-                active={activeCenteringMode === centeringMode}
-                onClick={() => setCenteringMode(centeringMode)}
-              />
-            ))}
-          </Menu>
-        }
-        position={Position.TOP}
-      >
-        <Button
-          icon="map-marker"
-          text="Centering Mode"
-          disabled={isEmptyLayout}
-          minimal
-        />
-      </Popover>
+      {isFeatureEnabled('centeringModes') && (
+        <>
+          <Popover
+            content={
+              <Menu>
+                {Object.values(CenteringMode).map((centeringMode) => (
+                  <MenuItem
+                    text={centeringMode}
+                    icon="locate"
+                    key={centeringMode}
+                    className="centering-mode"
+                    active={activeCenteringMode === centeringMode}
+                    onClick={() => setCenteringMode(centeringMode)}
+                  />
+                ))}
+              </Menu>
+            }
+            position={Position.TOP}
+          >
+            <Button
+              icon="map-marker"
+              text="Centering Mode"
+              disabled={isEmptyLayout}
+              minimal
+            />
+          </Popover>
 
-      <Navbar.Divider />
+          <Navbar.Divider />
+        </>
+      )}
 
       <Popover
         content={
@@ -123,52 +132,60 @@ const NavbarSecondaryGroup: React.FC = () => {
               />
             ))}
 
-            {customLayouts.length > 0 && (
+            {isFeatureEnabled('managePatterns') && (
               <>
-                <MenuDivider title="Custom Patterns" />
+                {customLayouts.length > 0 && (
+                  <>
+                    <MenuDivider title="Custom Patterns" />
 
-                {customLayouts.map(({ name, layout }) => (
-                  <MenuItem
-                    text={name}
-                    icon="page-layout"
-                    key={name}
-                    active={equal(activeLayout, layout)}
-                    onClick={() => setActiveLayout(layout)}
-                    labelElement={
-                      <ButtonGroup>
-                        <Button
-                          icon="edit"
-                          small
-                          // onClick={() => setAlertId(AlertWindow.Edit)}
-                          intent={Intent.WARNING}
-                        />
+                    {customLayouts.map(({ name, layout }) => (
+                      <MenuItem
+                        text={name}
+                        icon="page-layout"
+                        key={name}
+                        active={equal(activeLayout, layout)}
+                        onClick={() => setActiveLayout(layout)}
+                        labelElement={
+                          <ButtonGroup>
+                            <Button
+                              icon="edit"
+                              small
+                              onClick={() =>
+                                openModal(ModalType.Edit, { name, layout })
+                              }
+                              intent={Intent.WARNING}
+                            />
 
-                        <Button
-                          icon="trash"
-                          small
-                          // onClick={() => setAlertId(AlertWindow.Delete)}
-                          intent={Intent.DANGER}
-                        />
-                      </ButtonGroup>
-                    }
-                  />
-                ))}
+                            <Button
+                              icon="trash"
+                              small
+                              onClick={() =>
+                                openModal(ModalType.Delete, { name, layout })
+                              }
+                              intent={Intent.DANGER}
+                            />
+                          </ButtonGroup>
+                        }
+                      />
+                    ))}
+                  </>
+                )}
+
+                <MenuDivider />
+
+                <MenuItem
+                  text="Save as Pattern"
+                  icon="floppy-disk"
+                  disabled={
+                    !!findExistingLayout() ||
+                    customLayouts.length >= 6 ||
+                    isEmptyLayout
+                  }
+                  onClick={() => openModal(ModalType.Create)}
+                  intent={Intent.SUCCESS}
+                />
               </>
             )}
-
-            <MenuDivider />
-
-            <MenuItem
-              text="Save as Pattern"
-              icon="floppy-disk"
-              disabled={
-                !!findExistingLayout() ||
-                customLayouts.length >= 6 ||
-                isEmptyLayout
-              }
-              // onClick={() => setAlertId(AlertWindow.Create)}
-              intent={Intent.SUCCESS}
-            />
           </Menu>
         }
         position={Position.TOP}

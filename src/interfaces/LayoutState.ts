@@ -1,6 +1,7 @@
 import {
   SET_ACTIVE_LAYOUT,
   CREATE_CUSTOM_LAYOUT,
+  RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions';
 
@@ -8,7 +9,7 @@ import type { Layout, CustomLayout } from 'types/Layout';
 
 export interface LayoutState {
   readonly activeLayout: Layout;
-  readonly customLayouts: CustomLayout[];
+  readonly customLayouts: any[];
 }
 
 export interface SetActiveLayoutAction {
@@ -19,6 +20,11 @@ export interface SetActiveLayoutAction {
 export interface CreateCustomLayoutAction {
   readonly type: typeof CREATE_CUSTOM_LAYOUT;
   readonly payload: CustomLayout;
+}
+
+export interface RenameCustomLayoutAction {
+  readonly type: typeof RENAME_CUSTOM_LAYOUT;
+  readonly payload: string;
 }
 
 export interface RemoveCustomLayoutAction {

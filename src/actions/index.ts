@@ -4,3 +4,4 @@ export * from './layoutActions';
 export * from './searchResultsActions';
 export * from './searchHistoryActions';
 export * from './settingsActions';
+export * from './modalActions';

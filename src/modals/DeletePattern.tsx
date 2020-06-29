@@ -1,0 +1,46 @@
+import React from 'react';
+import { Alert, Intent } from '@blueprintjs/core';
+
+import { useModal } from 'hooks/useModal';
+import { useLayout } from 'hooks/useLayout';
+
+import { AppToaster } from 'helpers/toaster';
+
+const DeletePattern: React.FC = () => {
+  const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
+
+  const { removeCustomLayout } = useLayout();
+
+  const onConfirm = () => {
+    removeCustomLayout(modalParams!.name);
+
+    setIsOpen(false);
+
+    AppToaster.show({
+      message: 'Pattern removed!',
+      intent: Intent.SUCCESS,
+    });
+  };
+
+  return (
+    <Alert
+      isOpen={isOpen}
+      confirmButtonText="Remove"
+      cancelButtonText="Cancel"
+      intent={Intent.DANGER}
+      onConfirm={onConfirm}
+      onCancel={() => setIsOpen(false)}
+      onClosed={closeModal}
+      canEscapeKeyCancel={true}
+      icon="trash"
+    >
+      <h5 className="bp3-heading">
+        Do you want to delete the {modalParams!.name} pattern?
+      </h5>
+
+      <p>This operation cannot be undone</p>
+    </Alert>
+  );
+};
+
+export default DeletePattern;

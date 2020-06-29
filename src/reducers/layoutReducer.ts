@@ -1,6 +1,7 @@
 import {
   SET_ACTIVE_LAYOUT,
   CREATE_CUSTOM_LAYOUT,
+  RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions/layoutActions';
 
@@ -32,6 +33,21 @@ export const layoutReducer = (
             name: action.payload.name,
             layout: action.payload.layout,
           },
+        ],
+      };
+
+    case RENAME_CUSTOM_LAYOUT:
+      // console.log('aaa');
+
+      return {
+        ...state,
+        customLayouts: [
+          ...state.customLayouts,
+          state.customLayouts.map((layout) => {
+            // console.log(layout);
+
+            return layout;
+          }),
         ],
       };
 

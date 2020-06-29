@@ -7,8 +7,10 @@ interface Props {
   readonly component: JSX.Element;
 }
 
-export const LazyComponent: React.FC<Props> = ({ component }) => (
+const LazyComponent: React.FC<Props> = ({ component }) => (
   <Suspense fallback={<Spinner className="loader" size={Spinner.SIZE_SMALL} />}>
     {component}
   </Suspense>
 );
+
+export default LazyComponent;

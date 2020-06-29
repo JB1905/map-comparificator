@@ -2,7 +2,7 @@ const featureFlags = {
   clearSearchHistory: false,
   managePatterns: false,
   centeringModes: false,
-  keyboardShortcuts: false,
+  // keyboardShortcuts: false, // NOT SUPPORTED IN BLUEPRINT YET (FUNCTION COMPONENT)
 };
 
 export const isFeatureEnabled = (name) => featureFlags[name];

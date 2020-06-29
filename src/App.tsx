@@ -14,12 +14,16 @@ import 'react-mosaic-component/react-mosaic-component.css';
 
 import { MAPS } from 'collections/maps';
 
+import RootModal from 'components/RootModal';
+
 import NavbarPrimaryGroup from 'containers/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'containers/NavbarSecondaryGroup';
 
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
+
+import { isFeatureEnabled } from 'features';
 
 const App: React.FC = () => {
   const { isDark } = useTheme();
@@ -75,6 +79,8 @@ const App: React.FC = () => {
               />
             }
           />
+
+          {isFeatureEnabled('managePatterns') && <RootModal />}
         </>
       ) : (
         <NonIdealState

@@ -7,10 +7,10 @@ export const columnLayout: Layout = {
       first: 'Bing Maps',
       second: 'Google Maps',
       direction: 'row',
-      splitPercentage: 48.80694143167029,
+      splitPercentage: 50,
     },
     direction: 'row',
-    splitPercentage: 35.70432357043236,
+    splitPercentage: 33,
   },
   second: {
     direction: 'row',
