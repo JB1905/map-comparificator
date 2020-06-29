@@ -1,6 +1,6 @@
 const featureFlags = {
   clearSearchHistory: false,
-  managePatterns: true,
+  managePatterns: false,
   centeringModes: false,
   // keyboardShortcuts: false, // NOT SUPPORTED IN BLUEPRINT YET (FUNCTION COMPONENT)
 };
