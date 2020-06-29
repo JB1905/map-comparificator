@@ -4,6 +4,8 @@ import { useModal } from 'hooks/useModal';
 
 import { MODALS } from 'collections/modals';
 
+import './RootModal.scss';
+
 const RootModal: React.FC = () => {
   const { modalType } = useModal();
 

@@ -43,7 +43,7 @@ export const useLayout = () => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
       if (name) {
-        return isEqualPattern || layout.name === name;
+        return isEqualPattern && layout.name === name;
       }
 
       return isEqualPattern;
