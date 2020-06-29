@@ -4,12 +4,12 @@ import { ModalType } from 'enums/ModalType';
 
 export interface ModalState {
   modalType: ModalType | null;
-  modalParams?: object;
+  modalParams?: Record<string, any> | null;
 }
 
 export interface OpenModalAction {
   readonly type: typeof OPEN_MODAL;
-  readonly payload: object;
+  readonly payload: Record<string, any>;
 }
 
 export interface CloseModalAction {

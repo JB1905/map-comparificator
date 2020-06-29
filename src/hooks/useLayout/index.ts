@@ -14,6 +14,7 @@ import deepEqual from 'deep-equal';
 import {
   SET_ACTIVE_LAYOUT,
   CREATE_CUSTOM_LAYOUT,
+  RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
 } from 'actions';
 
@@ -65,10 +66,10 @@ export const useLayout = () => {
   };
 
   const renameCustomLayout = (id: string) => {
-    // dispatch({
-    //   type: REMOVE_CUSTOM_LAYOUT,
-    //   payload: id,
-    // });
+    dispatch({
+      type: RENAME_CUSTOM_LAYOUT,
+      payload: id,
+    });
   };
 
   const removeCustomLayout = (id: string) => {

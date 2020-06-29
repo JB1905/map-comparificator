@@ -22,7 +22,7 @@ const EditPattern: React.FC = () => {
     }
 
     if (!findExistingLayout(name)) {
-      renameCustomLayout(name);
+      renameCustomLayout(modalParams!.name);
 
       setIsOpen(false);
 
@@ -32,7 +32,7 @@ const EditPattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: 'Pattern already exists!',
+        message: `Pattern ${name} already exists!`,
         intent: Intent.DANGER,
       });
     }
@@ -50,7 +50,7 @@ const EditPattern: React.FC = () => {
       canEscapeKeyCancel={true}
       icon="edit"
     >
-      <h5 className="bp3-heading">Rename {modalParams.name}:</h5>
+      <h5 className="bp3-heading">Rename {modalParams!.name}:</h5>
 
       <InputGroup
         placeholder="Type new pattern name"

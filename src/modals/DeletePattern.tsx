@@ -12,7 +12,7 @@ const DeletePattern: React.FC = () => {
   const { removeCustomLayout } = useLayout();
 
   const onConfirm = () => {
-    removeCustomLayout(modalParams.name);
+    removeCustomLayout(modalParams!.name);
 
     setIsOpen(false);
 
@@ -35,7 +35,7 @@ const DeletePattern: React.FC = () => {
       icon="trash"
     >
       <h5 className="bp3-heading">
-        Do you want to delete the {modalParams.name} pattern?
+        Do you want to delete the {modalParams!.name} pattern?
       </h5>
 
       <p>This operation cannot be undone</p>
