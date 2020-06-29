@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const CreatePattern: React.FC = () => {
-  const { isOpen, closeModal, setIsOpen } = useModal();
+  const { isOpen, setIsOpen, closeModal } = useModal();
 
   const { findExistingLayout, createCustomLayout } = useLayout();
 
