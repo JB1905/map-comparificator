@@ -7,19 +7,19 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const DeletePattern: React.FC = () => {
-  const { isOpen, onClose, param } = useModal();
+  const { isOpen, closeModal, setIsOpen, param } = useModal();
 
   const { removeCustomLayout } = useLayout();
 
   const save = () => {
     removeCustomLayout(param.name);
 
+    setIsOpen(false);
+
     AppToaster.show({
       message: 'Pattern removed!',
       intent: Intent.SUCCESS,
     });
-
-    onClose();
   };
 
   return (
@@ -28,8 +28,9 @@ const DeletePattern: React.FC = () => {
       confirmButtonText="Remove"
       cancelButtonText="Cancel"
       intent={Intent.DANGER}
-      onCancel={onClose}
-      onClose={save}
+      onConfirm={save}
+      onCancel={() => setIsOpen(false)}
+      onClosed={closeModal}
       canEscapeKeyCancel={true}
       icon="trash"
     >

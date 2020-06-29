@@ -18,21 +18,12 @@ export const useModal = () => {
 
   const closeModal = () => dispatch({ type: CLOSE_MODAL });
 
-  const DURATION = 300;
-
-  const onClose = () => {
-    setIsOpen(false);
-
-    setTimeout(() => {
-      closeModal();
-    }, DURATION);
-  };
-
   return {
     openModal,
     modalType,
+    closeModal,
+    setIsOpen,
     param,
-    onClose,
     isOpen,
   };
 };

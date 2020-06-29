@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const EditPattern: React.FC = () => {
-  const { isOpen, onClose, param } = useModal();
+  const { isOpen, closeModal, param, setIsOpen } = useModal();
 
   const { findExistingLayout, renameCustomLayout } = useLayout();
 
@@ -24,7 +24,7 @@ const EditPattern: React.FC = () => {
     if (!findExistingLayout(name)) {
       renameCustomLayout(name);
 
-      onClose();
+      setIsOpen(false);
 
       AppToaster.show({
         message: 'Pattern renamed!',
@@ -44,8 +44,9 @@ const EditPattern: React.FC = () => {
       confirmButtonText="Rename"
       cancelButtonText="Cancel"
       intent={Intent.WARNING}
-      onCancel={onClose}
-      onClose={save}
+      onConfirm={save}
+      onCancel={() => setIsOpen(false)}
+      onClosed={closeModal}
       canEscapeKeyCancel={true}
       icon="edit"
     >

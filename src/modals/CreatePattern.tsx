@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 import { AppToaster } from 'helpers/toaster';
 
 const CreatePattern: React.FC = () => {
-  const { isOpen, onClose } = useModal();
+  const { isOpen, closeModal, setIsOpen } = useModal();
 
   const { findExistingLayout, createCustomLayout } = useLayout();
 
@@ -24,7 +24,7 @@ const CreatePattern: React.FC = () => {
     if (!findExistingLayout(name)) {
       createCustomLayout(name);
 
-      onClose();
+      setIsOpen(false);
 
       AppToaster.show({
         message: 'Pattern created!',
@@ -32,7 +32,7 @@ const CreatePattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: 'Pattern already exists!.',
+        message: 'Pattern already exists!',
         intent: Intent.DANGER,
       });
     }
@@ -44,8 +44,9 @@ const CreatePattern: React.FC = () => {
       confirmButtonText="Save"
       cancelButtonText="Cancel"
       intent={Intent.SUCCESS}
-      onCancel={onClose}
-      onClose={save}
+      onConfirm={save}
+      onCancel={() => setIsOpen(false)}
+      onClosed={closeModal}
       canEscapeKeyCancel={true}
       icon="add"
     >

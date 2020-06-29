@@ -88,32 +88,36 @@ const NavbarSecondaryGroup: React.FC = () => {
 
       <Navbar.Divider />
 
-      <Popover
-        content={
-          <Menu>
-            {Object.values(CenteringMode).map((centeringMode) => (
-              <MenuItem
-                text={centeringMode}
-                icon="locate"
-                key={centeringMode}
-                className="centering-mode"
-                active={activeCenteringMode === centeringMode}
-                onClick={() => setCenteringMode(centeringMode)}
-              />
-            ))}
-          </Menu>
-        }
-        position={Position.TOP}
-      >
-        <Button
-          icon="map-marker"
-          text="Centering Mode"
-          disabled={isEmptyLayout}
-          minimal
-        />
-      </Popover>
+      {isFeatureEnabled('centeringModes') && (
+        <>
+          <Popover
+            content={
+              <Menu>
+                {Object.values(CenteringMode).map((centeringMode) => (
+                  <MenuItem
+                    text={centeringMode}
+                    icon="locate"
+                    key={centeringMode}
+                    className="centering-mode"
+                    active={activeCenteringMode === centeringMode}
+                    onClick={() => setCenteringMode(centeringMode)}
+                  />
+                ))}
+              </Menu>
+            }
+            position={Position.TOP}
+          >
+            <Button
+              icon="map-marker"
+              text="Centering Mode"
+              disabled={isEmptyLayout}
+              minimal
+            />
+          </Popover>
 
-      <Navbar.Divider />
+          <Navbar.Divider />
+        </>
+      )}
 
       <Popover
         content={
@@ -134,7 +138,7 @@ const NavbarSecondaryGroup: React.FC = () => {
                   <>
                     <MenuDivider title="Custom Patterns" />
 
-                    {customLayouts.map(({ name, layout }: any) => (
+                    {customLayouts.map(({ name, layout }) => (
                       <MenuItem
                         text={name}
                         icon="page-layout"
