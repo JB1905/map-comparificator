@@ -13,7 +13,7 @@ const RootModal: React.FC = () => {
 
   const SpecificModal = MODALS[modalType];
 
-  return <SpecificModal />;
+  return <SpecificModal data-testid="root-modal" />;
 };
 
 export default RootModal;

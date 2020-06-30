@@ -3,10 +3,16 @@ import { render } from '@testing-library/react';
 
 import BingMaps from '.';
 
+jest.mock('hooks/useMaps', () => ({
+  useMaps: () => ({
+    coords: [],
+  }),
+}));
+
 describe('BingMaps', () => {
   it('should render the map', () => {
-    const { getAllByText } = render(<BingMaps />);
+    const { getByTestId } = render(<BingMaps />);
 
-    expect(getAllByText('')).toBeInTheDocument();
+    expect(getByTestId('')).toBeInTheDocument();
   });
 });

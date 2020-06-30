@@ -68,6 +68,7 @@ const SearchForm: React.FC = () => {
       filterable={false}
     >
       <InputGroup
+        data-testid="search-input"
         type="search"
         placeholder="Search..."
         aria-label="Search"

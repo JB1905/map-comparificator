@@ -8,6 +8,7 @@ const AppleMaps: React.FC = () => {
 
   return (
     <Map
+      data-testid="apple-maps"
       tokenOrCallback={process.env.REACT_APP_APPLE_MAPS_TOKEN}
       center={coords}
     />

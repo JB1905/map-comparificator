@@ -1,21 +1,30 @@
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import App from 'App';
 
-import rootReducer from 'reducers';
+jest.mock('hooks/useTheme', () => ({
+  useTheme: () => ({
+    isDark: false,
+  }),
+}));
+
+jest.mock('hooks/useLayout', () => ({
+  useLayout: () => ({
+    activeLayout: {},
+    setActiveLayout: () => jest.fn(),
+  }),
+}));
+
+jest.mock('hooks/useSettings', () => ({
+  useSettings: () => ({
+    isCustomizationEnabled: false,
+  }),
+}));
 
 describe('App', () => {
   it('should render', () => {
-    const mockStore = createStore(rootReducer);
-
-    const { getByTestId } = render(
-      <Provider store={mockStore}>
-        <App />
-      </Provider>
-    );
+    const { getByTestId } = render(<App />);
 
     expect(getByTestId('page')).toBe(true);
   });

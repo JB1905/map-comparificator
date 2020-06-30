@@ -7,9 +7,10 @@ import {
 
 import type { Layout, CustomLayout } from 'types/Layout';
 
+// TODO any
 export interface LayoutState {
   readonly activeLayout: Layout;
-  readonly customLayouts: any[];
+  readonly customLayouts: CustomLayout[];
 }
 
 export interface SetActiveLayoutAction {

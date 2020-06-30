@@ -36,9 +36,8 @@ export const layoutReducer = (
         ],
       };
 
+    //  TODO
     case RENAME_CUSTOM_LAYOUT:
-      // console.log('aaa');
-
       return {
         ...state,
         customLayouts: [

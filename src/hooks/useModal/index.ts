@@ -18,7 +18,7 @@ export const useModal = () => {
 
   const openModal = (
     modalType: ModalType,
-    modalParams?: Record<string, any>
+    modalParams?: Record<string, object>
   ) => {
     dispatch({ type: OPEN_MODAL, payload: { modalType, modalParams } });
   };
