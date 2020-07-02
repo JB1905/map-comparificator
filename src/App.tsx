@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   const { isCustomizationEnabled } = useSettings();
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { vw } = useViewport({
     defaultVW: window.innerWidth,
@@ -57,6 +57,8 @@ const App: React.FC = () => {
   return (
     <>
       <Helmet>
+        <html lang={i18n.language} />
+
         <body className={themeClass} />
       </Helmet>
 
