@@ -21,13 +21,20 @@ const EditPattern: React.FC = () => {
       });
     }
 
-    if (!findExistingLayout(name)) {
-      renameCustomLayout(modalParams!.name);
+    if (modalParams!.name === name) {
+      return AppToaster.show({
+        message: 'The new pattern name must be different from the old name!',
+        intent: Intent.DANGER,
+      });
+    }
+
+    if (!findExistingLayout(name, true)) {
+      renameCustomLayout(modalParams!.name, name);
 
       setIsOpen(false);
 
       AppToaster.show({
-        message: 'Pattern renamed!',
+        message: 'Pattern name changed!',
         intent: Intent.SUCCESS,
       });
     } else {
@@ -53,8 +60,8 @@ const EditPattern: React.FC = () => {
       <h5 className="bp3-heading">Rename {modalParams!.name}:</h5>
 
       <InputGroup
-        placeholder="Type new pattern name"
-        aria-label="Type new pattern name"
+        placeholder="Enter a new name for the pattern"
+        aria-label="Enter a new name for the pattern"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }

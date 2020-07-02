@@ -17,7 +17,7 @@ const DeletePattern: React.FC = () => {
     setIsOpen(false);
 
     AppToaster.show({
-      message: 'Pattern removed!',
+      message: 'Pattern deleted!',
       intent: Intent.SUCCESS,
     });
   };
@@ -25,7 +25,7 @@ const DeletePattern: React.FC = () => {
   return (
     <Alert
       isOpen={isOpen}
-      confirmButtonText="Remove"
+      confirmButtonText="Delete"
       cancelButtonText="Cancel"
       intent={Intent.DANGER}
       onConfirm={onConfirm}

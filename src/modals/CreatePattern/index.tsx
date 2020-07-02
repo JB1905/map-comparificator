@@ -32,7 +32,7 @@ const CreatePattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: 'Pattern already exists!',
+        message: 'The pattern already exists!',
         intent: Intent.DANGER,
       });
     }
@@ -53,8 +53,8 @@ const CreatePattern: React.FC = () => {
       <h5 className="bp3-heading">Create new pattern:</h5>
 
       <InputGroup
-        placeholder="Type pattern name"
-        aria-label="Type pattern name"
+        placeholder="Enter a name for the pattern"
+        aria-label="Enter a name for the pattern"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }

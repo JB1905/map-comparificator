@@ -5,13 +5,13 @@ import { ModalType } from 'enums/ModalType';
 // TODO any
 export interface ModalState {
   modalType: ModalType | null;
-  modalParams?: Record<string, object> | null;
+  modalParams?: Record<string, any> | null;
 }
 
 // TODO any
 export interface OpenModalAction {
   readonly type: typeof OPEN_MODAL;
-  readonly payload: Record<string, object>;
+  readonly payload: Record<string, any>;
 }
 
 export interface CloseModalAction {

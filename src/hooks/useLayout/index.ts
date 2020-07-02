@@ -39,12 +39,15 @@ export const useLayout = () => {
     { name: 'Mosaic', layout: mosaicLayout },
   ];
 
-  const findExistingLayout = (name?: string) => {
+  const findExistingLayout = (name?: string, isStrict?: boolean) => {
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
+      // TODO
       if (name) {
-        return isEqualPattern && layout.name === name;
+        return isStrict
+          ? layout.name === name
+          : isEqualPattern || layout.name === name;
       }
 
       return isEqualPattern;
@@ -65,10 +68,10 @@ export const useLayout = () => {
     });
   };
 
-  const renameCustomLayout = (id: string) => {
+  const renameCustomLayout = (currentId: string, updatedId: string) => {
     dispatch({
       type: RENAME_CUSTOM_LAYOUT,
-      payload: id,
+      payload: { currentId, updatedId },
     });
   };
 
