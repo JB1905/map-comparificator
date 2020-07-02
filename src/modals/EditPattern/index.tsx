@@ -39,7 +39,7 @@ const EditPattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: `Pattern ${name} already exists!`,
+        message: `The pattern ${name} already exists!`,
         intent: Intent.DANGER,
       });
     }

@@ -50,8 +50,8 @@ const SearchForm: React.FC = () => {
         !query && (
           <Button
             icon="trash"
-            small
             onClick={() => removeFromHistory(item.place_id)}
+            small
           />
         )
       }

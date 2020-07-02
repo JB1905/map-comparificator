@@ -32,7 +32,7 @@ const CreatePattern: React.FC = () => {
       });
     } else {
       AppToaster.show({
-        message: 'The pattern already exists!',
+        message: `The pattern ${name} already exists!`,
         intent: Intent.DANGER,
       });
     }
