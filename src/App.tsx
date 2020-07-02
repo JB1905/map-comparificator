@@ -7,6 +7,7 @@ import {
   DEFAULT_CONTROLS_WITHOUT_CREATION,
 } from 'react-mosaic-component';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 import { useViewport } from 'react-viewport-hooks';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -31,6 +32,8 @@ const App: React.FC = () => {
   const { activeLayout, setActiveLayout } = useLayout();
 
   const { isCustomizationEnabled } = useSettings();
+
+  const { t } = useTranslation();
 
   const { vw } = useViewport({
     defaultVW: window.innerWidth,
@@ -74,8 +77,8 @@ const App: React.FC = () => {
             zeroStateView={
               <NonIdealState
                 icon="map"
-                title="No map preview selected"
-                description="Select maps from the menu"
+                title={t('noMapPreview.title')}
+                description={t<string>('noMapPreview.description')}
               />
             }
           />
@@ -85,8 +88,8 @@ const App: React.FC = () => {
       ) : (
         <NonIdealState
           icon="zoom-to-fit"
-          title="Your screen is too small"
-          description="Open app in bigger window"
+          title={t('screenNotSupported.title')}
+          description={t<string>('screenNotSupported.description')}
           className="not-supported-screen-size"
         />
       )}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
+import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
@@ -11,12 +12,14 @@ const CreatePattern: React.FC = () => {
 
   const { findExistingLayout, createCustomLayout } = useLayout();
 
+  const { t } = useTranslation();
+
   const [name, setName] = useState('');
 
   const onConfirm = () => {
     if (!name) {
       return AppToaster.show({
-        message: 'Pattern name is required!',
+        message: t('message.patternNameRequired'),
         intent: Intent.WARNING,
       });
     }
@@ -27,12 +30,13 @@ const CreatePattern: React.FC = () => {
       setIsOpen(false);
 
       AppToaster.show({
-        message: 'Pattern created!',
+        message: t('message.patternCreated'),
         intent: Intent.SUCCESS,
       });
     } else {
       AppToaster.show({
-        message: 'The pattern already exists!',
+        message: t('message.patternExists', { name }),
+        // message: `The pattern ${name} already exists!`,
         intent: Intent.DANGER,
       });
     }
@@ -41,8 +45,8 @@ const CreatePattern: React.FC = () => {
   return (
     <Alert
       isOpen={isOpen}
-      confirmButtonText="Save"
-      cancelButtonText="Cancel"
+      confirmButtonText={t('pattern.confirm.add')}
+      cancelButtonText={t('pattern.cancel')}
       intent={Intent.SUCCESS}
       onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
@@ -50,11 +54,11 @@ const CreatePattern: React.FC = () => {
       canEscapeKeyCancel={true}
       icon="add"
     >
-      <h5 className="bp3-heading">Create new pattern:</h5>
+      <h5 className="bp3-heading">{t('modal.patternCreate.title')}</h5>
 
       <InputGroup
-        placeholder="Enter a name for the pattern"
-        aria-label="Enter a name for the pattern"
+        placeholder={t('modal.patternCreate.input.placeholder')}
+        aria-label={t('modal.patternCreate.input.label')}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }
