@@ -6,17 +6,12 @@ import {
 } from 'actions';
 
 import type { Layout, CustomLayout } from 'types/Layout';
-
-// TODO
-interface Payload {
-  currentId: string;
-  updatedId: string;
-}
+import type { IdUpdate } from 'types/IdUpdate';
 
 // TODO any
 export interface LayoutState {
   readonly activeLayout: Layout;
-  readonly customLayouts: any[];
+  readonly customLayouts: CustomLayout[];
 }
 
 export interface SetActiveLayoutAction {
@@ -31,7 +26,7 @@ export interface CreateCustomLayoutAction {
 
 export interface RenameCustomLayoutAction {
   readonly type: typeof RENAME_CUSTOM_LAYOUT;
-  readonly payload: Payload;
+  readonly payload: IdUpdate;
 }
 
 export interface RemoveCustomLayoutAction {

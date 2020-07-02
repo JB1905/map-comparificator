@@ -21,7 +21,7 @@ const CreatePattern: React.FC = () => {
       });
     }
 
-    if (!findExistingLayout(name)) {
+    if (!findExistingLayout(name, true)) {
       createCustomLayout(name);
 
       setIsOpen(false);

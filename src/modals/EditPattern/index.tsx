@@ -28,7 +28,7 @@ const EditPattern: React.FC = () => {
       });
     }
 
-    if (!findExistingLayout(name, true)) {
+    if (!findExistingLayout(name)) {
       renameCustomLayout(modalParams!.name, name);
 
       setIsOpen(false);

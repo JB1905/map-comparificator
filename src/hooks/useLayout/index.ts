@@ -39,15 +39,14 @@ export const useLayout = () => {
     { name: 'Mosaic', layout: mosaicLayout },
   ];
 
-  const findExistingLayout = (name?: string, isStrict?: boolean) => {
+  const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
-      // TODO
       if (name) {
-        return isStrict
-          ? layout.name === name
-          : isEqualPattern || layout.name === name;
+        const isEqualName = layout.name === name;
+
+        return isPatternIncluded ? isEqualPattern || isEqualName : isEqualName;
       }
 
       return isEqualPattern;
