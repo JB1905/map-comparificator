@@ -10,6 +10,7 @@ import {
   MosaicNode,
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
+import { useTranslation } from 'react-i18next';
 
 import {
   SET_ACTIVE_LAYOUT,
@@ -25,6 +26,8 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 import type { Layout } from 'types/Layout';
 
 export const useLayout = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const { activeLayout, customLayouts } = useSelector(
@@ -34,9 +37,9 @@ export const useLayout = () => {
   const isEmptyLayout = activeLayout === null;
 
   const initialLayouts = [
-    { name: 'Grid', layout: gridLayout },
-    { name: 'Columns', layout: columnLayout },
-    { name: 'Mosaic', layout: mosaicLayout },
+    { name: t('initialLayout.grid'), layout: gridLayout },
+    { name: t('initialLayout.columns'), layout: columnLayout },
+    { name: t('initialLayout.mosaic'), layout: mosaicLayout },
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {

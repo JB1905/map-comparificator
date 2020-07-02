@@ -12,6 +12,7 @@ import {
   ButtonGroup,
 } from '@blueprintjs/core';
 import equal from 'deep-equal';
+import { useTranslation } from 'react-i18next';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -51,6 +52,8 @@ const NavbarSecondaryGroup: React.FC = () => {
 
   const { openModal } = useModal();
 
+  const { t } = useTranslation();
+
   return (
     <Navbar.Group align={Alignment.RIGHT}>
       <Button
@@ -80,7 +83,7 @@ const NavbarSecondaryGroup: React.FC = () => {
       >
         <Button
           icon="map"
-          text="Maps"
+          text={t('settings.maps')}
           disabled={!isCustomizationEnabled}
           minimal
         />
@@ -109,7 +112,7 @@ const NavbarSecondaryGroup: React.FC = () => {
           >
             <Button
               icon="map-marker"
-              text="Centering Mode"
+              text={t('settings.centeringMode')}
               disabled={isEmptyLayout}
               minimal
             />
@@ -136,7 +139,7 @@ const NavbarSecondaryGroup: React.FC = () => {
               <>
                 {customLayouts.length > 0 && (
                   <>
-                    <MenuDivider title="Custom Patterns" />
+                    <MenuDivider title={t('settings.customPattern.title')} />
 
                     {customLayouts.map(({ name, layout }) => (
                       <MenuItem
@@ -174,7 +177,7 @@ const NavbarSecondaryGroup: React.FC = () => {
                 <MenuDivider />
 
                 <MenuItem
-                  text="Save as Pattern"
+                  text={t('settings.customPattern.save')}
                   icon="floppy-disk"
                   disabled={
                     !!findExistingLayout() ||
@@ -199,7 +202,7 @@ const NavbarSecondaryGroup: React.FC = () => {
         href="https://github.com/JB1905/map-comparificator"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Preview code on GitHub"
+        aria-label={t('settings.github.label')}
       >
         <OctoCat className="octocat" />
       </a>
