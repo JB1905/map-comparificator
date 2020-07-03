@@ -36,7 +36,6 @@ const CreatePattern: React.FC = () => {
     } else {
       AppToaster.show({
         message: t('message.patternExists', { name }),
-        // message: `The pattern ${name} already exists!`,
         intent: Intent.DANGER,
       });
     }
