@@ -59,6 +59,8 @@ const App: React.FC = () => {
       <Helmet>
         <html lang={i18n.language} />
 
+        <meta name="description" content={t('app.description')} />
+
         <body className={themeClass} />
       </Helmet>
 

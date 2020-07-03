@@ -5,6 +5,19 @@ import { useModal } from 'hooks/useModal';
 
 import RootModal from '.';
 
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: () => '',
+  }),
+}));
+
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn(),
+  useSelector: () => ({
+    activeLayout: {},
+  }),
+}));
+
 jest.mock('hooks/useModal', () => ({
   useModal: jest.fn(),
 }));
@@ -19,14 +32,4 @@ describe('RootModal', () => {
 
     expect(container.firstChild).toBe(null);
   });
-
-  // it('should descrender', () => {
-  //   useModal.mockImplementation(() => ({
-  //     modalType: 'Create Pattern',
-  //   }));
-
-  //   const { getByTestId } = render(<RootModal />);
-
-  //   expect(getByTestId('root-modal')).toBeInTheDocument();
-  // });
 });

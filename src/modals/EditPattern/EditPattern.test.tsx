@@ -5,8 +5,8 @@ import EditPattern from '.';
 
 describe('EditPattern', () => {
   it('should render', () => {
-    const {} = render(<EditPattern />);
+    const { container } = render(<EditPattern />);
 
-    expect();
+    expect(container).toBe(true);
   });
 });

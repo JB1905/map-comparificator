@@ -7,6 +7,6 @@ describe('GoogleMaps', () => {
   it('should render the map', () => {
     const { getAllByText } = render(<GoogleMaps />);
 
-    expect(getAllByText('')).toBeInTheDocument();
+    expect(getAllByText('google-maps')).toBeInTheDocument();
   });
 });

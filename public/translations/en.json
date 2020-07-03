@@ -1,4 +1,5 @@
 {
+  "app.description": "Choose the best map for your project",
   "noMapPreview.title": "No map preview selected",
   "noMapPreview.description": "Select maps from the menu",
   "screenNotSupported.title": "Your screen is too small",
