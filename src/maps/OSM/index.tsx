@@ -20,7 +20,7 @@ const OpenStreetMap: React.FC = () => {
       <Helmet>
         <link
           rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css"
         />
       </Helmet>
 
