@@ -16,7 +16,6 @@ export const useModal = () => {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  // TODO any
   const openModal = (
     modalType: ModalType,
     modalParams?: Record<string, any>

@@ -8,7 +8,6 @@ import {
 import type { Layout, CustomLayout } from 'types/Layout';
 import type { IdUpdate } from 'types/IdUpdate';
 
-// TODO any
 export interface LayoutState {
   readonly activeLayout: Layout;
   readonly customLayouts: CustomLayout[];
