@@ -37,18 +37,18 @@ export const layoutReducer = (
       };
 
     case RENAME_CUSTOM_LAYOUT:
-      // console.log('aaa');
-
       return {
         ...state,
-        customLayouts: [
-          ...state.customLayouts,
-          state.customLayouts.map((layout) => {
-            // console.log(layout);
+        customLayouts: state.customLayouts.map((layout) => {
+          if (layout.name === action.payload.currentId) {
+            return {
+              ...layout,
+              name: action.payload.updatedId,
+            };
+          }
 
-            return layout;
-          }),
-        ],
+          return layout;
+        }),
       };
 
     case REMOVE_CUSTOM_LAYOUT:

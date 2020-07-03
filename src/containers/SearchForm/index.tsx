@@ -1,6 +1,7 @@
 import React from 'react';
 import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
+import { useTranslation } from 'react-i18next';
 
 import { useSearch } from 'hooks/useSearch';
 import { useLayout } from 'hooks/useLayout';
@@ -31,6 +32,8 @@ const SearchForm: React.FC = () => {
 
   const { setCoords } = useMaps();
 
+  const { t } = useTranslation();
+
   const selectPlace = (place: LocationIqResult | SearchHistoryItem) => {
     const { lat, lon, display_name, place_id } = place;
 
@@ -50,8 +53,8 @@ const SearchForm: React.FC = () => {
         !query && (
           <Button
             icon="trash"
-            small
             onClick={() => removeFromHistory(item.place_id)}
+            small
           />
         )
       }
@@ -63,14 +66,15 @@ const SearchForm: React.FC = () => {
       items={error ? [] : query ? results : history}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
-      noResults={<MenuItem text="No results found" disabled />}
+      noResults={<MenuItem text={t('search.noResults')} disabled />}
       popoverProps={{ minimal: true }}
       filterable={false}
     >
       <InputGroup
+        data-testid="search-input"
         type="search"
-        placeholder="Search..."
-        aria-label="Search"
+        placeholder={t('search.placeholder')}
+        aria-label={t('search.label')}
         disabled={isEmptyLayout}
         leftIcon="search"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

@@ -4,8 +4,7 @@ import DeletePattern from 'modals/DeletePattern';
 
 import { ModalType } from 'enums/ModalType';
 
-// TODO
-export const MODALS: Record<string, JSX.Element> | any = {
+export const MODALS = {
   [ModalType.Create]: CreatePattern,
   [ModalType.Edit]: EditPattern,
   [ModalType.Delete]: DeletePattern,

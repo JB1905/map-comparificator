@@ -8,6 +8,7 @@ const GoogleMaps: React.FC = () => {
 
   return (
     <LoadScript
+      data-testid="google-maps"
       id="script-loader"
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_TOKEN}
     >

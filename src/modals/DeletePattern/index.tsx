@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, Intent } from '@blueprintjs/core';
+import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
@@ -11,13 +12,15 @@ const DeletePattern: React.FC = () => {
 
   const { removeCustomLayout } = useLayout();
 
+  const { t } = useTranslation();
+
   const onConfirm = () => {
     removeCustomLayout(modalParams!.name);
 
     setIsOpen(false);
 
     AppToaster.show({
-      message: 'Pattern removed!',
+      message: t('message.patternDeleted'),
       intent: Intent.SUCCESS,
     });
   };
@@ -25,8 +28,8 @@ const DeletePattern: React.FC = () => {
   return (
     <Alert
       isOpen={isOpen}
-      confirmButtonText="Remove"
-      cancelButtonText="Cancel"
+      confirmButtonText={t('pattern.confirm.delete')}
+      cancelButtonText={t('pattern.cancel')}
       intent={Intent.DANGER}
       onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
@@ -35,10 +38,11 @@ const DeletePattern: React.FC = () => {
       icon="trash"
     >
       <h5 className="bp3-heading">
-        Do you want to delete the {modalParams!.name} pattern?
+        {t('modal.patternDelete.title', { name: modalParams!.name })}
+        {/* Do you want to delete the {modalParams!.name} pattern? */}
       </h5>
 
-      <p>This operation cannot be undone</p>
+      <p>{t('modal.patternDelete.message')}</p>
     </Alert>
   );
 };

@@ -10,6 +10,7 @@ import {
   MosaicNode,
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
+import { useTranslation } from 'react-i18next';
 
 import {
   SET_ACTIVE_LAYOUT,
@@ -25,6 +26,8 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 import type { Layout } from 'types/Layout';
 
 export const useLayout = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const { activeLayout, customLayouts } = useSelector(
@@ -34,17 +37,19 @@ export const useLayout = () => {
   const isEmptyLayout = activeLayout === null;
 
   const initialLayouts = [
-    { name: 'Grid', layout: gridLayout },
-    { name: 'Columns', layout: columnLayout },
-    { name: 'Mosaic', layout: mosaicLayout },
+    { name: t('initialLayout.grid'), layout: gridLayout },
+    { name: t('initialLayout.columns'), layout: columnLayout },
+    { name: t('initialLayout.mosaic'), layout: mosaicLayout },
   ];
 
-  const findExistingLayout = (name?: string) => {
+  const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
       if (name) {
-        return isEqualPattern && layout.name === name;
+        const isEqualName = layout.name === name;
+
+        return isPatternIncluded ? isEqualPattern || isEqualName : isEqualName;
       }
 
       return isEqualPattern;
@@ -65,10 +70,10 @@ export const useLayout = () => {
     });
   };
 
-  const renameCustomLayout = (id: string) => {
+  const renameCustomLayout = (currentId: string, updatedId: string) => {
     dispatch({
       type: RENAME_CUSTOM_LAYOUT,
-      payload: id,
+      payload: { currentId, updatedId },
     });
   };
 

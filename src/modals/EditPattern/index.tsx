@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
+import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
@@ -11,28 +12,37 @@ const EditPattern: React.FC = () => {
 
   const { findExistingLayout, renameCustomLayout } = useLayout();
 
+  const { t } = useTranslation();
+
   const [name, setName] = useState('');
 
   const onConfirm = () => {
     if (!name) {
       return AppToaster.show({
-        message: 'Pattern name is required!',
+        message: t('message.patternNameRequired'),
         intent: Intent.WARNING,
       });
     }
 
+    if (modalParams!.name === name) {
+      return AppToaster.show({
+        message: t('message.patternProvideDifferentName'),
+        intent: Intent.DANGER,
+      });
+    }
+
     if (!findExistingLayout(name)) {
-      renameCustomLayout(modalParams!.name);
+      renameCustomLayout(modalParams!.name, name);
 
       setIsOpen(false);
 
       AppToaster.show({
-        message: 'Pattern renamed!',
+        message: t('message.patternNameChanged'),
         intent: Intent.SUCCESS,
       });
     } else {
       AppToaster.show({
-        message: `Pattern ${name} already exists!`,
+        message: t('message.patternExists', { name }),
         intent: Intent.DANGER,
       });
     }
@@ -41,8 +51,8 @@ const EditPattern: React.FC = () => {
   return (
     <Alert
       isOpen={isOpen}
-      confirmButtonText="Rename"
-      cancelButtonText="Cancel"
+      confirmButtonText={t('pattern.confirm.edit')}
+      cancelButtonText={t('pattern.cancel')}
       intent={Intent.WARNING}
       onConfirm={onConfirm}
       onCancel={() => setIsOpen(false)}
@@ -50,11 +60,13 @@ const EditPattern: React.FC = () => {
       canEscapeKeyCancel={true}
       icon="edit"
     >
-      <h5 className="bp3-heading">Rename {modalParams!.name}:</h5>
+      <h5 className="bp3-heading">
+        {t('modal.patternEdit.title', { name: modalParams!.name })}
+      </h5>
 
       <InputGroup
-        placeholder="Type new pattern name"
-        aria-label="Type new pattern name"
+        placeholder={t('modal.patternEdit.input.placeholder')}
+        aria-label={t('modal.patternEdit.input.label')}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }
