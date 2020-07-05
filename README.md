@@ -81,7 +81,6 @@ docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 - [Firebase](https://firebase.google.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Docker](https://www.docker.com/)
-- [Jest](https://jestjs.io/)
 - [LocationIQ API](https://locationiq.com/)
 
 ## License
