@@ -78,6 +78,7 @@ docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 - [TypeScript](https://www.typescriptlang.org/)
 - [Blueprint](https://blueprintjs.com/)
 - [React Mosaic](https://github.com/nomcopter/react-mosaic/)
+- [React i18next](https://github.com/i18next/react-i18next/)
 - [Firebase](https://firebase.google.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Docker](https://www.docker.com/)
