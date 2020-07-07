@@ -17,7 +17,7 @@
     "@blueprintjs/core": "^3.29.0",
     "@blueprintjs/icons": "^3.19.0",
     "@blueprintjs/select": "^3.13.4",
-    "@impargo/react-here-maps": "^1.5.9",
+    "@impargo/react-here-maps": "^1.5.93",
     "@react-google-maps/api": "^1.9.7",
     "deep-equal": "^2.0.3",
     "i18next": "^19.5.4",
@@ -45,13 +45,13 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.3",
+    "@testing-library/react": "^10.4.4",
     "@testing-library/react-hooks": "^3.3.0",
     "@testing-library/user-event": "^12.0.11",
     "@types/deep-equal": "^1.0.1",
     "@types/googlemaps": "^3.39.8",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.19",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.0.0",
@@ -91,7 +91,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{tsx,ts,scss,html}": [
+    "{src,public}/**/*.{tsx,ts,scss,html}": [
       "npm run prettier"
     ]
   },
