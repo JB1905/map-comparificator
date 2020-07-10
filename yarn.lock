@@ -1752,10 +1752,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@^3.39.8":
-  version "3.39.8"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.8.tgz#3bca2344e1b050425a7cce4411f8330dddb75540"
-  integrity sha512-z03u79t1v8QIktoUXypWD06Fzl499/hA162hurA+eCDlWXxFynuU+hMZIaferILF5Gzr4PMX1ShHszT666sUHQ==
+"@types/googlemaps@^3.39.9":
+  version "3.39.9"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.9.tgz#641f5285527d2e2a36b042ac2b0d75b7563cec64"
+  integrity sha512-T6QSosejFkUxXLF4FpDAIjVCS9ptieCj8illG4k6abbB/oVaxwrD4+gx/grkv68cFLmEfH+xO510obIyNjL9Tw==
 
 "@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
@@ -1830,10 +1830,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
 
-"@types/node@^14.0.20":
-  version "14.0.20"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.20.tgz#0da05cddbc761e1fa98af88a17244c8c1ff37231"
-  integrity sha512-MRn/NP3dee8yL5QhbSA6riuwkS+UOcsPUMOIOG3KMUQpuor/2TopdRBu8QaaB4fGU+gz/bzyDWt0FtUbeJ8H1A==
+"@types/node@^14.0.22":
+  version "14.0.22"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.22.tgz#23ea4d88189cec7d58f9e6b66f786b215eb61bdc"
+  integrity sha512-emeGcJvdiZ4Z3ohbmw93E/64jRzUHAItSHt8nF7M4TGgQTiWqFVGB8KNpLGFmUHmHLvjvBgFwVlqNcq+VuGv9g==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1899,10 +1899,18 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.9.41":
+"@types/react@*":
   version "16.9.41"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.41.tgz#925137ee4d2ff406a0ecf29e8e9237390844002e"
   integrity sha512-6cFei7F7L4wwuM+IND/Q2cV1koQUvJ8iSV+Gwn0c3kvABZ691g7sp3hfEQHOUBJtccl1gPi+EyNjMIl9nGA0ug==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/react@^16.9.42":
+  version "16.9.42"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.42.tgz#9776508d59c1867bbf9bd7f036dab007fdaa1cb7"
+  integrity sha512-iGy6HwfVfotqJ+PfRZ4eqPHPP5NdPZgQlr0lTs8EfkODRBV9cYy8QMKcC9qPCe1JrESC1Im6SrCFR6tQgg74ag==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
