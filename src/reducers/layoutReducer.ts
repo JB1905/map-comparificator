@@ -3,7 +3,7 @@ import {
   CREATE_CUSTOM_LAYOUT,
   RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
-} from 'actions/layoutActions';
+} from 'actions';
 
 import { gridLayout } from 'constants/layouts';
 
