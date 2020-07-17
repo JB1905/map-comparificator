@@ -1,6 +1,6 @@
-import CreatePattern from 'modals/CreatePattern';
-import EditPattern from 'modals/EditPattern';
-import DeletePattern from 'modals/DeletePattern';
+import CreatePattern from 'components/Modals/CreatePattern';
+import EditPattern from 'components/Modals/EditPattern';
+import DeletePattern from 'components/Modals/DeletePattern';
 
 import { ModalType } from 'enums/ModalType';
 

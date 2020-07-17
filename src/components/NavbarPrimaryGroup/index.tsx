@@ -6,7 +6,7 @@ import 'react-mosaic-component/react-mosaic-component.css';
 
 import { ReactComponent as Logo } from 'assets/logo.svg';
 
-import SearchForm from 'containers/SearchForm';
+import SearchForm from 'components/SearchForm';
 
 import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';

@@ -2,12 +2,12 @@ import React, { lazy } from 'react';
 
 import LazyComponent from 'components/LazyComponent';
 
-const AppleMaps = lazy(() => import('maps/Apple'));
-const BingMaps = lazy(() => import('maps/Bing'));
-const GoogleMaps = lazy(() => import('maps/Google'));
-const HereMaps = lazy(() => import('maps/Here'));
-const Mapbox = lazy(() => import('maps/Mapbox'));
-const OpenStreetMap = lazy(() => import('maps/OSM'));
+const AppleMaps = lazy(() => import('components/Maps/Apple'));
+const BingMaps = lazy(() => import('components/Maps/Bing'));
+const GoogleMaps = lazy(() => import('components/Maps/Google'));
+const HereMaps = lazy(() => import('components/Maps/Here'));
+const Mapbox = lazy(() => import('components/Maps/Mapbox'));
+const OpenStreetMap = lazy(() => import('components/Maps/OSM'));
 
 export const MAPS: Record<string, JSX.Element> = {
   'Apple Maps': <LazyComponent component={<AppleMaps />} />,

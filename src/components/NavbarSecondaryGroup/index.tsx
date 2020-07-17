@@ -23,7 +23,7 @@ import { MAPS } from 'collections/maps';
 
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
-import { useModal } from '../../hooks/useModal';
+import { useModal } from 'hooks/useModal';
 
 import { CenteringMode } from 'enums/CenteringMode';
 import { ModalType } from 'enums/ModalType';
