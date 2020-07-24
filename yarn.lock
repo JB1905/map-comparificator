@@ -1500,26 +1500,26 @@
   resolved "https://registry.yarnpkg.com/@react-dnd/shallowequal/-/shallowequal-2.0.0.tgz#a3031eb54129f2c66b2753f8404266ec7bf67f0a"
   integrity sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==
 
-"@react-google-maps/api@^1.9.8":
-  version "1.9.8"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.8.tgz#312dbb7e8d174501bbcb7fabca4125297ba690b6"
-  integrity sha512-xPVlDDIqIkINoJ/vRRgLX9Qh63D3AJwbwFMhZmLqTCBxLKLG+FyvLiHXwY3pHUkOWk5bz2MyABxqgi2wIHG7mg==
+"@react-google-maps/api@^1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.9.9.tgz#6cf2e7429770ca9b9454224e9b48c66d315256a8"
+  integrity sha512-yy/mh0uqF5JCGGzoGYaBoFBbtdr1XKgRlQvalOQ1pITguhRwRIELOHesIJQvAOrdqgCmE3noCa838pFIPZ1Sag==
   dependencies:
-    "@react-google-maps/infobox" "1.9.8"
-    "@react-google-maps/marker-clusterer" "1.9.8"
+    "@react-google-maps/infobox" "1.9.9"
+    "@react-google-maps/marker-clusterer" "1.9.9"
     acorn "7.3.1"
     acorn-jsx "^5.2.0"
     invariant "2.2.4"
 
-"@react-google-maps/infobox@1.9.8":
-  version "1.9.8"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.9.8.tgz#eed97dd077185478b9d9b871ce84357bababfc72"
-  integrity sha512-82aL6IXLv9EqX4hOumkLvOSrkQ+A6UAH35QhcYKBgWIIm05qZ2owCSfVMG14TAYvzODc9BuMr2TWnx/k3y+MFA==
+"@react-google-maps/infobox@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-1.9.9.tgz#cef278590524604e453cd6792a4f48f22e94c3a5"
+  integrity sha512-pneWal21CHa7eSjBLy5aG11boFXHPKvwV88K2TuwzQV1ncDOIWoZO/S9fZQc6Pzd4F0V8tf9la1c9P9audDiMQ==
 
-"@react-google-maps/marker-clusterer@1.9.8":
-  version "1.9.8"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.9.8.tgz#6b61d38af96daac41014ce57be3e6e658164645d"
-  integrity sha512-IP5byj6GtOU9RNn4PxeTjxLMSnzslXjMZFVtqkxnz5YjqxpZUQ5gUx5974wcuCjpJtbYP6A1HZNhm0/AZZe7tw==
+"@react-google-maps/marker-clusterer@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.9.9.tgz#5b967d26c12a2726700720570d1afff47598d922"
+  integrity sha512-MA+Z+S77csV+httWjZhmE1pOJitmB9Jk1BnNO7ub+81jae5ipY3lf7kXpVBLeNmWy/AXs61bchuXRyzsKyLdqQ==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.0"
@@ -1657,13 +1657,13 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react-hooks@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.3.0.tgz#dc217bfce8e7c34a99c811d73d23feef957b7c1d"
-  integrity sha512-rE9geI1+HJ6jqXkzzJ6abREbeud6bLF8OmF+Vyc7gBoPwZAEVBYjbC1up5nNoVfYBhO5HUwdD4u9mTehAUeiyw==
+"@testing-library/react-hooks@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.4.1.tgz#1f8ccd21208086ec228d9743fe40b69d0efcd7e5"
+  integrity sha512-LbzvE7oKsVzuW1cxA/aOeNgeVvmHWG2p/WSzalIGyWuqZT3jVcNDT5KPEwy36sUYWde0Qsh32xqIUFXukeywXg==
   dependencies:
     "@babel/runtime" "^7.5.4"
-    "@types/testing-library__react-hooks" "^3.0.0"
+    "@types/testing-library__react-hooks" "^3.3.0"
 
 "@testing-library/react@^10.4.7":
   version "10.4.7"
@@ -1673,10 +1673,10 @@
     "@babel/runtime" "^7.10.3"
     "@testing-library/dom" "^7.17.1"
 
-"@testing-library/user-event@^12.0.12":
-  version "12.0.12"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.12.tgz#b2ee1af9e9b8b28b1aae6d2026f611d7a75794e3"
-  integrity sha512-sftHNrd7JGFVL9yjmg64crjilxf1J6R65qgwfmUtu0M+biu/chnQr+KD+JlNHQevZtkkxQ9C8ELzHyXJpD9QZQ==
+"@testing-library/user-event@^12.0.13":
+  version "12.0.13"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.13.tgz#585fbb1188df005d16eabd376c3f8e8eb2f2d35c"
+  integrity sha512-JvodPV7CGl2Izf/qWS+vAVKBB1ZNAPGEacabfEeLGfafLmiqXoGJCxNZC1ml3mNTj9tTsIjouHGc42gvlyRTtQ==
   dependencies:
     "@babel/runtime" "^7.10.2"
 
@@ -1751,10 +1751,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@^3.39.10":
-  version "3.39.10"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.10.tgz#8abc79deda32dc8514c20160bfe196fbbb0cf27c"
-  integrity sha512-mEY619Pi/KbWrXkcQg0PPBlOf1BELRgQ0wroBIjp3wxdIMwlW6Em0KdRWdrgcLHLtxIJtJKUN7X9pRIthytzdA==
+"@types/googlemaps@^3.39.11":
+  version "3.39.11"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.11.tgz#5b075b7708276b788fd424e48fb3e34670eddab8"
+  integrity sha512-GRgIICsibETwIC3IiK1U7dluJ/+vpdhIrySiyhTgZhe6Jqwz24GZePWqSvWepZer0NafmILEGe2U4CNAuwCpbw==
 
 "@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
@@ -1792,10 +1792,10 @@
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
 
-"@types/jest@^26.0.5":
-  version "26.0.5"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.5.tgz#23a8eecf4764a770ea8d3a0d1ea16b96c822035d"
-  integrity sha512-heU+7w8snfwfjtcj2H458aTx3m5unIToOJhx75ebHilBiiQ39OIdA18WkG4LP08YKeAoWAGvWg8s+22w/PeJ6w==
+"@types/jest@^26.0.7":
+  version "26.0.7"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.7.tgz#495cb1d1818c1699dbc3b8b046baf1c86ef5e324"
+  integrity sha512-+x0077/LoN6MjqBcVOe1y9dpryWnfDZ+Xfo3EqGeBcfPRJlQp3Lw62RvNlWxuGv7kOEwlHriAa54updi3Jvvwg==
   dependencies:
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
@@ -1829,10 +1829,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
 
-"@types/node@^14.0.24":
-  version "14.0.24"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.24.tgz#b0f86f58564fa02a28b68f8b55d4cdec42e3b9d6"
-  integrity sha512-btt/oNOiDWcSuI721MdL8VQGnjsKjlTMdrKyTcLCKeQp/n4AAMFJ961wMbp+09y8WuGPClDEv07RIItdXKIXAA==
+"@types/node@^14.0.25":
+  version "14.0.25"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.25.tgz#7ad8b00a1206d6c9e94810e49f3115f0bcc30456"
+  integrity sha512-okMqUHqrMlGOxfDZliX1yFX5MV6qcd5PpRz96XYtjkM0Ws/hwg23FMUqt6pETrVRZS+EKUB5HY19mmo54EuQbA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1926,10 +1926,10 @@
   dependencies:
     "@types/jest" "*"
 
-"@types/testing-library__react-hooks@^3.0.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@types/testing-library__react-hooks/-/testing-library__react-hooks-3.2.0.tgz#52f3a109bef06080e3b1e3ae7ea1c014ce859897"
-  integrity sha512-dE8iMTuR5lzB+MqnxlzORlXzXyCL0EKfzH0w/lau20OpkHD37EaWjZDz0iNG8b71iEtxT4XKGmSKAGVEqk46mw==
+"@types/testing-library__react-hooks@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__react-hooks/-/testing-library__react-hooks-3.3.0.tgz#f5d3e4ba1c811ef04f7f2309c9f5946e420060cd"
+  integrity sha512-ZbMmXaVqeiLjbRGEXuDeh6fG2hkNxaOiXV7o9RklXwKeSrygx0aohuomnkWi7UobJUhkvGZLFUmsoirfGY8HPw==
   dependencies:
     "@types/react" "*"
     "@types/react-test-renderer" "*"
