@@ -1673,10 +1673,10 @@
     "@babel/runtime" "^7.10.3"
     "@testing-library/dom" "^7.17.1"
 
-"@testing-library/user-event@^12.0.13":
-  version "12.0.13"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.13.tgz#585fbb1188df005d16eabd376c3f8e8eb2f2d35c"
-  integrity sha512-JvodPV7CGl2Izf/qWS+vAVKBB1ZNAPGEacabfEeLGfafLmiqXoGJCxNZC1ml3mNTj9tTsIjouHGc42gvlyRTtQ==
+"@testing-library/user-event@^12.0.15":
+  version "12.0.15"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.15.tgz#464e0478cbecf2059780c46f119e5ef49a1e07bf"
+  integrity sha512-B+f8lpty7Nnq0i06FBGPDWT+asnHaudpmYBKDw7wqIq5xpUdzfDBSOdlcwRNneM3XrD0RsOZE9BXuDwr5pwsvw==
   dependencies:
     "@babel/runtime" "^7.10.2"
 
@@ -1829,10 +1829,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
 
-"@types/node@^14.0.25":
-  version "14.0.25"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.25.tgz#7ad8b00a1206d6c9e94810e49f3115f0bcc30456"
-  integrity sha512-okMqUHqrMlGOxfDZliX1yFX5MV6qcd5PpRz96XYtjkM0Ws/hwg23FMUqt6pETrVRZS+EKUB5HY19mmo54EuQbA==
+"@types/node@^14.0.26":
+  version "14.0.26"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.26.tgz#22a3b8a46510da8944b67bfc27df02c34a35331c"
+  integrity sha512-W+fpe5s91FBGE0pEa0lnqGLL4USgpLgs4nokw16SrBBco/gQxuua7KnArSEOd5iaMqbbSHV10vUDkJYJJqpXKA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1871,10 +1871,10 @@
     "@types/leaflet" "*"
     "@types/react" "*"
 
-"@types/react-map-gl@^5.2.5":
-  version "5.2.5"
-  resolved "https://registry.yarnpkg.com/@types/react-map-gl/-/react-map-gl-5.2.5.tgz#4ec00ce8eeb126690d62948e2177427025d6b8d1"
-  integrity sha512-TgSsl5Wkk50VsvypRT2qq0jmfVzBuvHPLXALHkTERRyPgXb0AYJrWP885+xmFcrKi8ZsaWubvP7Fs0U7f9V/uw==
+"@types/react-map-gl@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/@types/react-map-gl/-/react-map-gl-5.2.6.tgz#7d4c7f93fe1a845c3bfaa27deca2cc77c569034c"
+  integrity sha512-UWWViRaJ07mN/frqHzJbhwxhatLrpZ7HhUak7pD5+YbEAW8pUghYYN8Cy7od9d1V32zE1Jdro11xxtDquMoEMg==
   dependencies:
     "@types/geojson" "*"
     "@types/mapbox-gl" "*"
@@ -6125,10 +6125,10 @@ i18next-http-backend@^1.0.17:
   dependencies:
     node-fetch "2.6.0"
 
-i18next@^19.6.2:
-  version "19.6.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.6.2.tgz#859aeba46db0c7cdfa8ae3de7c3a5cad3b0cec83"
-  integrity sha512-Zyd/Z32FY+sD+Eg6sLj5DeDSlrIN3WZ4onuOBRGcjDx/rvodsyUZ9TJ2Y+3aD9Vu8MPbiMU2WesIER/rs1ioyw==
+i18next@^19.6.3:
+  version "19.6.3"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.6.3.tgz#ce2346161b35c4c5ab691b0674119c7b349c0817"
+  integrity sha512-eYr98kw/C5z6kY21ti745p4IvbOJwY8F2T9tf/Lvy5lFnYRqE45+bppSgMPmcZZqYNT+xO0N0x6rexVR2wtZZQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
 
