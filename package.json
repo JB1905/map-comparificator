@@ -57,7 +57,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.1.0",
     "@types/react-leaflet": "^2.5.2",
-    "@types/react-map-gl": "^5.2.6",
+    "@types/react-map-gl": "^5.2.7",
     "@types/react-redux": "^7.1.9",
     "cz-conventional-changelog": "3.2.0",
     "husky": "^4.2.5",
