@@ -43,7 +43,7 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
-    return [...initialLayouts, ...customLayouts].find((layout) => {
+    return Array.from(initialLayouts, customLayouts).find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
       if (name) {
