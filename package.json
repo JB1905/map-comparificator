@@ -14,9 +14,9 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@blueprintjs/core": "^3.30.1",
-    "@blueprintjs/icons": "^3.20.0",
-    "@blueprintjs/select": "^3.13.6",
+    "@blueprintjs/core": "^3.31.0",
+    "@blueprintjs/icons": "^3.20.1",
+    "@blueprintjs/select": "^3.13.7",
     "@impargo/react-here-maps": "^1.5.95",
     "@react-google-maps/api": "^1.9.12",
     "deep-equal": "^2.0.3",
@@ -45,7 +45,7 @@
     "use-debounce": "^3.4.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "@testing-library/react-hooks": "^3.4.1",
     "@testing-library/user-event": "^12.1.1",
