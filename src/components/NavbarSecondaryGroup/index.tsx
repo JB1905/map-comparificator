@@ -100,7 +100,7 @@ const NavbarSecondaryGroup: React.FC = () => {
                   <MenuItem
                     text={centeringMode}
                     icon="locate"
-                    key={centeringMode}
+                    key={centeringMode} // TODO
                     className="centering-mode"
                     active={activeCenteringMode === centeringMode}
                     onClick={() => setCenteringMode(centeringMode)}
@@ -125,7 +125,9 @@ const NavbarSecondaryGroup: React.FC = () => {
       <Popover
         content={
           <Menu>
-            {initialLayouts.map(({ name, layout }) => (
+            {initialLayouts.map((
+              { name, layout }: any // TODO
+            ) => (
               <MenuItem
                 text={name}
                 icon="page-layout"
@@ -141,7 +143,9 @@ const NavbarSecondaryGroup: React.FC = () => {
                   <>
                     <MenuDivider title={t('settings.customPattern.title')} />
 
-                    {customLayouts.map(({ name, layout }) => (
+                    {customLayouts.map((
+                      { name, layout }: any // TODO
+                    ) => (
                       <MenuItem
                         text={name}
                         icon="page-layout"

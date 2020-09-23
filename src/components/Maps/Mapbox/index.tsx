@@ -9,7 +9,7 @@ const Mapbox: React.FC = () => {
 
   const { isDark } = useTheme();
 
-  const onViewportChange = (e: ViewportProps) => {
+  const handleViewportChange = (e: ViewportProps) => {
     setCoords([e.latitude, e.longitude]);
 
     setZoomLevel(e.zoom);
@@ -23,7 +23,7 @@ const Mapbox: React.FC = () => {
       latitude={coords[0]}
       longitude={coords[1]}
       zoom={zoomLevel}
-      onViewportChange={onViewportChange}
+      onViewportChange={handleViewportChange}
       mapStyle={`mapbox://styles/mapbox/${isDark ? 'dark' : 'streets'}-v9`}
     />
   );

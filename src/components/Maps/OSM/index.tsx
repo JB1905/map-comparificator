@@ -9,7 +9,7 @@ import './OSM.scss';
 const OpenStreetMap: React.FC = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
-  const onViewportChange = (e: Viewport) => {
+  const handleViewportChange = (e: Viewport) => {
     setCoords(e.center!);
 
     setZoomLevel(e.zoom!);
@@ -28,7 +28,7 @@ const OpenStreetMap: React.FC = () => {
         center={coords}
         zoom={zoomLevel}
         animate={false}
-        onViewportChange={onViewportChange}
+        onViewportChange={handleViewportChange}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

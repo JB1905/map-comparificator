@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
 import {
-  SEARCH_HISTORY_ADD,
-  SEARCH_HISTORY_REMOVE,
-  SEARCH_HISTORY_CLEAR,
+  addSearchHistory,
+  removeSearchHistory,
+  clearSearchHistory,
   searchLocation,
 } from 'actions';
 
@@ -33,24 +33,16 @@ export const useSearch = () => {
     if (value) dispatch(searchLocation(value));
   }, [dispatch, value]);
 
-  const addToHistory = (item: SearchHistoryItem) => {
-    dispatch({
-      type: SEARCH_HISTORY_ADD,
-      payload: item,
-    });
+  const addH = (item: SearchHistoryItem) => {
+    dispatch(addSearchHistory(item));
   };
 
-  const removeFromHistory = (id: string) => {
-    dispatch({
-      type: SEARCH_HISTORY_REMOVE,
-      payload: id,
-    });
+  const remH = (id: string) => {
+    dispatch(removeSearchHistory(id));
   };
 
-  const clearHistory = () => {
-    dispatch({
-      type: SEARCH_HISTORY_CLEAR,
-    });
+  const clH = () => {
+    dispatch(clearSearchHistory());
   };
 
   return {
@@ -60,8 +52,8 @@ export const useSearch = () => {
     results,
     error,
     history,
-    addToHistory,
-    removeFromHistory,
-    clearHistory,
+    addToHistory: addH, // TODO
+    removeFromHistory: remH, // TODO
+    clearHistory: clH, // TODO
   };
 };

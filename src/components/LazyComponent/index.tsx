@@ -1,16 +1,13 @@
 import React, { Suspense } from 'react';
-import { Spinner } from '@blueprintjs/core';
 
-import './LazyComponent.scss';
+import Loader from '../Loader';
 
 interface Props {
   readonly component: JSX.Element;
 }
 
 const LazyComponent: React.FC<Props> = ({ component }) => (
-  <Suspense fallback={<Spinner className="loader" size={Spinner.SIZE_SMALL} />}>
-    {component}
-  </Suspense>
+  <Suspense fallback={<Loader />}>{component}</Suspense>
 );
 
 export default LazyComponent;

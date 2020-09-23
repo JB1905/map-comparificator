@@ -13,10 +13,10 @@ import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
 
 import {
-  SET_ACTIVE_LAYOUT,
-  CREATE_CUSTOM_LAYOUT,
-  RENAME_CUSTOM_LAYOUT,
-  REMOVE_CUSTOM_LAYOUT,
+  setActiveLayout,
+  createCustomLayout,
+  renameCustomLayout,
+  removeCustomLayout,
 } from 'actions';
 
 import { RootState } from 'reducers';
@@ -30,7 +30,7 @@ export const useLayout = () => {
 
   const dispatch = useDispatch();
 
-  const { activeLayout, customLayouts } = useSelector(
+  const { activeLayout, customLayouts }: any = useSelector(
     (state: RootState) => state.layout
   );
 
@@ -43,7 +43,7 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
-    return Array.from(initialLayouts, customLayouts).find((layout) => {
+    return Array.from(initialLayouts, customLayouts).find((layout: any) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
       if (name) {
@@ -56,32 +56,28 @@ export const useLayout = () => {
     });
   };
 
-  const setActiveLayout = (layout: Layout) => {
-    dispatch({ type: SET_ACTIVE_LAYOUT, payload: layout });
+  const setAcLa = (layout: Layout) => {
+    dispatch(setActiveLayout(layout));
   };
 
-  const createCustomLayout = (name: string) => {
-    dispatch({
-      type: CREATE_CUSTOM_LAYOUT,
-      payload: {
+  const crCusLa = (name: string) => {
+    // TODO
+    dispatch(
+      createCustomLayout({
         name,
         layout: activeLayout,
-      },
-    });
+      })
+    );
   };
 
-  const renameCustomLayout = (currentId: string, updatedId: string) => {
-    dispatch({
-      type: RENAME_CUSTOM_LAYOUT,
-      payload: { currentId, updatedId },
-    });
+  const renCusLa = (currentId: string, updatedId: string) => {
+    // TODO
+    dispatch(renameCustomLayout({ currentId, updatedId }));
   };
 
-  const removeCustomLayout = (id: string) => {
-    dispatch({
-      type: REMOVE_CUSTOM_LAYOUT,
-      payload: id,
-    });
+  const remCusLa = (id: string) => {
+    // TODO
+    dispatch(removeCustomLayout(id));
   };
 
   const openWindow = (windowName: string) => {
@@ -129,19 +125,19 @@ export const useLayout = () => {
       layoutTree = windowName;
     }
 
-    setActiveLayout(layoutTree);
+    setAcLa(layoutTree); // TODO
   };
 
   return {
     activeLayout,
     customLayouts,
-    setActiveLayout,
+    setActiveLayout: setAcLa, // TODO
     findExistingLayout,
     isEmptyLayout,
     initialLayouts,
-    createCustomLayout,
-    renameCustomLayout,
-    removeCustomLayout,
+    createCustomLayout: crCusLa, // TODO
+    renameCustomLayout: renCusLa, // TODO
+    removeCustomLayout: remCusLa, // TODO
     openWindow,
   };
 };

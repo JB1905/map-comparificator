@@ -16,7 +16,7 @@ const CreatePattern: React.FC = () => {
 
   const [name, setName] = useState('');
 
-  const onConfirm = () => {
+  const handleConfirm = () => {
     if (!name) {
       return AppToaster.show({
         message: t('message.patternNameRequired'),
@@ -47,7 +47,7 @@ const CreatePattern: React.FC = () => {
       confirmButtonText={t('pattern.confirm.add')}
       cancelButtonText={t('pattern.cancel')}
       intent={Intent.SUCCESS}
-      onConfirm={onConfirm}
+      onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel={true}

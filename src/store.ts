@@ -14,11 +14,9 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
-const store = createStore(
+export const store = createStore(
   persistReducer<RootState>(persistConfig, rootReducer),
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-persistStore(store);
-
-export default store;
+export const persistor = persistStore(store);

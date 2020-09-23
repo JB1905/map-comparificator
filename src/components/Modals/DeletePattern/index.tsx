@@ -14,7 +14,7 @@ const DeletePattern: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const onConfirm = () => {
+  const handleConfirm = () => {
     removeCustomLayout(modalParams!.name);
 
     setIsOpen(false);
@@ -31,7 +31,7 @@ const DeletePattern: React.FC = () => {
       confirmButtonText={t('pattern.confirm.delete')}
       cancelButtonText={t('pattern.cancel')}
       intent={Intent.DANGER}
-      onConfirm={onConfirm}
+      onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel={true}
