@@ -3,7 +3,7 @@ import { Map } from 'react-mapkit';
 
 import { useMaps } from 'hooks/useMaps';
 
-const AppleMaps: React.FC = () => {
+const AppleMaps = () => {
   const { coords } = useMaps();
 
   return (

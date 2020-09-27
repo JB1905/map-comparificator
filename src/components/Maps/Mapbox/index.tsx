@@ -4,7 +4,7 @@ import ReactMapGL, { ViewportProps } from 'react-map-gl';
 import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 
-const Mapbox: React.FC = () => {
+const Mapbox = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
   const { isDark } = useTheme();

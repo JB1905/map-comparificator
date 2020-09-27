@@ -14,7 +14,7 @@ import { useLayout } from 'hooks/useLayout';
 
 import './NavbarPrimaryGroup.scss';
 
-const NavbarPrimaryGroup: React.FC = () => {
+const NavbarPrimaryGroup = () => {
   const { isGeolocationAvailable, getGeolocation, setCoords } = useMaps();
 
   const { isDark, toggleTheme } = useTheme();

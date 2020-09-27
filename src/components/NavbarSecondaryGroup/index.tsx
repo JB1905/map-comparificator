@@ -32,7 +32,7 @@ import './NavbarSecondaryGroup.scss';
 
 import { isFeatureEnabled } from 'features';
 
-const NavbarSecondaryGroup: React.FC = () => {
+const NavbarSecondaryGroup = () => {
   const {
     activeLayout,
     isEmptyLayout,

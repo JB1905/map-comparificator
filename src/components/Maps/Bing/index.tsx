@@ -3,7 +3,7 @@ import { ReactBingmaps } from 'react-bingmaps-plus';
 
 import { useMaps } from 'hooks/useMaps';
 
-const BingMaps: React.FC = () => {
+const BingMaps = () => {
   const { coords, zoomLevel } = useMaps();
 
   return (

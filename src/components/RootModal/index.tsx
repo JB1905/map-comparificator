@@ -6,7 +6,7 @@ import { MODALS } from 'collections/modals';
 
 import './RootModal.scss';
 
-const RootModal: React.FC = () => {
+const RootModal = () => {
   const { modalType } = useModal();
 
   if (!modalType) return null;

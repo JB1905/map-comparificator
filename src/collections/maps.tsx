@@ -9,7 +9,7 @@ const HereMaps = lazy(() => import('components/Maps/Here'));
 const Mapbox = lazy(() => import('components/Maps/Mapbox'));
 const OpenStreetMap = lazy(() => import('components/Maps/OSM'));
 
-export const MAPS: Record<string, JSX.Element> = {
+export const MAPS: Record<string, React.ReactNode> = {
   'Apple Maps': <LazyComponent component={<AppleMaps />} />,
   'Bing Maps': <LazyComponent component={<BingMaps />} />,
   'Google Maps': <LazyComponent component={<GoogleMaps />} />,

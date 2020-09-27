@@ -6,7 +6,7 @@ import { useMaps } from 'hooks/useMaps';
 
 import './OSM.scss';
 
-const OpenStreetMap: React.FC = () => {
+const OpenStreetMap = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
   const handleViewportChange = (e: Viewport) => {

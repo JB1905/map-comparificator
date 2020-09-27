@@ -15,9 +15,9 @@ export const useTheme = () => {
 
   const isDark = activeTheme === Theme.Dark;
 
-  const tgT = () => {
+  const toggleTheme = () => {
     dispatch(setActiveTheme(isDark ? Theme.Light : Theme.Dark));
   };
 
-  return { activeTheme, isDark, toggleTheme: tgT /* TODO */ };
+  return { activeTheme, isDark, toggleTheme };
 };

@@ -17,7 +17,7 @@ import './SearchForm.scss';
 
 import { isFeatureEnabled } from 'features';
 
-const SearchForm: React.FC = () => {
+const SearchForm = () => {
   const {
     history,
     results,

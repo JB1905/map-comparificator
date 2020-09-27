@@ -30,7 +30,7 @@ export const useLayout = () => {
 
   const dispatch = useDispatch();
 
-  const { activeLayout, customLayouts }: any = useSelector(
+  const { activeLayout, customLayouts } = useSelector(
     (state: RootState) => state.layout
   );
 
@@ -43,17 +43,21 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
-    return Array.from(initialLayouts, customLayouts).find((layout: any) => {
-      const isEqualPattern = deepEqual(layout.layout, activeLayout);
+    return Array.from(initialLayouts /*, customLayouts*/).find(
+      (layout: any) => {
+        const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
-      if (name) {
-        const isEqualName = layout.name === name;
+        if (name) {
+          const isEqualName = layout.name === name;
 
-        return isPatternIncluded ? isEqualPattern || isEqualName : isEqualName;
+          return isPatternIncluded
+            ? isEqualPattern || isEqualName
+            : isEqualName;
+        }
+
+        return isEqualPattern;
       }
-
-      return isEqualPattern;
-    });
+    );
   };
 
   const setAcLa = (layout: Layout) => {

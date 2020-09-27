@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 
 import { AppToaster } from 'helpers/toaster';
 
-const DeletePattern: React.FC = () => {
+const DeletePattern = () => {
   const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
 
   const { removeCustomLayout } = useLayout();

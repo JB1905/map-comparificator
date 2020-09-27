@@ -23,7 +23,6 @@ ReactDOM.render(
       component={
         <I18nextProvider i18n={i18next}>
           <Provider store={store}>
-            {/* TODO consider PersistGate */}
             <PersistGate loading={<Loader />} persistor={persistor}>
               <App />
             </PersistGate>
