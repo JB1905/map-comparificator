@@ -12,12 +12,7 @@ import {
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
 
-import {
-  setActiveLayout,
-  createCustomLayout,
-  renameCustomLayout,
-  removeCustomLayout,
-} from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -61,28 +56,25 @@ export const useLayout = () => {
     );
   };
 
-  const setAcLa = (layout: Layout) => {
-    dispatch(setActiveLayout(layout));
+  const setActiveLayout = (layout: Layout) => {
+    dispatch(Actions.setActiveLayout(layout));
   };
 
-  const crCusLa = (name: string) => {
-    // TODO
+  const createCustomLayout = (name: string) => {
     dispatch(
-      createCustomLayout({
+      Actions.createCustomLayout({
         name,
         layout: activeLayout,
       })
     );
   };
 
-  const renCusLa = (currentId: string, updatedId: string) => {
-    // TODO
-    dispatch(renameCustomLayout({ currentId, updatedId }));
+  const renameCustomLayout = (currentId: string, updatedId: string) => {
+    dispatch(Actions.renameCustomLayout({ currentId, updatedId }));
   };
 
-  const remCusLa = (id: string) => {
-    // TODO
-    dispatch(removeCustomLayout(id));
+  const removeCustomLayout = (id: string) => {
+    dispatch(Actions.removeCustomLayout(id));
   };
 
   const openWindow = (windowName: string) => {
@@ -130,19 +122,19 @@ export const useLayout = () => {
       layoutTree = windowName;
     }
 
-    setAcLa(layoutTree); // TODO
+    setActiveLayout(layoutTree);
   };
 
   return {
     activeLayout,
     customLayouts,
-    setActiveLayout: setAcLa, // TODO
+    setActiveLayout,
     findExistingLayout,
     isEmptyLayout,
     initialLayouts,
-    createCustomLayout: crCusLa, // TODO
-    renameCustomLayout: renCusLa, // TODO
-    removeCustomLayout: remCusLa, // TODO
+    createCustomLayout,
+    renameCustomLayout,
+    removeCustomLayout,
     openWindow,
   };
 };

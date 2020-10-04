@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { updateCoords, updateZoomLevel } from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -18,13 +18,12 @@ export const useMaps = () => {
   };
 
   // TODO any + name
-  const setC = (coords: [number, number] /*number[]*/) => {
-    // TODO
-    dispatch(updateCoords(coords));
+  const setCoords = (coords: any /*[number, number]*/ /*number[]*/) => {
+    dispatch(Actions.updateCoords(coords));
   };
 
-  const setZ = (zoomLevel: number) => {
-    dispatch(updateZoomLevel(zoomLevel));
+  const setZoomLevel = (zoomLevel: number) => {
+    dispatch(Actions.updateZoomLevel(zoomLevel));
   };
 
   return {
@@ -32,7 +31,7 @@ export const useMaps = () => {
     zoomLevel,
     isGeolocationAvailable,
     getGeolocation,
-    setCoords: setC,
-    setZoomLevel: setZ,
+    setCoords,
+    setZoomLevel,
   };
 };

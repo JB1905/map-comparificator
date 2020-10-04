@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
-import {
-  addSearchHistory,
-  removeSearchHistory,
-  clearSearchHistory,
-  searchLocation,
-} from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -30,19 +25,19 @@ export const useSearch = () => {
   const [value] = useDebounce(query, 1000);
 
   useEffect(() => {
-    if (value) dispatch(searchLocation(value));
+    if (value) dispatch(Actions.searchLocation(value));
   }, [dispatch, value]);
 
-  const addH = (item: SearchHistoryItem) => {
-    dispatch(addSearchHistory(item));
+  const addToHistory = (item: SearchHistoryItem) => {
+    dispatch(Actions.addSearchHistory(item));
   };
 
-  const remH = (id: string) => {
-    dispatch(removeSearchHistory(id));
+  const removeFromHistory = (id: string) => {
+    dispatch(Actions.removeSearchHistory(id));
   };
 
-  const clH = () => {
-    dispatch(clearSearchHistory());
+  const clearHistory = () => {
+    dispatch(Actions.clearSearchHistory());
   };
 
   return {
@@ -52,8 +47,8 @@ export const useSearch = () => {
     results,
     error,
     history,
-    addToHistory: addH, // TODO
-    removeFromHistory: remH, // TODO
-    clearHistory: clH, // TODO
+    addToHistory,
+    removeFromHistory,
+    clearHistory,
   };
 };

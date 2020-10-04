@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { openModal, closeModal } from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -17,17 +17,20 @@ export const useModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   // TODO any + name
-  const opM = (modalType: ModalType, modalParams?: Record<string, any>) => {
-    dispatch(openModal({ modalType, modalParams }));
+  const openModal = (
+    modalType: ModalType,
+    modalParams?: Record<string, any>
+  ) => {
+    dispatch(Actions.openModal({ modalType, modalParams }));
   };
 
-  const clM = () => dispatch(closeModal());
+  const closeModal = () => dispatch(Actions.closeModal());
 
   return {
-    openModal: opM, // TODO
+    openModal,
     modalType,
     modalParams,
-    closeModal: clM, // TODO
+    closeModal,
     setIsOpen,
     isOpen,
   };
