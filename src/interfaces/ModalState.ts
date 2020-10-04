@@ -7,7 +7,6 @@ import { ModalType } from 'enums/ModalType';
 export interface ModalState {
   modalType: ModalType | null;
   modalParams: CustomLayout | null;
-  // modalParams?: Record<string, CustomLayout> | null;
 }
 
 export interface OpenModalAction {

@@ -50,7 +50,7 @@ const CreatePattern = () => {
       onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
+      canEscapeKeyCancel
       icon="add"
     >
       <h5 className="bp3-heading">{t('modal.patternCreate.title')}</h5>

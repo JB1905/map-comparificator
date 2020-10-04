@@ -34,7 +34,7 @@ const DeletePattern = () => {
       onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
+      canEscapeKeyCancel
       icon="trash"
     >
       <h5 className="bp3-heading">

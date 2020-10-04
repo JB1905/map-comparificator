@@ -57,8 +57,7 @@ const EditPattern = () => {
       onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
-      // canEscapeKeyCancel // TODO
+      canEscapeKeyCancel
       icon="edit"
     >
       <h5 className="bp3-heading">
