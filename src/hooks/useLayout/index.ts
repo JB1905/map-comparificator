@@ -38,22 +38,17 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
-    // TODO
-    return Array.from(initialLayouts /*, customLayouts*/).find(
-      (layout: any) => {
-        const isEqualPattern = deepEqual(layout.layout, activeLayout);
+    return [...initialLayouts, ...customLayouts].find((layout) => {
+      const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
-        if (name) {
-          const isEqualName = layout.name === name;
+      if (name) {
+        const isEqualName = layout.name === name;
 
-          return isPatternIncluded
-            ? isEqualPattern || isEqualName
-            : isEqualName;
-        }
-
-        return isEqualPattern;
+        return isPatternIncluded ? isEqualPattern || isEqualName : isEqualName;
       }
-    );
+
+      return isEqualPattern;
+    });
   };
 
   const setActiveLayout = (layout: Layout) => {
@@ -78,25 +73,23 @@ export const useLayout = () => {
   };
 
   const openWindow = (windowName: string) => {
-    let layoutTree: any;
+    let layoutTree: Layout;
 
     if (activeLayout) {
       const path = getPathToCorner(activeLayout, Corner.TOP_RIGHT);
 
-      const parent = getNodeAtPath(activeLayout, path) as
-        | MosaicParent<number>
-        | any;
+      const parent = getNodeAtPath(activeLayout, path) as MosaicParent<string>;
 
-      const destination = getNodeAtPath(activeLayout, path) as
-        | MosaicNode<number>
-        | any;
+      const destination = getNodeAtPath(activeLayout, path) as MosaicNode<
+        string
+      >;
 
       const direction: MosaicDirection = parent
         ? getOtherDirection(parent.direction)
         : 'row';
 
-      let first: any;
-      let second: any;
+      let first: MosaicNode<string>;
+      let second: MosaicNode<string>;
 
       if (direction === 'row') {
         first = destination;

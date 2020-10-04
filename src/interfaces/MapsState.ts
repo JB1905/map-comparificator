@@ -1,17 +1,13 @@
 import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'actions';
 
 export interface MapsState {
-  readonly payload: any;
-  // readonly coords: number[];
-  // readonly coords: [number, number];
+  readonly coords: [number, number];
   readonly zoomLevel: number;
 }
 
 export interface UpdatCoordsAction {
   readonly type: typeof UPDATE_COORDS;
-  readonly payload: any;
-  // readonly payload: number[];
-  // readonly payload: [number, number];
+  readonly payload: [number, number];
 }
 
 export interface UpdateZoomLevelAction {

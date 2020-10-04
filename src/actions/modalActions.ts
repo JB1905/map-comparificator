@@ -1,8 +1,15 @@
+import { ModalType } from 'enums/ModalType';
+import { CustomLayout } from 'types/Layout';
+
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-// TODO any
-export const openModal = (payload: Record<string, any>) => ({
+type OpenModalPayload = {
+  readonly modalType: ModalType;
+  readonly modalParams?: CustomLayout;
+};
+
+export const openModal = (payload: OpenModalPayload) => ({
   type: OPEN_MODAL,
   payload,
 });

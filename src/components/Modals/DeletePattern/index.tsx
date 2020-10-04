@@ -39,7 +39,6 @@ const DeletePattern = () => {
     >
       <h5 className="bp3-heading">
         {t('modal.patternDelete.title', { name: modalParams!.name })}
-        {/* Do you want to delete the {modalParams!.name} pattern? */}
       </h5>
 
       <p>{t('modal.patternDelete.message')}</p>

@@ -100,7 +100,7 @@ const NavbarSecondaryGroup = () => {
                   <MenuItem
                     text={centeringMode}
                     icon="locate"
-                    key={centeringMode} // TODO
+                    key={centeringMode}
                     className="centering-mode"
                     active={activeCenteringMode === centeringMode}
                     onClick={() => setCenteringMode(centeringMode)}
@@ -125,9 +125,7 @@ const NavbarSecondaryGroup = () => {
       <Popover
         content={
           <Menu>
-            {initialLayouts.map((
-              { name, layout }: any // TODO
-            ) => (
+            {initialLayouts.map(({ name, layout }) => (
               <MenuItem
                 text={name}
                 icon="page-layout"
@@ -143,9 +141,7 @@ const NavbarSecondaryGroup = () => {
                   <>
                     <MenuDivider title={t('settings.customPattern.title')} />
 
-                    {customLayouts.map((
-                      { name, layout }: any // TODO
-                    ) => (
+                    {customLayouts.map(({ name, layout }) => (
                       <MenuItem
                         text={name}
                         icon="page-layout"
