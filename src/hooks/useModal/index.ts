@@ -16,6 +16,7 @@ export const useModal = () => {
 
   const [isOpen, setIsOpen] = useState(true);
 
+  // TODO any + name
   const opM = (modalType: ModalType, modalParams?: Record<string, any>) => {
     dispatch(openModal({ modalType, modalParams }));
   };

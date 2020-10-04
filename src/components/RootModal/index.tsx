@@ -13,7 +13,7 @@ const RootModal = () => {
 
   const SpecificModal = MODALS[modalType];
 
-  return <SpecificModal data-testid="root-modal" />;
+  return <SpecificModal /* data-testid="root-modal" */ />;
 };
 
 export default RootModal;

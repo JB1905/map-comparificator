@@ -1,4 +1,5 @@
-import type { Layout } from 'types/Layout';
+import type { CustomLayout, Layout } from 'types/Layout';
+import { IdUpdate } from 'types/IdUpdate';
 
 export const SET_ACTIVE_LAYOUT = 'SET_ACTIVE_LAYOUT';
 export const CREATE_CUSTOM_LAYOUT = 'CREATE_CUSTOM_LAYOUT';
@@ -10,13 +11,14 @@ export const setActiveLayout = (payload: Layout) => ({
   payload,
 });
 
-export const createCustomLayout = (payload: any) => ({
+export const createCustomLayout = (payload: CustomLayout) => ({
   type: CREATE_CUSTOM_LAYOUT,
   payload,
 });
 
-export const renameCustomLayout = (payload: any) => ({
+export const renameCustomLayout = (payload: IdUpdate) => ({
   type: RENAME_CUSTOM_LAYOUT,
+  payload,
 });
 
 export const removeCustomLayout = (payload: string) => ({

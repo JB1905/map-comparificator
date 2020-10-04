@@ -71,7 +71,7 @@ const SearchForm = () => {
       filterable={false}
     >
       <InputGroup
-        data-testid="search-input"
+        // data-testid="search-input"
         type="search"
         placeholder={t('search.placeholder')}
         aria-label={t('search.label')}

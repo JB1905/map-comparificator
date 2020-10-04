@@ -2,7 +2,7 @@ export const UPDATE_COORDS = 'UPDATE_COORDS';
 export const UPDATE_ZOOM_LEVEL = 'UPDATE_ZOOM_LEVEL';
 
 // TODO
-export const updateCoords = (payload: /*[number, number]*/ any) => ({
+export const updateCoords = (payload: [number, number] /*number[]*/) => ({
   type: UPDATE_COORDS,
   payload,
 });

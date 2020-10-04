@@ -17,7 +17,8 @@ export const useMaps = () => {
     });
   };
 
-  const setC = (coords: /*[number, number]*/ any) => {
+  // TODO any + name
+  const setC = (coords: [number, number] /*number[]*/) => {
     // TODO
     dispatch(updateCoords(coords));
   };
