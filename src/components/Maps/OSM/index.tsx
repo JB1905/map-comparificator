@@ -1,4 +1,3 @@
-import React from 'react';
 import { Map, TileLayer, Viewport } from 'react-leaflet';
 import { Helmet } from 'react-helmet';
 

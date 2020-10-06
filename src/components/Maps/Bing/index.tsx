@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReactBingmaps } from 'react-bingmaps-plus';
 
 import { useMaps } from 'hooks/useMaps';

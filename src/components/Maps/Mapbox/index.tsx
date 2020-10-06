@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactMapGL, { ViewportProps } from 'react-map-gl';
 
 import { useMaps } from 'hooks/useMaps';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,

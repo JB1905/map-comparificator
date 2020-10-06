@@ -1,4 +1,3 @@
-import React from 'react';
 import { Spinner } from '@blueprintjs/core';
 
 import './Loader.scss';
