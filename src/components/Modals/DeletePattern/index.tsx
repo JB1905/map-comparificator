@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alert, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
