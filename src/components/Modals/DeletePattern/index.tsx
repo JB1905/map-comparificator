@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alert, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
@@ -7,14 +6,14 @@ import { useLayout } from 'hooks/useLayout';
 
 import { AppToaster } from 'helpers/toaster';
 
-const DeletePattern: React.FC = () => {
+const DeletePattern = () => {
   const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
 
   const { removeCustomLayout } = useLayout();
 
   const { t } = useTranslation();
 
-  const onConfirm = () => {
+  const handleConfirm = () => {
     removeCustomLayout(modalParams!.name);
 
     setIsOpen(false);
@@ -31,15 +30,14 @@ const DeletePattern: React.FC = () => {
       confirmButtonText={t('pattern.confirm.delete')}
       cancelButtonText={t('pattern.cancel')}
       intent={Intent.DANGER}
-      onConfirm={onConfirm}
+      onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
+      canEscapeKeyCancel
       icon="trash"
     >
       <h5 className="bp3-heading">
         {t('modal.patternDelete.title', { name: modalParams!.name })}
-        {/* Do you want to delete the {modalParams!.name} pattern? */}
       </h5>
 
       <p>{t('modal.patternDelete.message')}</p>

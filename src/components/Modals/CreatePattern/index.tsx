@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 
 import { AppToaster } from 'helpers/toaster';
 
-const CreatePattern: React.FC = () => {
+const CreatePattern = () => {
   const { isOpen, setIsOpen, closeModal } = useModal();
 
   const { findExistingLayout, createCustomLayout } = useLayout();
@@ -16,7 +16,7 @@ const CreatePattern: React.FC = () => {
 
   const [name, setName] = useState('');
 
-  const onConfirm = () => {
+  const handleConfirm = () => {
     if (!name) {
       return AppToaster.show({
         message: t('message.patternNameRequired'),
@@ -47,10 +47,10 @@ const CreatePattern: React.FC = () => {
       confirmButtonText={t('pattern.confirm.add')}
       cancelButtonText={t('pattern.cancel')}
       intent={Intent.SUCCESS}
-      onConfirm={onConfirm}
+      onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
+      canEscapeKeyCancel
       icon="add"
     >
       <h5 className="bp3-heading">{t('modal.patternCreate.title')}</h5>

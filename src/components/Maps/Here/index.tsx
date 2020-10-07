@@ -1,6 +1,4 @@
-import React from 'react';
-
-const HereMaps: React.FC = () => {
+const HereMaps = () => {
   return null;
 };
 

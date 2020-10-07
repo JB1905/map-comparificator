@@ -1,15 +1,17 @@
 import { OPEN_MODAL, CLOSE_MODAL } from 'actions';
 
+import { CustomLayout } from 'types/Layout';
+
 import { ModalType } from 'enums/ModalType';
 
 export interface ModalState {
   modalType: ModalType | null;
-  modalParams?: Record<string, any> | null;
+  modalParams: CustomLayout | null;
 }
 
 export interface OpenModalAction {
   readonly type: typeof OPEN_MODAL;
-  readonly payload: Record<string, any>;
+  readonly payload: Record<string, CustomLayout>;
 }
 
 export interface CloseModalAction {

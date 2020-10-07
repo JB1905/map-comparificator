@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alignment, Navbar, Button } from '@blueprintjs/core';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -14,7 +13,7 @@ import { useLayout } from 'hooks/useLayout';
 
 import './NavbarPrimaryGroup.scss';
 
-const NavbarPrimaryGroup: React.FC = () => {
+const NavbarPrimaryGroup = () => {
   const { isGeolocationAvailable, getGeolocation, setCoords } = useMaps();
 
   const { isDark, toggleTheme } = useTheme();

@@ -12,12 +12,7 @@ import {
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
 
-import {
-  SET_ACTIVE_LAYOUT,
-  CREATE_CUSTOM_LAYOUT,
-  RENAME_CUSTOM_LAYOUT,
-  REMOVE_CUSTOM_LAYOUT,
-} from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -57,53 +52,44 @@ export const useLayout = () => {
   };
 
   const setActiveLayout = (layout: Layout) => {
-    dispatch({ type: SET_ACTIVE_LAYOUT, payload: layout });
+    dispatch(Actions.setActiveLayout(layout));
   };
 
   const createCustomLayout = (name: string) => {
-    dispatch({
-      type: CREATE_CUSTOM_LAYOUT,
-      payload: {
+    dispatch(
+      Actions.createCustomLayout({
         name,
         layout: activeLayout,
-      },
-    });
+      })
+    );
   };
 
   const renameCustomLayout = (currentId: string, updatedId: string) => {
-    dispatch({
-      type: RENAME_CUSTOM_LAYOUT,
-      payload: { currentId, updatedId },
-    });
+    dispatch(Actions.renameCustomLayout({ currentId, updatedId }));
   };
 
   const removeCustomLayout = (id: string) => {
-    dispatch({
-      type: REMOVE_CUSTOM_LAYOUT,
-      payload: id,
-    });
+    dispatch(Actions.removeCustomLayout(id));
   };
 
   const openWindow = (windowName: string) => {
-    let layoutTree: any;
+    let layoutTree: Layout;
 
     if (activeLayout) {
       const path = getPathToCorner(activeLayout, Corner.TOP_RIGHT);
 
-      const parent = getNodeAtPath(activeLayout, path) as
-        | MosaicParent<number>
-        | any;
+      const parent = getNodeAtPath(activeLayout, path) as MosaicParent<string>;
 
-      const destination = getNodeAtPath(activeLayout, path) as
-        | MosaicNode<number>
-        | any;
+      const destination = getNodeAtPath(activeLayout, path) as MosaicNode<
+        string
+      >;
 
       const direction: MosaicDirection = parent
         ? getOtherDirection(parent.direction)
         : 'row';
 
-      let first: any;
-      let second: any;
+      let first: MosaicNode<string>;
+      let second: MosaicNode<string>;
 
       if (direction === 'row') {
         first = destination;

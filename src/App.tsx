@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -25,7 +24,7 @@ import { useSettings } from 'hooks/useSettings';
 
 import { isFeatureEnabled } from 'features';
 
-const App: React.FC = () => {
+const App = () => {
   const { isDark } = useTheme();
 
   const { activeLayout, setActiveLayout } = useLayout();

@@ -1,14 +1,12 @@
-import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 import { useMaps } from 'hooks/useMaps';
 
-const GoogleMaps: React.FC = () => {
+const GoogleMaps = () => {
   const { coords, zoomLevel } = useMaps();
 
   return (
     <LoadScript
-      data-testid="google-maps"
       id="script-loader"
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_TOKEN}
     >

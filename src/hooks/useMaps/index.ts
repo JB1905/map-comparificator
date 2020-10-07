@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -18,14 +18,11 @@ export const useMaps = () => {
   };
 
   const setCoords = (coords: [number, number]) => {
-    dispatch({
-      type: UPDATE_COORDS,
-      payload: coords,
-    });
+    dispatch(Actions.updateCoords(coords));
   };
 
   const setZoomLevel = (zoomLevel: number) => {
-    dispatch({ type: UPDATE_ZOOM_LEVEL, payload: zoomLevel });
+    dispatch(Actions.updateZoomLevel(zoomLevel));
   };
 
   return {

@@ -17,7 +17,7 @@ import './SearchForm.scss';
 
 import { isFeatureEnabled } from 'features';
 
-const SearchForm: React.FC = () => {
+const SearchForm = () => {
   const {
     history,
     results,
@@ -71,7 +71,6 @@ const SearchForm: React.FC = () => {
       filterable={false}
     >
       <InputGroup
-        data-testid="search-input"
         type="search"
         placeholder={t('search.placeholder')}
         aria-label={t('search.label')}

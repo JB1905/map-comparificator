@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 
 import { AppToaster } from 'helpers/toaster';
 
-const EditPattern: React.FC = () => {
+const EditPattern = () => {
   const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
 
   const { findExistingLayout, renameCustomLayout } = useLayout();
@@ -16,7 +16,7 @@ const EditPattern: React.FC = () => {
 
   const [name, setName] = useState('');
 
-  const onConfirm = () => {
+  const handleConfirm = () => {
     if (!name) {
       return AppToaster.show({
         message: t('message.patternNameRequired'),
@@ -54,10 +54,10 @@ const EditPattern: React.FC = () => {
       confirmButtonText={t('pattern.confirm.edit')}
       cancelButtonText={t('pattern.cancel')}
       intent={Intent.WARNING}
-      onConfirm={onConfirm}
+      onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
-      canEscapeKeyCancel={true}
+      canEscapeKeyCancel
       icon="edit"
     >
       <h5 className="bp3-heading">

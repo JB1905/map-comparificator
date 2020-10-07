@@ -14,24 +14,24 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@blueprintjs/core": "^3.31.0",
-    "@blueprintjs/icons": "^3.20.1",
-    "@blueprintjs/select": "^3.13.7",
+    "@blueprintjs/core": "^3.33.0",
+    "@blueprintjs/icons": "^3.22.0",
+    "@blueprintjs/select": "^3.14.2",
     "@impargo/react-here-maps": "^1.5.95",
-    "@react-google-maps/api": "^1.9.12",
-    "deep-equal": "^2.0.3",
-    "i18next": "^19.6.3",
-    "i18next-browser-languagedetector": "^6.0.0",
-    "i18next-http-backend": "^1.0.17",
-    "leaflet": "^1.6.0",
+    "@react-google-maps/api": "^1.10.1",
+    "deep-equal": "^2.0.4",
+    "i18next": "^19.8.2",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-http-backend": "^1.0.21",
+    "leaflet": "^1.7.1",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
+    "react": "^17.0.0-rc.2",
     "react-bingmaps-plus": "^3.7.2",
-    "react-dom": "^16.13.1",
+    "react-dom": "^17.0.0-rc.2",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^11.7.0",
+    "react-i18next": "^11.7.3",
     "react-leaflet": "^2.7.0",
-    "react-map-gl": "^5.2.7",
+    "react-map-gl": "^5.2.8",
     "react-mapkit": "^0.6.5",
     "react-mosaic-component": "^4.1.1",
     "react-redux": "^7.2.1",
@@ -41,29 +41,29 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "typescript": "3.9.7",
-    "use-debounce": "^3.4.3"
+    "typescript": "4.0.3",
+    "use-debounce": "^5.0.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^10.4.8",
-    "@testing-library/react-hooks": "^3.4.1",
-    "@testing-library/user-event": "^12.1.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/user-event": "^12.1.7",
     "@types/deep-equal": "^1.0.1",
-    "@types/googlemaps": "^3.39.13",
-    "@types/jest": "^26.0.9",
-    "@types/node": "^14.0.27",
-    "@types/react": "^16.9.46",
+    "@types/googlemaps": "^3.39.14",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.5",
+    "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.1.0",
     "@types/react-leaflet": "^2.5.2",
     "@types/react-map-gl": "^5.2.7",
     "@types/react-redux": "^7.1.9",
-    "cz-conventional-changelog": "3.2.0",
-    "husky": "^4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^4.3.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "react-test-renderer": "^16.13.1"
   },
   "jest": {
@@ -86,6 +86,11 @@
       "last 1 safari version"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -95,10 +100,5 @@
     "{src,public}/**/*.{tsx,ts,scss,html}": [
       "npm run prettier"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

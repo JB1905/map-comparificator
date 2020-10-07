@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SET_ACTIVE_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
+import * as Actions from 'actions';
 
 import { RootState } from 'reducers';
 
@@ -14,14 +14,11 @@ export const useSettings = () => {
   );
 
   const setCenteringMode = (centeringMode: CenteringMode) => {
-    dispatch({
-      type: SET_ACTIVE_CENTERING_MODE,
-      payload: centeringMode,
-    });
+    dispatch(Actions.setActiveCenteringMode(centeringMode));
   };
 
   const toggleCustomization = () => {
-    dispatch({ type: TOGGLE_CUSTOMIZATION });
+    dispatch(Actions.toggleCustomization());
   };
 
   return {
