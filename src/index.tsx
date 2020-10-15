@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -18,7 +18,7 @@ import i18next from 'i18n';
 import 'index.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <LazyComponent
       component={
         <I18nextProvider i18n={i18next}>
@@ -30,7 +30,7 @@ ReactDOM.render(
         </I18nextProvider>
       }
     />
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );
 

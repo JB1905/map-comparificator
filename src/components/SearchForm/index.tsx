@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 import { useTranslation } from 'react-i18next';

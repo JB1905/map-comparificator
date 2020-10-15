@@ -48,7 +48,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^3.4.2",
-    "@testing-library/user-event": "^12.1.7",
+    "@testing-library/user-event": "^12.1.8",
     "@types/deep-equal": "^1.0.1",
     "@types/googlemaps": "^3.40.0",
     "@types/jest": "^26.0.14",
@@ -64,7 +64,7 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.14.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
@@ -72,7 +72,11 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    }
   },
   "browserslist": {
     "production": [

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
