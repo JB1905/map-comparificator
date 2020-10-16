@@ -14,9 +14,9 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@blueprintjs/core": "^3.33.0",
+    "@blueprintjs/core": "^3.34.0",
     "@blueprintjs/icons": "^3.22.0",
-    "@blueprintjs/select": "^3.14.2",
+    "@blueprintjs/select": "^3.14.3",
     "@impargo/react-here-maps": "^1.5.95",
     "@react-google-maps/api": "^1.13.0",
     "deep-equal": "^2.0.4",
@@ -52,8 +52,8 @@
     "@types/deep-equal": "^1.0.1",
     "@types/googlemaps": "^3.40.0",
     "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.8",
-    "@types/react": "^16.9.52",
+    "@types/node": "^14.11.10",
+    "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.1.0",
     "@types/react-leaflet": "^2.5.2",
@@ -62,7 +62,7 @@
     "cz-conventional-changelog": "3.3.0",
     "husky": "^4.3.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "lint-staged": "^10.4.0",
+    "lint-staged": "^10.4.1",
     "prettier": "^2.1.2",
     "react-test-renderer": "^16.14.0"
   },
