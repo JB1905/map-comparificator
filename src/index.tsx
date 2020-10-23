@@ -9,7 +9,7 @@ import App from 'App';
 import LazyComponent from 'components/LazyComponent';
 import Loader from 'components/Loader';
 
-import * as serviceWorker from 'serviceWorker';
+import reportWebVitals from 'reportWebVitals';
 
 import { store, persistor } from 'store';
 
@@ -34,4 +34,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.unregister();
+reportWebVitals();
