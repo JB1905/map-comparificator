@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-import { AppToaster } from 'helpers/toaster';
+import { AppToaster } from 'config/toaster';
 
-const EditPattern = () => {
-  const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
+const CreatePattern = () => {
+  const { isOpen, setIsOpen, closeModal } = useModal();
 
-  const { findExistingLayout, renameCustomLayout } = useLayout();
+  const { findExistingLayout, createCustomLayout } = useLayout();
 
   const { t } = useTranslation();
 
@@ -25,20 +25,13 @@ const EditPattern = () => {
       });
     }
 
-    if (modalParams!.name === name) {
-      return AppToaster.show({
-        message: t('message.patternProvideDifferentName'),
-        intent: Intent.DANGER,
-      });
-    }
-
-    if (!findExistingLayout(name)) {
-      renameCustomLayout(modalParams!.name, name);
+    if (!findExistingLayout(name, true)) {
+      createCustomLayout(name);
 
       setIsOpen(false);
 
       AppToaster.show({
-        message: t('message.patternNameChanged'),
+        message: t('message.patternCreated'),
         intent: Intent.SUCCESS,
       });
     } else {
@@ -52,28 +45,31 @@ const EditPattern = () => {
   return (
     <Alert
       isOpen={isOpen}
-      confirmButtonText={t('pattern.confirm.edit')}
+      confirmButtonText={t('pattern.confirm.add')}
       cancelButtonText={t('pattern.cancel')}
-      intent={Intent.WARNING}
+      intent={Intent.SUCCESS}
       onConfirm={handleConfirm}
       onCancel={() => setIsOpen(false)}
       onClosed={closeModal}
       canEscapeKeyCancel
-      icon="edit"
+      icon="add"
     >
-      <h5 className="bp3-heading">
-        {t('modal.patternEdit.title', { name: modalParams!.name })}
-      </h5>
+      <h5 className="bp3-heading">{t('modal.patternCreate.title')}</h5>
 
       <InputGroup
-        placeholder={t('modal.patternEdit.input.placeholder')}
-        aria-label={t('modal.patternEdit.input.label')}
+        placeholder={t('modal.patternCreate.input.placeholder')}
+        aria-label={t('modal.patternCreate.input.label')}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            handleConfirm();
+          }
+        }}
       />
     </Alert>
   );
 };
 
-export default EditPattern;
+export default CreatePattern;

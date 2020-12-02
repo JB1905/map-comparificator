@@ -1,4 +1,4 @@
-import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'actions';
+import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'store/actions';
 
 export interface MapsState {
   readonly coords: [number, number];

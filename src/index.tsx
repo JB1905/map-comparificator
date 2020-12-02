@@ -13,9 +13,9 @@ import reportWebVitals from 'reportWebVitals';
 
 import { store, persistor } from 'store';
 
-import i18next from 'i18n';
+import i18next from 'config/i18n';
 
-import 'index.scss';
+import 'styles/index.scss';
 
 ReactDOM.render(
   <StrictMode>
@@ -34,4 +34,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals();
+reportWebVitals(console.log); // TODO

@@ -2,7 +2,7 @@ import {
   SEARCH_HISTORY_ADD,
   SEARCH_HISTORY_REMOVE,
   SEARCH_HISTORY_CLEAR,
-} from 'actions';
+} from '../actions';
 
 import { SearchHistoryState } from 'interfaces/SearchHistoryState';
 

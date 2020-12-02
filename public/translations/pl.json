@@ -8,7 +8,10 @@
   "search.label": "Szukaj",
   "search.noResults": "Nie znaleziono wyników",
   "settings.maps": "Mapy",
-  "settings.centeringMode": "Tryb Centrowania",
+  "settings.centeringMode.title": "Tryb Pozycjonowania",
+  "settings.centeringMode.center": "Wyśrodkowanie",
+  "settings.centeringMode.fill": "Wypełnienie",
+  "settings.centeringMode.none": "Brak",
   "settings.customPattern.title": "Niestandardowe Wzory",
   "settings.customPattern.save": "Zapisz jako Wzór",
   "settings.github.label": "Podgląd kodu w GitHub",
@@ -32,5 +35,6 @@
   "modal.patternEdit.input.placeholder": "Wprowadź nową nazwę wzoru",
   "modal.patternEdit.input.label": "Wprowadź nową nazwę wzoru",
   "modal.patternDelete.title": "Czy chcesz usunąć wzór {{name}}?",
-  "modal.patternDelete.message": "Tej operacji nie można cofnąć"
+  "modal.patternDelete.message": "Tej operacji nie można cofnąć",
+  "modal.help.title": "Skróty klawiszowe"
 }

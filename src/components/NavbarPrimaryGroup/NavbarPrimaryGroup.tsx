@@ -1,7 +1,5 @@
 import { Alignment, Navbar, Button } from '@blueprintjs/core';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-import 'react-mosaic-component/react-mosaic-component.css';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import { ReactComponent as Logo } from 'assets/logo.svg';
 
@@ -10,6 +8,8 @@ import SearchForm from 'components/SearchForm';
 import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
+
+import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 import './NavbarPrimaryGroup.scss';
 
@@ -25,6 +25,9 @@ const NavbarPrimaryGroup = () => {
       setCoords([latitude, longitude]);
     });
   };
+
+  // TODO
+  // useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme);
 
   return (
     <Navbar.Group align={Alignment.LEFT}>

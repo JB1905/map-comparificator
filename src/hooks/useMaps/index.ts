@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as Actions from 'actions';
+import * as Actions from 'store/actions';
 
-import { RootState } from 'reducers';
+import { RootState } from 'store/reducers';
 
 export const useMaps = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,9 @@ export const useMaps = () => {
 
   const isGeolocationAvailable = 'geolocation' in navigator;
 
-  const getGeolocation = (currentCoords: (coords: Coordinates) => void) => {
+  const getGeolocation = (
+    currentCoords: (coords: GeolocationCoordinates) => void
+  ) => {
     navigator.geolocation.getCurrentPosition((position) => {
       currentCoords(position.coords);
     });

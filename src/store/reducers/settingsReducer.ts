@@ -1,4 +1,4 @@
-import { SET_ACTIVE_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from 'actions';
+import { SET_ACTIVE_CENTERING_MODE, TOGGLE_CUSTOMIZATION } from '../actions';
 
 import { SettingsState } from 'interfaces/SettingsState';
 

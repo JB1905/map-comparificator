@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useModal } from 'hooks/useModal';
 import { useLayout } from 'hooks/useLayout';
 
-import { AppToaster } from 'helpers/toaster';
+import { AppToaster } from 'config/toaster';
 
 const DeletePattern = () => {
   const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
@@ -14,6 +14,7 @@ const DeletePattern = () => {
   const { t } = useTranslation();
 
   const handleConfirm = () => {
+    // TODO
     removeCustomLayout(modalParams!.name);
 
     setIsOpen(false);
@@ -37,6 +38,7 @@ const DeletePattern = () => {
       icon="trash"
     >
       <h5 className="bp3-heading">
+        {/* TODO */}
         {t('modal.patternDelete.title', { name: modalParams!.name })}
       </h5>
 

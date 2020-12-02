@@ -12,9 +12,9 @@ import {
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
 
-import * as Actions from 'actions';
+import * as Actions from 'store/actions';
 
-import { RootState } from 'reducers';
+import { RootState } from 'store/reducers';
 
 import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
@@ -72,7 +72,7 @@ export const useLayout = () => {
     dispatch(Actions.removeCustomLayout(id));
   };
 
-  const openWindow = (windowName: string) => {
+  const openLayoutWindow = (windowName: string) => {
     let layoutTree: Layout;
 
     if (activeLayout) {
@@ -80,9 +80,10 @@ export const useLayout = () => {
 
       const parent = getNodeAtPath(activeLayout, path) as MosaicParent<string>;
 
-      const destination = getNodeAtPath(activeLayout, path) as MosaicNode<
-        string
-      >;
+      const destination = getNodeAtPath(
+        activeLayout,
+        path
+      ) as MosaicNode<string>;
 
       const direction: MosaicDirection = parent
         ? getOtherDirection(parent.direction)
@@ -128,6 +129,6 @@ export const useLayout = () => {
     createCustomLayout,
     renameCustomLayout,
     removeCustomLayout,
-    openWindow,
+    openLayoutWindow,
   };
 };

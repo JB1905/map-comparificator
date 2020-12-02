@@ -15,8 +15,6 @@ import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
-import { isFeatureEnabled } from 'features';
-
 const SearchForm = () => {
   const {
     history,
@@ -49,11 +47,14 @@ const SearchForm = () => {
       onClick={() => selectPlace(item)}
       key={item.place_id}
       labelElement={
-        isFeatureEnabled('clearSearchHistory') &&
         !query && (
           <Button
             icon="trash"
-            onClick={() => removeFromHistory(item.place_id)}
+            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+              e.stopPropagation();
+
+              removeFromHistory(item.place_id);
+            }}
             small
           />
         )

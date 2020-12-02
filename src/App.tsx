@@ -22,7 +22,7 @@ import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
-import { isFeatureEnabled } from 'features';
+const MIN_WINDOW_SIZE = 960;
 
 const App = () => {
   const { isDark } = useTheme();
@@ -62,7 +62,7 @@ const App = () => {
         <body className={themeClass} />
       </Helmet>
 
-      {vw > 860 ? (
+      {vw > MIN_WINDOW_SIZE ? (
         <>
           <Navbar>
             <NavbarPrimaryGroup />
@@ -85,7 +85,7 @@ const App = () => {
             }
           />
 
-          {isFeatureEnabled('managePatterns') && <RootModal />}
+          <RootModal />
         </>
       ) : (
         <NonIdealState

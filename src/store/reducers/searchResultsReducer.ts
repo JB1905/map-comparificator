@@ -2,7 +2,7 @@ import {
   SEARCH_RESULTS_LOADING,
   SEARCH_RESULTS_SUCCESS,
   SEARCH_RESULTS_ERROR,
-} from 'actions';
+} from '../actions';
 
 import { SearchResultsState } from 'interfaces/SearchResultsState';
 
