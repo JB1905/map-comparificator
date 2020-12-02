@@ -9,10 +9,9 @@ import App from 'App';
 import LazyComponent from 'components/LazyComponent';
 import Loader from 'components/Loader';
 
-import reportWebVitals from 'reportWebVitals';
-
 import { store, persistor } from 'store';
 
+import reportWebVitals from 'config/reportWebVitals';
 import i18next from 'config/i18n';
 
 import 'styles/index.scss';
