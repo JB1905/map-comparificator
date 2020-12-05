@@ -1,27 +1,18 @@
-import { useState } from 'react';
-import * as React from 'react';
-import { Alert, Intent, InputGroup, Dialog, Classes } from '@blueprintjs/core';
+import { Dialog, Classes } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
-import { useLayout } from 'hooks/useLayout';
-
-import { AppToaster } from 'config/toaster';
 
 const Help = () => {
-  const { isOpen, setIsOpen, closeModal, modalParams } = useModal();
+  const { isOpen, setIsOpen, closeModal } = useModal();
 
   const { t } = useTranslation();
 
   return (
     <Dialog
       icon="info-sign"
-      // TODO
-      onClose={() => {
-        setIsOpen(false);
-
-        closeModal();
-      }}
+      onClose={() => setIsOpen(false)}
+      onClosed={closeModal}
       title={t('modal.help.title')}
       isOpen={isOpen}
     >
