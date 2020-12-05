@@ -11,7 +11,7 @@ import Loader from 'components/Loader';
 
 import { store, persistor } from 'store';
 
-import reportWebVitals from 'config/reportWebVitals';
+import reportWebVitals from 'reportWebVitals';
 import i18next from 'config/i18n';
 
 import 'styles/index.scss';
@@ -33,4 +33,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals(console.log); // TODO
+reportWebVitals(console.log); // TODO connect reports
