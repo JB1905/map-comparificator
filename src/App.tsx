@@ -8,6 +8,7 @@ import {
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useViewport } from 'react-viewport-hooks';
+import { useHotkeys } from 'react-hotkeys-hook';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -21,6 +22,8 @@ import NavbarSecondaryGroup from 'components/NavbarSecondaryGroup';
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
+
+import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const MIN_WINDOW_SIZE = 960;
 
@@ -36,6 +39,11 @@ const App = () => {
   const { vw } = useViewport({
     defaultVW: window.innerWidth,
   });
+
+  useHotkeys(
+    KeyboardShortcut.CloseAll,
+    () => isCustomizationEnabled && setActiveLayout(null)
+  );
 
   const themeClass = isDark ? Classes.DARK : '';
 

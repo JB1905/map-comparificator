@@ -1085,7 +1085,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -1807,12 +1807,12 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react-hooks@^3.4.2":
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.4.2.tgz#8deb94f7684e0d896edd84a4c90e5b79a0810bc2"
-  integrity sha512-RfPG0ckOzUIVeIqlOc1YztKgFW+ON8Y5xaSPbiBkfj9nMkkiLhLeBXT5icfPX65oJV/zCZu4z8EVnUc6GY9C5A==
+"@testing-library/react-hooks@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.7.0.tgz#6d75c5255ef49bce39b6465bf6b49e2dac84919e"
+  integrity sha512-TwfbY6BWtWIHitjT05sbllyLIProcysC0dF0q1bbDa7OHLC6A6rJOYJwZ13hzfz3O4RtOuInmprBozJRyyo7/g==
   dependencies:
-    "@babel/runtime" "^7.5.4"
+    "@babel/runtime" "^7.12.5"
     "@types/testing-library__react-hooks" "^3.4.0"
 
 "@testing-library/react@^11.2.2":
@@ -1914,10 +1914,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@^3.40.3":
-  version "3.40.3"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.40.3.tgz#04420bba5b60ca599a9b7d7a49e38c4242fd5a69"
-  integrity sha512-ivlG5S0LlnQgpgPnQCUNAs7kjBtO367ZwDmuK+ggsQfW+w4N0RyWbxWZ6vPwegDe50Du3Xbb5+QVwJuB/U1XpA==
+"@types/googlemaps@^3.40.5":
+  version "3.40.5"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.40.5.tgz#520e0e5526b295a86c493473c97c07f678ec41be"
+  integrity sha512-xYqO51dgJsZ+xgNUzYHW4zy/jII2RE0HU87bqMgggkp3nCGw/w7MYoQrUKyxIf0022XQ+iQwDua39wM30MG4MA==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.4"
@@ -1974,10 +1974,10 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/jest@^26.0.16":
-  version "26.0.16"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.16.tgz#b47abd50f6ed0503f589db8e126fc8eb470cf87c"
-  integrity sha512-Gp12+7tmKCgv9JjtltxUXokohCAEZfpJaEW5tn871SGRp8I+bRWBonQO7vW5NHwnAHe5dd50+Q4zyKuN35i09g==
+"@types/jest@^26.0.19":
+  version "26.0.19"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.19.tgz#e6fa1e3def5842ec85045bd5210e9bb8289de790"
+  integrity sha512-jqHoirTG61fee6v6rwbnEuKhpSKih0tuhqeFbCmMmErhtu3BYlOZaXWjffgOstMM4S/3iQD31lI5bGLTrs97yQ==
   dependencies:
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
@@ -2011,10 +2011,15 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*", "@types/node@^14.14.10":
+"@types/node@*":
   version "14.14.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.10.tgz#5958a82e41863cfc71f2307b3748e3491ba03785"
   integrity sha512-J32dgx2hw8vXrSbu4ZlVhn1Nm3GbeCFNw2FWL8S5QKucHGY0cyNwjdQdO+KMBZ4wpmC7KhLCiNsdk1RFRIYUQQ==
+
+"@types/node@^14.14.12":
+  version "14.14.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.12.tgz#0b1d86f8c40141091285dea02e4940df73bba43f"
+  integrity sha512-ASH8OPHMNlkdjrEdmoILmzFfsJICvhBsFfAum4aKZ/9U4B6M6tTmTPh+f3ttWdD74CEGV5XvXWkbyfSdXaTd7g==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -2073,10 +2078,10 @@
     "@types/react" "*"
     "@types/viewport-mercator-project" "*"
 
-"@types/react-redux@^7.1.11":
-  version "7.1.11"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.11.tgz#a18e8ab3651e8e8cc94798934927937c66021217"
-  integrity sha512-OjaFlmqy0CRbYKBoaWF84dub3impqnLJUrz4u8PRjDzaa4n1A2cVmjMV81shwXyAD5x767efhA8STFGJz/r1Zg==
+"@types/react-redux@^7.1.12":
+  version "7.1.12"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.12.tgz#148f2c768687346b556e29a322ca44cfa28cc3ac"
+  integrity sha512-xZj4/8oRZP5RlJPlC5XPnawPtMn+T2bV4Hxi38AcuoZzXlN/Il/ZPfgXuIq3WG37wVL6FP7suVfmE4BopuqtTg==
   dependencies:
     "@types/hoist-non-react-statics" "^3.3.0"
     "@types/react" "*"
@@ -6508,10 +6513,10 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-husky@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-4.3.4.tgz#676275a10ec5be2e893bd6ff71113bb829cc1f5b"
-  integrity sha512-wykHsss5kQtmbFrjQv0R7YyW1uFd7fv7gT1sA54potoDYmOTENJtBC/X1/AyoSAi1obp8CiGODOIdOGnPxSmFg==
+husky@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-4.3.5.tgz#ab8d2a0eb6b62fef2853ee3d442c927d89290902"
+  integrity sha512-E5S/1HMoDDaqsH8kDF5zeKEQbYqe3wL9zJDyqyYqc8I4vHBtAoxkDBGXox0lZ9RI+k5GyB728vZdmnM4bYap+g==
   dependencies:
     chalk "^4.0.0"
     ci-info "^2.0.0"
@@ -10550,10 +10555,10 @@ react-hotkeys-hook@^2.4.0:
   dependencies:
     hotkeys-js "3.8.1"
 
-react-i18next@^11.7.4:
-  version "11.7.4"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.7.4.tgz#6c0142e15652d8dd80cd7d857e36efe2e9d4d09a"
-  integrity sha512-Aq0+QVW7NMYuAtk0Stcwp4jWeNTd1p5XefAfBPcjs/4c/2duG3v3G3zdtn8fC8L4EyA/coKLwdULHI+lYTbF8w==
+react-i18next@^11.8.3:
+  version "11.8.3"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.3.tgz#d365586a537f759a1bff75e01054f6a5fc71e4f5"
+  integrity sha512-E5LjGmM3Kgje4M0oSkHFNAxiU1BM+P1J9QPfF7+Agm4sa1YS18GhQNJCZD3o9ofZLjq8ocQfGUuYweYGfrj0RQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
@@ -12808,6 +12813,11 @@ use-debounce@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-5.1.0.tgz#3df34bd7449da7dd2dbb10a6513efe701fc79d02"
   integrity sha512-fU7O7iel2bA19fxSiPfRkieVGxrow503phSUAGZ/EqiJtCPrU9AdUdrKOAdgh803IrjdIzhj+8eDsDGn4OPy8g==
+
+use-throttle@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/use-throttle/-/use-throttle-0.0.3.tgz#06d465b831c2ededb2c52448bee0b5d9833804ae"
+  integrity sha512-cgA3c+pe6V7cZ7pkLnYnWxXJub2AmksY7YTp/xiZzKesQyECJ1slWknVY2CVZOBf48avbZsAvJIDjO+aFu9+pw==
 
 use@^3.1.0:
   version "3.1.1"

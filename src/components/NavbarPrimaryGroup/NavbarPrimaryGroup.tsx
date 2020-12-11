@@ -1,60 +1,37 @@
-import { Alignment, Navbar, Button } from '@blueprintjs/core';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { Alignment, Navbar, ButtonGroup } from '@blueprintjs/core';
 
 import { ReactComponent as Logo } from 'assets/logo.svg';
 
-import SearchForm from 'components/SearchForm';
-
-import { useMaps } from 'hooks/useMaps';
-import { useTheme } from 'hooks/useTheme';
-import { useLayout } from 'hooks/useLayout';
-
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import MapSuppliers from 'components/NavbarActions/MapSuppliers';
+import CenteringModes from 'components/NavbarActions/CenteringModes';
+import Layouts from 'components/NavbarActions/Layouts';
+import LockToggle from 'components/NavbarActions/LockToggle';
+import HistoryActions from 'components/NavbarActions/HistoryActions';
 
 import './NavbarPrimaryGroup.scss';
 
-const NavbarPrimaryGroup = () => {
-  const { isGeolocationAvailable, getGeolocation, setCoords } = useMaps();
+const NavbarPrimaryGroup = () => (
+  <Navbar.Group align={Alignment.LEFT}>
+    {/* <Navbar.Heading>
+      <Logo className="logo" />
+    </Navbar.Heading> */}
 
-  const { isDark, toggleTheme } = useTheme();
+    <ButtonGroup minimal>
+      <Layouts />
 
-  const { isEmptyLayout } = useLayout();
+      <CenteringModes />
 
-  const getCurrentLocation = () => {
-    getGeolocation(({ latitude, longitude }) => {
-      setCoords([latitude, longitude]);
-    });
-  };
+      <MapSuppliers />
+    </ButtonGroup>
 
-  // TODO
-  // useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme);
+    <Navbar.Divider />
 
-  return (
-    <Navbar.Group align={Alignment.LEFT}>
-      <Navbar.Heading>
-        <Logo className="logo" />
-      </Navbar.Heading>
+    <LockToggle />
 
-      <Button icon={isDark ? 'flash' : 'moon'} onClick={toggleTheme} minimal />
+    {/* <Navbar.Divider />
 
-      <Navbar.Divider />
-
-      <SearchForm />
-
-      {isGeolocationAvailable && (
-        <>
-          <Navbar.Divider />
-
-          <Button
-            icon="geolocation"
-            onClick={getCurrentLocation}
-            disabled={isEmptyLayout}
-            minimal
-          />
-        </>
-      )}
-    </Navbar.Group>
-  );
-};
+    <HistoryActions /> */}
+  </Navbar.Group>
+);
 
 export default NavbarPrimaryGroup;
