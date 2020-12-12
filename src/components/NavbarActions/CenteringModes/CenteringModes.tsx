@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Menu, MenuItem, Popover, Position } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 

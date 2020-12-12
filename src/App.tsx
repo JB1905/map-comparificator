@@ -42,7 +42,9 @@ const App = () => {
 
   useHotkeys(
     KeyboardShortcut.CloseAll,
-    () => isCustomizationEnabled && setActiveLayout(null)
+    () => (isCustomizationEnabled ? setActiveLayout(null) : undefined),
+    {},
+    [isCustomizationEnabled]
   );
 
   const themeClass = isDark ? Classes.DARK : '';

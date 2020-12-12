@@ -37,7 +37,7 @@ export const searchLocation = (query: string) => async (dispatch: Dispatch) => {
     if (Array.isArray(data)) {
       dispatch(searchLocationFetchSuccess(data));
     } else {
-      throw new Error(data.error); // TODO
+      throw new Error(data.error);
     }
   } catch (err) {
     dispatch(searchLocationFetchError(err));

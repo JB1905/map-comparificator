@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, ButtonGroup } from '@blueprintjs/core';
 import { useHotkeys } from 'react-hotkeys-hook';
 

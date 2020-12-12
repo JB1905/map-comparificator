@@ -53,7 +53,7 @@ const Layouts = () => {
 
           {customLayouts.length > 0 && (
             <>
-              <MenuDivider title={t('settings.customPattern.title')} />
+              <MenuDivider title={t('settings.customPattern.custom')} />
 
               {customLayouts.map(({ name, layout }) => (
                 <MenuItem
@@ -111,8 +111,7 @@ const Layouts = () => {
     >
       <Button
         icon="layout-skew-grid"
-        // text="Wzory" // TODO
-        text={t('settings.centeringMode.title')}
+        text={t('settings.customPattern.title')}
         disabled={!isCustomizationEnabled}
         minimal
       />

@@ -25,7 +25,6 @@ const EditPattern = () => {
       });
     }
 
-    // TODO
     if (modalParams!.name === name) {
       return AppToaster.show({
         message: t('message.patternProvideDifferentName'),
@@ -34,7 +33,6 @@ const EditPattern = () => {
     }
 
     if (!findExistingLayout(name)) {
-      // TODO
       renameCustomLayout(modalParams!.name, name);
 
       setIsOpen(false);
@@ -64,7 +62,6 @@ const EditPattern = () => {
       icon="edit"
     >
       <h5 className="bp3-heading">
-        {/* TODO */}
         {t('modal.patternEdit.title', { name: modalParams!.name })}
       </h5>
 

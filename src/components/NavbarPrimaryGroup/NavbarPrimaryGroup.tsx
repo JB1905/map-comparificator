@@ -12,9 +12,9 @@ import './NavbarPrimaryGroup.scss';
 
 const NavbarPrimaryGroup = () => (
   <Navbar.Group align={Alignment.LEFT}>
-    {/* <Navbar.Heading>
+    <Navbar.Heading>
       <Logo className="logo" />
-    </Navbar.Heading> */}
+    </Navbar.Heading>
 
     <ButtonGroup minimal>
       <Layouts />

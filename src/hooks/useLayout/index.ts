@@ -21,7 +21,8 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
-const layoutHistory: any[] = [];
+// TODO
+const layoutHistory: Layout[] = [];
 
 export const useLayout = () => {
   const { t } = useTranslation();

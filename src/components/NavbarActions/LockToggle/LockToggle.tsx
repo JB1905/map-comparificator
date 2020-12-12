@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '@blueprintjs/core';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -12,7 +11,12 @@ const LockToggle = () => {
 
   const { isCustomizationEnabled, toggleCustomization } = useSettings();
 
-  useHotkeys(KeyboardShortcut.ToggleLock, toggleCustomization);
+  useHotkeys(
+    KeyboardShortcut.ToggleLock,
+    () => (!isEmptyLayout ? toggleCustomization() : undefined),
+    {},
+    [isEmptyLayout]
+  );
 
   return (
     <Button
