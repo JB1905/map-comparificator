@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import * as Actions from 'actions';
+import * as Actions from 'store/actions';
 
-import { RootState } from 'reducers';
+import { RootState } from 'store/reducers';
 
 import { CustomLayout } from 'types/Layout';
 

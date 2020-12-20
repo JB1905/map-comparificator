@@ -8,6 +8,7 @@ import {
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useViewport } from 'react-viewport-hooks';
+import { useHotkeys } from 'react-hotkeys-hook';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -22,7 +23,9 @@ import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
 import { useSettings } from 'hooks/useSettings';
 
-import { isFeatureEnabled } from 'features';
+import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+
+const MIN_WINDOW_SIZE = 960;
 
 const App = () => {
   const { isDark } = useTheme();
@@ -36,6 +39,13 @@ const App = () => {
   const { vw } = useViewport({
     defaultVW: window.innerWidth,
   });
+
+  useHotkeys(
+    KeyboardShortcut.CloseAll,
+    () => (isCustomizationEnabled ? setActiveLayout(null) : undefined),
+    {},
+    [isCustomizationEnabled]
+  );
 
   const themeClass = isDark ? Classes.DARK : '';
 
@@ -62,7 +72,9 @@ const App = () => {
         <body className={themeClass} />
       </Helmet>
 
-      {vw > 860 ? (
+      {/* TODO react alive */}
+      {/* TODO dynamic breakpont */}
+      {vw > MIN_WINDOW_SIZE ? (
         <>
           <Navbar>
             <NavbarPrimaryGroup />
@@ -85,7 +97,7 @@ const App = () => {
             }
           />
 
-          {isFeatureEnabled('managePatterns') && <RootModal />}
+          <RootModal />
         </>
       ) : (
         <NonIdealState

@@ -2,7 +2,7 @@ import {
   SEARCH_RESULTS_LOADING,
   SEARCH_RESULTS_SUCCESS,
   SEARCH_RESULTS_ERROR,
-} from 'actions';
+} from 'store/actions';
 
 import { LocationIqResult } from './LocationIq';
 

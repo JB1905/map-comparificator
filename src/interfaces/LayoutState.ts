@@ -3,7 +3,7 @@ import {
   CREATE_CUSTOM_LAYOUT,
   RENAME_CUSTOM_LAYOUT,
   REMOVE_CUSTOM_LAYOUT,
-} from 'actions';
+} from 'store/actions';
 
 import type { Layout, CustomLayout } from 'types/Layout';
 import type { IdUpdate } from 'types/IdUpdate';

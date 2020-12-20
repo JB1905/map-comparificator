@@ -9,13 +9,12 @@ import App from 'App';
 import LazyComponent from 'components/LazyComponent';
 import Loader from 'components/Loader';
 
-import * as serviceWorker from 'serviceWorker';
-
 import { store, persistor } from 'store';
 
-import i18next from 'i18n';
+import reportWebVitals from 'reportWebVitals';
+import i18next from 'config/i18n';
 
-import 'index.scss';
+import 'styles/index.scss';
 
 ReactDOM.render(
   <StrictMode>
@@ -34,4 +33,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.unregister();
+reportWebVitals(console.log); // TODO connect reports

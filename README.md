@@ -2,7 +2,7 @@
 
 ## About
 
-Choose the best map provider for your web app.
+Choose the best map provider for your web app
 
 ##### Main Features
 
@@ -27,7 +27,7 @@ git clone https://github.com/JB1905/map-comparificator.git
 ##### 2. Go to directory
 
 ```sh
-cd map-comparificator
+cd /path/map-comparificator
 ```
 
 ### Development
@@ -37,7 +37,7 @@ cd map-comparificator
 ```sh
 yarn
 
-# Or, use npm
+# Or use npm
 npm i
 ```
 
@@ -51,7 +51,7 @@ npm i
 ```sh
 yarn start
 
-# Or, use npm
+# Or use npm
 npm start
 ```
 
