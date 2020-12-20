@@ -11,7 +11,6 @@ import {
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
-// import { useThrottle } from 'use-throttle';
 
 import * as Actions from 'store/actions';
 
@@ -21,13 +20,8 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
-// TODO
-// const layoutHistory: Layout[] = [];
-
 export const useLayout = () => {
   const { t } = useTranslation();
-
-  // console.log(layoutHistory);
 
   const dispatch = useDispatch();
 
@@ -58,8 +52,6 @@ export const useLayout = () => {
   };
 
   const setActiveLayout = (layout: Layout) => {
-    // layoutHistory.push(layout);
-
     dispatch(Actions.setActiveLayout(layout));
   };
 
