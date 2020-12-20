@@ -1,18 +1,59 @@
-import { Map, TileLayer, Viewport } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { Helmet } from 'react-helmet';
 
 import { useMaps } from 'hooks/useMaps';
 
 import './OSM.scss';
 
+const MapComponent = () => {
+  // const map = useMap()
+
+  // console.log(map.getZoom());
+  // console.log(map.getCenter());
+
+  const map = useMapEvents({
+    click: () => {
+      map.locate();
+    },
+    locationfound: (location) => {
+      console.log('location found:', location);
+    },
+    zoom: (e) => {
+      console.log(e.target);
+    },
+    // zoomlevelschange: (e) => {
+    //   console.log(e);
+
+    // },
+    drag: (e) => {
+      console.log(e.target);
+    },
+  });
+
+  console.log(map);
+
+  return null;
+};
+
 const OpenStreetMap = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
-  const handleViewportChange = (e: Viewport) => {
-    setCoords(e.center!);
+  // TODO
+  // const handleViewportChange = (e: Viewport) => {
+  //   setCoords(e.center!);
 
-    setZoomLevel(e.zoom!);
-  };
+  //   setZoomLevel(e.zoom!);
+  // };
+
+  // useMapEvents({
+  //   drag: () => {
+  //     console.log('aaa');
+
+  //   },
+  //   zoomlevelschange: (e) => {
+  //     console.log(e)
+  //   }
+  // })
 
   return (
     <>
@@ -23,17 +64,24 @@ const OpenStreetMap = () => {
         />
       </Helmet>
 
-      <Map
+      <MapContainer
         center={coords}
         zoom={zoomLevel}
-        animate={false}
-        onViewportChange={handleViewportChange}
+        // eventHandlers={{
+        //   click: (e) => alert(e)
+        // }}
+        // TODO
+        // animate={false}
+
+        // onViewportChange={handleViewportChange}
       >
+        <MapComponent />
+
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      </Map>
+      </MapContainer>
     </>
   );
 };
