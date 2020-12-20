@@ -72,6 +72,8 @@ const App = () => {
         <body className={themeClass} />
       </Helmet>
 
+      {/* TODO react alive */}
+      {/* TODO dynamic breakpont */}
       {vw > MIN_WINDOW_SIZE ? (
         <>
           <Navbar>

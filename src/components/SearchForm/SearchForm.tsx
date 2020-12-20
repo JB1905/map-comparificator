@@ -32,6 +32,7 @@ const SearchForm = () => {
 
   const { t } = useTranslation();
 
+  // TODO rename to selectPlaceAndAddToHistory or split functions?
   const selectPlace = (place: LocationIqResult | SearchHistoryItem) => {
     const { lat, lon, display_name, place_id } = place;
 

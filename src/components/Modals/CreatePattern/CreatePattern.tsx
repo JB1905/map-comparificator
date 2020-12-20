@@ -25,6 +25,7 @@ const CreatePattern = () => {
       });
     }
 
+    // TODO simplify 2nd param
     if (!findExistingLayout(name, true)) {
       createCustomLayout(name);
 

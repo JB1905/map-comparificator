@@ -36,6 +36,5 @@
   "modal.patternEdit.input.placeholder": "Enter a new name for the pattern",
   "modal.patternEdit.input.label": "Enter a new name for the pattern",
   "modal.patternDelete.title": "Do you want to delete the {{name}} pattern?",
-  "modal.patternDelete.message": "This operation cannot be undone",
-  "modal.help.title": "Keyboard shortcuts"
+  "modal.patternDelete.message": "This operation cannot be undone"
 }

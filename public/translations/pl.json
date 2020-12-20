@@ -36,6 +36,5 @@
   "modal.patternEdit.input.placeholder": "Wprowadź nową nazwę wzoru",
   "modal.patternEdit.input.label": "Wprowadź nową nazwę wzoru",
   "modal.patternDelete.title": "Czy chcesz usunąć wzór {{name}}?",
-  "modal.patternDelete.message": "Tej operacji nie można cofnąć",
-  "modal.help.title": "Skróty klawiszowe"
+  "modal.patternDelete.message": "Tej operacji nie można cofnąć"
 }

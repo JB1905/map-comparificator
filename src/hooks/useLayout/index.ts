@@ -22,12 +22,12 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 import type { Layout } from 'types/Layout';
 
 // TODO
-const layoutHistory: Layout[] = [];
+// const layoutHistory: Layout[] = [];
 
 export const useLayout = () => {
   const { t } = useTranslation();
 
-  console.log(layoutHistory);
+  // console.log(layoutHistory);
 
   const dispatch = useDispatch();
 
@@ -58,7 +58,7 @@ export const useLayout = () => {
   };
 
   const setActiveLayout = (layout: Layout) => {
-    layoutHistory.push(layout);
+    // layoutHistory.push(layout);
 
     dispatch(Actions.setActiveLayout(layout));
   };
