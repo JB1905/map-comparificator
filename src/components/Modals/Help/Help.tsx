@@ -5,10 +5,10 @@ const Help = () => {
     <Alert
       // {...alertProps}
       // className={this.props.data.themeName}
-      cancelButtonText="Cancel"
-      confirmButtonText="Move to Trash"
-      icon="trash"
-      intent={Intent.DANGER}
+      // cancelButtonText="Cancel"
+      // confirmButtonText="Move to Trash"
+      icon="help"
+      intent={Intent.PRIMARY}
       // isOpen={isOpen}
       // onCancel={this.handleMoveCancel}
       // onConfirm={this.handleMoveConfirm}
