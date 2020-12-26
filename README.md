@@ -66,7 +66,7 @@ docker build -t map-comparificator .
 ##### 4. Run a container with port forwarding
 
 ```sh
-docker run --rm --env PORT=80 -p 3000:80 map-comparificator
+docker run --rm -p 3000:3000 map-comparificator
 ```
 
 ## Build with
