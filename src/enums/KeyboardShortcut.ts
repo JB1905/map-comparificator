@@ -3,4 +3,6 @@ export enum KeyboardShortcut {
   ToggleTheme = 't',
   Geolocation = 'g',
   CloseAll = 'x+a',
+  HistoryUndo = 'h+u',
+  HistoryRedo = 'h+r',
 }
