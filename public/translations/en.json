@@ -7,6 +7,7 @@
   "search.placeholder": "Search...",
   "search.label": "Search",
   "search.noResults": "No results found",
+  "search.error": "An error ocurred during loading locations",
   "settings.maps": "Maps",
   "settings.centeringMode.title": "Centering Mode",
   "settings.centeringMode.center": "Center",
