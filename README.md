@@ -16,6 +16,10 @@ Choose the best map provider for your web app
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
+## Prerequisites
+
+- Yarn
+
 ## Setup
 
 ##### 1. Clone repo
