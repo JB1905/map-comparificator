@@ -19,3 +19,10 @@ body,
     background-color: #202b33;
   }
 }
+
+.bp3-menu-item {
+  &-label {
+    margin-top: -2.25px;
+    margin-bottom: -2.25px;
+  }
+}
