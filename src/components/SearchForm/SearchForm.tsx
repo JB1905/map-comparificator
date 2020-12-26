@@ -62,12 +62,19 @@ const SearchForm = () => {
     />
   );
 
+  console.log(error);
+
   return (
     <Select
       items={error ? [] : query ? results : history}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
-      noResults={<MenuItem text={t('search.noResults')} disabled />}
+      noResults={
+        <MenuItem
+          text={t(error ? 'search.error' : 'search.noResults')}
+          disabled
+        />
+      }
       popoverProps={{ minimal: true }}
       filterable={false}
     >
