@@ -6,7 +6,9 @@
   "private": true,
   "homepage": ".",
   "scripts": {
+    "prestart": "yarn --frozen-lockfile",
     "start": "react-scripts start",
+    "prebuild": "yarn --frozen-lockfile",
     "build": "react-scripts build",
     "eslint": "eslint 'src/**/*.{tsx,ts}'",
     "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,scss,html}'",
