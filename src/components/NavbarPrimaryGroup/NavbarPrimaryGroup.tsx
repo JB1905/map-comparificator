@@ -6,6 +6,7 @@ import MapSuppliers from 'components/NavbarActions/MapSuppliers';
 import CenteringModes from 'components/NavbarActions/CenteringModes';
 import Layouts from 'components/NavbarActions/Layouts';
 import LockToggle from 'components/NavbarActions/LockToggle';
+import History from 'components/NavbarActions/History';
 
 import './NavbarPrimaryGroup.scss';
 
@@ -26,6 +27,10 @@ const NavbarPrimaryGroup = () => (
     <Navbar.Divider />
 
     <LockToggle />
+
+    <Navbar.Divider />
+
+    <History />
   </Navbar.Group>
 );
 
