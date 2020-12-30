@@ -1,4 +1,4 @@
-import { Button, Menu, MenuItem, Popover, Position } from '@blueprintjs/core';
+import { Button, Menu, MenuItem, Popover } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
@@ -31,7 +31,6 @@ const CenteringModes = () => {
           ))}
         </Menu>
       }
-      position={Position.TOP}
     >
       <Button
         icon="map-marker"

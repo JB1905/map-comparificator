@@ -1,7 +1,6 @@
-import { Position, Toaster } from '@blueprintjs/core';
+import { Toaster } from '@blueprintjs/core';
 
 export const AppToaster = Toaster.create({
   className: 'toaster',
-  position: Position.TOP,
   maxToasts: 1,
 });

@@ -7,7 +7,6 @@ import {
   MenuDivider,
   MenuItem,
   Popover,
-  Position,
 } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 import equal from 'deep-equal';
@@ -107,7 +106,6 @@ const Layouts = () => {
           />
         </Menu>
       }
-      position={Position.TOP}
     >
       <Button
         icon="layout-skew-grid"
