@@ -29,6 +29,7 @@
   "message.patternProvideDifferentName": "Nowa nazwa wzoru musi różnić się od starej nazwy!",
   "message.patternNameChanged": "Nazwa wzoru zmieniona!",
   "message.patternDeleted": "Wzór usunięty!",
+  "modal.help.title": "Skróty klawiszowe",
   "modal.patternCreate.title": "Utwórz nowy wzór:",
   "modal.patternCreate.input.placeholder": "Wpisz nazwę wzoru",
   "modal.patternCreate.input.label": "Wpisz nazwę wzoru",

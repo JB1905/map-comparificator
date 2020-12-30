@@ -29,6 +29,7 @@
   "message.patternProvideDifferentName": "The new pattern name must be different from the old name!",
   "message.patternNameChanged": "Pattern name changed!",
   "message.patternDeleted": "Pattern deleted!",
+  "modal.help.title": "Keyboard shortcuts",
   "modal.patternCreate.title": "Create new pattern:",
   "modal.patternCreate.input.placeholder": "Enter a name for the pattern",
   "modal.patternCreate.input.label": "Enter a name for the pattern",
