@@ -6,11 +6,6 @@ import { useMaps } from 'hooks/useMaps';
 import './OSM.scss';
 
 const MapComponent = () => {
-  // const map = useMap()
-
-  // console.log(map.getZoom());
-  // console.log(map.getCenter());
-
   const map = useMapEvents({
     click: () => {
       map.locate();
@@ -21,39 +16,16 @@ const MapComponent = () => {
     zoom: (e) => {
       console.log(e.target);
     },
-    // zoomlevelschange: (e) => {
-    //   console.log(e);
-
-    // },
     drag: (e) => {
       console.log(e.target);
     },
   });
-
-  console.log(map);
 
   return null;
 };
 
 const OpenStreetMap = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
-
-  // TODO
-  // const handleViewportChange = (e: Viewport) => {
-  //   setCoords(e.center!);
-
-  //   setZoomLevel(e.zoom!);
-  // };
-
-  // useMapEvents({
-  //   drag: () => {
-  //     console.log('aaa');
-
-  //   },
-  //   zoomlevelschange: (e) => {
-  //     console.log(e)
-  //   }
-  // })
 
   return (
     <>
@@ -64,17 +36,7 @@ const OpenStreetMap = () => {
         />
       </Helmet>
 
-      <MapContainer
-        center={coords}
-        zoom={zoomLevel}
-        // eventHandlers={{
-        //   click: (e) => alert(e)
-        // }}
-        // TODO
-        // animate={false}
-
-        // onViewportChange={handleViewportChange}
-      >
+      <MapContainer center={coords} zoom={zoomLevel}>
         <MapComponent />
 
         <TileLayer
