@@ -43,7 +43,7 @@ cd /path/map-comparificator
 
 ##### 3. Set environment variables
 
-- Copy `.env.local.example` to `.env.local`
+- Copy `.env.local.example` file to `.env.local`
 - Set environment variables in `.env.local`
 
 ### Development
@@ -90,6 +90,8 @@ docker run --rm -p 3000:3000 map-comparificator
 - [Blueprint](https://blueprintjs.com/)
 - [React Mosaic](https://github.com/nomcopter/react-mosaic/)
 - [React i18next](https://github.com/i18next/react-i18next/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Firebase](https://firebase.google.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Docker](https://www.docker.com/)
