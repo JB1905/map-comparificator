@@ -3,9 +3,11 @@ language: node_js
 node_js:
   - node
 
+# yarn
 install:
-  - npm install
+  - npm install --legacy-peer-deps
 
+# yarn
 script:
   - npm run build
 
