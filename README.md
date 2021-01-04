@@ -16,6 +16,17 @@ Choose the best map provider for your web app
 
 [Open Map Comparificator](https://map-comparificator.web.app/)
 
+## Prerequisites
+
+- Node.js
+- npm/Yarn
+- Apple Maps token
+- Bing Maps token
+- Google Maps token
+- Mapbox token
+- Here Maps app ID & app code
+- LocationIQ API token
+
 ## Setup
 
 ##### 1. Clone repo
@@ -30,9 +41,14 @@ git clone https://github.com/JB1905/map-comparificator.git
 cd /path/map-comparificator
 ```
 
+##### 3. Set environment variables
+
+- Copy `.env.local.example` file to `.env.local`
+- Set environment variables in `.env.local`
+
 ### Development
 
-##### 3. Install dependencies
+##### 4. Install dependencies
 
 ```sh
 yarn
@@ -40,11 +56,6 @@ yarn
 # Or use npm
 npm i
 ```
-
-##### 4. Set environment variables
-
-- Edit `.env.example` file
-- Rename `.env.example` to `.env.local`
 
 ##### 5. Run
 
@@ -57,16 +68,16 @@ npm start
 
 ### Production
 
-##### 3. Build image
+##### 4. Build image
 
 ```sh
 docker build -t map-comparificator .
 ```
 
-##### 4. Run a container with port forwarding
+##### 5. Run a container with port forwarding
 
 ```sh
-docker run --rm --env PORT=80 -p 3000:80 map-comparificator
+docker run --rm -p 3000:3000 map-comparificator
 ```
 
 ## Build with
@@ -79,6 +90,8 @@ docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 - [Blueprint](https://blueprintjs.com/)
 - [React Mosaic](https://github.com/nomcopter/react-mosaic/)
 - [React i18next](https://github.com/i18next/react-i18next/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Firebase](https://firebase.google.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Docker](https://www.docker.com/)

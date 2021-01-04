@@ -29,6 +29,7 @@ export const useLayout = () => {
     (state: RootState) => state.layout
   );
 
+  // TODO rename isBareLayout or isClearLayout
   const isEmptyLayout = activeLayout === null;
 
   const initialLayouts = [
@@ -38,6 +39,7 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
+    // TODO refactor
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
@@ -64,6 +66,7 @@ export const useLayout = () => {
     );
   };
 
+  // TODO currentName, updatedName or prevName, nextName
   const renameCustomLayout = (currentId: string, updatedId: string) => {
     dispatch(Actions.renameCustomLayout({ currentId, updatedId }));
   };

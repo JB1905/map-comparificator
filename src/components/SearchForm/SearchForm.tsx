@@ -3,7 +3,8 @@ import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 import { useTranslation } from 'react-i18next';
 
-import { useSearch } from 'hooks/useSearch';
+import { useSearchResults } from 'hooks/useSearchResults';
+import { useSearchHistory } from 'hooks/useSearchHistory';
 import { useLayout } from 'hooks/useLayout';
 import { useMaps } from 'hooks/useMaps';
 
@@ -16,15 +17,9 @@ import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 import './SearchForm.scss';
 
 const SearchForm = () => {
-  const {
-    history,
-    results,
-    error,
-    query,
-    setQuery,
-    addToHistory,
-    removeFromHistory,
-  } = useSearch();
+  const { results, error, query, setQuery } = useSearchResults();
+
+  const { history, addToHistory, removeFromHistory } = useSearchHistory();
 
   const { isEmptyLayout } = useLayout();
 
@@ -61,8 +56,6 @@ const SearchForm = () => {
       }
     />
   );
-
-  console.log(error);
 
   return (
     <Select

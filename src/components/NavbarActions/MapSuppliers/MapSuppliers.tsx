@@ -2,19 +2,20 @@ import { Button, Menu, MenuItem, Popover } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 
 import { MAPS } from 'collections/maps';
 
 const MapSuppliers = () => {
   const { activeLayout, openLayoutWindow } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { t } = useTranslation();
 
   return (
     <Popover
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {Object.keys(MAPS).map((map) => (

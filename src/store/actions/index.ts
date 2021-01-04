@@ -3,5 +3,6 @@ export * from './themeActions';
 export * from './layoutActions';
 export * from './searchResultsActions';
 export * from './searchHistoryActions';
-export * from './settingsActions';
+export * from './customizationActions';
+export * from './centeringModesActions';
 export * from './modalActions';

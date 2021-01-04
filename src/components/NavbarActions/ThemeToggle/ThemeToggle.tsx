@@ -8,7 +8,7 @@ import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
 
-  useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, {}, [toggleTheme]);
+  useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
   return (
     <Button icon={isDark ? 'flash' : 'moon'} onClick={toggleTheme} minimal />

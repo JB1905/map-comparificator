@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import equal from 'deep-equal';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 import { useModal } from 'hooks/useModal';
 
 import { ModalType } from 'enums/ModalType';
@@ -27,7 +27,7 @@ const Layouts = () => {
     customLayouts,
   } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { openModal } = useModal();
 
@@ -38,6 +38,7 @@ const Layouts = () => {
 
   return (
     <Popover
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {initialLayouts.map(({ name, layout }) => (
@@ -52,7 +53,7 @@ const Layouts = () => {
 
           {customLayouts.length > 0 && (
             <>
-              <MenuDivider title={t('settings.customPattern.custom')} />
+              <MenuDivider title={t('customPattern.custom')} />
 
               {customLayouts.map(({ name, layout }) => (
                 <MenuItem
