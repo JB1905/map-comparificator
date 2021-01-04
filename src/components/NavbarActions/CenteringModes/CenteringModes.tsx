@@ -2,7 +2,7 @@ import { Button, Menu, MenuItem, Popover } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCenteringModes } from 'hooks/useCenteringModes';
 
 const CenteringModes = () => {
   const { isEmptyLayout } = useLayout();
@@ -11,7 +11,7 @@ const CenteringModes = () => {
     centeringModes,
     activeCenteringMode,
     setCenteringMode,
-  } = useSettings();
+  } = useCenteringModes();
 
   const { t } = useTranslation();
 

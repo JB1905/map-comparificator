@@ -1,19 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import * as Actions from 'store/actions';
 
 import { RootState } from 'store/reducers';
 
 import { CenteringMode } from 'enums/CenteringMode';
-import { useTranslation } from 'react-i18next';
 
-export const useSettings = () => {
+export const useCenteringModes = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
-  const { activeCenteringMode, isCustomizationEnabled } = useSelector(
-    (state: RootState) => state.settings
+  const { activeCenteringMode } = useSelector(
+    (state: RootState) => state.centeringModes
   );
 
   const centeringModes = [
@@ -26,15 +26,9 @@ export const useSettings = () => {
     dispatch(Actions.setActiveCenteringMode(centeringMode));
   };
 
-  const toggleCustomization = () => {
-    dispatch(Actions.toggleCustomization());
-  };
-
   return {
+    centeringModes,
     activeCenteringMode,
     setCenteringMode,
-    isCustomizationEnabled,
-    toggleCustomization,
-    centeringModes,
   };
 };

@@ -21,7 +21,7 @@ import NavbarSecondaryGroup from 'components/NavbarSecondaryGroup';
 
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
@@ -32,7 +32,7 @@ const App = () => {
 
   const { activeLayout, setActiveLayout } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { t, i18n } = useTranslation();
 
@@ -43,7 +43,6 @@ const App = () => {
   useHotkeys(
     KeyboardShortcut.CloseAll,
     () => (isCustomizationEnabled ? setActiveLayout(null) : undefined),
-    {},
     [isCustomizationEnabled]
   );
 
