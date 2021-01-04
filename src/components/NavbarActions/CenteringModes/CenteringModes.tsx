@@ -17,7 +17,7 @@ const CenteringModes = () => {
 
   return (
     <Popover
-      // disabled={isEmptyLayout}
+      disabled={isEmptyLayout}
       content={
         <Menu>
           {centeringModes.map(({ name, value }) => (
@@ -36,9 +36,6 @@ const CenteringModes = () => {
       <Button
         icon="map-marker"
         text={t('settings.centeringMode.title')}
-        onClick={(e: any) => {
-          e.preventDefault();
-        }}
         disabled={isEmptyLayout}
         minimal
       />

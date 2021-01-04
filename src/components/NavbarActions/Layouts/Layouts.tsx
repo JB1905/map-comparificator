@@ -38,7 +38,7 @@ const Layouts = () => {
 
   return (
     <Popover
-      // disabled={!isCustomizationEnabled}
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {initialLayouts.map(({ name, layout }) => (
