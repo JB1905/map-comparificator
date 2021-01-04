@@ -15,6 +15,7 @@ const MapSuppliers = () => {
 
   return (
     <Popover
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {Object.keys(MAPS).map((map) => (

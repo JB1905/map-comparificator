@@ -17,6 +17,7 @@ const CenteringModes = () => {
 
   return (
     <Popover
+      disabled={isEmptyLayout}
       content={
         <Menu>
           {centeringModes.map(({ name, value }) => (
