@@ -1,31 +1,32 @@
 import { Button, Popover, Menu, MenuItem } from '@blueprintjs/core';
-// import { useHotkeys } from 'react-hotkeys-hook';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import { useTheme } from 'hooks/useTheme';
 
-import { Theme } from 'enums/Theme';
-// import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const ThemeToggle = () => {
-  const { isDark, setTheme } = useTheme();
+  const { themes, isDark, activeTheme, setTheme, toggleTheme } = useTheme();
 
-  // useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, {}, [toggleTheme]);
+  useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
   return (
     <Popover
       content={
         <Menu>
-          {Object.keys(Theme).map((theme) => (
+          {Object.entries(themes).map(([key, {title, icon}]: any) => (
             <MenuItem
-              text={theme}
-              key={theme}
-              // onClick={() => setTheme(theme)}
+              text={title}
+              key={key}
+              onClick={() => setTheme(key as any)}
+              active={activeTheme === key as any}
+              icon={icon}
             />
           ))}
         </Menu>
       }
     >
-      <Button icon={isDark ? 'flash' : 'moon'} minimal />
+      <Button icon={themes[activeTheme].icon} minimal />
     </Popover>
   );
 };
