@@ -3,7 +3,9 @@ import { act, renderHook } from '@testing-library/react-hooks';
 import { useTheme } from '.';
 
 describe('useTheme', () => {
-  const wrapper = ({children}) => <Provider store={null}>{children}</Provider>
+  const wrapper = ({ children }) => (
+    <Provider store={null}>{children}</Provider>
+  );
 
   const { result } = renderHook(() => useTheme(), { wrapper });
 
@@ -17,7 +19,7 @@ describe('useTheme', () => {
   // });
 
   it('should toggle theme', () => {
-    const themesList = Object.keys(result.current.themes)
+    const themesList = Object.keys(result.current.themes);
 
     expect(result.current.activeTheme).toBe(themesList[0]);
 
@@ -27,13 +29,11 @@ describe('useTheme', () => {
 
     expect(result.current.activeTheme).toBe(themesList[1]);
 
-
     act(() => {
       result.current.toggleTheme();
     });
 
     expect(result.current.activeTheme).toBe(themesList[2]);
-
 
     act(() => {
       result.current.toggleTheme();
