@@ -6,7 +6,7 @@ import { useTheme } from 'hooks/useTheme';
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const ThemeToggle = () => {
-  const { themes, isDark, activeTheme, setTheme, toggleTheme } = useTheme();
+  const { themes, activeTheme, setTheme, toggleTheme } = useTheme();
 
   useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
@@ -26,7 +26,7 @@ const ThemeToggle = () => {
         </Menu>
       }
     >
-      <Button icon={themes[activeTheme].icon} minimal />
+      <Button icon={themes[activeTheme]?.icon} minimal />
     </Popover>
   );
 };

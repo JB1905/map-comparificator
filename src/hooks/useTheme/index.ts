@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import * as Actions from 'store/actions';
 
@@ -22,19 +22,34 @@ export const useTheme = () => {
     [Theme.Dark]: {title: t('theme.dark'), icon: 'moon'},
   })
 
-  // useEffect(() => {
-  //   if () {
-  //     setThemes((prev) => {
-  //       ...prev,
-  //       [Theme.System]: {title: t('theme.system'), icon: 'desktop'},
-  //     })
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+      setThemes((prev:any) => ({
+        ...prev,
+        [Theme.System]: {title: t('theme.system'), icon: 'desktop'},
+      }))
+    } else if (activeTheme === Theme.System) {
+      setTheme(Theme.Light)
+    }
+  }, [t, activeTheme])
 
-  /**
-   * @deprecated use activeTheme instead
-   */
-  const isDark = activeTheme === Theme.Dark;
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+
+  useEffect(() => {
+    setIsDarkTheme(activeTheme === Theme.Dark)
+  }, [activeTheme])
+
+  const [systemDark, setSystemDark] = useState<any>(false)
+  
+  useEffect(() => {
+    const fn = (e:any) => {      
+      setSystemDark(e.matches)
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',fn )
+
+    return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', fn)
+  }, [])
 
   const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
 
@@ -42,5 +57,5 @@ export const useTheme = () => {
     dispatch(Actions.setActiveTheme(Object.keys(themes)[(Object.keys(themes).indexOf(activeTheme as any) + 1) % Object.keys(themes).length] as any)); 
   }
 
-  return { themes, activeTheme, isDark, setTheme, toggleTheme };
+  return { themes, activeTheme, isDark: isDarkTheme || (activeTheme === Theme.System && systemDark), setTheme, toggleTheme };
 };
