@@ -15,14 +15,14 @@ export const useTheme = () => {
 
   const { activeTheme } = useSelector((state: RootState) => state.theme);
 
-  const [themes, setThemes] = useState<any>({
+  const [themes, setThemes] = useState({
     [Theme.Light]: { title: t('theme.light'), icon: 'flash' },
     [Theme.Dark]: { title: t('theme.dark'), icon: 'moon' },
   });
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-      setThemes((prev: any) => ({
+      setThemes((prev) => ({
         ...prev,
         [Theme.System]: { title: t('theme.system'), icon: 'desktop' },
       }));
@@ -31,40 +31,35 @@ export const useTheme = () => {
     }
   }, [t, activeTheme]);
 
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
     setIsDarkTheme(activeTheme === Theme.Dark);
   }, [activeTheme]);
 
-  const [systemDark, setSystemDark] = useState<any>(false);
+  const [systemDark, setSystemDark] = useState(false);
 
   useEffect(() => {
-    const fn = (e: any) => {
+    const fn = (e: MediaQueryListEvent) => {
       setSystemDark(e.matches);
     };
 
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', fn);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 
-    return () =>
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .removeEventListener('change', fn);
+    prefersDark.addEventListener('change', fn);
+
+    return () => prefersDark.removeEventListener('change', fn);
   }, []);
 
   const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
 
   const toggleTheme = () => {
-    dispatch(
-      Actions.setActiveTheme(
-        Object.keys(themes)[
-          (Object.keys(themes).indexOf(activeTheme as any) + 1) %
-            Object.keys(themes).length
-        ] as any
-      )
-    );
+    const availableThemes = Object.keys(themes);
+
+    const nextThemeIndex = availableThemes.indexOf(activeTheme) + 1;
+    const themeIndexInLoop = nextThemeIndex % availableThemes.length;
+
+    dispatch(Actions.setActiveTheme(availableThemes[themeIndexInLoop]));
   };
 
   return {
