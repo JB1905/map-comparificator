@@ -80,7 +80,7 @@ docker run --rm --env PORT=80 -p 3000:80 map-comparificator
 - [React Mosaic](https://github.com/nomcopter/react-mosaic/)
 - [React i18next](https://github.com/i18next/react-i18next/)
 - [Firebase](https://firebase.google.com/)
-- [Travis CI](https://travis-ci.org/)
+- [Travis CI](https://travis-ci.com/)
 - [Docker](https://www.docker.com/)
 - [LocationIQ API](https://locationiq.com/)
 
