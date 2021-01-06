@@ -93,7 +93,7 @@ docker run --rm -p 3000:3000 map-comparificator
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Firebase](https://firebase.google.com/)
-- [Travis CI](https://travis-ci.org/)
+- [Travis CI](https://travis-ci.com/)
 - [Docker](https://www.docker.com/)
 - [LocationIQ API](https://locationiq.com/)
 
