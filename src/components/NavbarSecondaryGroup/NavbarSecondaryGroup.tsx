@@ -12,13 +12,13 @@ import { useMaps } from 'hooks/useMaps';
 import './NavbarSecondaryGroup.scss';
 
 const NavbarSecondaryGroup = () => {
-  const { isGeolocationAvailable } = useMaps();
+  const { isPermissionGranted, isGeolocationAvailable } = useMaps();
 
   const { t } = useTranslation();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
-      {isGeolocationAvailable && (
+      {isPermissionGranted && isGeolocationAvailable && (
         <>
           <CurrentGeolocation />
 
