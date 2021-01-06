@@ -7,7 +7,7 @@ import { useLayout } from 'hooks/useLayout';
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const CurrentGeolocation = () => {
-  const { getGeolocation, setCoords } = useMaps();
+  const { isPermissionGranted, getGeolocation, setCoords } = useMaps();
 
   const { isEmptyLayout } = useLayout();
 
@@ -23,7 +23,7 @@ const CurrentGeolocation = () => {
     <Button
       icon="geolocation"
       onClick={getCurrentLocation}
-      disabled={isEmptyLayout}
+      disabled={!isPermissionGranted || isEmptyLayout}
       minimal
     />
   );
