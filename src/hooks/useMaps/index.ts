@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as Actions from 'store/actions';
@@ -11,24 +10,6 @@ export const useMaps = () => {
   const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
 
   const isGeolocationAvailable = 'geolocation' in navigator;
-
-  const [isPermissionGranted, setIsPermissionGranted] = useState(false);
-
-  useEffect(() => {
-    if (navigator.permissions) {
-      const requestPermissions = async () => {
-        try {
-          const { state } = await navigator.permissions.query({
-            name: 'geolocation',
-          });
-
-          setIsPermissionGranted(state === 'granted');
-        } catch (err) {}
-      };
-
-      requestPermissions();
-    }
-  }, []);
 
   const getGeolocation = (
     currentCoords: (coords: GeolocationCoordinates) => void
@@ -50,7 +31,6 @@ export const useMaps = () => {
     coords,
     zoomLevel,
     isGeolocationAvailable,
-    isPermissionGranted,
     getGeolocation,
     setCoords,
     setZoomLevel,
