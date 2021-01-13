@@ -1,4 +1,4 @@
-# Map Comparificator
+# Map Comparificator (WIP)
 
 ## About
 
