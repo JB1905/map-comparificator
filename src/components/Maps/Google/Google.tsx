@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useMaps } from 'hooks/useMaps';
 
 const GoogleMaps = () => {
-  const { coords, zoomLevel } = useMaps();
+  const { coords: [lat, lng], zoomLevel } = useMaps();
 
   return (
     <LoadScript
@@ -12,7 +12,7 @@ const GoogleMaps = () => {
     >
       <GoogleMap
         mapContainerStyle={{ height: '100%', width: '100%' }}
-        center={{ lat: coords[0], lng: coords[1] }}
+        center={{ lat, lng }}
         zoom={zoomLevel}
       />
     </LoadScript>
