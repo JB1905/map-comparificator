@@ -6,6 +6,7 @@
   "screenNotSupported.description": "Otwórz aplikację w większym oknie",
   "search.placeholder": "Szukaj...",
   "search.label": "Szukaj",
+  "search.loading": "Wyszukiwanie...",
   "search.noResults": "Nie znaleziono wyników",
   "search.error": "Wystąpił problem podczas ładowania lokalizacji",
   "theme.light": "Jasny",

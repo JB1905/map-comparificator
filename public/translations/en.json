@@ -6,6 +6,7 @@
   "screenNotSupported.description": "Open app in bigger window",
   "search.placeholder": "Search...",
   "search.label": "Search",
+  "search.loading": "Searching...",
   "search.noResults": "No results found",
   "search.error": "An error ocurred during loading locations",
   "theme.light": "Light",

@@ -6,7 +6,7 @@ import {
 } from 'store/actions';
 
 import type { Layout, CustomLayout } from 'types/Layout';
-import type { IdUpdate } from 'types/IdUpdate';
+import type { NameUpdate } from 'types/NameUpdate';
 
 export interface LayoutState {
   readonly activeLayout: Layout;
@@ -25,10 +25,10 @@ export interface CreateCustomLayoutAction {
 
 export interface RenameCustomLayoutAction {
   readonly type: typeof RENAME_CUSTOM_LAYOUT;
-  readonly payload: IdUpdate;
+  readonly payload: NameUpdate;
 }
 
 export interface RemoveCustomLayoutAction {
   readonly type: typeof REMOVE_CUSTOM_LAYOUT;
-  readonly payload: string;
+  readonly payload: CustomLayout['name'];
 }

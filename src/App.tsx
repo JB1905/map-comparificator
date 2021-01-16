@@ -30,7 +30,7 @@ const MIN_WINDOW_SIZE = 960;
 const App = () => {
   const { isDark } = useTheme();
 
-  const { activeLayout, setActiveLayout } = useLayout();
+  const { activeLayout, setActiveLayout, clearLayout } = useLayout();
 
   const { isCustomizationEnabled } = useCustomization();
 
@@ -42,11 +42,11 @@ const App = () => {
 
   useHotkeys(
     KeyboardShortcut.CloseAll,
-    () => (isCustomizationEnabled ? setActiveLayout(null) : undefined),
+    () => (isCustomizationEnabled ? clearLayout() : undefined),
     [isCustomizationEnabled]
   );
 
-  const themeClass = isDark ? Classes.DARK : '';
+  const themeClassNsme = isDark ? Classes.DARK : '';
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
@@ -68,7 +68,7 @@ const App = () => {
 
         <meta name="description" content={t('app.description')} />
 
-        <body className={themeClass} />
+        <body className={themeClassNsme} />
       </Helmet>
 
       {vw > MIN_WINDOW_SIZE ? (
@@ -82,7 +82,7 @@ const App = () => {
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}
-            className={`mosaic-blueprint-theme ${themeClass}`}
+            className={`mosaic-blueprint-theme ${themeClassNsme}`}
             renderTile={tileRenderer}
             initialValue={activeLayout}
             zeroStateView={

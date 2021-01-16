@@ -1,14 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
-
-import { RootState } from 'store/reducers';
 
 export const useCustomization = () => {
   const dispatch = useDispatch();
 
-  const { isCustomizationEnabled } = useSelector(
-    (state: RootState) => state.customization
+  const { isCustomizationEnabled } = useTypedSelector(
+    (state) => state.customization
   );
 
   const toggleCustomization = () => {

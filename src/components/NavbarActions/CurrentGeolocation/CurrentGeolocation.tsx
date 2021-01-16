@@ -1,13 +1,16 @@
 import { Button } from '@blueprintjs/core';
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import { useGeolocation } from 'hooks/useGeolocation';
 import { useMaps } from 'hooks/useMaps';
 import { useLayout } from 'hooks/useLayout';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const CurrentGeolocation = () => {
-  const { getGeolocation, setCoords } = useMaps();
+  const { getGeolocation } = useGeolocation();
+
+  const { setCoords } = useMaps();
 
   const { isEmptyLayout } = useLayout();
 

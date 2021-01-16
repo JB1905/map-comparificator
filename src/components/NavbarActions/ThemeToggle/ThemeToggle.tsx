@@ -4,6 +4,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { useTheme } from 'hooks/useTheme';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { Theme } from 'enums/Theme';
 
 const ThemeToggle = () => {
   const { themes, activeTheme, setTheme, toggleTheme } = useTheme();
@@ -18,7 +19,7 @@ const ThemeToggle = () => {
             <MenuItem
               text={title}
               key={key}
-              onClick={() => setTheme(key)}
+              onClick={() => setTheme(key as Theme)}
               active={activeTheme === key}
               icon={icon}
             />
@@ -26,7 +27,10 @@ const ThemeToggle = () => {
         </Menu>
       }
     >
-      <Button icon={themes[activeTheme].icon} minimal />
+      <Button
+        //  icon={themes[activeTheme].icon}
+        minimal
+      />
     </Popover>
   );
 };

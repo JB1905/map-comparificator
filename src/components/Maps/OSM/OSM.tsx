@@ -9,9 +9,13 @@ const OpenStreetMap = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
   const handleViewportChange = (e: Viewport) => {
-    setCoords(e.center!);
+    if (e.center) {
+      setCoords(e.center);
+    }
 
-    setZoomLevel(e.zoom!);
+    if (e.zoom) {
+      setZoomLevel(e.zoom);
+    }
   };
 
   return (

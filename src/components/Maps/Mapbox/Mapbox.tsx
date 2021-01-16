@@ -4,7 +4,12 @@ import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 
 const Mapbox = () => {
-  const { coords: [latitude, longitude], zoomLevel, setCoords, setZoomLevel } = useMaps();
+  const {
+    coords: [latitude, longitude],
+    zoomLevel,
+    setCoords,
+    setZoomLevel,
+  } = useMaps();
 
   const { isDark } = useTheme();
 

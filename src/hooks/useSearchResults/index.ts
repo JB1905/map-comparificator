@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
 
-import * as Actions from 'store/actions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
-import { RootState } from 'store/reducers';
+import * as Actions from 'store/actions';
 
 export const useSearchResults = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, results, error } = useSelector((state: RootState) => ({
+  const { isLoading, results, error } = useTypedSelector((state) => ({
     isLoading: state.searchResults.isLoading,
     results: state.searchResults.results,
     error: state.searchResults.error,

@@ -3,7 +3,10 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useMaps } from 'hooks/useMaps';
 
 const GoogleMaps = () => {
-  const { coords: [lat, lng], zoomLevel } = useMaps();
+  const {
+    coords: [lat, lng],
+    zoomLevel,
+  } = useMaps();
 
   return (
     <LoadScript
