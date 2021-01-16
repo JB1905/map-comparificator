@@ -24,13 +24,13 @@ const searchLocationFetchError = (err: Error): SearchResultsActionTypes => ({
   payload: err,
 });
 
+const LOCATION_IQ_API_URL = `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&format=json`;
+
 export const searchLocation = (query: string) => async (dispatch: Dispatch) => {
   dispatch(searchLocationFetchPending());
 
   try {
-    const res = await fetch(
-      `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&q=${query}&format=json`
-    );
+    const res = await fetch(`${LOCATION_IQ_API_URL}&q=${query}`);
 
     const data: LocationIqResult[] | LocationIqError = await res.json();
 
