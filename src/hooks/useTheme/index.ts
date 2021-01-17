@@ -8,6 +8,26 @@ import * as Actions from 'store/actions';
 
 import { Theme } from 'enums/Theme';
 
+type DefaultThemes = {
+  readonly Light: {
+      readonly title: string;
+      readonly icon: "flash";
+  };
+  readonly Dark: {
+      readonly title: string;
+      readonly icon: "moon";
+  };
+}
+
+type SystemTheme = {
+  readonly title: string;
+  readonly icon: "desktop";
+}
+
+type SupportedThemes = DefaultThemes | (DefaultThemes & {
+  readonly System: SystemTheme
+})
+
 // TODO
 const useSystemTheme = () => {
   const [isSystemDark, setIsSystemDark] = useState(false);
@@ -37,7 +57,7 @@ export const useTheme = () => {
 
   const { activeTheme } = useTypedSelector((state) => state.theme);
 
-  const [themes, setThemes] = useState({
+  const [themes, setThemes] = useState<SupportedThemes>({
     [Theme.Light]: { title: t('theme.light'), icon: 'flash' },
     [Theme.Dark]: { title: t('theme.dark'), icon: 'moon' },
   } as const);
