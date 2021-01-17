@@ -1,9 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import * as Actions from 'store/actions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
-import { RootState } from 'store/reducers';
+import * as Actions from 'store/actions';
 
 import { CenteringMode } from 'enums/CenteringMode';
 
@@ -12,8 +12,8 @@ export const useCenteringModes = () => {
 
   const dispatch = useDispatch();
 
-  const { activeCenteringMode } = useSelector(
-    (state: RootState) => state.centeringModes
+  const { activeCenteringMode } = useTypedSelector(
+    (state) => state.centeringModes
   );
 
   const centeringModes = [

@@ -1,6 +1,6 @@
 import { OPEN_MODAL, CLOSE_MODAL } from 'store/actions';
 
-import { CustomLayout } from 'types/Layout';
+import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'enums/ModalType';
 

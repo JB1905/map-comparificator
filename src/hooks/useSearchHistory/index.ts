@@ -1,15 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { RootState } from 'store/reducers';
+import { LocationIqResult } from 'interfaces/LocationIq';
 
 import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export const useSearchHistory = () => {
   const dispatch = useDispatch();
 
-  const history = useSelector((state: RootState) =>
+  const history = useTypedSelector((state) =>
     state.searchHistory.items.slice(0, 10)
   );
 
@@ -17,7 +19,7 @@ export const useSearchHistory = () => {
     dispatch(Actions.addSearchHistory(item));
   };
 
-  const removeFromHistory = (id: string) => {
+  const removeFromHistory = (id: LocationIqResult['place_id']) => {
     dispatch(Actions.removeSearchHistory(id));
   };
 

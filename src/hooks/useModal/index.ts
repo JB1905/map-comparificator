@@ -1,20 +1,18 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { RootState } from 'store/reducers';
-
-import { CustomLayout } from 'types/Layout';
+import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'enums/ModalType';
 
 export const useModal = () => {
   const dispatch = useDispatch();
 
-  const { modalType, modalParams } = useSelector(
-    (state: RootState) => state.modal
-  );
+  const { modalType, modalParams } = useTypedSelector((state) => state.modal);
 
   const [isOpen, setIsOpen] = useState(true);
 

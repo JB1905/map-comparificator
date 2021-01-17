@@ -1,7 +1,9 @@
+import type { Coords } from 'types/Coords';
+
 export const UPDATE_COORDS = 'UPDATE_COORDS';
 export const UPDATE_ZOOM_LEVEL = 'UPDATE_ZOOM_LEVEL';
 
-export const updateCoords = (payload: [number, number]) => ({
+export const updateCoords = (payload: Coords) => ({
   type: UPDATE_COORDS,
   payload,
 });

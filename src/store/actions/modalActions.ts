@@ -1,5 +1,6 @@
+import type { CustomLayout } from 'types/Layout';
+
 import { ModalType } from 'enums/ModalType';
-import { CustomLayout } from 'types/Layout';
 
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';

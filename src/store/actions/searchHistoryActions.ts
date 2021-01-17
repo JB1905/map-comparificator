@@ -1,4 +1,4 @@
-import { SearchHistoryItem } from 'types/SearchHistoryItem';
+import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 export const SEARCH_HISTORY_ADD = 'SEARCH_HISTORY_ADD';
 export const SEARCH_HISTORY_REMOVE = 'SEARCH_HISTORY_REMOVE';

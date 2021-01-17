@@ -18,6 +18,10 @@ const EditPattern = () => {
   const [name, setName] = useState('');
 
   const handleConfirm = () => {
+    if (!modalParams) {
+      return;
+    }
+
     if (!name) {
       return AppToaster.show({
         message: t('message.patternNameRequired'),
@@ -25,7 +29,7 @@ const EditPattern = () => {
       });
     }
 
-    if (modalParams!.name === name) {
+    if (modalParams.name === name) {
       return AppToaster.show({
         message: t('message.patternProvideDifferentName'),
         intent: Intent.DANGER,
@@ -33,7 +37,7 @@ const EditPattern = () => {
     }
 
     if (!findExistingLayout(name)) {
-      renameCustomLayout(modalParams!.name, name);
+      renameCustomLayout(modalParams.name, name);
 
       setIsOpen(false);
 
@@ -62,7 +66,7 @@ const EditPattern = () => {
       icon="edit"
     >
       <h5 className="bp3-heading">
-        {t('modal.patternEdit.title', { name: modalParams!.name })}
+        {t('modal.patternEdit.title', { name: modalParams?.name })}
       </h5>
 
       <InputGroup

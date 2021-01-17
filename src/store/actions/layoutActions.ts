@@ -1,5 +1,5 @@
 import type { CustomLayout, Layout } from 'types/Layout';
-import { IdUpdate } from 'types/IdUpdate';
+import type { NameUpdate } from 'types/NameUpdate';
 
 export const SET_ACTIVE_LAYOUT = 'SET_ACTIVE_LAYOUT';
 export const CREATE_CUSTOM_LAYOUT = 'CREATE_CUSTOM_LAYOUT';
@@ -16,12 +16,12 @@ export const createCustomLayout = (payload: CustomLayout) => ({
   payload,
 });
 
-export const renameCustomLayout = (payload: IdUpdate) => ({
+export const renameCustomLayout = (payload: NameUpdate) => ({
   type: RENAME_CUSTOM_LAYOUT,
   payload,
 });
 
-export const removeCustomLayout = (payload: string) => ({
+export const removeCustomLayout = (payload: CustomLayout['name']) => ({
   type: REMOVE_CUSTOM_LAYOUT,
   payload,
 });

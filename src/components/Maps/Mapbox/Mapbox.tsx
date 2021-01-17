@@ -4,7 +4,12 @@ import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 
 const Mapbox = () => {
-  const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
+  const {
+    coords: [latitude, longitude],
+    zoomLevel,
+    setCoords,
+    setZoomLevel,
+  } = useMaps();
 
   const { isDark } = useTheme();
 
@@ -19,8 +24,8 @@ const Mapbox = () => {
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       width="100%"
       height="100%"
-      latitude={coords[0]}
-      longitude={coords[1]}
+      latitude={latitude}
+      longitude={longitude}
       zoom={zoomLevel}
       onViewportChange={handleViewportChange}
       mapStyle={`mapbox://styles/mapbox/${isDark ? 'dark' : 'streets'}-v9`}

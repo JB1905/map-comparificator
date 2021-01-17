@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   getPathToCorner,
   Corner,
@@ -12,24 +12,25 @@ import {
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
 
-import * as Actions from 'store/actions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
-import { RootState } from 'store/reducers';
+import * as Actions from 'store/actions';
 
 import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
+
+// useLayoutActions
 
 export const useLayout = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
-  const { activeLayout, customLayouts } = useSelector(
-    (state: RootState) => state.layout
+  const { activeLayout, customLayouts } = useTypedSelector(
+    (state) => state.layout
   );
 
-  // TODO rename isBareLayout or isClearLayout
   const isEmptyLayout = activeLayout === null;
 
   const initialLayouts = [
@@ -57,6 +58,9 @@ export const useLayout = () => {
     dispatch(Actions.setActiveLayout(layout));
   };
 
+  const clearLayout = () => setActiveLayout(null);
+
+  // ------------------------------------
   const createCustomLayout = (name: string) => {
     dispatch(
       Actions.createCustomLayout({
@@ -66,15 +70,16 @@ export const useLayout = () => {
     );
   };
 
-  // TODO currentName, updatedName or prevName, nextName
-  const renameCustomLayout = (currentId: string, updatedId: string) => {
-    dispatch(Actions.renameCustomLayout({ currentId, updatedId }));
+  const renameCustomLayout = (currentName: string, updatedName: string) => {
+    dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
   };
 
   const removeCustomLayout = (id: string) => {
     dispatch(Actions.removeCustomLayout(id));
   };
+  // ------------------------------------
 
+  // TODO refactor
   const openLayoutWindow = (windowName: string) => {
     let layoutTree: Layout;
 
@@ -126,6 +131,7 @@ export const useLayout = () => {
     activeLayout,
     customLayouts,
     setActiveLayout,
+    clearLayout,
     findExistingLayout,
     isEmptyLayout,
     initialLayouts,

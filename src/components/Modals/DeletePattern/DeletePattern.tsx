@@ -14,7 +14,11 @@ const DeletePattern = () => {
   const { t } = useTranslation();
 
   const handleConfirm = () => {
-    removeCustomLayout(modalParams!.name);
+    if (!modalParams) {
+      return;
+    }
+
+    removeCustomLayout(modalParams.name);
 
     setIsOpen(false);
 
@@ -37,7 +41,7 @@ const DeletePattern = () => {
       icon="trash"
     >
       <h5 className="bp3-heading">
-        {t('modal.patternDelete.title', { name: modalParams!.name })}
+        {t('modal.patternDelete.title', { name: modalParams?.name })}
       </h5>
 
       <p>{t('modal.patternDelete.message')}</p>

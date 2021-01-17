@@ -7,12 +7,12 @@ import CurrentGeolocation from 'components/NavbarActions/CurrentGeolocation';
 import SearchForm from 'components/SearchForm';
 import ThemeToggle from 'components/NavbarActions/ThemeToggle';
 
-import { useMaps } from 'hooks/useMaps';
+import { useGeolocation } from 'hooks/useGeolocation';
 
 import './NavbarSecondaryGroup.scss';
 
 const NavbarSecondaryGroup = () => {
-  const { isGeolocationAvailable } = useMaps();
+  const { isGeolocationAvailable } = useGeolocation();
 
   const { t } = useTranslation();
 

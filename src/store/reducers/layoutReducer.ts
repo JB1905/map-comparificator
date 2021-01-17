@@ -40,10 +40,10 @@ export const layoutReducer = (
       return {
         ...state,
         customLayouts: state.customLayouts.map((layout) => {
-          if (layout.name === action.payload.currentId) {
+          if (layout.name === action.payload.currentName) {
             return {
               ...layout,
-              name: action.payload.updatedId,
+              name: action.payload.updatedName,
             };
           }
 
