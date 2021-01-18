@@ -6,6 +6,8 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
+const DEBOUNCE_TIMEOUT_MS = 1000;
+
 export const useSearchResults = () => {
   const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ export const useSearchResults = () => {
 
   const [query, setQuery] = useState('');
 
-  const [value] = useDebounce(query, 1000);
+  const [value] = useDebounce(query, DEBOUNCE_TIMEOUT_MS);
 
   useEffect(() => {
     if (value) dispatch(Actions.searchLocation(value));
