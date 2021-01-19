@@ -1,12 +1,21 @@
-import { Classes, Dialog } from '@blueprintjs/core';
+import { Classes, Dialog,Text, Tag, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
+import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const Help = () => {
   const { isOpen, setIsOpen, closeModal } = useModal();
 
   const { t } = useTranslation();
+  
+  const badges = {
+    [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
+    [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
+    [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
+    [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
+    [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
+  }
 
   return (
     <Dialog
@@ -15,8 +24,11 @@ const Help = () => {
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
       onClosed={closeModal}
+      style={{paddingBottom: 0}}
     >
-      <div className={Classes.DIALOG_BODY}></div>
+      <div className={Classes.DIALOG_BODY}>
+        {Object.entries(badges).map(([shortcut, label]) => <div style={{display: 'flex', alignItems: 'center'}}><Text>{t(label)}:</Text><Tag large round style={{width: 70, textAlign: 'center'}} intent={Intent.PRIMARY}>{shortcut.toUpperCase()}</Tag></div>)}
+      </div>
     </Dialog>
   );
 };
