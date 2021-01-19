@@ -15,6 +15,7 @@ const ThemeToggle = () => {
     <Popover
       content={
         <Menu>
+          {/*TODO*/}
           {Object.entries(themes).map(([key, { title, icon }]) => (
             <MenuItem
               text={title}
@@ -28,7 +29,7 @@ const ThemeToggle = () => {
       }
     >
       <Button
-         icon={(themes as any)?.[activeTheme]?.icon}
+        icon={(themes as any)?.[activeTheme]?.icon}
         minimal
       />
     </Popover>

@@ -6,18 +6,6 @@ import { useCustomization } from '.';
 
 import { TOGGLE_CUSTOMIZATION } from 'store/actions';
 
-// TODO
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: (str: string) => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    };
-  },
-}));
-
 const initialState = {
   isCustomizationEnabled: true,
 };
@@ -34,8 +22,7 @@ const store = createStore<any, any, any, any>(
 
 describe('useCustomization', () => {
   it('should toggle customization', () => {
-    // TODO
-    const wrapper = ({ children }) => (
+    const wrapper: React.FC = ({ children }) => (
       <Provider store={store}>{children}</Provider>
     );
 

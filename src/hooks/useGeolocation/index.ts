@@ -1,6 +1,7 @@
 export const useGeolocation = () => {
   const isGeolocationAvailable = 'geolocation' in navigator;
 
+  // TODO permission
   const getGeolocation = (
     currentCoords: (coords: GeolocationCoordinates) => void
   ) => {
