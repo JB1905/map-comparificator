@@ -74,6 +74,10 @@ const SearchForm = () => {
   };
 
   const prepareMenuItemText = () => {
+    if (!query) {
+      return 'search.emptyQuery';
+    }
+
     if (error) {
       return 'search.error';
     }
