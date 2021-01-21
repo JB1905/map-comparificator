@@ -1,23 +1,26 @@
 import { lazy } from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-jest.mock('../Loader', () => () => <p>Loading...</p>);
 
 import LazyComponent from '.';
 
-const Lazy = lazy(() => import('./LazyComponent.mock'));
+const DummyLazy = lazy(() => import('./__mocks__/DummyLazy'));
+
+jest.mock('../Loader', () => () => <p>Loading...</p>);
 
 describe('LazyComponent', () => {
+  const componentRenderer = () => render(<LazyComponent component={<DummyLazy />} />)
+
   it('should render fallback loader', async () => {
-    const { getByText } = render(<LazyComponent component={<Lazy />} />);
+    const { getByText } = componentRenderer();
 
     expect(getByText('Loading...')).toBeInTheDocument();
   });
 
   it('should render lazy component and hide fallback loader', async () => {
-    const { queryByText } = render(<LazyComponent component={<Lazy />} />);
+    const { queryByText } = componentRenderer();
 
-    await waitFor(() => expect(queryByText(`I'm Lazy`)).toBeInTheDocument());
+    await waitFor(() => expect(queryByText('Dummy Lazy')).toBeInTheDocument());
 
     expect(queryByText('Loading...')).not.toBeInTheDocument();
   });
