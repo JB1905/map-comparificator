@@ -71,6 +71,7 @@ const App = () => {
         <body className={themeClassNsme} />
       </Helmet>
 
+      {/* TODO change breakpoint dynamically */}
       {vw > MIN_WINDOW_SIZE ? (
         <>
           <Navbar>
