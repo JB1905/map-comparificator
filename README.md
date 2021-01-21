@@ -90,6 +90,7 @@ docker run --rm -p 3000:3000 map-comparificator
 - [Blueprint](https://blueprintjs.com/)
 - [React Mosaic](https://github.com/nomcopter/react-mosaic/)
 - [React i18next](https://github.com/i18next/react-i18next/)
+- [Cypress](https://www.cypress.io/)
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Firebase](https://firebase.google.com/)
