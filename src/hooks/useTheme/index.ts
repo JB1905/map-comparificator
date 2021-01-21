@@ -10,25 +10,23 @@ import { Theme } from 'enums/Theme';
 
 type DefaultThemes = {
   readonly Light: {
-    readonly title: string;
-    readonly icon: 'flash';
+      readonly title: string;
+      readonly icon: "flash";
   };
   readonly Dark: {
-    readonly title: string;
-    readonly icon: 'moon';
+      readonly title: string;
+      readonly icon: "moon";
   };
-};
+}
 
 type SystemTheme = {
   readonly title: string;
-  readonly icon: 'desktop';
-};
+  readonly icon: "desktop";
+}
 
-type SupportedThemes =
-  | DefaultThemes
-  | (DefaultThemes & {
-      readonly System: SystemTheme;
-    });
+type SupportedThemes = DefaultThemes | (DefaultThemes & {
+  readonly System: SystemTheme
+})
 
 // TODO
 const useSystemTheme = () => {
@@ -50,6 +48,7 @@ const useSystemTheme = () => {
 };
 
 // const useAvailableThemes = () => {}
+
 
 // TODO
 export const useTheme = () => {

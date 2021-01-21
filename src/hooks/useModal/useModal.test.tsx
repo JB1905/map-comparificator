@@ -6,6 +6,6 @@ describe('useModal', () => {
   it('should', () => {
     const { result } = renderHook(() => useModal());
 
-    expect(result.current.isOpen).toBe(false);
+    expect(result.current.isOpen).toBe(false)
   });
 });
