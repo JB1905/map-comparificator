@@ -10,6 +10,7 @@
   "search.loading": "Searching...",
   "search.noResults": "No results found",
   "search.error": "An error ocurred during loading locations",
+  "search.error.network": "No Internet connection",
   "theme.light": "Light",
   "theme.dark": "Dark",
   "theme.system": "System",
