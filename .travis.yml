@@ -3,12 +3,21 @@ language: node_js
 node_js:
   - node
 
-# yarn
-install:
-  - npm install --legacy-peer-deps
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 
-# yarn
+cache:
+  npm: true
+  directories:
+    - ~/.cache
+
+install:
+  - npm ci --legacy-peer-deps
+
 script:
+  - $(npm bin)/cypress run --record
   - npm run build
 
 deploy:
