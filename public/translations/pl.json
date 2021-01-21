@@ -10,6 +10,7 @@
   "search.loading": "Wyszukiwanie...",
   "search.noResults": "Nie znaleziono wyników",
   "search.error": "Wystąpił problem podczas ładowania lokalizacji",
+  "search.error.network": "Brak połączenia z internetem",
   "theme.light": "Jasny",
   "theme.dark": "Ciemny",
   "theme.system": "Systemowy",
