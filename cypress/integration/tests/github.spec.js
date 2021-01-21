@@ -3,9 +3,9 @@
 context('GitHub', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000', {
-      onBeforeLoad(window) {
-        Object.defineProperty(window.navigator, 'language', { value: 'en-GB' });
-        Object.defineProperty(window.navigator, 'languages', ['en-GB']);
+      onBeforeLoad(win) {
+        Object.defineProperty(win.navigator, 'language', { value: 'en-GB' });
+        Object.defineProperty(win.navigator, 'languages', ['en-GB']);
       }
     })
   })
