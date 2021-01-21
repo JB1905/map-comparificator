@@ -11,6 +11,7 @@
     "eslint": "eslint 'src/**/*.{tsx,ts}'",
     "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,scss,html}'",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "cy:open": "cypress open",
     "eject": "react-scripts eject",
     "commit": "git-cz"
   },
