@@ -1,4 +1,4 @@
-import { SET_ACTIVE_CENTERING_MODE } from '../actions';
+import { SET_ACTIVE_CENTERING_MODE } from '../../actions';
 
 import { CenteringModesState } from 'interfaces/CenteringModesState';
 

@@ -1,4 +1,4 @@
-import { TOGGLE_CUSTOMIZATION } from '../actions';
+import { TOGGLE_CUSTOMIZATION } from '../../actions';
 
 import { CustomizationState } from 'interfaces/CustomizationState';
 
