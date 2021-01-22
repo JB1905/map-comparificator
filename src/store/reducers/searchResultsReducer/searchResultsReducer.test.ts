@@ -7,7 +7,7 @@ import {
 import { searchResultsReducer } from '.';
 
 describe('searchResultsReducer', () => {
-  it('should', () => {
+  it('should match initial state values', () => {
     expect(searchResultsReducer(undefined, {} as any)).toEqual({
       isLoading: false,
       results: [],
