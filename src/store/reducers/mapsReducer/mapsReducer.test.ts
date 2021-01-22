@@ -3,7 +3,7 @@ import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from 'store/actions';
 import { mapsReducer } from '.';
 
 describe('mapsReducer', () => {
-  it('should', () => {
+  it('should match initial state values', () => {
     expect(mapsReducer(undefined, {} as any)).toEqual({
       coords: [37.7790262, -122.4199061],
       zoomLevel: 7,
