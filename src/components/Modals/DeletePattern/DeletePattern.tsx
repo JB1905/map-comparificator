@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Alert, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +14,7 @@ const DeletePattern = () => {
 
   const { t } = useTranslation();
 
-  const handleConfirm = () => {
+  const handleConfirm = useCallback(() => {
     if (!modalParams) {
       return;
     }
@@ -26,7 +27,7 @@ const DeletePattern = () => {
       message: t('message.patternDeleted'),
       intent: Intent.SUCCESS,
     });
-  };
+  }, [modalParams, removeCustomLayout, setIsOpen, t]);
 
   return (
     <Alert

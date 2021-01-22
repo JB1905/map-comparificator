@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -27,6 +28,8 @@ import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
 const MIN_WINDOW_SIZE = 960;
 
+type TileRendererCallback = (id: string, path: MosaicBranch[]) => JSX.Element;
+
 const App = () => {
   const { isDark } = useTheme();
 
@@ -46,19 +49,22 @@ const App = () => {
     [isCustomizationEnabled]
   );
 
-  const themeClassName = isDark ? Classes.DARK : '';
+  const themeClassName = useMemo(() => (isDark ? Classes.DARK : ''), [isDark]);
 
-  const tileRenderer = (id: string, path: MosaicBranch[]) => (
-    <MosaicWindow
-      path={path}
-      title={id}
-      draggable={isCustomizationEnabled}
-      toolbarControls={
-        isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
-      }
-    >
-      {MAPS[id]}
-    </MosaicWindow>
+  const tileRenderer = useCallback<TileRendererCallback>(
+    (id, path) => (
+      <MosaicWindow
+        path={path}
+        title={id}
+        draggable={isCustomizationEnabled}
+        toolbarControls={
+          isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+        }
+      >
+        {MAPS[id]}
+      </MosaicWindow>
+    ),
+    [isCustomizationEnabled]
   );
 
   return (

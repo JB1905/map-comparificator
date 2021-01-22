@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import * as React from 'react';
 import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
@@ -18,6 +19,9 @@ import './SearchForm.scss';
 
 type SearchResultItem = LocationIqResult | SearchHistoryItem;
 
+type SelectPlaceCallback = (place: SearchResultItem) => void;
+type ItemRendererCallback = (item: SearchResultItem) => JSX.Element;
+
 const SearchForm = () => {
   const { results, error, isLoading, query, setQuery } = useSearchResults();
 
@@ -29,39 +33,45 @@ const SearchForm = () => {
 
   const { t } = useTranslation();
 
-  const selectPlace = (place: SearchResultItem) => {
-    const { lat, lon, display_name, place_id } = place;
+  const selectPlace = useCallback<SelectPlaceCallback>(
+    (place) => {
+      const { lat, lon, display_name, place_id } = place;
 
-    setCoords([parseFloat(lat), parseFloat(lon)]);
+      setCoords([parseFloat(lat), parseFloat(lon)]);
 
-    addToHistory({ display_name, place_id, lat, lon, class: place.class });
-  };
+      addToHistory({ display_name, place_id, lat, lon, class: place.class });
+    },
+    [addToHistory, setCoords]
+  );
 
-  const itemRenderer = (item: SearchResultItem) => {
-    const handleRemoveFromHistory = (
-      e: React.MouseEvent<HTMLElement, MouseEvent>
-    ) => {
-      e.stopPropagation();
+  const itemRenderer = useCallback<ItemRendererCallback>(
+    (item) => {
+      const handleRemoveFromHistory = (
+        e: React.MouseEvent<HTMLElement, MouseEvent>
+      ) => {
+        e.stopPropagation();
 
-      removeFromHistory(item.place_id);
-    };
+        removeFromHistory(item.place_id);
+      };
 
-    return (
-      <MenuItem
-        text={item.display_name}
-        icon={locationIcons[item.class] ?? 'map-marker'}
-        onClick={() => selectPlace(item)}
-        key={item.place_id}
-        labelElement={
-          !query && (
-            <Button icon="trash" onClick={handleRemoveFromHistory} small />
-          )
-        }
-      />
-    );
-  };
+      return (
+        <MenuItem
+          text={item.display_name}
+          icon={locationIcons[item.class] ?? 'map-marker'}
+          onClick={() => selectPlace(item)}
+          key={item.place_id}
+          labelElement={
+            !query && (
+              <Button icon="trash" onClick={handleRemoveFromHistory} small />
+            )
+          }
+        />
+      );
+    },
+    [query, removeFromHistory, selectPlace]
+  );
 
-  const prepareItems = () => {
+  const prepareItems = useCallback(() => {
     if (error) {
       return [];
     }
@@ -71,9 +81,9 @@ const SearchForm = () => {
     }
 
     return history;
-  };
+  }, [error, history, query, results]);
 
-  const prepareMenuItemText = () => {
+  const prepareMenuItemText = useCallback(() => {
     if (!query) {
       return 'search.emptyQuery';
     }
@@ -91,7 +101,7 @@ const SearchForm = () => {
     }
 
     return 'search.noResults';
-  };
+  }, [error, isLoading, query]);
 
   return (
     <Select

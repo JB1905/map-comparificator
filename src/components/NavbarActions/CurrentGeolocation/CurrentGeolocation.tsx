@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Button } from '@blueprintjs/core';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -14,11 +15,11 @@ const CurrentGeolocation = () => {
 
   const { isEmptyLayout } = useLayout();
 
-  const getCurrentLocation = () => {
+  const getCurrentLocation = useCallback(() => {
     getGeolocation(({ latitude, longitude }) => {
       setCoords([latitude, longitude]);
     });
-  };
+  }, [getGeolocation, setCoords]);
 
   useHotkeys(KeyboardShortcut.Geolocation, getCurrentLocation);
 
