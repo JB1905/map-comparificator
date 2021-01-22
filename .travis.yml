@@ -17,6 +17,7 @@ install:
   - npm ci --legacy-peer-deps
 
 script:
+  - npm test
   - $(npm bin)/cypress run --record
   - npm run build
 
