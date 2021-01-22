@@ -14,7 +14,7 @@ cache:
     - ~/.cache
 
 install:
-  - npm ci --legacy-peer-deps
+  - npm i --legacy-peer-deps
 
 script:
   - npm test
