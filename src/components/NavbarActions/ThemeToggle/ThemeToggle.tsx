@@ -28,11 +28,7 @@ const ThemeToggle = () => {
         </Menu>
       }
     >
-      <Button
-        icon={(themes as any)?.[activeTheme]?.icon}
-        name="theme-options"
-        minimal
-      />
+      <Button icon={(themes as any)?.[activeTheme]?.icon} minimal />
     </Popover>
   );
 };

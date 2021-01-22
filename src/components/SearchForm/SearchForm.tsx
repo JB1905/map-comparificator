@@ -79,6 +79,10 @@ const SearchForm = () => {
     }
 
     if (error) {
+      if (error.message?.match(/networkerror/gi)) {
+        return 'search.error.network';
+      }
+
       return 'search.error';
     }
 

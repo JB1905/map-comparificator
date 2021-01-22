@@ -46,7 +46,7 @@ const App = () => {
     [isCustomizationEnabled]
   );
 
-  const themeClassNsme = isDark ? Classes.DARK : '';
+  const themeClassName = isDark ? Classes.DARK : '';
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
@@ -68,7 +68,7 @@ const App = () => {
 
         <meta name="description" content={t('app.description')} />
 
-        <body className={themeClassNsme} />
+        <body className={themeClassName} />
       </Helmet>
 
       {vw > MIN_WINDOW_SIZE ? (
@@ -82,7 +82,7 @@ const App = () => {
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}
-            className={`mosaic-blueprint-theme ${themeClassNsme}`}
+            className={`mosaic-blueprint-theme ${themeClassName}`}
             renderTile={tileRenderer}
             initialValue={activeLayout}
             zeroStateView={
