@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 
-import Help from './Help';
+import Layouts from '.';
 
-describe('Help', () => {
+describe('Layouts', () => {
   it.skip('should', () => {
-    const {} = render(<Help />);
+    const {} = render(<Layouts />);
   });
 });

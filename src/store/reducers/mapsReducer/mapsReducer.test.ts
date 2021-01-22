@@ -10,7 +10,7 @@ describe('mapsReducer', () => {
     });
   });
 
-  it('should', () => {
+  it.skip('should', () => {
     expect(
       mapsReducer(undefined, {
         type: UPDATE_COORDS,
@@ -21,7 +21,7 @@ describe('mapsReducer', () => {
     });
   });
 
-  it('should', () => {
+  it.skip('should', () => {
     expect(
       mapsReducer(undefined, {
         type: UPDATE_ZOOM_LEVEL,

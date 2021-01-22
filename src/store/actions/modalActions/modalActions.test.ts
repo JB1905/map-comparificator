@@ -1,7 +1,7 @@
 import * as Actions from '.';
 
 describe('modalActions', () => {
-  it('should create action openModal', () => {
+  it.skip('should create action openModal', () => {
     const expectedAction = {
       type: Actions.OPEN_MODAL,
     };

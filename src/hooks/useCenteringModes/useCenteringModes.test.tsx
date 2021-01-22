@@ -33,7 +33,7 @@ const store = createStore<any, any, any, any>(
 );
 
 describe('useCenteringModes', () => {
-  it('should', () => {
+  it.skip('should', () => {
     // TODO
     const wrapper = ({ children }) => (
       <Provider store={store}>{children}</Provider>

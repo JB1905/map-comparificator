@@ -10,7 +10,7 @@ describe('modalReducer', () => {
     });
   });
 
-  it('should', () => {
+  it.skip('should', () => {
     expect(
       modalReducer(undefined, {
         type: OPEN_MODAL,
@@ -21,7 +21,7 @@ describe('modalReducer', () => {
     });
   });
 
-  it('should', () => {
+  it.skip('should', () => {
     expect(
       modalReducer(undefined, {
         type: CLOSE_MODAL,

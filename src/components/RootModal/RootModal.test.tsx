@@ -9,7 +9,7 @@ jest.mock('hooks/useModal', () => ({
 }));
 
 describe('RootModal', () => {
-  it('should', () => {
+  it.skip('should', () => {
     (useModal as jest.Mock).mockImplementation(() => ({
       modalType: null,
     }));
@@ -17,7 +17,7 @@ describe('RootModal', () => {
     const {} = render(<RootModal />);
   });
 
-  it('should', () => {
+  it.skip('should', () => {
     (useModal as jest.Mock).mockImplementation(() => ({
       modalType: 'Create Pattern',
     }));

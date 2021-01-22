@@ -51,4 +51,6 @@ describe('SearchForm', () => {
     expect(input.value).toBe('');
     fireEvent.change(input, { target: { value: 'Paris' } });
   });
+
+  // TODO more tests
 });
