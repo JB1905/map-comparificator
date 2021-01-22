@@ -1,4 +1,4 @@
-import { SET_ACTIVE_THEME } from '../actions';
+import { SET_ACTIVE_THEME } from '../../actions';
 
 import { Theme } from 'enums/Theme';
 
