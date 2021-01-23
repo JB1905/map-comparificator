@@ -11,14 +11,14 @@ describe('themeReducer', () => {
     });
   });
 
-  it.skip('should', () => {
+  it('should set theme', () => {
     expect(
       themeReducer(undefined, {
         type: SET_ACTIVE_THEME,
-        // payload:
+        payload: Theme.Dark,
       })
     ).toEqual({
-      // activeTheme:
+      activeTheme: Theme.Dark,
     });
   });
 });
