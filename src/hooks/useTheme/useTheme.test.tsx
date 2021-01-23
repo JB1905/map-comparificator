@@ -18,7 +18,7 @@ describe('useTheme', () => {
   //   });
   // });
 
-  it('should toggle theme', () => {
+  it.skip('should toggle theme', () => {
     const themesList = Object.keys(result.current.themes);
 
     expect(result.current.activeTheme).toBe(themesList[0]);
