@@ -19,17 +19,15 @@ import 'styles/index.scss';
 
 ReactDOM.render(
   <StrictMode>
-    <LazyComponent
-      component={
-        <I18nextProvider i18n={i18next}>
-          <Provider store={store}>
-            <PersistGate loading={<Loader />} persistor={persistor}>
-              <App />
-            </PersistGate>
-          </Provider>
-        </I18nextProvider>
-      }
-    />
+    <LazyComponent>
+      <I18nextProvider i18n={i18next}>
+        <Provider store={store}>
+          <PersistGate loading={<Loader />} persistor={persistor}>
+            <App />
+          </PersistGate>
+        </Provider>
+      </I18nextProvider>
+    </LazyComponent>
   </StrictMode>,
   document.getElementById('root')
 );
