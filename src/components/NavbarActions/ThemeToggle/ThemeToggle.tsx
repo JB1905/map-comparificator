@@ -1,4 +1,5 @@
-import { Button, Popover, Menu, MenuItem } from '@blueprintjs/core';
+import { Button, Menu, MenuItem } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import { useTheme } from 'hooks/useTheme';
@@ -12,7 +13,7 @@ const ThemeToggle = () => {
   useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
   return (
-    <Popover
+    <Popover2
       content={
         <Menu>
           {/*TODO*/}
@@ -28,8 +29,9 @@ const ThemeToggle = () => {
         </Menu>
       }
     >
+      {/* TODO */}
       <Button icon={(themes as any)?.[activeTheme]?.icon} minimal />
-    </Popover>
+    </Popover2>
   );
 };
 

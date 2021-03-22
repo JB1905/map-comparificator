@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="bp3-spinner loader"
+  >
+    <div
+      class="bp3-spinner-animation"
+    >
+      <svg
+        height="20"
+        stroke-width="16.00"
+        viewBox="-3.00 -3.00 106.00 106.00"
+        width="20"
+      >
+        <path
+          class="bp3-spinner-track"
+          d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+        />
+        <path
+          class="bp3-spinner-head"
+          d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+          pathLength="280"
+          stroke-dasharray="280 280"
+          stroke-dashoffset="210"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

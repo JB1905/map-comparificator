@@ -6,8 +6,8 @@ import {
   Menu,
   MenuDivider,
   MenuItem,
-  Popover,
 } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 import equal from 'deep-equal';
 
@@ -37,7 +37,7 @@ const Layouts = () => {
     !!findExistingLayout() || customLayouts.length >= 6 || isEmptyLayout;
 
   return (
-    <Popover
+    <Popover2
       disabled={!isCustomizationEnabled}
       content={
         <Menu>
@@ -51,7 +51,6 @@ const Layouts = () => {
             />
           ))}
 
-          {/*TODO*/}
           {customLayouts.length > 0 && (
             <>
               <MenuDivider title={t('customPattern.custom')} />
@@ -115,7 +114,7 @@ const Layouts = () => {
         disabled={!isCustomizationEnabled}
         minimal
       />
-    </Popover>
+    </Popover2>
   );
 };
 

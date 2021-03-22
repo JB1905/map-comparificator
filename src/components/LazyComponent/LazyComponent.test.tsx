@@ -13,16 +13,20 @@ describe('LazyComponent', () => {
   };
 
   it('should render fallback loader', async () => {
-    const { getByText } = componentRenderer();
+    const { getByText, asFragment } = componentRenderer();
 
     expect(getByText('Loading...')).toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render lazy component and hide fallback loader', async () => {
-    const { queryByText } = componentRenderer();
+    const { queryByText, asFragment } = componentRenderer();
 
     await waitFor(() => expect(queryByText('Dummy Lazy')).toBeInTheDocument());
 
     expect(queryByText('Loading...')).not.toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

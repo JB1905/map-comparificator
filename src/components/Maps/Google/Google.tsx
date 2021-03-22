@@ -11,7 +11,7 @@ const GoogleMaps = () => {
   return (
     <LoadScript
       id="script-loader"
-      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_TOKEN!}
+      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_TOKEN as string}
     >
       <GoogleMap
         mapContainerStyle={{ height: '100%', width: '100%' }}
