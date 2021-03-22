@@ -1,6 +1,6 @@
-import { Button, Menu, MenuItem } from '@blueprintjs/core';
+import { Button, Menu, MenuItem, useHotkeys } from '@blueprintjs/core';
 import { Popover2 } from '@blueprintjs/popover2';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useMemo } from 'react';
 
 import { useTheme } from 'hooks/useTheme';
 
@@ -10,7 +10,19 @@ import { Theme } from 'enums/Theme';
 const ThemeToggle = () => {
   const { themes, activeTheme, setTheme, toggleTheme } = useTheme();
 
-  useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
+  const hotkeys = useMemo(
+    () => [
+      {
+        combo: KeyboardShortcut.ToggleTheme,
+        global: true,
+        label: '', // TODO translate
+        onKeyDown: toggleTheme,
+      },
+    ],
+    [toggleTheme]
+  );
+
+  useHotkeys(hotkeys);
 
   return (
     <Popover2

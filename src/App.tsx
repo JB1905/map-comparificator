@@ -1,4 +1,4 @@
-import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
+import { Navbar, NonIdealState, Classes, useHotkeys } from '@blueprintjs/core';
 import {
   Mosaic,
   MosaicWindow,
@@ -8,7 +8,6 @@ import {
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useViewport } from 'react-viewport-hooks';
-import { useHotkeys } from 'react-hotkeys-hook';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
@@ -24,6 +23,7 @@ import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { useMemo } from 'react';
 
 const MIN_WINDOW_SIZE = 960;
 
@@ -40,11 +40,19 @@ const App = () => {
     defaultVW: window.innerWidth,
   });
 
-  useHotkeys(
-    KeyboardShortcut.CloseAll,
-    () => (isCustomizationEnabled ? clearLayout() : undefined),
-    [isCustomizationEnabled]
+  const hotkeys = useMemo(
+    () => [
+      {
+        combo: KeyboardShortcut.CloseAll,
+        global: true,
+        label: '', // TODO translate
+        onKeyDown: () => (isCustomizationEnabled ? clearLayout() : undefined),
+      },
+    ],
+    [clearLayout, isCustomizationEnabled]
   );
+
+  useHotkeys(hotkeys);
 
   const themeClassName = isDark ? Classes.DARK : '';
 

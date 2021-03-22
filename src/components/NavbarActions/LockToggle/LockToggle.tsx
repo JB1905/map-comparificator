@@ -1,5 +1,5 @@
-import { Button } from '@blueprintjs/core';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { Button, useHotkeys } from '@blueprintjs/core';
+import { useMemo } from 'react';
 
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
@@ -11,11 +11,19 @@ const LockToggle = () => {
 
   const { isCustomizationEnabled, toggleCustomization } = useCustomization();
 
-  useHotkeys(
-    KeyboardShortcut.ToggleLock,
-    () => (!isEmptyLayout ? toggleCustomization() : undefined),
-    [isEmptyLayout]
+  const hotkeys = useMemo(
+    () => [
+      {
+        combo: KeyboardShortcut.ToggleLock,
+        global: true,
+        label: '', // TODO translate
+        onKeyDown: () => (!isEmptyLayout ? toggleCustomization() : undefined),
+      },
+    ],
+    [isEmptyLayout, toggleCustomization]
   );
+
+  useHotkeys(hotkeys);
 
   return (
     <Button

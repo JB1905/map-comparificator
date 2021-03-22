@@ -15,7 +15,6 @@ const Mapbox = () => {
 
   const handleViewportChange = (e: ViewportProps) => {
     // setCoords([e.latitude, e.longitude]);
-
     // setZoomLevel(e.zoom);
   };
 

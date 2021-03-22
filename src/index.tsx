@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { I18nextProvider } from 'react-i18next';
-import { HotkeysProvider } from "@blueprintjs/core";
+import { HotkeysProvider } from '@blueprintjs/core';
 
 import App from 'App';
 
