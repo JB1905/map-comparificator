@@ -5,7 +5,8 @@ import { themeReducer } from './themeReducer';
 import { layoutReducer } from './layoutReducer';
 import { searchResultsReducer } from './searchResultsReducer';
 import { searchHistoryReducer } from './searchHistoryReducer';
-import { settingsReducer } from './settingsReducer';
+import { customizationReducer } from './customizationReducer';
+import { centeringModesReducer } from './centeringModesReducer';
 import { modalReducer } from './modalReducer';
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   layout: layoutReducer,
   searchResults: searchResultsReducer,
   searchHistory: searchHistoryReducer,
-  settings: settingsReducer,
+  customization: customizationReducer,
+  centeringModes: centeringModesReducer,
   modal: modalReducer,
 });
 

@@ -1,25 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { RootState } from 'store/reducers';
+import type { Coords } from 'types/Coords';
 
 export const useMaps = () => {
   const dispatch = useDispatch();
 
-  const { coords, zoomLevel } = useSelector((state: RootState) => state.maps);
+  const { coords, zoomLevel } = useTypedSelector((state) => state.maps);
 
-  const isGeolocationAvailable = 'geolocation' in navigator;
-
-  const getGeolocation = (
-    currentCoords: (coords: GeolocationCoordinates) => void
-  ) => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      currentCoords(position.coords);
-    });
-  };
-
-  const setCoords = (coords: [number, number]) => {
+  const setCoords = (coords: Coords) => {
     dispatch(Actions.updateCoords(coords));
   };
 
@@ -29,10 +21,8 @@ export const useMaps = () => {
 
   return {
     coords,
-    zoomLevel,
-    isGeolocationAvailable,
-    getGeolocation,
     setCoords,
+    zoomLevel,
     setZoomLevel,
   };
 };

@@ -1,8 +1,31 @@
 import { OPEN_MODAL, CLOSE_MODAL } from 'store/actions';
 
-import { CustomLayout } from 'types/Layout';
+import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'enums/ModalType';
+
+// TODO
+export type ModalCreate = {
+  modalType: ModalType.Create;
+  modalParams: CustomLayout;
+};
+
+export type ModalEdit = {
+  modalType: ModalType.Edit;
+  modalParams: CustomLayout;
+};
+
+export type ModalDelete = {
+  modalType: ModalType.Delete;
+  // modalParams: null
+};
+
+export type ModalHelp = {
+  modalType: ModalType.Help;
+  // modalParams: null
+};
+
+export type X = ModalCreate | ModalEdit | ModalDelete | ModalHelp;
 
 export interface ModalState {
   modalType: ModalType | null;

@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   getPathToCorner,
   Corner,
@@ -11,28 +11,25 @@ import {
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
-// import { useThrottle } from 'use-throttle';
+
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
-
-import { RootState } from 'store/reducers';
 
 import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
 // TODO
-// const layoutHistory: Layout[] = [];
+// useLayoutActions
 
 export const useLayout = () => {
   const { t } = useTranslation();
 
-  // console.log(layoutHistory);
-
   const dispatch = useDispatch();
 
-  const { activeLayout, customLayouts } = useSelector(
-    (state: RootState) => state.layout
+  const { activeLayout, customLayouts } = useTypedSelector(
+    (state) => state.layout
   );
 
   const isEmptyLayout = activeLayout === null;
@@ -44,6 +41,7 @@ export const useLayout = () => {
   ];
 
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
+    // TODO refactor
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
 
@@ -58,11 +56,12 @@ export const useLayout = () => {
   };
 
   const setActiveLayout = (layout: Layout) => {
-    // layoutHistory.push(layout);
-
     dispatch(Actions.setActiveLayout(layout));
   };
 
+  const clearLayout = () => setActiveLayout(null);
+
+  // ------------------------------------
   const createCustomLayout = (name: string) => {
     dispatch(
       Actions.createCustomLayout({
@@ -72,14 +71,16 @@ export const useLayout = () => {
     );
   };
 
-  const renameCustomLayout = (currentId: string, updatedId: string) => {
-    dispatch(Actions.renameCustomLayout({ currentId, updatedId }));
+  const renameCustomLayout = (currentName: string, updatedName: string) => {
+    dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
   };
 
   const removeCustomLayout = (id: string) => {
     dispatch(Actions.removeCustomLayout(id));
   };
+  // ------------------------------------
 
+  // TODO refactor
   const openLayoutWindow = (windowName: string) => {
     let layoutTree: Layout;
 
@@ -131,6 +132,7 @@ export const useLayout = () => {
     activeLayout,
     customLayouts,
     setActiveLayout,
+    clearLayout,
     findExistingLayout,
     isEmptyLayout,
     initialLayouts,

@@ -21,7 +21,7 @@ import NavbarSecondaryGroup from 'components/NavbarSecondaryGroup';
 
 import { useTheme } from 'hooks/useTheme';
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
@@ -30,9 +30,9 @@ const MIN_WINDOW_SIZE = 960;
 const App = () => {
   const { isDark } = useTheme();
 
-  const { activeLayout, setActiveLayout } = useLayout();
+  const { activeLayout, setActiveLayout, clearLayout } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { t, i18n } = useTranslation();
 
@@ -42,12 +42,11 @@ const App = () => {
 
   useHotkeys(
     KeyboardShortcut.CloseAll,
-    () => (isCustomizationEnabled ? setActiveLayout(null) : undefined),
-    {},
+    () => (isCustomizationEnabled ? clearLayout() : undefined),
     [isCustomizationEnabled]
   );
 
-  const themeClass = isDark ? Classes.DARK : '';
+  const themeClassName = isDark ? Classes.DARK : '';
 
   const tileRenderer = (id: string, path: MosaicBranch[]) => (
     <MosaicWindow
@@ -69,11 +68,9 @@ const App = () => {
 
         <meta name="description" content={t('app.description')} />
 
-        <body className={themeClass} />
+        <body className={themeClassName} />
       </Helmet>
 
-      {/* TODO react alive */}
-      {/* TODO dynamic breakpont */}
       {vw > MIN_WINDOW_SIZE ? (
         <>
           <Navbar>
@@ -85,7 +82,7 @@ const App = () => {
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}
-            className={`mosaic-blueprint-theme ${themeClass}`}
+            className={`mosaic-blueprint-theme ${themeClassName}`}
             renderTile={tileRenderer}
             initialValue={activeLayout}
             zeroStateView={

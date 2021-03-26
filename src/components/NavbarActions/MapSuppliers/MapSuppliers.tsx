@@ -1,20 +1,22 @@
-import { Button, Menu, MenuItem, Popover, Position } from '@blueprintjs/core';
+import { Button, Menu, MenuItem } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 
 import { MAPS } from 'collections/maps';
 
 const MapSuppliers = () => {
   const { activeLayout, openLayoutWindow } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { t } = useTranslation();
 
   return (
-    <Popover
+    <Popover2
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {Object.keys(MAPS).map((map) => (
@@ -28,7 +30,6 @@ const MapSuppliers = () => {
           ))}
         </Menu>
       }
-      position={Position.TOP}
     >
       <Button
         icon="map"
@@ -36,7 +37,7 @@ const MapSuppliers = () => {
         disabled={!isCustomizationEnabled}
         minimal
       />
-    </Popover>
+    </Popover2>
   );
 };
 

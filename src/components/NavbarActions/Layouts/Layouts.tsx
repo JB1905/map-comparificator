@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   Button,
   ButtonGroup,
@@ -6,14 +6,13 @@ import {
   Menu,
   MenuDivider,
   MenuItem,
-  Popover,
-  Position,
 } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 import equal from 'deep-equal';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCustomization } from 'hooks/useCustomization';
 import { useModal } from 'hooks/useModal';
 
 import { ModalType } from 'enums/ModalType';
@@ -28,7 +27,7 @@ const Layouts = () => {
     customLayouts,
   } = useLayout();
 
-  const { isCustomizationEnabled } = useSettings();
+  const { isCustomizationEnabled } = useCustomization();
 
   const { openModal } = useModal();
 
@@ -38,7 +37,8 @@ const Layouts = () => {
     !!findExistingLayout() || customLayouts.length >= 6 || isEmptyLayout;
 
   return (
-    <Popover
+    <Popover2
+      disabled={!isCustomizationEnabled}
       content={
         <Menu>
           {initialLayouts.map(({ name, layout }) => (
@@ -53,7 +53,7 @@ const Layouts = () => {
 
           {customLayouts.length > 0 && (
             <>
-              <MenuDivider title={t('settings.customPattern.custom')} />
+              <MenuDivider title={t('customPattern.custom')} />
 
               {customLayouts.map(({ name, layout }) => (
                 <MenuItem
@@ -107,7 +107,6 @@ const Layouts = () => {
           />
         </Menu>
       }
-      position={Position.TOP}
     >
       <Button
         icon="layout-skew-grid"
@@ -115,7 +114,7 @@ const Layouts = () => {
         disabled={!isCustomizationEnabled}
         minimal
       />
-    </Popover>
+    </Popover2>
   );
 };
 

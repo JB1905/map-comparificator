@@ -3,7 +3,8 @@ import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 import { useTranslation } from 'react-i18next';
 
-import { useSearch } from 'hooks/useSearch';
+import { useSearchResults } from 'hooks/useSearchResults';
+import { useSearchHistory } from 'hooks/useSearchHistory';
 import { useLayout } from 'hooks/useLayout';
 import { useMaps } from 'hooks/useMaps';
 
@@ -15,16 +16,12 @@ import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
 import './SearchForm.scss';
 
+type SearchResultItem = LocationIqResult | SearchHistoryItem;
+
 const SearchForm = () => {
-  const {
-    history,
-    results,
-    error,
-    query,
-    setQuery,
-    addToHistory,
-    removeFromHistory,
-  } = useSearch();
+  const { results, error, isLoading, query, setQuery } = useSearchResults();
+
+  const { history, addToHistory, removeFromHistory } = useSearchHistory();
 
   const { isEmptyLayout } = useLayout();
 
@@ -32,8 +29,7 @@ const SearchForm = () => {
 
   const { t } = useTranslation();
 
-  // TODO rename to selectPlaceAndAddToHistory or split functions?
-  const selectPlace = (place: LocationIqResult | SearchHistoryItem) => {
+  const selectPlace = (place: SearchResultItem) => {
     const { lat, lon, display_name, place_id } = place;
 
     setCoords([parseFloat(lat), parseFloat(lon)]);
@@ -41,34 +37,68 @@ const SearchForm = () => {
     addToHistory({ display_name, place_id, lat, lon, class: place.class });
   };
 
-  const itemRenderer = (item: LocationIqResult | SearchHistoryItem) => (
-    <MenuItem
-      text={item.display_name}
-      icon={locationIcons[item.class] ?? 'map-marker'}
-      onClick={() => selectPlace(item)}
-      key={item.place_id}
-      labelElement={
-        !query && (
-          <Button
-            icon="trash"
-            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-              e.stopPropagation();
+  const itemRenderer = (item: SearchResultItem) => {
+    const handleRemoveFromHistory = (
+      e: React.MouseEvent<HTMLElement, MouseEvent>
+    ) => {
+      e.stopPropagation();
 
-              removeFromHistory(item.place_id);
-            }}
-            small
-          />
-        )
+      removeFromHistory(item.place_id);
+    };
+
+    return (
+      <MenuItem
+        text={item.display_name}
+        icon={locationIcons[item.class] ?? 'map-marker'}
+        onClick={() => selectPlace(item)}
+        key={item.place_id}
+        labelElement={
+          !query && (
+            <Button icon="trash" onClick={handleRemoveFromHistory} small />
+          )
+        }
+      />
+    );
+  };
+
+  const prepareItems = () => {
+    if (error) {
+      return [];
+    }
+
+    if (query) {
+      return results;
+    }
+
+    return history;
+  };
+
+  const prepareMenuItemText = () => {
+    if (!query) {
+      return 'search.emptyQuery';
+    }
+
+    if (error) {
+      if (error.message?.match(/networkerror/gi)) {
+        return 'search.error.network';
       }
-    />
-  );
+
+      return 'search.error';
+    }
+
+    if (isLoading) {
+      return 'search.loading';
+    }
+
+    return 'search.noResults';
+  };
 
   return (
     <Select
-      items={error ? [] : query ? results : history}
+      items={prepareItems()}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
-      noResults={<MenuItem text={t('search.noResults')} disabled />}
+      noResults={<MenuItem text={t(prepareMenuItemText())} disabled />}
       popoverProps={{ minimal: true }}
       filterable={false}
     >

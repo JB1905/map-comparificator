@@ -1,3 +1,5 @@
+@import "~@blueprintjs/popover2/lib/css/blueprint-popover2.css";
+
 @import "mixins.scss";
 
 html,
@@ -17,5 +19,12 @@ body,
 
   .bp3-dark & {
     background-color: #202b33;
+  }
+}
+
+.bp3-menu-item {
+  &-label {
+    margin-top: -2.25px;
+    margin-bottom: -2.25px;
   }
 }

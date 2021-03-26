@@ -6,13 +6,14 @@ import { ReactComponent as OctoCat } from 'assets/github.svg';
 import CurrentGeolocation from 'components/NavbarActions/CurrentGeolocation';
 import SearchForm from 'components/SearchForm';
 import ThemeToggle from 'components/NavbarActions/ThemeToggle';
+import Help from 'components/NavbarActions/Help';
 
-import { useMaps } from 'hooks/useMaps';
+import { useGeolocation } from 'hooks/useGeolocation';
 
 import './NavbarSecondaryGroup.scss';
 
 const NavbarSecondaryGroup = () => {
-  const { isGeolocationAvailable } = useMaps();
+  const { isGeolocationAvailable } = useGeolocation();
 
   const { t } = useTranslation();
 
@@ -31,6 +32,10 @@ const NavbarSecondaryGroup = () => {
       <Navbar.Divider />
 
       <ThemeToggle />
+
+      <Navbar.Divider />
+
+      <Help />
 
       <Navbar.Divider />
 

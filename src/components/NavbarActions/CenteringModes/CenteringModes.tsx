@@ -1,8 +1,9 @@
-import { Button, Menu, MenuItem, Popover, Position } from '@blueprintjs/core';
+import { Button, Menu, MenuItem } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
-import { useSettings } from 'hooks/useSettings';
+import { useCenteringModes } from 'hooks/useCenteringModes';
 
 const CenteringModes = () => {
   const { isEmptyLayout } = useLayout();
@@ -11,12 +12,13 @@ const CenteringModes = () => {
     centeringModes,
     activeCenteringMode,
     setCenteringMode,
-  } = useSettings();
+  } = useCenteringModes();
 
   const { t } = useTranslation();
 
   return (
-    <Popover
+    <Popover2
+      disabled={isEmptyLayout}
       content={
         <Menu>
           {centeringModes.map(({ name, value }) => (
@@ -31,7 +33,6 @@ const CenteringModes = () => {
           ))}
         </Menu>
       }
-      position={Position.TOP}
     >
       <Button
         icon="map-marker"
@@ -39,7 +40,7 @@ const CenteringModes = () => {
         disabled={isEmptyLayout}
         minimal
       />
-    </Popover>
+    </Popover2>
   );
 };
 
