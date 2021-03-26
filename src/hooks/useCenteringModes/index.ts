@@ -25,7 +25,7 @@ export const useCenteringModes = () => {
   const setCenteringMode = (centeringMode: CenteringMode) => {
     dispatch(Actions.setActiveCenteringMode(centeringMode));
   };
-// TODO
+
   return {
     centeringModes,
     activeCenteringMode,
