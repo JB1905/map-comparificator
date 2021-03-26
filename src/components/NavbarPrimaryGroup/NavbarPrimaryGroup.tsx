@@ -9,7 +9,6 @@ import LockToggle from 'components/NavbarActions/LockToggle';
 
 import './NavbarPrimaryGroup.scss';
 
-// TODO
 const NavbarPrimaryGroup = () => (
   <Navbar.Group align={Alignment.LEFT}>
     <Navbar.Heading>
