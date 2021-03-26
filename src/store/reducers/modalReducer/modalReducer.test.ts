@@ -3,7 +3,7 @@ import { OPEN_MODAL, CLOSE_MODAL } from 'store/actions';
 import { modalReducer } from '.';
 
 describe('modalReducer', () => {
-  it('should', () => {
+  it('should match initial state values', () => {
     expect(modalReducer(undefined, {} as any)).toEqual({
       modalType: null,
       modalParams: null,

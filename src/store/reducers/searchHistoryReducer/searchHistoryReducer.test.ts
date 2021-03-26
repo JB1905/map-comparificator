@@ -7,7 +7,7 @@ import {
 import { searchHistoryReducer } from '.';
 
 describe('searchHistoryReducer', () => {
-  it('should', () => {
+  it('should match initial state values', () => {
     expect(searchHistoryReducer(undefined, {} as any)).toEqual({
       items: [],
     });

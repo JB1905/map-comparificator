@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyComponent should render fallback loader 1`] = `
+<DocumentFragment>
+  <p>
+    Loading...
+  </p>
+</DocumentFragment>
+`;
+
+exports[`LazyComponent should render lazy component and hide fallback loader 1`] = `
+<DocumentFragment>
+  <p>
+    Dummy Lazy
+  </p>
+</DocumentFragment>
+`;

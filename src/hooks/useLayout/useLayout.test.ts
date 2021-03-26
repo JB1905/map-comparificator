@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useLayout } from '.';
 
 describe('useLayout', () => {
-  it('should', () => {
+  it.skip('should', () => {
     const { result } = renderHook(() => useLayout());
   });
 });

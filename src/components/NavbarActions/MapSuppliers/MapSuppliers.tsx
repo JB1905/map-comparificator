@@ -1,4 +1,5 @@
-import { Button, Menu, MenuItem, Popover } from '@blueprintjs/core';
+import { Button, Menu, MenuItem } from '@blueprintjs/core';
+import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
@@ -14,7 +15,7 @@ const MapSuppliers = () => {
   const { t } = useTranslation();
 
   return (
-    <Popover
+    <Popover2
       disabled={!isCustomizationEnabled}
       content={
         <Menu>
@@ -36,7 +37,7 @@ const MapSuppliers = () => {
         disabled={!isCustomizationEnabled}
         minimal
       />
-    </Popover>
+    </Popover2>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Map, TileLayer, Viewport } from 'react-leaflet';
+// import { Map, TileLayer, Viewport } from 'react-leaflet';
 import { Helmet } from 'react-helmet';
 
 import { useMaps } from 'hooks/useMaps';
@@ -8,15 +8,15 @@ import './OSM.scss';
 const OpenStreetMap = () => {
   const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
 
-  const handleViewportChange = (e: Viewport) => {
-    if (e.center) {
-      setCoords(e.center);
-    }
+  // const handleViewportChange = (e: Viewport) => {
+  //   if (e.center) {
+  //     setCoords(e.center);
+  //   }
 
-    if (e.zoom) {
-      setZoomLevel(e.zoom);
-    }
-  };
+  //   if (e.zoom) {
+  //     setZoomLevel(e.zoom);
+  //   }
+  // };
 
   return (
     <>
@@ -27,7 +27,7 @@ const OpenStreetMap = () => {
         />
       </Helmet>
 
-      <Map
+      {/* <Map
         center={coords}
         zoom={zoomLevel}
         animate={false}
@@ -37,7 +37,7 @@ const OpenStreetMap = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      </Map>
+      </Map> */}
     </>
   );
 };

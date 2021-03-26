@@ -1,3 +1,3 @@
 describe('useSearchHistory', () => {
-  it('should', () => {});
+  it.skip('should', () => {});
 });

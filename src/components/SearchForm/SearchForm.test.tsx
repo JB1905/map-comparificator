@@ -39,7 +39,7 @@ jest.mock('react-i18next', () => ({
 }));
 
 describe('SearchForm', () => {
-  it('should', () => {
+  it('should fill search input', () => {
     const { container } = render(<SearchForm />);
 
     const input = container.querySelector(
@@ -49,7 +49,10 @@ describe('SearchForm', () => {
     expect(input).toBeInTheDocument();
 
     expect(input.value).toBe('');
+
     fireEvent.change(input, { target: { value: 'Paris' } });
+
+    expect(input.value).toBe('Paris');
   });
 
   // TODO more tests

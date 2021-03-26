@@ -5,6 +5,7 @@ import { ModalType } from 'enums/ModalType';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
+// TODO
 type OpenModalPayload = {
   readonly modalType: ModalType;
   readonly modalParams?: CustomLayout;
