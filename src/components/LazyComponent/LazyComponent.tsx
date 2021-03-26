@@ -3,12 +3,20 @@ import * as React from 'react';
 
 import Loader from '../Loader';
 
-interface Props {
+interface ChildrenProps {
+  readonly children: React.ReactNode;
+  readonly component?: React.ReactNode;
+}
+
+interface ComponentProps {
+  readonly children?: React.ReactNode;
   readonly component: React.ReactNode;
 }
 
-const LazyComponent = ({ component }: Props) => (
-  <Suspense fallback={<Loader />}>{component}</Suspense>
+type Props = ChildrenProps | ComponentProps;
+
+const LazyComponent = ({ children, component }: Props) => (
+  <Suspense fallback={<Loader />}>{children ?? component}</Suspense>
 );
 
 export default LazyComponent;
