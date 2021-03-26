@@ -93,6 +93,8 @@ const SearchForm = () => {
     return 'search.noResults';
   };
 
+
+  // TODO
   return (
     <Select
       items={prepareItems()}
