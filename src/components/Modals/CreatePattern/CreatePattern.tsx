@@ -54,7 +54,7 @@ const CreatePattern = () => {
       canEscapeKeyCancel
       icon="add"
     >
-      <h5 className="bp3-heading">{t('modal.patternCreate.title')}</h5>
+      <h5 className="bp4-heading">{t('modal.patternCreate.title')}</h5>
 
       <InputGroup
         placeholder={t('modal.patternCreate.input.placeholder')}

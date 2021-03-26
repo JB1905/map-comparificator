@@ -12,16 +12,16 @@ context('Theme', () => {
   
   it ('tests default themes in theme switch', () => {
     cy.get('[name="theme-options"]').click();
-    cy.get('.bp3-menu-item').contains('Dark').click();
-    cy.get('body').should('have.class', 'bp3-dark');
+    cy.get('.bp4-menu-item').contains('Dark').click();
+    cy.get('body').should('have.class', 'bp4-dark');
 
     cy.get('[name="theme-options"]').click();
-    cy.get('.bp3-menu-item').contains('Light').click();
-    cy.get('body').should('not.have.class', 'bp3-dark');
+    cy.get('.bp4-menu-item').contains('Light').click();
+    cy.get('body').should('not.have.class', 'bp4-dark');
 
     // cy.get('[name="theme-options"]').click();
-    // cy.get('.bp3-menu-item').contains('System').click();
-    // cy.get('body').should('not.have.class', 'bp3-dark');
+    // cy.get('.bp4-menu-item').contains('System').click();
+    // cy.get('body').should('not.have.class', 'bp4-dark');
   })
 
   // with prefers color disabled/not supported

@@ -65,7 +65,7 @@ const EditPattern = () => {
       canEscapeKeyCancel
       icon="edit"
     >
-      <h5 className="bp3-heading">
+      <h5 className="bp4-heading">
         {t('modal.patternEdit.title', { name: modalParams?.name })}
       </h5>
 

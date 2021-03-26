@@ -17,12 +17,12 @@ body,
 .not-supported-screen-size {
   @include absolute-centering;
 
-  .bp3-dark & {
+  .bp4-dark & {
     background-color: #202b33;
   }
 }
 
-.bp3-menu-item {
+.bp4-menu-item {
   &-label {
     margin-top: -2.25px;
     margin-bottom: -2.25px;
