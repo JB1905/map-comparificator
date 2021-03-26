@@ -71,14 +71,14 @@ const App = () => {
         <body className={themeClassName} />
       </Helmet>
 
+      <Navbar>
+        <NavbarPrimaryGroup />
+
+        <NavbarSecondaryGroup />
+      </Navbar>
+
       {vw > MIN_WINDOW_SIZE ? (
         <>
-          <Navbar>
-            <NavbarPrimaryGroup />
-
-            <NavbarSecondaryGroup />
-          </Navbar>
-
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}

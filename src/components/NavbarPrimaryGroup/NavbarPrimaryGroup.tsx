@@ -15,7 +15,8 @@ const NavbarPrimaryGroup = () => (
       <Logo className="logo" />
     </Navbar.Heading>
 
-    <ButtonGroup minimal>
+{/* TODO */}
+    {/* <ButtonGroup minimal>
       <Layouts />
 
       <CenteringModes />
@@ -25,7 +26,7 @@ const NavbarPrimaryGroup = () => (
 
     <Navbar.Divider />
 
-    <LockToggle />
+    <LockToggle /> */}
   </Navbar.Group>
 );
 

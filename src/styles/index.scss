@@ -9,13 +9,14 @@ body,
 }
 
 .mosaic {
-  width: 100%;
-  height: calc(100% - 50px);
-  position: fixed;
+  // TODO
+  // width: 100%;
+  // height: calc(100% - 50px);
+  // position: fixed;
 }
 
 .not-supported-screen-size {
-  @include absolute-centering;
+  // @include absolute-centering;
 
   .bp3-dark & {
     background-color: #202b33;

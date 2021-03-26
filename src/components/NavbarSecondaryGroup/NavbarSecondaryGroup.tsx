@@ -19,7 +19,8 @@ const NavbarSecondaryGroup = () => {
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
-      {isGeolocationAvailable && (
+      {/* TODO */}
+      {/* {isGeolocationAvailable && (
         <>
           <CurrentGeolocation />
 
@@ -29,15 +30,16 @@ const NavbarSecondaryGroup = () => {
 
       <SearchForm />
 
-      <Navbar.Divider />
+      <Navbar.Divider /> */}
 
       <ThemeToggle />
 
       <Navbar.Divider />
 
-      <Help />
+      {/* TODO */}
+      {/* <Help />
 
-      <Navbar.Divider />
+      <Navbar.Divider /> */}
 
       <a
         href="https://github.com/JB1905/map-comparificator"
