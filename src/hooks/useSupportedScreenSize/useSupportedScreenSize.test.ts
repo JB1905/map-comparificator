@@ -1,3 +1,13 @@
+import { renderHook } from '@testing-library/react-hooks';
+
+import { useSupportedScreenSize } from '.';
+
+// jest.mock('react-viewport-hooks', () => {})
+
 describe('useSupportedScreenSize', () => {
-  it.todo('', () => {});
+  it.skip('', () => {
+    const { result } = renderHook(() => useSupportedScreenSize());
+
+    expect(result).toBe(true);
+  });
 });
