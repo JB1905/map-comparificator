@@ -26,6 +26,8 @@ import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
+type TileRendererCallback = (id: string, path: MosaicBranch[]) => JSX.Element;
+
 const App = () => {
   const { isDark } = useTheme();
 

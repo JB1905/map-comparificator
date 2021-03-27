@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useViewport } from 'react-viewport-hooks';
 
 const MIN_WINDOW_SIZE = 960;
@@ -7,7 +8,7 @@ export const useSupportedScreenSize = () => {
     defaultVW: window.innerWidth,
   });
 
-  const isSupportedScreenSize = vw > MIN_WINDOW_SIZE;
+  const isSupportedScreenSize = useMemo(() => vw > MIN_WINDOW_SIZE, [vw]);
 
   return isSupportedScreenSize;
 };

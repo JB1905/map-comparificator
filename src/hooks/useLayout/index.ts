@@ -23,6 +23,7 @@ import type { Layout } from 'types/Layout';
 // TODO
 // useLayoutActions
 
+// TODO memo/callback
 export const useLayout = () => {
   const { t } = useTranslation();
 
