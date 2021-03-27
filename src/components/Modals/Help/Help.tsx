@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Classes, Dialog, Text, Tag, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
@@ -9,13 +10,16 @@ const Help = () => {
 
   const { t } = useTranslation();
 
-  const badges = {
-    [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
-    [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
-    [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
-    [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
-    [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
-  };
+  const badges = useMemo(
+    () => ({
+      [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
+      [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
+      [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
+      [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
+      [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
+    }),
+    []
+  );
 
   return (
     <Dialog

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import * as React from 'react';
 import {
   Button,
@@ -33,8 +34,10 @@ const Layouts = () => {
 
   const { t } = useTranslation();
 
-  const isPatternCreationDisabled =
-    !!findExistingLayout() || customLayouts.length >= 6 || isEmptyLayout;
+  const isPatternCreationDisabled = useMemo(
+    () => !!findExistingLayout() || customLayouts.length >= 6 || isEmptyLayout,
+    [customLayouts.length, findExistingLayout, isEmptyLayout]
+  );
 
   return (
     <Popover2

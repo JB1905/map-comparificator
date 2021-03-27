@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
@@ -11,9 +12,9 @@ export const useCustomization = () => {
     (state) => state.customization
   );
 
-  const toggleCustomization = () => {
+  const toggleCustomization = useCallback(() => {
     dispatch(Actions.toggleCustomization());
-  };
+  }, [dispatch]);
 
   return {
     isCustomizationEnabled,

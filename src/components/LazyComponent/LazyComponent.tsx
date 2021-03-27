@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { memo, Suspense } from 'react';
 import * as React from 'react';
 
 import Loader from '../Loader';
@@ -15,8 +15,8 @@ interface ComponentProps {
 
 type Props = ChildrenProps | ComponentProps;
 
-const LazyComponent = ({ children, component }: Props) => (
+const LazyComponent = memo<Props>(({ children, component }) => (
   <Suspense fallback={<Loader />}>{children ?? component}</Suspense>
-);
+));
 
 export default LazyComponent;

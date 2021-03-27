@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -42,19 +43,22 @@ const App = () => {
     [isCustomizationEnabled]
   );
 
-  const themeClassName = isDark ? Classes.DARK : '';
+  const themeClassName = useMemo(() => (isDark ? Classes.DARK : ''), [isDark]);
 
-  const tileRenderer = (id: string, path: MosaicBranch[]) => (
-    <MosaicWindow
-      path={path}
-      title={id}
-      draggable={isCustomizationEnabled}
-      toolbarControls={
-        isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
-      }
-    >
-      {MAPS[id]}
-    </MosaicWindow>
+  const tileRenderer = useCallback<TileRendererCallback>(
+    (id, path) => (
+      <MosaicWindow
+        path={path}
+        title={id}
+        draggable={isCustomizationEnabled}
+        toolbarControls={
+          isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+        }
+      >
+        {MAPS[id]}
+      </MosaicWindow>
+    ),
+    [isCustomizationEnabled]
   );
 
   return (
