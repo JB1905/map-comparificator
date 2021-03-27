@@ -10,14 +10,14 @@ import { Theme } from 'enums/Theme';
 
 const ThemeToggle = () => {
   const isSupportedScreenSize = useSupportedScreenSize();
-  
+
   const { themes, activeTheme, setTheme, toggleTheme } = useTheme();
 
   useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
   return (
     <Popover2
-      position={isSupportedScreenSize ? undefined : "bottom-right"}
+      position={isSupportedScreenSize ? undefined : 'bottom-right'}
       content={
         <Menu>
           {/*TODO*/}
