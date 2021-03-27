@@ -11,6 +11,7 @@ import {
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
 
@@ -23,7 +24,6 @@ import type { Layout } from 'types/Layout';
 // TODO
 // useLayoutActions
 
-// TODO memo/callback
 export const useLayout = () => {
   const { t } = useTranslation();
 
@@ -33,14 +33,18 @@ export const useLayout = () => {
     (state) => state.layout
   );
 
-  const isEmptyLayout = activeLayout === null;
+  const isEmptyLayout = useMemo(() => activeLayout === null, [activeLayout]);
 
-  const initialLayouts = [
-    { name: t('initialLayout.grid'), layout: gridLayout },
-    { name: t('initialLayout.columns'), layout: columnLayout },
-    { name: t('initialLayout.mosaic'), layout: mosaicLayout },
-  ];
+  const initialLayouts = useMemo(
+    () => [
+      { name: t('initialLayout.grid'), layout: gridLayout },
+      { name: t('initialLayout.columns'), layout: columnLayout },
+      { name: t('initialLayout.mosaic'), layout: mosaicLayout },
+    ],
+    [t]
+  );
 
+  // TODO useCallback
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
     // TODO refactor
     return [...initialLayouts, ...customLayouts].find((layout) => {
@@ -56,13 +60,16 @@ export const useLayout = () => {
     });
   };
 
+  // TODO useCallback
   const setActiveLayout = (layout: Layout) => {
     dispatch(Actions.setActiveLayout(layout));
   };
 
+  // TODO useCallback
   const clearLayout = () => setActiveLayout(null);
 
   // ------------------------------------
+  // TODO useCallback
   const createCustomLayout = (name: string) => {
     dispatch(
       Actions.createCustomLayout({
@@ -72,16 +79,19 @@ export const useLayout = () => {
     );
   };
 
+  // TODO useCallback
   const renameCustomLayout = (currentName: string, updatedName: string) => {
     dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
   };
 
+  // TODO useCallback
   const removeCustomLayout = (id: string) => {
     dispatch(Actions.removeCustomLayout(id));
   };
   // ------------------------------------
 
   // TODO refactor
+  // TODO useCallback
   const openLayoutWindow = (windowName: string) => {
     let layoutTree: Layout;
 
