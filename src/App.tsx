@@ -7,7 +7,6 @@ import {
 } from 'react-mosaic-component';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useViewport } from 'react-viewport-hooks';
 import { useHotkeys } from 'react-hotkeys-hook';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -20,25 +19,22 @@ import NavbarPrimaryGroup from 'components/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'components/NavbarSecondaryGroup';
 
 import { useTheme } from 'hooks/useTheme';
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
-const MIN_WINDOW_SIZE = 960;
-
 const App = () => {
   const { isDark } = useTheme();
+
+  const isSupportedScreenSize = useSupportedScreenSize();
 
   const { activeLayout, setActiveLayout, clearLayout } = useLayout();
 
   const { isCustomizationEnabled } = useCustomization();
 
   const { t, i18n } = useTranslation();
-
-  const { vw } = useViewport({
-    defaultVW: window.innerWidth,
-  });
 
   useHotkeys(
     KeyboardShortcut.CloseAll,
@@ -77,7 +73,7 @@ const App = () => {
         <NavbarSecondaryGroup />
       </Navbar>
 
-      {vw > MIN_WINDOW_SIZE ? (
+      {isSupportedScreenSize ? (
         <>
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}

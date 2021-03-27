@@ -11,35 +11,44 @@ import Help from 'components/NavbarActions/Help';
 import { useGeolocation } from 'hooks/useGeolocation';
 
 import './NavbarSecondaryGroup.scss';
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 
 const NavbarSecondaryGroup = () => {
   const { isGeolocationAvailable } = useGeolocation();
+
+  const isSupportedScreenSize = useSupportedScreenSize();
 
   const { t } = useTranslation();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
-      {/* TODO */}
-      {/* {isGeolocationAvailable && (
+      {isSupportedScreenSize && (
         <>
-          <CurrentGeolocation />
+          {isGeolocationAvailable && (
+            <>
+              <CurrentGeolocation />
+
+              <Navbar.Divider />
+            </>
+          )}
+
+          <SearchForm />
 
           <Navbar.Divider />
         </>
       )}
 
-      <SearchForm />
-
-      <Navbar.Divider /> */}
-
       <ThemeToggle />
 
       <Navbar.Divider />
 
-      {/* TODO */}
-      {/* <Help />
+      {isSupportedScreenSize && (
+        <>
+          <Help />
 
-      <Navbar.Divider /> */}
+          <Navbar.Divider />
+        </>
+      )}
 
       <a
         href="https://github.com/JB1905/map-comparificator"
