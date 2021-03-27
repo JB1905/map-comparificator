@@ -15,7 +15,7 @@ import reportWebVitals from 'reportWebVitals';
 
 import i18next from 'config/i18n';
 
-import 'styles/index.scss';
+import 'index.scss';
 
 ReactDOM.render(
   <StrictMode>

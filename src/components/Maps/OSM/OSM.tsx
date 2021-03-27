@@ -1,22 +1,27 @@
-// import { Map, TileLayer, Viewport } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import { Helmet } from 'react-helmet';
 
 import { useMaps } from 'hooks/useMaps';
 
 import './OSM.scss';
 
+const MapComponent = () => {
+  const { setCoords, setZoomLevel } = useMaps();
+
+  const map = useMapEvents({
+    zoom: () => setZoomLevel(map.getZoom()),
+    drag: () => {
+      const { lat, lng } = map.getCenter();
+
+      setCoords([lat, lng]);
+    },
+  });
+
+  return null;
+};
+
 const OpenStreetMap = () => {
-  const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
-
-  // const handleViewportChange = (e: Viewport) => {
-  //   if (e.center) {
-  //     setCoords(e.center);
-  //   }
-
-  //   if (e.zoom) {
-  //     setZoomLevel(e.zoom);
-  //   }
-  // };
+  const { coords, zoomLevel } = useMaps();
 
   return (
     <>
@@ -27,17 +32,14 @@ const OpenStreetMap = () => {
         />
       </Helmet>
 
-      {/* <Map
-        center={coords}
-        zoom={zoomLevel}
-        animate={false}
-        onViewportChange={handleViewportChange}
-      >
+      <MapContainer center={coords} zoom={zoomLevel}>
+        <MapComponent />
+
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      </Map> */}
+      </MapContainer>
     </>
   );
 };

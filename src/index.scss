@@ -1,21 +1,24 @@
 @import "~@blueprintjs/popover2/lib/css/blueprint-popover2.css";
 
-@import "mixins.scss";
-
 html,
 body,
 .mosaic {
   margin: 0;
 }
 
-.mosaic {
-  width: 100%;
-  height: calc(100% - 50px);
-  position: fixed;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 .not-supported-screen-size {
-  @include absolute-centering;
+  background-color: #a7b6c2;
 
   .bp3-dark & {
     background-color: #202b33;
