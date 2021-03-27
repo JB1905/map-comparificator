@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import { Helmet } from 'react-helmet';
 
 import { useMaps } from 'hooks/useMaps';
@@ -6,18 +6,14 @@ import { useMaps } from 'hooks/useMaps';
 import './OSM.scss';
 
 const MapComponent = () => {
+  const { setCoords, setZoomLevel } = useMaps();
+
   const map = useMapEvents({
-    click: () => {
-      map.locate();
-    },
-    locationfound: (location) => {
-      console.log('location found:', location);
-    },
-    zoom: (e) => {
-      console.log(e.target);
-    },
-    drag: (e) => {
-      console.log(e.target);
+    zoom: () => setZoomLevel(map.getZoom()),
+    drag: () => {
+      const { lat, lng } = map.getCenter();
+
+      setCoords([lat, lng]);
     },
   });
 
@@ -25,7 +21,7 @@ const MapComponent = () => {
 };
 
 const OpenStreetMap = () => {
-  const { coords, zoomLevel, setCoords, setZoomLevel } = useMaps();
+  const { coords, zoomLevel } = useMaps();
 
   return (
     <>
