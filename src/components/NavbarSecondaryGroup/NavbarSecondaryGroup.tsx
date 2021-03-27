@@ -9,9 +9,11 @@ import ThemeToggle from 'components/NavbarActions/ThemeToggle';
 import Help from 'components/NavbarActions/Help';
 
 import { useGeolocation } from 'hooks/useGeolocation';
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
+
+import { isTouchDevice } from 'constants/isTouchDevice';
 
 import './NavbarSecondaryGroup.scss';
-import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 
 const NavbarSecondaryGroup = () => {
   const { isGeolocationAvailable } = useGeolocation();
@@ -42,7 +44,7 @@ const NavbarSecondaryGroup = () => {
 
       <Navbar.Divider />
 
-      {isSupportedScreenSize && (
+      {isSupportedScreenSize && !isTouchDevice && (
         <>
           <Help />
 
