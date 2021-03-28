@@ -19,8 +19,8 @@ body,
 
 .navbar,
 .not-supported-screen-size {
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  padding-left: calc(15px + env(safe-area-inset-left));
+  padding-right: calc(15px + env(safe-area-inset-right));
 }
 
 .not-supported-screen-size {
