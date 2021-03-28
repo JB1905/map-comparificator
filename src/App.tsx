@@ -73,7 +73,8 @@ const App = () => {
         <body className={themeClassName} />
       </Helmet>
 
-      <Navbar>
+      {/* TODO change className */}
+      <Navbar className="navbar">
         <NavbarPrimaryGroup />
 
         <NavbarSecondaryGroup />

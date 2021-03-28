@@ -17,6 +17,12 @@ body,
   flex-direction: column;
 }
 
+.navbar,
+.not-supported-screen-size {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
 .not-supported-screen-size {
   background-color: #a7b6c2;
   padding-bottom: env(safe-area-inset-bottom);
