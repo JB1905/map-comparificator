@@ -12,6 +12,7 @@ jest.mock('hooks/useModal', () => ({
   }),
 }));
 
+// TODO
 describe('Help', () => {
   it.skip('should render component', () => {
     const {} = render(<Help />);

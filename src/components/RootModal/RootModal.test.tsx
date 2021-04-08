@@ -8,6 +8,7 @@ jest.mock('hooks/useModal', () => ({
   useModal: jest.fn(),
 }));
 
+// TODO
 describe('RootModal', () => {
   it.skip('should', () => {
     (useModal as jest.Mock).mockImplementation(() => ({

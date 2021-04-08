@@ -3,6 +3,7 @@ import ReactMapGL, { ViewportProps } from 'react-map-gl';
 import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 
+// TODO
 const Mapbox = () => {
   const {
     coords: [latitude, longitude],

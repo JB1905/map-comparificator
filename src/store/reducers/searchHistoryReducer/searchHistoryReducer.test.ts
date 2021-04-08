@@ -13,6 +13,7 @@ describe('searchHistoryReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {
@@ -24,6 +25,7 @@ describe('searchHistoryReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {
@@ -35,6 +37,7 @@ describe('searchHistoryReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {

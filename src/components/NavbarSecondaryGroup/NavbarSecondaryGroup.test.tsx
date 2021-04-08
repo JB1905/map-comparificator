@@ -40,6 +40,7 @@ describe('NavbarSecondaryGroup', () => {
     // isGeolocationAvailable false
   });
 
+  // TODO
   it.skip('should', () => {
     const { container } = render(<NavbarSecondaryGroup />);
 

@@ -36,6 +36,7 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
+  // TODO
   // it.skip('should apply dark theme to layout', () => {})
   // it.skip('should enable customization', () => {})
   // it.skip('should enable customization', () => {})

@@ -6,6 +6,7 @@ import { centeringModesReducer } from '.';
 
 describe('centeringModesReducer', () => {
   it('should match initial state values', () => {
+    // TODO
     expect(centeringModesReducer(undefined, {} as any)).toEqual({
       activeCenteringMode: CenteringMode.Center,
     });

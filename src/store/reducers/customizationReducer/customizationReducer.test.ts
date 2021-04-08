@@ -18,6 +18,7 @@ describe('customizationReducer', () => {
       isCustomizationEnabled: false,
     });
 
+  // TODO
     // expect(
     //   customizationReducer(undefined, {
     //     type: TOGGLE_CUSTOMIZATION,
