@@ -29,19 +29,19 @@ Choose the best map provider for your web app
 
 ## Setup
 
-### 1. Clone repo
+#### 1. Clone repo
 
 ```sh
 git clone https://github.com/JB1905/map-comparificator.git
 ```
 
-### 2. Go to directory
+#### 2. Go to directory
 
 ```sh
 cd /path/map-comparificator
 ```
 
-### 3. Set environment variables
+#### 3. Set environment variables
 
 - Copy `.env.local.example` file to `.env.local`
 - Set environment variables in `.env.local`
