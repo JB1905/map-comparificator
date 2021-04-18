@@ -12,6 +12,7 @@
     "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,scss,html}'",
     "test": "react-scripts test --coverage --env=jest-environment-jsdom-sixteen",
     "cy:open": "cypress open",
+    "postinstall": "patch-package",
     "eject": "react-scripts eject",
     "commit": "git-cz"
   },
@@ -66,6 +67,8 @@
     "husky": "^6.0.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.5.4",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.2"
   },
