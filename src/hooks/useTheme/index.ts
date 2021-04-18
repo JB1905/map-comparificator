@@ -41,6 +41,8 @@ const useSystemTheme = () => {
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
+    setIsSystemDark(prefersDark.matches);
+
     prefersDark.addEventListener('change', handleChange);
 
     return () => prefersDark.removeEventListener('change', handleChange);
@@ -51,7 +53,7 @@ const useSystemTheme = () => {
 
 // const useAvailableThemes = () => {}
 
-// TODO
+// TODO refactor
 export const useTheme = () => {
   const dispatch = useDispatch();
 
