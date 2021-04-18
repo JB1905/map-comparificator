@@ -6,9 +6,8 @@ import {
   Intent,
   Menu,
   MenuDivider,
-  MenuItem,
+  MenuItem,Popover
 } from '@blueprintjs/core';
-import { Popover2 } from '@blueprintjs/popover2';
 import { useTranslation } from 'react-i18next';
 import equal from 'deep-equal';
 
@@ -40,7 +39,7 @@ const Layouts = () => {
   );
 
   return (
-    <Popover2
+    <Popover
       disabled={!isCustomizationEnabled}
       content={
         <Menu>
@@ -117,7 +116,7 @@ const Layouts = () => {
         disabled={!isCustomizationEnabled}
         minimal
       />
-    </Popover2>
+    </Popover>
   );
 };
 

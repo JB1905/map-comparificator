@@ -27,12 +27,12 @@ body,
   background-color: #a7b6c2;
   padding-bottom: env(safe-area-inset-bottom);
 
-  .bp3-dark & {
+  .bp4-dark & {
     background-color: #202b33;
   }
 }
 
-.bp3-menu-item {
+.bp4-menu-item {
   &-label {
     margin-top: -2.25px;
     margin-bottom: -2.25px;
