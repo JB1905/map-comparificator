@@ -13,7 +13,7 @@
   "search.error.network": "No Internet connection",
   "theme.light": "Light",
   "theme.dark": "Dark",
-  "theme.system": "System",
+  "theme.auto": "Automatic",
   "settings.maps": "Maps",
   "settings.centeringMode.title": "Centering Mode",
   "settings.centeringMode.center": "Center",

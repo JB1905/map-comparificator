@@ -13,7 +13,7 @@
   "search.error.network": "Brak połączenia z internetem",
   "theme.light": "Jasny",
   "theme.dark": "Ciemny",
-  "theme.system": "Systemowy",
+  "theme.auto": "Automatyczny",
   "settings.maps": "Mapy",
   "settings.centeringMode.title": "Pozycjonowanie",
   "settings.centeringMode.center": "Wyśrodkowanie",

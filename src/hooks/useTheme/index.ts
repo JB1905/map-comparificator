@@ -19,36 +19,36 @@ type DefaultThemes = {
   };
 };
 
-type SystemTheme = {
+type AutoTheme = {
   readonly title: string;
-  readonly icon: 'desktop';
+  readonly icon: 'contrast';
 };
 
 type SupportedThemes =
   | DefaultThemes
   | (DefaultThemes & {
-      readonly System: SystemTheme;
+      readonly Auto: AutoTheme;
     });
 
 // TODO
-const useSystemTheme = () => {
-  const [isSystemDark, setIsSystemDark] = useState(false);
+const useAutoTheme = () => {
+  const [isAutoDark, setIsAutoDark] = useState(false);
 
   useEffect(() => {
     const handleChange = (e: MediaQueryListEvent) => {
-      setIsSystemDark(e.matches);
+      setIsAutoDark(e.matches);
     };
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    setIsSystemDark(prefersDark.matches);
+    setIsAutoDark(prefersDark.matches);
 
     prefersDark.addEventListener('change', handleChange);
 
     return () => prefersDark.removeEventListener('change', handleChange);
   }, []);
 
-  return isSystemDark;
+  return isAutoDark;
 };
 
 // const useAvailableThemes = () => {}
@@ -73,10 +73,10 @@ export const useTheme = () => {
         (prev) =>
           ({
             ...prev,
-            [Theme.System]: { title: t('theme.system'), icon: 'desktop' },
+            [Theme.Auto]: { title: t('theme.auto'), icon: 'contrast' },
           } as const)
       );
-    } else if (activeTheme === Theme.System) {
+    } else if (activeTheme === Theme.Auto) {
       setTheme(Theme.Light);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -89,9 +89,9 @@ export const useTheme = () => {
     setIsDarkTheme(activeTheme === Theme.Dark);
   }, [activeTheme]);
 
-  const isSystemDark = useSystemTheme();
+  const isAutoDark = useAutoTheme();
 
-  const isDark = isDarkTheme || (activeTheme === Theme.System && isSystemDark);
+  const isDark = isDarkTheme || (activeTheme === Theme.Auto && isAutoDark);
 
   const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
 
