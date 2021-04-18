@@ -10,6 +10,7 @@ describe('mapsReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       mapsReducer(undefined, {
@@ -21,6 +22,7 @@ describe('mapsReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       mapsReducer(undefined, {

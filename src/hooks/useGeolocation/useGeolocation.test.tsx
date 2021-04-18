@@ -2,6 +2,7 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { useGeolocation } from '.';
 
+// TODO
 describe('useGeolocation', () => {
   it.skip('should', () => {
     const { result } = renderHook(() => useGeolocation());

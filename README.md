@@ -4,13 +4,13 @@
 
 Choose the best map provider for your web app
 
-##### Main Features
+### Main Features
 
 - compare maps from different providers (Apple, Bing, Google, Here, Mapbox, OpenStreetMap) side by side
 - search for a location to display on maps or get your current location
 - resize, drag, open, close map windows & use or create compositions
 
-##### Limitations
+### Limitations
 
 - mobile devices (smartphones) are not supported – incorrect behavior using Blueprint & Mosaic Component
 
@@ -29,26 +29,26 @@ Choose the best map provider for your web app
 
 ## Setup
 
-##### 1. Clone repo
+#### 1. Clone repo
 
 ```sh
 git clone https://github.com/JB1905/map-comparificator.git
 ```
 
-##### 2. Go to directory
+#### 2. Go to directory
 
 ```sh
 cd /path/map-comparificator
 ```
 
-##### 3. Set environment variables
+#### 3. Set environment variables
 
 - Copy `.env.local.example` file to `.env.local`
 - Set environment variables in `.env.local`
 
 ### Development
 
-##### 4. Install dependencies
+#### 4. Install dependencies
 
 ```sh
 yarn
@@ -57,7 +57,7 @@ yarn
 npm i
 ```
 
-##### 5. Run
+#### 5. Run
 
 ```sh
 yarn start
@@ -68,13 +68,13 @@ npm start
 
 ### Production
 
-##### 4. Build image
+#### 4. Build image
 
 ```sh
 docker build -t map-comparificator .
 ```
 
-##### 5. Run a container with port forwarding
+#### 5. Run a container with port forwarding
 
 ```sh
 docker run --rm -p 3000:3000 map-comparificator

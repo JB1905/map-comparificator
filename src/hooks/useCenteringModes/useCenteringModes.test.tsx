@@ -16,6 +16,7 @@ jest.mock('react-i18next', () => ({
   },
 }));
 
+// TODO
 const initialState = {
   // isCustomizationEnabled: true,
 };

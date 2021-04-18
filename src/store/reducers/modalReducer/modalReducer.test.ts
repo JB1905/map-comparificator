@@ -10,6 +10,7 @@ describe('modalReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       modalReducer(undefined, {
@@ -21,6 +22,7 @@ describe('modalReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       modalReducer(undefined, {

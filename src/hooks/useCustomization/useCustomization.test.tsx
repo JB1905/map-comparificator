@@ -20,6 +20,7 @@ const store = createStore<any, any, any, any>(
   }
 );
 
+// TODO
 describe('useCustomization', () => {
   it.skip('should toggle customization', () => {
     const wrapper: React.FC = ({ children }) => (

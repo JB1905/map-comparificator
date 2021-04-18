@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as React from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ const EditPattern = () => {
 
   const [name, setName] = useState('');
 
-  const handleConfirm = () => {
+  const handleConfirm = useCallback(() => {
     if (!modalParams) {
       return;
     }
@@ -51,7 +51,7 @@ const EditPattern = () => {
         intent: Intent.DANGER,
       });
     }
-  };
+  }, [findExistingLayout, modalParams, name, renameCustomLayout, setIsOpen, t]);
 
   return (
     <Alert

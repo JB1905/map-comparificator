@@ -2,18 +2,22 @@ import { Button, Menu, MenuItem } from '@blueprintjs/core';
 import { Popover2 } from '@blueprintjs/popover2';
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 import { useTheme } from 'hooks/useTheme';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 import { Theme } from 'enums/Theme';
 
 const ThemeToggle = () => {
+  const isSupportedScreenSize = useSupportedScreenSize();
+
   const { themes, activeTheme, setTheme, toggleTheme } = useTheme();
 
   useHotkeys(KeyboardShortcut.ToggleTheme, toggleTheme, [toggleTheme]);
 
   return (
     <Popover2
+      position={isSupportedScreenSize ? undefined : 'bottom-right'}
       content={
         <Menu>
           {/*TODO*/}

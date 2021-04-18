@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
@@ -9,6 +9,11 @@ import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'enums/ModalType';
 
+type OpenModalCallback = (
+  modalType: ModalType,
+  modalParams?: CustomLayout
+) => void;
+
 export const useModal = () => {
   const dispatch = useDispatch();
 
@@ -16,11 +21,16 @@ export const useModal = () => {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  const openModal = (modalType: ModalType, modalParams?: CustomLayout) => {
-    dispatch(Actions.openModal({ modalType, modalParams }));
-  };
+  const openModal = useCallback<OpenModalCallback>(
+    (modalType, modalParams) => {
+      dispatch(Actions.openModal({ modalType, modalParams }));
+    },
+    [dispatch]
+  );
 
-  const closeModal = () => dispatch(Actions.closeModal());
+  const closeModal = useCallback(() => dispatch(Actions.closeModal()), [
+    dispatch,
+  ]);
 
   return {
     openModal,

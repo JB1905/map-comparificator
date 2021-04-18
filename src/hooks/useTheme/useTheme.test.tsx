@@ -2,6 +2,7 @@ import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useTheme } from '.';
 
+// TODO
 describe('useTheme', () => {
   const wrapper = ({ children }) => (
     <Provider store={null}>{children}</Provider>

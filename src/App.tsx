@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { Navbar, NonIdealState, Classes } from '@blueprintjs/core';
 import {
   Mosaic,
@@ -7,7 +8,6 @@ import {
 } from 'react-mosaic-component';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useViewport } from 'react-viewport-hooks';
 import { useHotkeys } from 'react-hotkeys-hook';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -20,15 +20,18 @@ import NavbarPrimaryGroup from 'components/NavbarPrimaryGroup';
 import NavbarSecondaryGroup from 'components/NavbarSecondaryGroup';
 
 import { useTheme } from 'hooks/useTheme';
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
-const MIN_WINDOW_SIZE = 960;
+type TileRendererCallback = (id: string, path: MosaicBranch[]) => JSX.Element;
 
 const App = () => {
   const { isDark } = useTheme();
+
+  const isSupportedScreenSize = useSupportedScreenSize();
 
   const { activeLayout, setActiveLayout, clearLayout } = useLayout();
 
@@ -36,29 +39,28 @@ const App = () => {
 
   const { t, i18n } = useTranslation();
 
-  const { vw } = useViewport({
-    defaultVW: window.innerWidth,
-  });
-
   useHotkeys(
     KeyboardShortcut.CloseAll,
     () => (isCustomizationEnabled ? clearLayout() : undefined),
     [isCustomizationEnabled]
   );
 
-  const themeClassName = isDark ? Classes.DARK : '';
+  const themeClassName = useMemo(() => (isDark ? Classes.DARK : ''), [isDark]);
 
-  const tileRenderer = (id: string, path: MosaicBranch[]) => (
-    <MosaicWindow
-      path={path}
-      title={id}
-      draggable={isCustomizationEnabled}
-      toolbarControls={
-        isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
-      }
-    >
-      {MAPS[id]}
-    </MosaicWindow>
+  const tileRenderer = useCallback<TileRendererCallback>(
+    (id, path) => (
+      <MosaicWindow
+        path={path}
+        title={id}
+        draggable={isCustomizationEnabled}
+        toolbarControls={
+          isCustomizationEnabled ? DEFAULT_CONTROLS_WITHOUT_CREATION : []
+        }
+      >
+        {MAPS[id]}
+      </MosaicWindow>
+    ),
+    [isCustomizationEnabled]
   );
 
   return (
@@ -71,14 +73,15 @@ const App = () => {
         <body className={themeClassName} />
       </Helmet>
 
-      {vw > MIN_WINDOW_SIZE ? (
+      {/* TODO change className */}
+      <Navbar className="navbar">
+        <NavbarPrimaryGroup />
+
+        <NavbarSecondaryGroup />
+      </Navbar>
+
+      {isSupportedScreenSize ? (
         <>
-          <Navbar>
-            <NavbarPrimaryGroup />
-
-            <NavbarSecondaryGroup />
-          </Navbar>
-
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
             onChange={(changedLayout) => setActiveLayout(changedLayout)}

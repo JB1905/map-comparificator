@@ -1,5 +1,6 @@
 import { Button } from '@blueprintjs/core';
 import { useHotkeys } from 'react-hotkeys-hook';
+import { useCallback } from 'react';
 
 import { useModal } from 'hooks/useModal';
 
@@ -9,7 +10,7 @@ import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 const Help = () => {
   const { openModal } = useModal();
 
-  const openHelp = () => openModal(ModalType.Help);
+  const openHelp = useCallback(() => openModal(ModalType.Help), [openModal]);
 
   useHotkeys(KeyboardShortcut.OpenHelp, openHelp);
 

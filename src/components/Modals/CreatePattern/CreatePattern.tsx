@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as React from 'react';
 import { Alert, Intent, InputGroup } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ const CreatePattern = () => {
 
   const [name, setName] = useState('');
 
-  const handleConfirm = () => {
+  const handleConfirm = useCallback(() => {
     if (!name) {
       return AppToaster.show({
         message: t('message.patternNameRequired'),
@@ -40,7 +40,7 @@ const CreatePattern = () => {
         intent: Intent.DANGER,
       });
     }
-  };
+  }, [createCustomLayout, findExistingLayout, name, setIsOpen, t]);
 
   return (
     <Alert

@@ -7,26 +7,36 @@ import CenteringModes from 'components/NavbarActions/CenteringModes';
 import Layouts from 'components/NavbarActions/Layouts';
 import LockToggle from 'components/NavbarActions/LockToggle';
 
+import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
+
 import './NavbarPrimaryGroup.scss';
 
-const NavbarPrimaryGroup = () => (
-  <Navbar.Group align={Alignment.LEFT}>
-    <Navbar.Heading>
-      <Logo className="logo" />
-    </Navbar.Heading>
+const NavbarPrimaryGroup = () => {
+  const isSupportedScreenSize = useSupportedScreenSize();
 
-    <ButtonGroup minimal>
-      <Layouts />
+  return (
+    <Navbar.Group align={Alignment.LEFT}>
+      <Navbar.Heading>
+        <Logo className="logo" />
+      </Navbar.Heading>
 
-      <CenteringModes />
+      {isSupportedScreenSize && (
+        <>
+          <ButtonGroup minimal>
+            <Layouts />
 
-      <MapSuppliers />
-    </ButtonGroup>
+            <CenteringModes />
 
-    <Navbar.Divider />
+            <MapSuppliers />
+          </ButtonGroup>
 
-    <LockToggle />
-  </Navbar.Group>
-);
+          <Navbar.Divider />
+
+          <LockToggle />
+        </>
+      )}
+    </Navbar.Group>
+  );
+};
 
 export default NavbarPrimaryGroup;

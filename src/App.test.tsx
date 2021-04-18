@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import {useViewport} from 'react-viewport-hooks'
+import { useViewport } from 'react-viewport-hooks';
 
 import App from './App';
 
@@ -19,7 +19,9 @@ describe('App', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.mosaic-blueprint-theme')).toBeInTheDocument()
+    expect(
+      container.querySelector('.mosaic-blueprint-theme')
+    ).toBeInTheDocument();
   });
 
   it.skip('should render fallback screen for mobile', () => {
@@ -29,9 +31,12 @@ describe('App', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.not-supported-screen-size')).toBeInTheDocument()
+    expect(
+      container.querySelector('.not-supported-screen-size')
+    ).toBeInTheDocument();
   });
 
+  // TODO
   // it.skip('should apply dark theme to layout', () => {})
   // it.skip('should enable customization', () => {})
   // it.skip('should enable customization', () => {})

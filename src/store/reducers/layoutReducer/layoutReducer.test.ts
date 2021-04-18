@@ -17,6 +17,7 @@ describe('layoutReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -29,6 +30,7 @@ describe('layoutReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -41,6 +43,7 @@ describe('layoutReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -53,6 +56,7 @@ describe('layoutReducer', () => {
     });
   });
 
+  // TODO
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {

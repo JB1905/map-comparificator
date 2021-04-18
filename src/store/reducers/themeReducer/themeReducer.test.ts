@@ -6,6 +6,7 @@ import { themeReducer } from '.';
 
 describe('themeReducer', () => {
   it('should match initial state values', () => {
+    // TODO
     expect(themeReducer(undefined, {} as any)).toEqual({
       activeTheme: Theme.Light,
     });
