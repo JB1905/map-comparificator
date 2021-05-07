@@ -77,6 +77,7 @@ export const useTheme = () => {
           } as const)
       );
     } else if (activeTheme === Theme.System) {
+      // TODO return
       setTheme(Theme.Light);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,6 +94,8 @@ export const useTheme = () => {
 
   const isDark = isDarkTheme || (activeTheme === Theme.System && isSystemDark);
 
+  // TODO
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
 
   const toggleTheme = () => {
@@ -103,6 +106,14 @@ export const useTheme = () => {
 
     dispatch(Actions.setActiveTheme(availableThemes[themeIndexInRange]));
   };
+
+  // TODO
+  // useEffect(() => {
+  //   console.log(activeTheme)
+  //   if (!activeTheme || !Object.keys(themes).includes(activeTheme)) {
+  //     setTheme(Theme.Light)
+  //   }
+  // }, [activeTheme, setTheme, themes])
 
   return {
     themes,
