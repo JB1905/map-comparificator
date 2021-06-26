@@ -24,9 +24,7 @@ const NavbarPrimaryGroup = () => {
         <>
           <ButtonGroup minimal>
             <Layouts />
-
             <CenteringModes />
-
             <MapSuppliers />
           </ButtonGroup>
 
