@@ -27,16 +27,19 @@ const Help = () => {
       onClosed={closeModal}
       style={{ paddingBottom: 0 }} // TODO use CSS style
     >
-      <div className={Classes.DIALOG_BODY}>
-        {Object.entries(badges).map(([shortcut, label]) => (
+      <div className={Classes.DIALOG_BODY} style={{maxWidth:270, marginLeft:115}}>
+        {Object.entries(badges).map(([shortcut, label], index) => (
           // TODO use CSS style
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center',
+          justifyContent: 'flex-end', 
+          marginTop: 6 // TODO check if not first
+           }}>
             <Text>{t(label)}:</Text>
 
             <Tag
               large
               round
-              style={{ width: 70, textAlign: 'center' }} // TODO use CSS style
+              style={{ width: 70, marginLeft: 8, textAlign: 'center' }} // TODO use CSS style
               intent={Intent.PRIMARY}
             >
               {shortcut.toUpperCase()}
