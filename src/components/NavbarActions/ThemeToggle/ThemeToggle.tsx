@@ -20,7 +20,7 @@ const ThemeToggle = () => {
       position={isSupportedScreenSize ? undefined : 'bottom-right'}
       content={
         <Menu>
-          {/*TODO*/}
+          {/* TODO refactor */}
           {Object.entries(themes).map(([key, { title, icon }]) => (
             <MenuItem
               text={title}
@@ -33,7 +33,7 @@ const ThemeToggle = () => {
         </Menu>
       }
     >
-      {/* TODO */}
+      {/* TODO remove as any */}
       <Button icon={(themes as any)?.[activeTheme]?.icon} minimal />
     </Popover2>
   );

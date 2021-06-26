@@ -12,7 +12,7 @@ const badges = {
   [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
 }
 
-// TODO
+// TODO refactor component
 const Help = () => {
   const { isOpen, setIsOpen, closeModal } = useModal();
 
@@ -25,17 +25,18 @@ const Help = () => {
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
       onClosed={closeModal}
-      style={{ paddingBottom: 0 }} // TODO
+      style={{ paddingBottom: 0 }} // TODO use CSS style
     >
       <div className={Classes.DIALOG_BODY}>
         {Object.entries(badges).map(([shortcut, label]) => (
-          // TODO
+          // TODO use CSS style
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Text>{t(label)}:</Text>
+
             <Tag
               large
               round
-              style={{ width: 70, textAlign: 'center' }} // TODO
+              style={{ width: 70, textAlign: 'center' }} // TODO use CSS style
               intent={Intent.PRIMARY}
             >
               {shortcut.toUpperCase()}

@@ -11,7 +11,7 @@ import {
 } from 'react-mosaic-component';
 import deepEqual from 'deep-equal';
 import { useTranslation } from 'react-i18next';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
 
@@ -21,7 +21,13 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
-// TODO
+type SetActiveLayoutCallback = (layout: Layout) => void
+type ClearLayoutCallback = () => void
+type CreateCustomLayoutCallback = (name: string) => void
+type RenameCustomLayoutCallback = (currentName: string, updatedName: string) => void
+type RemoveCustomLayoutCallback = (id: string) => void
+
+// TODO? rename hook
 // useLayoutActions
 
 export const useLayout = () => {
@@ -44,7 +50,7 @@ export const useLayout = () => {
     [t]
   );
 
-  // TODO useCallback
+  // TODO useCallback/useMemo isExistingLayout
   const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
     // TODO refactor
     return [...initialLayouts, ...customLayouts].find((layout) => {
@@ -60,34 +66,29 @@ export const useLayout = () => {
     });
   };
 
-  // TODO useCallback
-  const setActiveLayout = (layout: Layout) => {
+  const setActiveLayout = useCallback<SetActiveLayoutCallback>((layout) => {
     dispatch(Actions.setActiveLayout(layout));
-  };
+  }, [dispatch])
 
-  // TODO useCallback
-  const clearLayout = () => setActiveLayout(null);
+  const clearLayout = useCallback<ClearLayoutCallback>(() => setActiveLayout(null), [setActiveLayout]);
 
   // ------------------------------------
-  // TODO useCallback
-  const createCustomLayout = (name: string) => {
+  const createCustomLayout = useCallback<CreateCustomLayoutCallback>((name) => {
     dispatch(
       Actions.createCustomLayout({
         name,
         layout: activeLayout,
       })
     );
-  };
+  }, [activeLayout, dispatch])
 
-  // TODO useCallback
-  const renameCustomLayout = (currentName: string, updatedName: string) => {
+  const renameCustomLayout = useCallback<RenameCustomLayoutCallback>((currentName, updatedName) => {
     dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
-  };
+  }, [dispatch])
 
-  // TODO useCallback
-  const removeCustomLayout = (id: string) => {
+  const removeCustomLayout = useCallback<RemoveCustomLayoutCallback>((id) => {
     dispatch(Actions.removeCustomLayout(id));
-  };
+  }, [dispatch])
   // ------------------------------------
 
   // TODO refactor

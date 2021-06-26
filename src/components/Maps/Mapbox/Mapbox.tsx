@@ -1,9 +1,12 @@
 import ReactMapGL, { ViewportProps } from 'react-map-gl';
+import { useCallback } from 'react';
 
 import { useMaps } from 'hooks/useMaps';
 import { useTheme } from 'hooks/useTheme';
 
-// TODO
+type HandleViewportChangeCallback = (e: ViewportProps) => void
+
+// TODO update map implementation
 const Mapbox = () => {
   const {
     coords: [latitude, longitude],
@@ -14,11 +17,10 @@ const Mapbox = () => {
 
   const { isDark } = useTheme();
 
-  // TODO useCallback
-  const handleViewportChange = (e: ViewportProps) => {
+  const handleViewportChange = useCallback<HandleViewportChangeCallback>((e) => {
     // setCoords([e.latitude, e.longitude]);
     // setZoomLevel(e.zoom);
-  };
+  }, [])
 
   return (
     <ReactMapGL
