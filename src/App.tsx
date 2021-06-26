@@ -67,16 +67,12 @@ const App = () => {
     <>
       <Helmet>
         <html lang={i18n.language} />
-
         <meta name="description" content={t('app.description')} />
-
         <body className={themeClassName} />
       </Helmet>
 
-      {/* TODO change className */}
-      <Navbar className="navbar">
+      <Navbar className="app-navbar">
         <NavbarPrimaryGroup />
-
         <NavbarSecondaryGroup />
       </Navbar>
 

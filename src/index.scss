@@ -17,7 +17,7 @@ body,
   flex-direction: column;
 }
 
-.navbar,
+.app-navbar,
 .not-supported-screen-size {
   padding-left: calc(15px + env(safe-area-inset-left));
   padding-right: calc(15px + env(safe-area-inset-right));
