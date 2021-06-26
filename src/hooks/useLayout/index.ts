@@ -21,11 +21,14 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
-type SetActiveLayoutCallback = (layout: Layout) => void
-type ClearLayoutCallback = () => void
-type CreateCustomLayoutCallback = (name: string) => void
-type RenameCustomLayoutCallback = (currentName: string, updatedName: string) => void
-type RemoveCustomLayoutCallback = (id: string) => void
+type SetActiveLayoutCallback = (layout: Layout) => void;
+type ClearLayoutCallback = () => void;
+type CreateCustomLayoutCallback = (name: string) => void;
+type RenameCustomLayoutCallback = (
+  currentName: string,
+  updatedName: string
+) => void;
+type RemoveCustomLayoutCallback = (id: string) => void;
 
 // TODO? rename hook
 // useLayoutActions
@@ -66,29 +69,44 @@ export const useLayout = () => {
     });
   };
 
-  const setActiveLayout = useCallback<SetActiveLayoutCallback>((layout) => {
-    dispatch(Actions.setActiveLayout(layout));
-  }, [dispatch])
+  const setActiveLayout = useCallback<SetActiveLayoutCallback>(
+    (layout) => {
+      dispatch(Actions.setActiveLayout(layout));
+    },
+    [dispatch]
+  );
 
-  const clearLayout = useCallback<ClearLayoutCallback>(() => setActiveLayout(null), [setActiveLayout]);
+  const clearLayout = useCallback<ClearLayoutCallback>(
+    () => setActiveLayout(null),
+    [setActiveLayout]
+  );
 
   // ------------------------------------
-  const createCustomLayout = useCallback<CreateCustomLayoutCallback>((name) => {
-    dispatch(
-      Actions.createCustomLayout({
-        name,
-        layout: activeLayout,
-      })
-    );
-  }, [activeLayout, dispatch])
+  const createCustomLayout = useCallback<CreateCustomLayoutCallback>(
+    (name) => {
+      dispatch(
+        Actions.createCustomLayout({
+          name,
+          layout: activeLayout,
+        })
+      );
+    },
+    [activeLayout, dispatch]
+  );
 
-  const renameCustomLayout = useCallback<RenameCustomLayoutCallback>((currentName, updatedName) => {
-    dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
-  }, [dispatch])
+  const renameCustomLayout = useCallback<RenameCustomLayoutCallback>(
+    (currentName, updatedName) => {
+      dispatch(Actions.renameCustomLayout({ currentName, updatedName }));
+    },
+    [dispatch]
+  );
 
-  const removeCustomLayout = useCallback<RemoveCustomLayoutCallback>((id) => {
-    dispatch(Actions.removeCustomLayout(id));
-  }, [dispatch])
+  const removeCustomLayout = useCallback<RemoveCustomLayoutCallback>(
+    (id) => {
+      dispatch(Actions.removeCustomLayout(id));
+    },
+    [dispatch]
+  );
   // ------------------------------------
 
   // TODO refactor

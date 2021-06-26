@@ -10,7 +10,7 @@ const badges = {
   [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
   [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
   [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
-}
+};
 
 // TODO refactor component
 const Help = () => {

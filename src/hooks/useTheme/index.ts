@@ -93,9 +93,15 @@ export const useTheme = () => {
 
   const isSystemDark = useSystemTheme();
 
-  const isDark = useMemo(()=> isDarkTheme || (activeTheme === Theme.System && isSystemDark), [activeTheme, isDarkTheme, isSystemDark]);
+  const isDark = useMemo(
+    () => isDarkTheme || (activeTheme === Theme.System && isSystemDark),
+    [activeTheme, isDarkTheme, isSystemDark]
+  );
 
-  const setTheme = useCallback<SetThemeCallback>((theme) => dispatch(Actions.setActiveTheme(theme)), [dispatch]);
+  const setTheme = useCallback<SetThemeCallback>(
+    (theme) => dispatch(Actions.setActiveTheme(theme)),
+    [dispatch]
+  );
 
   const toggleTheme = useCallback(() => {
     const availableThemes = Object.keys(themes) as Theme[];
@@ -104,7 +110,7 @@ export const useTheme = () => {
     const themeIndexInRange = nextThemeIndex % availableThemes.length;
 
     dispatch(Actions.setActiveTheme(availableThemes[themeIndexInRange]));
-  }, [activeTheme, dispatch, themes])
+  }, [activeTheme, dispatch, themes]);
 
   return {
     themes,

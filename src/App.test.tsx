@@ -37,9 +37,9 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
-  it.todo('should apply dark theme to layout')
-  it.todo('should enable customization')
-  it.todo('should set language to EN')
-  it.todo('should clear layout on keyboard shortcut')
-  it.todo('should set language to PL')
+  it.todo('should apply dark theme to layout');
+  it.todo('should enable customization');
+  it.todo('should set language to EN');
+  it.todo('should clear layout on keyboard shortcut');
+  it.todo('should set language to PL');
 });
