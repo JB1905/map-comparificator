@@ -10,11 +10,4 @@ describe('Loader', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
-
-  // TODO
-  // it ('should match snapshot', () => {
-  //   const { asFragment } = render(<Loader />);
-
-  //   expect(asFragment()).toMatchSnapshot();
-  // })
 });

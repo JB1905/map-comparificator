@@ -91,10 +91,13 @@ export const useTheme = () => {
 
   const isSystemDark = useSystemTheme();
 
+  // TODO memo
   const isDark = isDarkTheme || (activeTheme === Theme.System && isSystemDark);
 
+  // TODO callback
   const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
 
+  // TODO callback
   const toggleTheme = () => {
     const availableThemes = Object.keys(themes) as Theme[];
 

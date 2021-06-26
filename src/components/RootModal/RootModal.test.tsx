@@ -4,11 +4,12 @@ import RootModal from './RootModal';
 
 import { useModal } from 'hooks/useModal';
 
-jest.mock('hooks/useModal', () => ({
-  useModal: jest.fn(),
-}));
-
 // TODO
+
+// jest.mock('hooks/useModal', () => ({
+//   useModal: jest.fn(),
+// }));
+
 describe('RootModal', () => {
   it.skip('should', () => {
     (useModal as jest.Mock).mockImplementation(() => ({
@@ -18,11 +19,11 @@ describe('RootModal', () => {
     const {} = render(<RootModal />);
   });
 
-  it.skip('should', () => {
-    (useModal as jest.Mock).mockImplementation(() => ({
-      modalType: 'Create Pattern',
-    }));
+  // it.skip('should', () => {
+  //   (useModal as jest.Mock).mockImplementation(() => ({
+  //     modalType: 'Create Pattern',
+  //   }));
 
-    const {} = render(<RootModal />);
-  });
+  //   const {} = render(<RootModal />);
+  // });
 });

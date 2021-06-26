@@ -71,6 +71,7 @@ const SearchForm = () => {
     [query, removeFromHistory, selectPlace]
   );
 
+  // TODO memo
   const prepareItems = useCallback(() => {
     if (error) {
       return [];
@@ -83,6 +84,7 @@ const SearchForm = () => {
     return history;
   }, [error, history, query, results]);
 
+  // TODO memo
   const prepareMenuItemText = useCallback(() => {
     if (!query) {
       return 'search.emptyQuery';

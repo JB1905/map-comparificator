@@ -7,9 +7,10 @@ jest.mock('react-viewport-hooks', () => ({
   useViewport: jest.fn(),
 }));
 
-jest.mock('react-viewport-hooks', () => ({
-  useViewport: jest.fn(),
-}));
+// TODO
+// jest.mock('react-viewport-hooks', () => ({
+//   useViewport: jest.fn(),
+// }));
 
 describe('App', () => {
   it.skip('should render mosaic grid', () => {
@@ -36,11 +37,9 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
-  // TODO
-  // it.skip('should apply dark theme to layout', () => {})
-  // it.skip('should enable customization', () => {})
-  // it.skip('should enable customization', () => {})
-  // it.skip('should set language to EN', () => {})
-  // it.skip('should clear layout on keyboard shortcut', () => {})
-  // it.skip('should set language to ', () => {})
+  it.todo('should apply dark theme to layout')
+  it.todo('should enable customization')
+  it.todo('should set language to EN')
+  it.todo('should clear layout on keyboard shortcut')
+  it.todo('should set language to PL')
 });

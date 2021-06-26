@@ -1,26 +1,22 @@
-import { useMemo } from 'react';
 import { Classes, Dialog, Text, Tag, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
 
+const badges = {
+  [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
+  [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
+  [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
+  [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
+  [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
+}
+
 // TODO
 const Help = () => {
   const { isOpen, setIsOpen, closeModal } = useModal();
 
   const { t } = useTranslation();
-
-  const badges = useMemo(
-    () => ({
-      [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
-      [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
-      [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
-      [KeyboardShortcut.CloseAll]: 'shortcut.closeAllMaps',
-      [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
-    }),
-    []
-  );
 
   return (
     <Dialog

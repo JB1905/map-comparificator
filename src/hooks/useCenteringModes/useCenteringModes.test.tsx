@@ -5,16 +5,16 @@ import { createStore } from 'redux';
 import { useCenteringModes } from '.';
 
 // TODO
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: (str: string) => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    };
-  },
-}));
+// jest.mock('react-i18next', () => ({
+//   useTranslation: () => {
+//     return {
+//       t: (str: string) => str,
+//       i18n: {
+//         changeLanguage: () => new Promise(() => {}),
+//       },
+//     };
+//   },
+// }));
 
 // TODO
 const initialState = {
@@ -33,9 +33,9 @@ const store = createStore<any, any, any, any>(
   }
 );
 
+// TODO
 describe('useCenteringModes', () => {
   it.skip('should', () => {
-    // TODO
     const wrapper = ({ children }) => (
       <Provider store={store}>{children}</Provider>
     );

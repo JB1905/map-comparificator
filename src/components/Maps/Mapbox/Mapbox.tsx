@@ -14,6 +14,7 @@ const Mapbox = () => {
 
   const { isDark } = useTheme();
 
+  // TODO useCallback
   const handleViewportChange = (e: ViewportProps) => {
     // setCoords([e.latitude, e.longitude]);
     // setZoomLevel(e.zoom);

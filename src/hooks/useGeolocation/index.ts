@@ -5,6 +5,7 @@ type GetGeolocationCallback = (
 ) => void;
 
 export const useGeolocation = () => {
+  // TODO memo
   const isGeolocationAvailable = 'geolocation' in navigator;
 
   // TODO permission

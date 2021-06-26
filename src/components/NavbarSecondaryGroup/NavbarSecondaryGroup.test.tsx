@@ -2,26 +2,28 @@ import { render } from '@testing-library/react';
 
 import NavbarSecondaryGroup from './NavbarSecondaryGroup';
 
-jest.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: jest.fn(),
-  }),
-}));
+// TODO
 
-jest.mock('hooks/useGeolocation', () => ({
-  useGeolocation: () => ({
-    isGeolocationAvailable: false,
-  }),
-}));
+// jest.mock('react-i18next', () => ({
+//   useTranslation: () => ({
+//     t: jest.fn(),
+//   }),
+// }));
 
-jest.mock('components/NavbarActions/CurrentGeolocation', () => () => (
-  <p>CurrentGeolocation</p>
-));
-jest.mock('components/SearchForm', () => () => <p>SearchForm</p>);
-jest.mock('components/NavbarActions/ThemeToggle', () => () => (
-  <p>ThemeToggle</p>
-));
-jest.mock('components/NavbarActions/Help', () => () => <p>Help</p>);
+// jest.mock('hooks/useGeolocation', () => ({
+//   useGeolocation: () => ({
+//     isGeolocationAvailable: false,
+//   }),
+// }));
+
+// jest.mock('components/NavbarActions/CurrentGeolocation', () => () => (
+//   <p>CurrentGeolocation</p>
+// ));
+// jest.mock('components/SearchForm', () => () => <p>SearchForm</p>);
+// jest.mock('components/NavbarActions/ThemeToggle', () => () => (
+//   <p>ThemeToggle</p>
+// ));
+// jest.mock('components/NavbarActions/Help', () => () => <p>Help</p>);
 
 describe('NavbarSecondaryGroup', () => {
   it.skip('should', () => {
@@ -40,7 +42,6 @@ describe('NavbarSecondaryGroup', () => {
     // isGeolocationAvailable false
   });
 
-  // TODO
   it.skip('should', () => {
     const { container } = render(<NavbarSecondaryGroup />);
 
