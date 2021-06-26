@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import mobile from 'is-mobile'
+import mobile from 'is-mobile';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
 
@@ -76,7 +76,10 @@ export const useTheme = () => {
         (prev) =>
           ({
             ...prev,
-            [Theme.System]: { title: t('theme.system'), icon: mobile() ? 'mobile-phone' : 'desktop' },
+            [Theme.System]: {
+              title: t('theme.system'),
+              icon: mobile() ? 'mobile-phone' : 'desktop',
+            },
           } as const)
       );
     } else if (activeTheme === Theme.System) {
