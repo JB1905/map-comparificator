@@ -11,18 +11,18 @@ const Mapbox = () => {
   const {
     coords: [latitude, longitude],
     zoomLevel,
-    // setCoords,
-    // setZoomLevel,
+    setCoords,
+    setZoomLevel,
   } = useMaps();
 
   const { isDark } = useTheme();
 
   const handleViewportChange = useCallback<HandleViewportChangeCallback>(
     (e) => {
-      // setCoords([e.latitude, e.longitude]);
-      // setZoomLevel(e.zoom);
+      setCoords([e.latitude, e.longitude]);
+      setZoomLevel(e.zoom);
     },
-    []
+    [setCoords, setZoomLevel]
   );
 
   return (
