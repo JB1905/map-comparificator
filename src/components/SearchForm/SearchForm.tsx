@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import * as React from 'react';
 import { MenuItem, InputGroup, Button } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
@@ -71,8 +71,7 @@ const SearchForm = () => {
     [query, removeFromHistory, selectPlace]
   );
 
-  // TODO memo
-  const prepareItems = useCallback(() => {
+  const searchResultItems = useMemo(() => {
     if (error) {
       return [];
     }
@@ -84,8 +83,7 @@ const SearchForm = () => {
     return history;
   }, [error, history, query, results]);
 
-  // TODO memo
-  const prepareMenuItemText = useCallback(() => {
+  const menuItemText = useMemo(() => {
     if (!query) {
       return 'search.emptyQuery';
     }
@@ -107,10 +105,10 @@ const SearchForm = () => {
 
   return (
     <Select
-      items={prepareItems()}
+      items={searchResultItems}
       itemRenderer={itemRenderer}
       onItemSelect={selectPlace}
-      noResults={<MenuItem text={t(prepareMenuItemText())} disabled />}
+      noResults={<MenuItem text={t(menuItemText)} disabled />}
       popoverProps={{ minimal: true }}
       filterable={false}
     >
