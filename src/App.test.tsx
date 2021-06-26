@@ -7,11 +7,6 @@ jest.mock('react-viewport-hooks', () => ({
   useViewport: jest.fn(),
 }));
 
-// TODO
-// jest.mock('react-viewport-hooks', () => ({
-//   useViewport: jest.fn(),
-// }));
-
 describe('App', () => {
   it.skip('should render mosaic grid', () => {
     (useViewport as jest.Mock).mockImplementation(() => ({
