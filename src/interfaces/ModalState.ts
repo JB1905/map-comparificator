@@ -4,7 +4,7 @@ import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'enums/ModalType';
 
-// TODO
+// TODO add type guard (discriminated union)
 export type ModalCreate = {
   modalType: ModalType.Create;
   modalParams: CustomLayout;
@@ -17,12 +17,12 @@ export type ModalEdit = {
 
 export type ModalDelete = {
   modalType: ModalType.Delete;
-  // modalParams: null
+  // modalParams: null // TODO
 };
 
 export type ModalHelp = {
   modalType: ModalType.Help;
-  // modalParams: null
+  // modalParams: null // TODO
 };
 
 export type X = ModalCreate | ModalEdit | ModalDelete | ModalHelp;

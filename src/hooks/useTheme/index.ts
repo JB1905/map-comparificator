@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useTypedSelector } from 'hooks/useTypedSelector';
 
@@ -30,7 +30,9 @@ type SupportedThemes =
       readonly System: SystemTheme;
     });
 
-// TODO
+type SetThemeCallback = (theme: Theme) => void;
+
+// TODO refactor
 const useSystemTheme = () => {
   const [isSystemDark, setIsSystemDark] = useState(false);
 
@@ -91,21 +93,18 @@ export const useTheme = () => {
 
   const isSystemDark = useSystemTheme();
 
-  // TODO memo
-  const isDark = isDarkTheme || (activeTheme === Theme.System && isSystemDark);
+  const isDark = useMemo(()=> isDarkTheme || (activeTheme === Theme.System && isSystemDark), [activeTheme, isDarkTheme, isSystemDark]);
 
-  // TODO callback
-  const setTheme = (theme: Theme) => dispatch(Actions.setActiveTheme(theme));
+  const setTheme = useCallback<SetThemeCallback>((theme) => dispatch(Actions.setActiveTheme(theme)), [dispatch]);
 
-  // TODO callback
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     const availableThemes = Object.keys(themes) as Theme[];
 
     const nextThemeIndex = availableThemes.indexOf(activeTheme) + 1;
     const themeIndexInRange = nextThemeIndex % availableThemes.length;
 
     dispatch(Actions.setActiveTheme(availableThemes[themeIndexInRange]));
-  };
+  }, [activeTheme, dispatch, themes])
 
   return {
     themes,

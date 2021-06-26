@@ -5,6 +5,7 @@ import LazyComponent from './LazyComponent';
 
 const DummyLazy = lazy(() => import('./__mocks__/DummyLazy'));
 
+// TODO
 jest.mock('../Loader', () => () => <p>Loading...</p>);
 
 describe('LazyComponent', () => {

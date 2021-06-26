@@ -1,12 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 type GetGeolocationCallback = (
   currentCoords: (coords: GeolocationCoordinates) => void
 ) => void;
 
 export const useGeolocation = () => {
-  // TODO memo
-  const isGeolocationAvailable = 'geolocation' in navigator;
+  const isGeolocationAvailable = useMemo(() => 'geolocation' in navigator, []);
 
   // TODO permission
   const getGeolocation = useCallback<GetGeolocationCallback>(
