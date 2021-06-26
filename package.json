@@ -25,6 +25,7 @@
     "i18next": "^20.2.1",
     "i18next-browser-languagedetector": "^6.1.0",
     "i18next-http-backend": "^1.2.1",
+    "is-mobile": "^3.0.0",
     "leaflet": "^1.7.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
