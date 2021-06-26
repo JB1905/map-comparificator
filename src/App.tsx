@@ -13,7 +13,7 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import 'react-mosaic-component/react-mosaic-component.css';
 
-import { MAPS } from 'collections/maps';
+import { MAPS } from 'constants/collections/maps';
 
 import RootModal from 'components/RootModal';
 import NavbarPrimaryGroup from 'components/NavbarPrimaryGroup';

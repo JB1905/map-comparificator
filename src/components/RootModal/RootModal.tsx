@@ -1,6 +1,6 @@
 import { useModal } from 'hooks/useModal';
 
-import { MODALS } from 'collections/modals';
+import { MODALS } from 'constants/collections/modals';
 
 import './RootModal.scss';
 
