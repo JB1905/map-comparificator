@@ -4,7 +4,7 @@ import { CenteringModesState } from 'interfaces/CenteringModesState';
 
 import type { CenteringModesActionTypes } from 'types/CenteringModesActionTypes';
 
-import { CenteringMode } from 'enums/CenteringMode';
+import { CenteringMode } from 'types/CenteringMode';
 
 const initialState: CenteringModesState = {
   activeCenteringMode: CenteringMode.Center,

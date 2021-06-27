@@ -1,4 +1,4 @@
-import { CenteringMode } from 'enums/CenteringMode';
+import { CenteringMode } from 'types/CenteringMode';
 
 import * as Actions from '.';
 
