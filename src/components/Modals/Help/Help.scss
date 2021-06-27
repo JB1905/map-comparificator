@@ -1,0 +1,32 @@
+.help-dialog {
+  padding-bottom: 0;
+}
+
+.help-dialog-body {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  width: fit-content;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.help-badge {
+  display: inherit;
+  align-items: center;
+  justify-content: flex-end;
+  width: inherit;
+}
+
+.help-badge:not(:first-child) {
+  margin-top: 6px;
+}
+
+.help-badge-text {
+  margin-right: 8px;
+}
+
+.help-badge-tag {
+  width: 60px;
+  text-align: center;
+}
