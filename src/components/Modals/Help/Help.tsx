@@ -1,8 +1,10 @@
-import { Classes, Dialog, Text, Tag, Intent } from '@blueprintjs/core';
+import { Dialog, Text, Tag, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
 import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+
+import './Help.scss';
 
 const badges = {
   [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
@@ -12,7 +14,6 @@ const badges = {
   [KeyboardShortcut.OpenHelp]: 'shortcut.openHelp',
 };
 
-// TODO refactor component
 const Help = () => {
   const { isOpen, setIsOpen, closeModal } = useModal();
 
@@ -25,20 +26,14 @@ const Help = () => {
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
       onClosed={closeModal}
-      style={{ paddingBottom: 0 }} // TODO use CSS style
+      className="help-dialog"
     >
-      <div className={Classes.DIALOG_BODY}>
+      <div className="help-dialog-body">
         {Object.entries(badges).map(([shortcut, label]) => (
-          // TODO use CSS style
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Text>{t(label)}:</Text>
+          <div className="help-badge">
+            <Text className="help-badge-text">{t(label)}:</Text>
 
-            <Tag
-              large
-              round
-              style={{ width: 70, textAlign: 'center' }} // TODO use CSS style
-              intent={Intent.PRIMARY}
-            >
+            <Tag large round className="help-badge-tag" intent={Intent.PRIMARY}>
               {shortcut.toUpperCase()}
             </Tag>
           </div>
