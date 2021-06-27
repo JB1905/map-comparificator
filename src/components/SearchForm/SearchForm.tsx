@@ -71,6 +71,7 @@ const SearchForm = () => {
     [query, removeFromHistory, selectPlace]
   );
 
+  // TODO
   const searchResultItems = useMemo(() => {
     if (error) {
       return [];
