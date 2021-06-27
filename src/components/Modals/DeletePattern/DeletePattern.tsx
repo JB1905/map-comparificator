@@ -41,7 +41,7 @@ const DeletePattern = () => {
       canEscapeKeyCancel
       icon="trash"
     >
-      <h5 className="bp3-heading">
+      <h5 className="bp4-heading">
         {t('modal.patternDelete.title', { name: modalParams?.name })}
       </h5>
 

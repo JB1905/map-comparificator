@@ -1,6 +1,6 @@
-import { Toaster } from '@blueprintjs/core';
+import { OverlayToaster } from '@blueprintjs/core';
 
-export const AppToaster = Toaster.create({
+export const AppToaster = OverlayToaster.create({
   className: 'toaster',
   maxToasts: 1,
 });

@@ -13,7 +13,7 @@ context('Search', () => {
   // existing
   it ('tests', () => {
     // cy.get('[type="search"]').type('paris');
-    // cy.get(".bp3-menu .bp3-menu-item").contains('[icon="map-marker"]').first().click();
+    // cy.get(".bp4-menu .bp4-menu-item").contains('[icon="map-marker"]').first().click();
   })
 
   // not exitsting

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
-import { MAPS } from 'constants/collections/maps';
+import { MAPS } from 'collections/maps';
 
 const MapSuppliers = () => {
   const { activeLayout, openLayoutWindow } = useLayout();

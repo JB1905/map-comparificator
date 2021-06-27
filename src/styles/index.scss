@@ -1,3 +1,5 @@
+@import "~@blueprintjs/popover2/lib/css/blueprint-popover2.css";
+
 html,
 body,
 .mosaic {
@@ -15,7 +17,7 @@ body,
   flex-direction: column;
 }
 
-.app-navbar,
+.navbar,
 .not-supported-screen-size {
   padding-left: calc(15px + env(safe-area-inset-left));
   padding-right: calc(15px + env(safe-area-inset-right));

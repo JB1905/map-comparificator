@@ -1,5 +1,4 @@
-import { Button, Menu, MenuItem } from '@blueprintjs/core';
-import { Popover2 } from '@blueprintjs/popover2';
+import { Button, Menu, MenuItem, Popover } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useLayout } from 'hooks/useLayout';
@@ -17,7 +16,7 @@ const CenteringModes = () => {
   const { t } = useTranslation();
 
   return (
-    <Popover2
+    <Popover
       disabled={isEmptyLayout}
       content={
         <Menu>
@@ -40,7 +39,7 @@ const CenteringModes = () => {
         disabled={isEmptyLayout}
         minimal
       />
-    </Popover2>
+    </Popover>
   );
 };
 
