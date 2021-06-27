@@ -93,6 +93,10 @@ const SearchForm = () => {
         return 'search.error.network';
       }
 
+      if (error.message === 'Unable to geocode') {
+        return 'search.noResults';
+      }
+
       return 'search.error';
     }
 
