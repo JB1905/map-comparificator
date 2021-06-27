@@ -13,14 +13,14 @@ import { store, persistor } from 'store';
 
 import reportWebVitals from 'reportWebVitals';
 
-import i18next from 'config/i18n';
+import i18n from 'config/i18n';
 
 import 'index.scss';
 
 ReactDOM.render(
   <StrictMode>
     <LazyComponent>
-      <I18nextProvider i18n={i18next}>
+      <I18nextProvider i18n={i18n}>
         <Provider store={store}>
           <PersistGate loading={<Loader />} persistor={persistor}>
             <App />
