@@ -1,4 +1,4 @@
-import { Theme } from 'enums/Theme';
+import { Theme } from 'constants/Theme';
 
 import * as Actions from '.';
 

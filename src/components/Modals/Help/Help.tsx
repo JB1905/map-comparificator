@@ -2,7 +2,7 @@ import { Dialog, Text, Tag, Intent } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import { useModal } from 'hooks/useModal';
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 import './Help.scss';
 

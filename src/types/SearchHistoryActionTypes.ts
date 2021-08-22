@@ -2,7 +2,7 @@ import {
   SearchHistoryAddAction,
   SearchHistoryRemoveAction,
   SearchHistoryClearAction,
-} from 'interfaces/SearchHistoryState';
+} from 'types/SearchHistoryState';
 
 export type SearchHistoryActionTypes =
   | SearchHistoryAddAction

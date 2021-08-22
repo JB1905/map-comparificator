@@ -1,6 +1,6 @@
 import { TOGGLE_CUSTOMIZATION } from '../../actions';
 
-import { CustomizationState } from 'interfaces/CustomizationState';
+import { CustomizationState } from 'types/CustomizationState';
 
 import type { CustomizationActionTypes } from 'types/CustomizationActionTypes';
 

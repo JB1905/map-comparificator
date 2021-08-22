@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { LocationIqResult, LocationIqError } from 'interfaces/LocationIq';
+import { LocationIqResult, LocationIqError } from 'types/LocationIq';
 
 import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 

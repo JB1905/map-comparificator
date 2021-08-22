@@ -7,7 +7,7 @@ import * as Actions from 'store/actions';
 
 import type { CustomLayout } from 'types/Layout';
 
-import { ModalType } from 'enums/ModalType';
+import { ModalType } from 'constants/ModalType';
 
 type OpenModalCallback = (
   modalType: ModalType,

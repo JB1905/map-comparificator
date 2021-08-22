@@ -1,6 +1,6 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../../actions';
 
-import { ModalState } from 'interfaces/ModalState';
+import { ModalState } from 'types/ModalState';
 
 import type { ModalActionTypes } from 'types/ModalActionTypes';
 

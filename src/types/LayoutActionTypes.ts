@@ -3,7 +3,7 @@ import {
   CreateCustomLayoutAction,
   RenameCustomLayoutAction,
   RemoveCustomLayoutAction,
-} from 'interfaces/LayoutState';
+} from 'types/LayoutState';
 
 export type LayoutActionTypes =
   | SetActiveLayoutAction

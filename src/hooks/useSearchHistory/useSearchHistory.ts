@@ -5,7 +5,7 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { LocationIqResult } from 'interfaces/LocationIq';
+import { LocationIqResult } from 'types/LocationIq';
 
 import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 

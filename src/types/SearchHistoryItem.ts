@@ -1,4 +1,4 @@
-import { LocationIqResult } from 'interfaces/LocationIq';
+import { LocationIqResult } from 'types/LocationIq';
 
 export type SearchHistoryItem = Pick<
   LocationIqResult,

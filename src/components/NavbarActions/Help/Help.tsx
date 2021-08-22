@@ -4,8 +4,8 @@ import { useCallback } from 'react';
 
 import { useModal } from 'hooks/useModal';
 
-import { ModalType } from 'enums/ModalType';
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { ModalType } from 'constants/ModalType';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 const Help = () => {
   const { openModal } = useModal();

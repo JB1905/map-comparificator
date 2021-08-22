@@ -1,4 +1,4 @@
-import { Theme } from 'enums/Theme';
+import { Theme } from 'constants/Theme';
 
 import { SET_ACTIVE_THEME } from 'store/actions';
 

@@ -1,4 +1,4 @@
-import { Theme } from 'enums/Theme';
+import { Theme } from 'constants/Theme';
 
 export const SET_ACTIVE_THEME = 'SET_ACTIVE_THEME';
 

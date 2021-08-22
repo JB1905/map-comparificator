@@ -7,9 +7,9 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { Theme } from 'enums/Theme';
+import { Theme } from 'constants/Theme';
 
-type DefaultThemes = {
+interface DefaultThemes {
   readonly Light: {
     readonly title: string;
     readonly icon: 'flash';
@@ -20,7 +20,7 @@ type DefaultThemes = {
   };
 };
 
-type SystemTheme = {
+interface SystemTheme {
   readonly title: string;
   readonly icon: 'desktop' | 'mobile-phone';
 };

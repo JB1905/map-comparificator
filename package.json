@@ -13,7 +13,9 @@
     "test": "react-scripts test --coverage --env=jest-environment-jsdom-sixteen",
     "cy:open": "cypress open",
     "eject": "react-scripts eject",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@blueprintjs/core": "^3.42.0",
@@ -93,11 +95,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

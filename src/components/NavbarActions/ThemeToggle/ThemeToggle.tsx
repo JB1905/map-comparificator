@@ -5,8 +5,8 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 import { useTheme } from 'hooks/useTheme';
 
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
-import { Theme } from 'enums/Theme';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
+import { Theme } from 'constants/Theme';
 
 const ThemeToggle = () => {
   const isSupportedScreenSize = useSupportedScreenSize();

@@ -24,7 +24,7 @@ import { useSupportedScreenSize } from 'hooks/useSupportedScreenSize';
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 type TileRendererCallback = (id: string, path: MosaicBranch[]) => JSX.Element;
 

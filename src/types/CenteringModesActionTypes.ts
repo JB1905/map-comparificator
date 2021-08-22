@@ -1,3 +1,3 @@
-import { SetActiveCenteringModeAction } from 'interfaces/CenteringModesState';
+import { SetActiveCenteringModeAction } from 'types/CenteringModesState';
 
 export type CenteringModesActionTypes = SetActiveCenteringModeAction;

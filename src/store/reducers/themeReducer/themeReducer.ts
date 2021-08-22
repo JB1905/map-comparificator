@@ -1,8 +1,8 @@
 import { SET_ACTIVE_THEME } from '../../actions';
 
-import { Theme } from 'enums/Theme';
+import { Theme } from 'constants/Theme';
 
-import { ThemeState } from 'interfaces/ThemeState';
+import { ThemeState } from 'types/ThemeState';
 
 import type { ThemeActionTypes } from 'types/ThemeActionTypes';
 

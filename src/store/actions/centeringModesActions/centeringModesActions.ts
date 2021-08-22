@@ -1,4 +1,4 @@
-import { CenteringMode } from 'enums/CenteringMode';
+import { CenteringMode } from 'constants/CenteringMode';
 
 export const SET_ACTIVE_CENTERING_MODE = 'SET_ACTIVE_CENTERING_MODE';
 

@@ -3,7 +3,7 @@ import EditPattern from 'components/Modals/EditPattern';
 import DeletePattern from 'components/Modals/DeletePattern';
 import Help from 'components/Modals/Help';
 
-import { ModalType } from 'enums/ModalType';
+import { ModalType } from 'constants/ModalType';
 
 export const MODALS = {
   [ModalType.Create]: CreatePattern,

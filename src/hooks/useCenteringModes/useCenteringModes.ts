@@ -6,7 +6,7 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 
 import * as Actions from 'store/actions';
 
-import { CenteringMode } from 'enums/CenteringMode';
+import { CenteringMode } from 'constants/CenteringMode';
 
 type SetCenteringModeCallback = (centeringMode: CenteringMode) => void;
 

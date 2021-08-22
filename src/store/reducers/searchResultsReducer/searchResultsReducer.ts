@@ -4,7 +4,7 @@ import {
   SEARCH_RESULTS_ERROR,
 } from '../../actions';
 
-import { SearchResultsState } from 'interfaces/SearchResultsState';
+import { SearchResultsState } from 'types/SearchResultsState';
 
 import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
 

@@ -16,7 +16,7 @@ import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 import { useModal } from 'hooks/useModal';
 
-import { ModalType } from 'enums/ModalType';
+import { ModalType } from 'constants/ModalType';
 
 const Layouts = () => {
   const {

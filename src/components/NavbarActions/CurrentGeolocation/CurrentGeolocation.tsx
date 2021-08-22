@@ -6,7 +6,7 @@ import { useGeolocation } from 'hooks/useGeolocation';
 import { useMaps } from 'hooks/useMaps';
 import { useLayout } from 'hooks/useLayout';
 
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 const CurrentGeolocation = () => {
   const { getGeolocation } = useGeolocation();

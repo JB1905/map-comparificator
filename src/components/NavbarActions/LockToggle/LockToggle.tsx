@@ -4,7 +4,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { useLayout } from 'hooks/useLayout';
 import { useCustomization } from 'hooks/useCustomization';
 
-import { KeyboardShortcut } from 'enums/KeyboardShortcut';
+import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 const LockToggle = () => {
   const { isEmptyLayout } = useLayout();

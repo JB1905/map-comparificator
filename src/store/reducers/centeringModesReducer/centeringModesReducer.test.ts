@@ -1,4 +1,4 @@
-import { CenteringMode } from 'enums/CenteringMode';
+import { CenteringMode } from 'constants/CenteringMode';
 
 import { SET_ACTIVE_CENTERING_MODE } from 'store/actions';
 

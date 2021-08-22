@@ -4,7 +4,7 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from '../../actions';
 
-import { SearchHistoryState } from 'interfaces/SearchHistoryState';
+import { SearchHistoryState } from 'types/SearchHistoryState';
 
 import type { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
 

@@ -1,6 +1,6 @@
 import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../../actions';
 
-import { MapsState } from 'interfaces/MapsState';
+import { MapsState } from 'types/MapsState';
 
 import type { MapsActionTypes } from 'types/MapsActionTypes';
 

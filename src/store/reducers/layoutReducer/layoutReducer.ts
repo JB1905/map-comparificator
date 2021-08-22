@@ -7,7 +7,7 @@ import {
 
 import { gridLayout } from 'constants/layouts';
 
-import { LayoutState } from 'interfaces/LayoutState';
+import { LayoutState } from 'types/LayoutState';
 
 import type { LayoutActionTypes } from 'types/LayoutActionTypes';
 

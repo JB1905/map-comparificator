@@ -11,7 +11,7 @@ import { useMaps } from 'hooks/useMaps';
 
 import { locationIcons } from 'constants/locationIcons';
 
-import { LocationIqResult } from 'interfaces/LocationIq';
+import { LocationIqResult } from 'types/LocationIq';
 
 import type { SearchHistoryItem } from 'types/SearchHistoryItem';
 
