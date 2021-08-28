@@ -3,9 +3,9 @@ import { useViewport } from 'react-viewport-hooks';
 
 import App from './App';
 
-jest.mock('react-viewport-hooks', () => ({
-  useViewport: jest.fn(),
-}));
+// jest.mock('react-viewport-hooks', () => ({
+//   useViewport: jest.fn(),
+// }));
 
 // TODO
 // jest.mock('react-viewport-hooks', () => ({

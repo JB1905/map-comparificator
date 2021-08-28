@@ -1,8 +1,30 @@
 import {
-  SearchResultsLoadingAction,
-  SearchResultsSuccessAction,
-  SearchResultsErrorAction,
-} from 'types/SearchResultsState';
+  SEARCH_RESULTS_LOADING,
+  SEARCH_RESULTS_SUCCESS,
+  SEARCH_RESULTS_ERROR,
+} from 'store/actions';
+
+import { LocationIqResult } from './LocationIq';
+
+export interface SearchResultsState {
+  readonly isLoading: boolean;
+  readonly results: LocationIqResult[];
+  readonly error: Error | null;
+}
+
+interface SearchResultsLoadingAction {
+  readonly type: typeof SEARCH_RESULTS_LOADING;
+}
+
+interface SearchResultsSuccessAction {
+  readonly type: typeof SEARCH_RESULTS_SUCCESS;
+  readonly payload: LocationIqResult[];
+}
+
+interface SearchResultsErrorAction {
+  readonly type: typeof SEARCH_RESULTS_ERROR;
+  readonly payload: Error;
+}
 
 export type SearchResultsActionTypes =
   | SearchResultsLoadingAction

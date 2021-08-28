@@ -52,6 +52,7 @@ const NavbarSecondaryGroup = () => {
         </>
       )}
 
+      {/* TODO? move to separate component */}
       <a
         href="https://github.com/JB1905/map-comparificator"
         target="_blank"
