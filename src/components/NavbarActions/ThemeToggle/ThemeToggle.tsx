@@ -34,9 +34,10 @@ const ThemeToggle = () => {
       }
     >
       {/* TODO remove as any */}
-      <Button icon={(themes as any)?.[activeTheme]?.icon} minimal />
+      <Button icon={themes?.[activeTheme]?.icon} minimal />
     </Popover2>
   );
 };
 
+// TODO
 export default ThemeToggle;

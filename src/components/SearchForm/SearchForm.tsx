@@ -23,12 +23,10 @@ type SelectPlaceCallback = (place: SearchResultItem) => void;
 type ItemRendererCallback = (item: SearchResultItem) => JSX.Element;
 
 const SearchForm = () => {
+  // TODO
   const { results, error, isLoading, query, setQuery } = useSearchResults();
-
   const { history, addToHistory, removeFromHistory } = useSearchHistory();
-
   const { isEmptyLayout } = useLayout();
-
   const { setCoords } = useMaps();
 
   const { t } = useTranslation();
@@ -126,4 +124,5 @@ const SearchForm = () => {
   );
 };
 
+// TODO?
 export default SearchForm;

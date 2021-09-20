@@ -1,8 +1,6 @@
 import { UPDATE_COORDS, UPDATE_ZOOM_LEVEL } from '../../actions';
 
-import { MapsState } from 'types/MapsState';
-
-import type { MapsActionTypes } from 'types/MapsActionTypes';
+import type { MapsState, MapsActionTypes } from 'types/MapsActionTypes';
 
 const initialState: MapsState = {
   coords: [37.7790262, -122.4199061],

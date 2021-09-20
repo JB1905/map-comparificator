@@ -7,9 +7,7 @@ import {
 
 import { gridLayout } from 'constants/layouts';
 
-import { LayoutState } from 'types/LayoutState';
-
-import type { LayoutActionTypes } from 'types/LayoutActionTypes';
+import type { LayoutState, LayoutActionTypes } from 'types/LayoutActionTypes';
 
 const initialState: LayoutState = {
   activeLayout: gridLayout,

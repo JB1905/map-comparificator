@@ -4,9 +4,10 @@ import {
   SEARCH_RESULTS_ERROR,
 } from '../../actions';
 
-import { SearchResultsState } from 'types/SearchResultsState';
-
-import type { SearchResultsActionTypes } from 'types/SearchResultsActionTypes';
+import type {
+  SearchResultsState,
+  SearchResultsActionTypes,
+} from 'types/SearchResultsActionTypes';
 
 const initialState: SearchResultsState = {
   isLoading: false,

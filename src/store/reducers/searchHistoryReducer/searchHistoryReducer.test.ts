@@ -8,12 +8,15 @@ import { searchHistoryReducer } from '.';
 
 describe('searchHistoryReducer', () => {
   it('should match initial state values', () => {
+    // TODO
+      // TODO inline snapshot
     expect(searchHistoryReducer(undefined, {} as any)).toEqual({
       items: [],
     });
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {
@@ -26,6 +29,7 @@ describe('searchHistoryReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {
@@ -38,6 +42,7 @@ describe('searchHistoryReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchHistoryReducer(undefined, {

@@ -8,11 +8,8 @@ import { useCenteringModes } from 'hooks/useCenteringModes';
 const CenteringModes = () => {
   const { isEmptyLayout } = useLayout();
 
-  const {
-    centeringModes,
-    activeCenteringMode,
-    setCenteringMode,
-  } = useCenteringModes();
+  const { centeringModes, activeCenteringMode, setCenteringMode } =
+    useCenteringModes();
 
   const { t } = useTranslation();
 
@@ -44,4 +41,5 @@ const CenteringModes = () => {
   );
 };
 
+// TODO
 export default CenteringModes;

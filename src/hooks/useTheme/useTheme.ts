@@ -18,12 +18,12 @@ interface DefaultThemes {
     readonly title: string;
     readonly icon: 'moon';
   };
-};
+}
 
 interface SystemTheme {
   readonly title: string;
   readonly icon: 'desktop' | 'mobile-phone';
-};
+}
 
 type SupportedThemes =
   | DefaultThemes
@@ -54,7 +54,35 @@ const useSystemTheme = () => {
   return isSystemDark;
 };
 
-// const useAvailableThemes = () => {}
+// const useAvailableThemes = () => {
+//   const { t } = useTranslation();
+
+//   const { activeTheme } = useTypedSelector((state) => state.theme);
+
+//   // TODO
+//   const [themes, setThemes] = useState<SupportedThemes>({
+//     [Theme.Light]: { title: t('theme.light'), icon: 'flash' },
+//     [Theme.Dark]: { title: t('theme.dark'), icon: 'moon' },
+//   } as const);
+
+//   useEffect(() => {
+//     if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+//       setThemes(
+//         (prev) =>
+//           ({
+//             ...prev,
+//             [Theme.System]: {
+//               title: t('theme.system'),
+//               icon: mobile() ? 'mobile-phone' : 'desktop',
+//             },
+//           } as const)
+//       );
+//     } else if (activeTheme === Theme.System) {
+//       setTheme(Theme.Light);
+//     }
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [t, activeTheme]);
+// }
 
 // TODO refactor
 export const useTheme = () => {
@@ -65,6 +93,7 @@ export const useTheme = () => {
 
   const { activeTheme } = useTypedSelector((state) => state.theme);
 
+  // TODO
   const [themes, setThemes] = useState<SupportedThemes>({
     [Theme.Light]: { title: t('theme.light'), icon: 'flash' },
     [Theme.Dark]: { title: t('theme.dark'), icon: 'moon' },
@@ -98,6 +127,7 @@ export const useTheme = () => {
   const isSystemDark = useSystemTheme();
 
   const isDark = useMemo(
+    // TODO || => ??
     () => isDarkTheme || (activeTheme === Theme.System && isSystemDark),
     [activeTheme, isDarkTheme, isSystemDark]
   );

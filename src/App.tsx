@@ -65,6 +65,7 @@ const App = () => {
 
   return (
     <>
+      {/* TODO move to HEAD component */}
       <Helmet>
         <html lang={i18n.language} />
         <meta name="description" content={t('app.description')} />
@@ -77,6 +78,7 @@ const App = () => {
       </Navbar>
 
       {isSupportedScreenSize ? (
+        // TODO separate component
         <>
           <Mosaic
             resize={isCustomizationEnabled ? undefined : 'DISABLED'}
@@ -96,6 +98,7 @@ const App = () => {
           <RootModal />
         </>
       ) : (
+        // TODO separate component
         <NonIdealState
           icon="zoom-to-fit"
           title={t('screenNotSupported.title')}

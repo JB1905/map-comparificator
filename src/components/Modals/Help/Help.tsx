@@ -6,7 +6,8 @@ import { KeyboardShortcut } from 'constants/KeyboardShortcut';
 
 import './Help.scss';
 
-const badges = {
+// TODO
+const BADGES = {
   [KeyboardShortcut.ToggleLock]: 'shortcut.toggleLock',
   [KeyboardShortcut.ToggleTheme]: 'shortcut.toggleTheme',
   [KeyboardShortcut.Geolocation]: 'shortcut.getGeolocation',
@@ -29,7 +30,7 @@ const Help = () => {
       className="help-dialog"
     >
       <div className="help-dialog-body">
-        {Object.entries(badges).map(([shortcut, label]) => (
+        {Object.entries(BADGES).map(([shortcut, label]) => (
           <div className="help-badge">
             <Text className="help-badge-text">{t(label)}:</Text>
 
@@ -43,4 +44,5 @@ const Help = () => {
   );
 };
 
+// TODO
 export default Help;

@@ -4,9 +4,10 @@ import {
   SEARCH_HISTORY_CLEAR,
 } from '../../actions';
 
-import { SearchHistoryState } from 'types/SearchHistoryState';
-
-import type { SearchHistoryActionTypes } from 'types/SearchHistoryActionTypes';
+import type {
+  SearchHistoryState,
+  SearchHistoryActionTypes,
+} from 'types/SearchHistoryActionTypes';
 
 const initialState: SearchHistoryState = {
   items: [],
@@ -22,6 +23,7 @@ export const searchHistoryReducer = (
         (item) => item.place_id === action.payload.place_id
       );
 
+      // TODO? move logic outside reducer
       if (exists) return state;
 
       return { ...state, items: [action.payload, ...state.items] };

@@ -4,6 +4,8 @@ import { mapsReducer } from '.';
 
 describe('mapsReducer', () => {
   it('should match initial state values', () => {
+    // TODO
+      // TODO inline snapshot
     expect(mapsReducer(undefined, {} as any)).toEqual({
       coords: [37.7790262, -122.4199061],
       zoomLevel: 7,
@@ -11,6 +13,7 @@ describe('mapsReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       mapsReducer(undefined, {
@@ -23,6 +26,7 @@ describe('mapsReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       mapsReducer(undefined, {

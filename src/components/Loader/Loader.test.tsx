@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react';
 
-import Loader from './Loader';
+import Loader from '.';
 
 describe('Loader', () => {
   it('should render component', () => {
     const { container, asFragment } = render(<Loader />);
 
+    // TODO no querySelector
     expect(container.querySelector('.loader')).toBeInTheDocument();
 
     expect(asFragment()).toMatchSnapshot();

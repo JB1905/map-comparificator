@@ -42,6 +42,7 @@ describe('SearchForm', () => {
   it.skip('should fill search input', () => {
     const { container } = render(<SearchForm />);
 
+    // TODO use getBy
     const input = container.querySelector(
       '[type="search"]'
     ) as HTMLInputElement;

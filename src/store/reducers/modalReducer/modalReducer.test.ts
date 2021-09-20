@@ -4,6 +4,8 @@ import { modalReducer } from '.';
 
 describe('modalReducer', () => {
   it('should match initial state values', () => {
+    // TODO
+      // TODO inline snapshot
     expect(modalReducer(undefined, {} as any)).toEqual({
       modalType: null,
       modalParams: null,
@@ -11,6 +13,7 @@ describe('modalReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       modalReducer(undefined, {
@@ -23,6 +26,7 @@ describe('modalReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       modalReducer(undefined, {

@@ -21,6 +21,10 @@ import { gridLayout, columnLayout, mosaicLayout } from 'constants/layouts';
 
 import type { Layout } from 'types/Layout';
 
+type FindExistingLayoutCallback = (name?: string, isPatternIncluded?: boolean) => {
+  name: string;
+  layout: Layout;
+} | undefined
 type SetActiveLayoutCallback = (layout: Layout) => void;
 type ClearLayoutCallback = () => void;
 type CreateCustomLayoutCallback = (name: string) => void;
@@ -29,6 +33,7 @@ type RenameCustomLayoutCallback = (
   updatedName: string
 ) => void;
 type RemoveCustomLayoutCallback = (id: string) => void;
+type OpenLayoutWindowCallback = (windowName: string) => void
 
 // TODO? rename hook
 // useLayoutActions
@@ -44,6 +49,7 @@ export const useLayout = () => {
 
   const isEmptyLayout = useMemo(() => activeLayout === null, [activeLayout]);
 
+  // TODO without t() - only key
   const initialLayouts = useMemo(
     () => [
       { name: t('initialLayout.grid'), layout: gridLayout },
@@ -53,8 +59,7 @@ export const useLayout = () => {
     [t]
   );
 
-  // TODO useCallback/useMemo isExistingLayout
-  const findExistingLayout = (name?: string, isPatternIncluded?: boolean) => {
+  const findExistingLayout = useCallback<FindExistingLayoutCallback>((name, isPatternIncluded) => {
     // TODO refactor
     return [...initialLayouts, ...customLayouts].find((layout) => {
       const isEqualPattern = deepEqual(layout.layout, activeLayout);
@@ -62,12 +67,13 @@ export const useLayout = () => {
       if (name) {
         const isEqualName = layout.name === name;
 
+        // TODO || -> ??
         return isPatternIncluded ? isEqualPattern || isEqualName : isEqualName;
       }
 
       return isEqualPattern;
     });
-  };
+  }, [activeLayout, customLayouts, initialLayouts])
 
   const setActiveLayout = useCallback<SetActiveLayoutCallback>(
     (layout) => {
@@ -110,8 +116,7 @@ export const useLayout = () => {
   // ------------------------------------
 
   // TODO refactor
-  // TODO useCallback
-  const openLayoutWindow = (windowName: string) => {
+  const openLayoutWindow = useCallback<OpenLayoutWindowCallback>((windowName) => {
     let layoutTree: Layout;
 
     if (activeLayout) {
@@ -156,7 +161,7 @@ export const useLayout = () => {
     }
 
     setActiveLayout(layoutTree);
-  };
+  }, [activeLayout, setActiveLayout])
 
   return {
     activeLayout,

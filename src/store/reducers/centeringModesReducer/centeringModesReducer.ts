@@ -1,8 +1,9 @@
 import { SET_ACTIVE_CENTERING_MODE } from '../../actions';
 
-import { CenteringModesState } from 'types/CenteringModesState';
-
-import type { CenteringModesActionTypes } from 'types/CenteringModesActionTypes';
+import type {
+  CenteringModesState,
+  CenteringModesActionTypes,
+} from 'types/CenteringModesActionTypes';
 
 import { CenteringMode } from 'constants/CenteringMode';
 

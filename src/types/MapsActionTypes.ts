@@ -17,5 +17,4 @@ interface UpdateZoomLevelAction {
   readonly payload: number;
 }
 
-
 export type MapsActionTypes = UpdatCoordsAction | UpdateZoomLevelAction;

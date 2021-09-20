@@ -8,7 +8,5 @@ export const useSupportedScreenSize = () => {
     defaultVW: window.innerWidth,
   });
 
-  const isSupportedScreenSize = useMemo(() => vw > MIN_WINDOW_SIZE, [vw]);
-
-  return isSupportedScreenSize;
+  return useMemo(() => vw > MIN_WINDOW_SIZE, [vw]);
 };

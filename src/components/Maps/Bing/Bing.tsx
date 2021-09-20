@@ -14,4 +14,5 @@ const BingMaps = () => {
   );
 };
 
+// TODO
 export default BingMaps;

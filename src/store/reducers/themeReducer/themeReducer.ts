@@ -2,9 +2,7 @@ import { SET_ACTIVE_THEME } from '../../actions';
 
 import { Theme } from 'constants/Theme';
 
-import { ThemeState } from 'types/ThemeState';
-
-import type { ThemeActionTypes } from 'types/ThemeActionTypes';
+import type { ThemeState, ThemeActionTypes } from 'types/ThemeActionTypes';
 
 const initialState: ThemeState = {
   activeTheme: Theme.Light,

@@ -8,6 +8,8 @@ import { searchResultsReducer } from '.';
 
 describe('searchResultsReducer', () => {
   it('should match initial state values', () => {
+    // TODO
+      // TODO inline snapshot
     expect(searchResultsReducer(undefined, {} as any)).toEqual({
       isLoading: false,
       results: [],
@@ -16,6 +18,7 @@ describe('searchResultsReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchResultsReducer(undefined, {
@@ -28,6 +31,7 @@ describe('searchResultsReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchResultsReducer(undefined, {
@@ -40,6 +44,7 @@ describe('searchResultsReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       searchResultsReducer(undefined, {

@@ -1,8 +1,9 @@
 import { TOGGLE_CUSTOMIZATION } from '../../actions';
 
-import { CustomizationState } from 'types/CustomizationState';
-
-import type { CustomizationActionTypes } from 'types/CustomizationActionTypes';
+import type {
+  CustomizationState,
+  CustomizationActionTypes,
+} from 'types/CustomizationActionTypes';
 
 const initialState: CustomizationState = {
   isCustomizationEnabled: true,

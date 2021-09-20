@@ -1,7 +1,4 @@
 import { Alignment, Navbar } from '@blueprintjs/core';
-import { useTranslation } from 'react-i18next';
-
-import { ReactComponent as OctoCat } from 'assets/github.svg';
 
 import CurrentGeolocation from 'components/NavbarActions/CurrentGeolocation';
 import SearchForm from 'components/SearchForm';
@@ -19,8 +16,6 @@ const NavbarSecondaryGroup = () => {
   const { isGeolocationAvailable } = useGeolocation();
 
   const isSupportedScreenSize = useSupportedScreenSize();
-
-  const { t } = useTranslation();
 
   return (
     <Navbar.Group align={Alignment.RIGHT}>
@@ -52,17 +47,10 @@ const NavbarSecondaryGroup = () => {
         </>
       )}
 
-      {/* TODO? move to separate component */}
-      <a
-        href="https://github.com/JB1905/map-comparificator"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={t('settings.github.label')}
-      >
-        <OctoCat className="octocat" />
-      </a>
+      <GitHubLink />
     </Navbar.Group>
   );
 };
 
+// TODO?
 export default NavbarSecondaryGroup;

@@ -42,14 +42,18 @@ describe('NavbarSecondaryGroup', () => {
     // isGeolocationAvailable false
   });
 
+  // TODO move to Link component
   it.skip('should', () => {
     const { container } = render(<NavbarSecondaryGroup />);
 
+    // TODO no querySelector
     expect(
       container.querySelector(
+        // TODO move url to const
         '[href="https://github.com/JB1905/map-comparificator"]'
       )
     ).toBeInTheDocument();
+    // TODO no querySelector
     expect(container.querySelector('.octocat')).toBeInTheDocument();
   });
 });

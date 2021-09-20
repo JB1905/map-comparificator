@@ -50,4 +50,5 @@ const DeletePattern = () => {
   );
 };
 
+// TODO
 export default DeletePattern;

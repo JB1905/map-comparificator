@@ -1,9 +1,8 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../../actions';
 
-import { ModalState } from 'types/ModalState';
+import type { ModalState, ModalActionTypes } from 'types/ModalActionTypes';
 
-import type { ModalActionTypes } from 'types/ModalActionTypes';
-
+// TODO OpenModalPayload
 const initialState: ModalState = {
   modalType: null,
   modalParams: null,

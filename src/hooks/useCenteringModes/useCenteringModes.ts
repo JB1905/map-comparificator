@@ -19,6 +19,7 @@ export const useCenteringModes = () => {
     (state) => state.centeringModes
   );
 
+  // TODO without t() only key
   const centeringModes = useMemo(
     () => [
       { name: t('settings.centeringMode.center'), value: CenteringMode.Center },

@@ -11,6 +11,7 @@ const DEBOUNCE_TIMEOUT_MS = 1000;
 export const useSearchResults = () => {
   const dispatch = useDispatch();
 
+  // TODO
   const { isLoading, results, error } = useTypedSelector((state) => ({
     isLoading: state.searchResults.isLoading,
     results: state.searchResults.results,

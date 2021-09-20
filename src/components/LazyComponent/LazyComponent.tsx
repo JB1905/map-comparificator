@@ -1,22 +1,24 @@
-import { memo, Suspense } from 'react';
+import { Suspense } from 'react';
 import * as React from 'react';
 
 import Loader from '../Loader';
 
 interface ChildrenProps {
   readonly children: React.ReactNode;
-  readonly component?: React.ReactNode;
+  // readonly component?: React.ReactNode;
 }
 
 interface ComponentProps {
-  readonly children?: React.ReactNode;
+  // readonly children?: React.ReactNode;
   readonly component: React.ReactNode;
 }
 
 type Props = ChildrenProps | ComponentProps;
 
-const LazyComponent = memo<Props>(({ children, component }) => (
-  <Suspense fallback={<Loader />}>{children ?? component}</Suspense>
-));
+// TODO
+const LazyComponent = (props: Props) => (
+  <Suspense fallback={<Loader />}>{props.children ?? props.component}</Suspense>
+);
 
+// TODO
 export default LazyComponent;

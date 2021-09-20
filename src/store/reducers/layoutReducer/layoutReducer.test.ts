@@ -18,6 +18,7 @@ describe('layoutReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -31,6 +32,7 @@ describe('layoutReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -44,6 +46,7 @@ describe('layoutReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {
@@ -57,6 +60,7 @@ describe('layoutReducer', () => {
   });
 
   // TODO
+      // TODO inline snapshot
   it.skip('should', () => {
     expect(
       layoutReducer(undefined, {

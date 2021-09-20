@@ -72,4 +72,5 @@ const CreatePattern = () => {
   );
 };
 
+// TODO
 export default CreatePattern;

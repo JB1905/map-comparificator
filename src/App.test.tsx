@@ -3,10 +3,6 @@ import { useViewport } from 'react-viewport-hooks';
 
 import App from './App';
 
-// jest.mock('react-viewport-hooks', () => ({
-//   useViewport: jest.fn(),
-// }));
-
 // TODO
 // jest.mock('react-viewport-hooks', () => ({
 //   useViewport: jest.fn(),
@@ -21,6 +17,7 @@ describe('App', () => {
     const { container } = render(<App />);
 
     expect(
+      // TODO no querySelector
       container.querySelector('.mosaic-blueprint-theme')
     ).toBeInTheDocument();
   });
@@ -33,6 +30,7 @@ describe('App', () => {
     const { container } = render(<App />);
 
     expect(
+      // TODO no querySelector
       container.querySelector('.not-supported-screen-size')
     ).toBeInTheDocument();
   });

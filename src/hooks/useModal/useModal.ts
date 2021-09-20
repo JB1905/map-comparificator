@@ -9,6 +9,7 @@ import type { CustomLayout } from 'types/Layout';
 
 import { ModalType } from 'constants/ModalType';
 
+// TODO
 type OpenModalCallback = (
   modalType: ModalType,
   modalParams?: CustomLayout
@@ -28,9 +29,10 @@ export const useModal = () => {
     [dispatch]
   );
 
-  const closeModal = useCallback(() => dispatch(Actions.closeModal()), [
-    dispatch,
-  ]);
+  const closeModal = useCallback(
+    () => dispatch(Actions.closeModal()),
+    [dispatch]
+  );
 
   return {
     openModal,

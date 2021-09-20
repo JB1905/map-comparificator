@@ -17,4 +17,5 @@ const Help = () => {
   return <Button icon="help" onClick={openHelp} minimal />;
 };
 
+// TODO
 export default Help;

@@ -35,6 +35,7 @@ const Layouts = () => {
   const { t } = useTranslation();
 
   const isPatternCreationDisabled = useMemo(
+    // TODO || => ??
     () => !!findExistingLayout() || customLayouts.length >= 6 || isEmptyLayout,
     [customLayouts.length, findExistingLayout, isEmptyLayout]
   );
@@ -58,6 +59,7 @@ const Layouts = () => {
             <>
               <MenuDivider title={t('customPattern.custom')} />
 
+              {/* TODO refactor */}
               {customLayouts.map(({ name, layout }) => (
                 <MenuItem
                   text={name}
@@ -121,4 +123,5 @@ const Layouts = () => {
   );
 };
 
+// TODO
 export default Layouts;

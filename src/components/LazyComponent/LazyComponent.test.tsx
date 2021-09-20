@@ -1,12 +1,12 @@
 import { lazy } from 'react';
 import { render, waitFor } from '@testing-library/react';
 
-import LazyComponent from './LazyComponent';
+import LazyComponent from '.';
 
 const DummyLazy = lazy(() => import('./__mocks__/DummyLazy'));
 
-// TODO
-// jest.mock('../Loader', () => () => <p>Loading...</p>);
+// TODO?
+jest.mock('../Loader', () => () => <p>Loading...</p>);
 
 describe('LazyComponent', () => {
   const componentRenderer = () => {
